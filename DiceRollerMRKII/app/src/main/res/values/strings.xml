@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">DiceRollerMRKII</string>
+    <string name="action_settings">Settings</string>
+    <string name="rollTotal">Result</string>
+    <string-array name="diceModes">
+        <item>Custom Dice Roller</item>
+        <item>4d6 Drop Lowest</item>
+        <item>3d6 Reroll 1s</item>
+    </string-array>
+</resources>
