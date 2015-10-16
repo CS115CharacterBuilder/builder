@@ -1,10 +1,12 @@
 package com.jabaden.dicerollermrkii;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,7 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class DiceRollerMenu extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-
+    int check = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +33,7 @@ public class DiceRollerMenu extends AppCompatActivity implements AdapterView.OnI
                         .setAction("Action", null).show();
             }
         });
-
+        int check = 0;
         Spinner spinner;
         spinner = (Spinner) findViewById(R.id.diceModeSpinner);
         //creating an adapter
@@ -66,8 +68,37 @@ public class DiceRollerMenu extends AppCompatActivity implements AdapterView.OnI
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        TextView myText = (TextView) view;
-        Toast.makeText(this, "You Selected " + myText.getText(), Toast.LENGTH_SHORT).show();
+
+        //TextView myText = (TextView) view;
+        //Toast.makeText(this, "You Selected " + myText.getText(), Toast.LENGTH_SHORT).show();
+        check = check + 1;
+        if (check > 1) {
+            switch (position) {
+                case 0:
+                    Log.d("case", "in case o");
+                    Toast.makeText(this, "position: " + position, Toast.LENGTH_SHORT).show();
+                    break;
+                case 1:
+                    Log.d("case", "in case 1");
+                    Toast.makeText(this, "position: " + position, Toast.LENGTH_SHORT).show();
+                    Intent customDiceIntent = new Intent(this, customDiceActivity.class);
+                    startActivity(customDiceIntent);
+                    break;
+                case 2:
+                    Toast.makeText(this, "position: " + position, Toast.LENGTH_SHORT).show();
+                    Intent dropLowestIntent = new Intent(this, dropLowestDiceMRKII.class);
+                    startActivity(dropLowestIntent);
+                    break;
+                case 3:
+                    Toast.makeText(this, "position: " + position, Toast.LENGTH_SHORT).show();
+                    Intent rerollOnesIntent = new Intent(this, rerollOnes.class);
+                    startActivity(rerollOnesIntent);
+                    break;
+                default:
+                    Toast.makeText(this, "ayy lmao", Toast.LENGTH_SHORT).show();
+                    break;
+            }
+        }
     }
 
     @Override

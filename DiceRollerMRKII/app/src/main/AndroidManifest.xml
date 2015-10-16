@@ -18,6 +18,34 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".customDiceActivity"
+            android:label="@string/title_activity_custom_dice"
+            android:parentActivityName=".DiceRollerMenu"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jabaden.dicerollermrkii.DiceRollerMenu" />
+        </activity>
+        <activity
+            android:name=".dropLowestDice"
+            android:label="@string/title_activity_drop_lowest_dice"
+            android:parentActivityName=".DiceRollerMenu"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jabaden.dicerollermrkii.DiceRollerMenu" />
+        </activity>
+        <activity
+            android:name=".dropLowestDiceMRKII"
+            android:label="@string/title_activity_drop_lowest_dice_mrkii"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".rerollOnes"
+            android:label="@string/title_activity_reroll_ones"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
     </application>
 
 </manifest>

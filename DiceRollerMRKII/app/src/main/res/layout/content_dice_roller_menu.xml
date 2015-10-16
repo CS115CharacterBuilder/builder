@@ -27,5 +27,6 @@
         android:layout_weight="0.04"
         android:spinnerMode="dropdown"
         android:layout_below="@+id/modeSelectPrompt"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="138dp" />
 </RelativeLayout>
