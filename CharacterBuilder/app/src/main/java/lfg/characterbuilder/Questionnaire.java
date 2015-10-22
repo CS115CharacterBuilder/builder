@@ -12,4 +12,10 @@ public class Questionnaire {
         questionList = new ArrayList<Question>();
     }
 
+    //prints the question at the chosen element
+    void printElement(int location){
+        Question quest = questionList.get(location);
+        quest.QtoString();
+    }
+
 }
