@@ -18,4 +18,6 @@
     <string name="title_activity_drop_lowest_dice_mrkii">dropLowestDiceMRKII</string>
     <string name="title_activity_reroll_ones">rerollOnes</string>
     <string name="title_activity_ability_page">AbilityPage</string>
+    <string name="title_activity_noob_question">NoobQuestion</string>
+    <string name="title_activity_noob_questionnaire">NoobQuestionnaire</string>
 </resources>
