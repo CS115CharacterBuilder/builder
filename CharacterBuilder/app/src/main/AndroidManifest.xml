@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="lfg.characterbuilder" >
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme" >
+        <activity android:name=".HomeActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".DiceRollerMenu"
+            android:label="@string/title_activity_dice_roller_menu"
+            android:parentActivityName=".HomeActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="lfg.characterbuilder.HomeActivity" />
+        </activity>
+        <activity
+            android:name=".customDiceActivity"
+            android:label="@string/title_activity_custom_dice"
+            android:parentActivityName=".DiceRollerMenu"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="lfg.characterbuilder.DiceRollerMenu" />
+        </activity>
+        <activity
+            android:name=".dropLowestDiceMRKII"
+            android:label="@string/title_activity_drop_lowest_dice_mrkii"
+            android:parentActivityName=".DiceRollerMenu"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="lfg.characterbuilder.DiceRollerMenu" />
+        </activity>
+        <activity
+            android:name=".rerollOnes"
+            android:label="@string/title_activity_reroll_ones"
+            android:parentActivityName=".DiceRollerMenu"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="lfg.characterbuilder.DiceRollerMenu" />
+        </activity>
+        <activity android:name=".CharacterStats" >
+        </activity>
+        <activity android:name=".ItemsPage" >
+        </activity>
+        <activity android:name=".StatPage" >
+        </activity>
+        <activity android:name=".BackgroundPage" >
+        </activity>
+    </application>
+
+</manifest>
