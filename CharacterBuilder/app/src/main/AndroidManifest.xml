@@ -55,6 +55,10 @@
         </activity>
         <activity android:name=".ItemsPage" >
         </activity>
+        <activity android:name=".StatPage" >
+        </activity>
+        <activity android:name=".BackgroundPage" >
+        </activity>
     </application>
 
 </manifest>
