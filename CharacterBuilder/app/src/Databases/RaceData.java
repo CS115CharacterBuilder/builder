@@ -8,10 +8,11 @@ import java.util.*;
 public class RaceData extends Data {
     ArrayList<Data> rd = new ArrayList<Data>();
 
-
-    Data ability1 = new Data();
-    public void setAbility1(Data ability1) {
+    //Sample ability
+    Data ability1 = new Data(); //declare a new ability object
+    public void setAbility1(Data ability1) { //populate it
         this.ability1 = ability1;
+        ability1.abilName = "TestAbility";
         ability1.dClass = "Peasant";
         ability1.dRace = "Human Scum";
         ability1.flavor = "From the long lost hills of buttoncreakkk he farms mud for all the land.";
@@ -21,6 +22,7 @@ public class RaceData extends Data {
         ability1.prof = true;
     }
 
+    //This method returns all the race data
     public ArrayList<Data> getRd() {
         setAbility1(ability1); //Be sure to set all abilities first
         rd.add(ability1);//Then add them to the Arraylist
