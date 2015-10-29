@@ -138,7 +138,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void addDrawerItems() {
-        String[] Drawer_Text_Array = {"Dice", "Calculator", "Rules", "Noob Questionnaire"};
+        String[] Drawer_Text_Array = {"Dice", "Calculator", "Rules", "Experienced Questionnaire"};
         Integer[] Drawer_Index_Array = {R.drawable.ic_dice, R.drawable.ic_calculator,
                                         R.drawable.ic_rules, R.drawable.ic_rules};
 
@@ -161,9 +161,9 @@ public class HomeActivity extends AppCompatActivity {
                         Toast.makeText(HomeActivity.this, "Implement Rules", Toast.LENGTH_SHORT).show();
                         break;
                     case 3:
-                        Toast.makeText(HomeActivity.this, "Ayy lmao, this is a test for the NoobQuestionnaire", Toast.LENGTH_SHORT).show();
-                        Intent nQuestionIntent = new Intent(HomeActivity.this, NoobQuestionnaire.class);
-                        startActivity(nQuestionIntent);
+                        Toast.makeText(HomeActivity.this, "Ayy lmao, this is a test for the ExQuestionnaire", Toast.LENGTH_SHORT).show();
+                        Intent exQuestionIntent = new Intent(HomeActivity.this, ExQuestionnaire.class);
+                        startActivity(exQuestionIntent);
                         break;
                     default:
                         break;

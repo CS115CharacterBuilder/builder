@@ -37,6 +37,7 @@ public class DiceRollerMenu extends AppCompatActivity implements AdapterView.OnI
         Spinner spinner;
         spinner = (Spinner) findViewById(R.id.diceModeSpinner);
         //creating an adapter
+        //this chooses what choices are available
         ArrayAdapter adapter =  ArrayAdapter.createFromResource(this, R.array.diceModes,
                 android.R.layout.simple_spinner_item);
         spinner.setAdapter(adapter);

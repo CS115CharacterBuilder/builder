@@ -10,6 +10,9 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+
+// THIS CLASS IS NOT YET IMPLEMENTED ---------------------------------------------------------------
+
 public class NoobQuestionnaire extends AppCompatActivity {
 
     @Override
