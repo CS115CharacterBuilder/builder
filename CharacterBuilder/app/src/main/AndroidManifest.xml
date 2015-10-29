@@ -64,6 +64,9 @@
             android:name=".ExQuestionnaire"
             android:label="@string/title_activity_ex_questionnaire"
             android:theme="@style/AppTheme.NoActionBar" >
+        <activity android:name=".StatPage" >
+        </activity>
+        <activity android:name=".BackgroundPage" >
         </activity>
     </application>
 
