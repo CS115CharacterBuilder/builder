@@ -20,12 +20,12 @@
             android:id="@+id/NameTxt"
             android:padding="10dp" />
 
-        <TextView
+        <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Testerman Stormshield"
-            android:id="@+id/textView13"
+            android:id="@+id/NameVal"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:paddingBottom="10dp" />
@@ -113,7 +113,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <TextView
+            <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
@@ -121,7 +121,7 @@
                 android:id="@+id/AlignmentVal"
                 android:padding="10dp" />
 
-            <TextView
+            <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
@@ -130,5 +130,32 @@
                 android:padding="10dp" />
         </LinearLayout>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Background"
+            android:id="@+id/BackgroundTxt"
+            android:paddingLeft="10dp" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/scrollView3"
+            android:layout_gravity="center_horizontal"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp">
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:ems="10"
+                android:id="@+id/BackgroundVal"
+                android:text="Enter Background" />
+        </ScrollView>
+
     </LinearLayout>
+
 </RelativeLayout>
