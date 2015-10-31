@@ -22,7 +22,10 @@ public class Data {
     String dragonAncestry[];
     boolean has; //character has this data object
     boolean prof; //character is proficient in this
+    int profbonus[]; //19 index long (20 for 20 levels) holds the prof bonus for that level.
     int statBoost[]; //{str,dex,con,int,wis,cha} any ability modifier
+    int classPoints[]; //rage, ki, sorcery points.
+    int ragedamage[];
     int speed; //the speed of the character by race.
     int extraCantrips; //some races get an additional cantrip.
     int dlevel; //what level the player gets this

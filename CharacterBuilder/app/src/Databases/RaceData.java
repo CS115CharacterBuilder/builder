@@ -10,7 +10,7 @@ public class RaceData extends Data {
 
     //Sample ability
     Data ability1 = new Data(); //declare a new ability object
-    public void setAbility1() { //populate it
+    public void setAbility1(Data ability1) { //populate it
         this.ability1 = ability1;
         ability1.abilName = "TestAbility";
         ability1.dClass = "Peasant";
@@ -23,7 +23,7 @@ public class RaceData extends Data {
     }
 
     Data hillDwarfSubrace = new Data();
-    public void setHillDwarfStatBoost(){
+    public void setHillDwarfStatBoost(Data hillDwarfSubrace){
         hillDwarfSubrace.abilName = "Hill Dwarf Subrace";
         hillDwarfSubrace.dlevel = 1;
         hillDwarfSubrace.dRace = "Dwarf";
@@ -33,7 +33,7 @@ public class RaceData extends Data {
     }
 
     Data mountianDwarfSubrace = new Data();
-    public void setMountianDwarfStatBoost(){
+    public void setMountianDwarfStatBoost(Data mountianDwarfSubrace){
         mountianDwarfSubrace.abilName = "Mountian Dwarf Subrace";
         mountianDwarfSubrace.dlevel = 1;
         mountianDwarfSubrace.dRace = "Dwarf";
@@ -43,7 +43,7 @@ public class RaceData extends Data {
     }
 
     Data dwarfTraits = new Data();
-    public void setDwarfTraits() {
+    public void setDwarfTraits(Data dwarfTraits) {
         dwarfTraits.abilName = "Dwarven Traits";
         dwarfTraits.dRace = "Dwarf";
         dwarfTraits.dlevel = 1;
@@ -59,7 +59,7 @@ public class RaceData extends Data {
     }
 
     Data elfTraits = new Data();
-    public void setElfTraits(){
+    public void setElfTraits(Data elfTraits){
         elfTraits.abilName = "Elf Traits";
         elfTraits.dlevel = 1;
         elfTraits.dRace = "Elf";
@@ -77,7 +77,7 @@ public class RaceData extends Data {
     }
 
     Data highElfSubrace = new Data();
-    public void setHighElfSubrace(){
+    public void setHighElfSubrace(Data highElfSubrace){
         highElfSubrace.abilName = "High Elf Subrace";
         highElfSubrace.dlevel = 1;
         highElfSubrace.dRace = "Elf";
@@ -89,7 +89,7 @@ public class RaceData extends Data {
     }
 
     Data woodElfSubrace = new Data();
-    public void setWoodElfSubrace(){
+    public void setWoodElfSubrace(Data woodElfSubrace){
         woodElfSubrace.abilName = "Wood Elf Subrace";
         woodElfSubrace.dRace = "Elf";
         woodElfSubrace.dlevel = 1;
@@ -101,7 +101,7 @@ public class RaceData extends Data {
     }
 
     Data darkElfSubrace = new Data();
-    public void setDarkElfSubrace(){
+    public void setDarkElfSubrace(Data darkElfSubrace){
         darkElfSubrace.abilName = "Dark Elf Subrace";
         darkElfSubrace.dRace = "Elf";
         darkElfSubrace.dlevel = 1;
@@ -114,7 +114,7 @@ public class RaceData extends Data {
     }
 
     Data halflingTraits = new Data();
-    public void setHalflingTraits(){
+    public void setHalflingTraits(Data halflingTraits){
         halflingTraits.abilName = "Halfling Traits";
         dRace = "Halfling";
         dlevel = 1;
@@ -128,7 +128,7 @@ public class RaceData extends Data {
         halflingTraits.languages = "Halfling, Common";
     }
     Data lightfootSubrace = new Data();
-    public void setLightfootSubrace(){
+    public void setLightfootSubrace(Data lightfootSubrace){
         lightfootSubrace.abilName = "Lightfoot Subrace";
         lightfootSubrace.dlevel = 1;
         lightfootSubrace.dRace = "Halfling";
@@ -138,7 +138,7 @@ public class RaceData extends Data {
     }
 
     Data stoutSubrace = new Data();
-    public void setStoutSubrace(){
+    public void setStoutSubrace(Data stoutSubrace){
         stoutSubrace.abilName = "Stout Subrace";
         stoutSubrace.dRace = "Halfling";
         stoutSubrace.dlevel = 1;
@@ -147,7 +147,7 @@ public class RaceData extends Data {
     }
 
     Data humanTraits = new Data();
-    public void setHumanTraits(){
+    public void setHumanTraits(Data humanTraits){
         humanTraits.abilName = "Human Traits";
         humanTraits.dRace = "Human";
         humanTraits.dlevel = 1;
@@ -159,7 +159,7 @@ public class RaceData extends Data {
     }
 
     Data dragonbornTraits = new Data();
-    public void setDragonbornTraits(){
+    public void setDragonbornTraits(Data dragonbornTraits){
         dragonbornTraits.abilName = "Dragonborn Traits";
         dragonbornTraits.dRace = "Dragonborn";
         dragonbornTraits.dlevel = 1;
@@ -178,7 +178,7 @@ public class RaceData extends Data {
     }
 
     Data gnomeTraits = new Data();
-    public void setGnomeTraits(){
+    public void setGnomeTraits(Data gnomeTraits){
         gnomeTraits.abilName = "Gnome Traits";
         gnomeTraits.dRace = "Gnome";
         gnomeTraits.dlevel = 1;
@@ -193,7 +193,7 @@ public class RaceData extends Data {
     }
 
     Data forestGnomeSubrace = new Data();
-    public void setForestGnomeSubrace(){
+    public void setForestGnomeSubrace(Data forestGnomeSubrace){
         forestGnomeSubrace.abilName = "Forest Gnome Subrace";
         forestGnomeSubrace.dRace = "Gnome";
         forestGnomeSubrace.dlevel = 1;
@@ -205,7 +205,7 @@ public class RaceData extends Data {
     }
 
     Data rockGnomeSubRace = new Data();
-    public void setRockGnomeSubRace(){
+    public void setRockGnomeSubRace(Data rockGnomeSubRace){
         rockGnomeSubRace.abilName = "Rock Gnome Subrace";
         rockGnomeSubRace.dRace = "Gnome";
         rockGnomeSubRace.dlevel = 1;
@@ -218,7 +218,7 @@ public class RaceData extends Data {
     }
 
     Data halfElfTraits = new Data();
-    public void setHalfElfTraits(){
+    public void setHalfElfTraits(Data halfElfTraits){
         halfElfTraits.abilName = "Half Elf Traits";
         halfElfTraits.dRace = "Half Elf";
         halfElfTraits.dlevel = 1;
@@ -235,7 +235,7 @@ public class RaceData extends Data {
     }
 
     Data halforcTraits = new Data();
-    public void setHalforcTraits(){
+    public void setHalforcTraits(Data halforcTraits){
         halforcTraits.abilName = "Halforc Traits";
         halforcTraits.dRace = "Halforc";
         halforcTraits.dlevel = 1;
@@ -254,7 +254,7 @@ public class RaceData extends Data {
     }
 
     Data teiflingTraits = new Data();
-    public void setTeiflingTraits(){
+    public void setTeiflingTraits(Data teiflingTraits){
         teiflingTraits.abilName = "Teifling Traits";
         teiflingTraits.dRace = "Teifling";
         teiflingTraits.dlevel = 1;
@@ -271,59 +271,62 @@ public class RaceData extends Data {
 
     //This method returns all the race data
     public ArrayList<Data> getRd() {
-        setAbility1(); //Be sure to set all abilities first
+        setAbility1(ability1); //Be sure to set all abilities first
         rd.add(ability1);//Then add them to the Arraylist
 
-        setDwarfTraits(); //1
+        setDwarfTraits(dwarfTraits); //1
         rd.add(dwarfTraits);
 
-        setHillDwarfStatBoost(); //2
+        setHillDwarfStatBoost(hillDwarfSubrace); //2
         rd.add(hillDwarfSubrace);
 
-        setMountianDwarfStatBoost(); //3
+        setMountianDwarfStatBoost(mountianDwarfSubrace); //3
         rd.add(mountianDwarfSubrace);
 
-        setElfTraits(); //4
+        setElfTraits(elfTraits); //4
         rd.add(elfTraits);
 
-        setHighElfSubrace(); //5
+        setHighElfSubrace(highElfSubrace); //5
         rd.add(highElfSubrace);
 
-        setWoodElfSubrace();//6
+        setWoodElfSubrace(woodElfSubrace);//6
         rd.add(woodElfSubrace);
 
-        setDarkElfSubrace();//7
+        setDarkElfSubrace(darkElfSubrace);//7
         rd.add(darkElfSubrace);
 
-        setHalflingTraits();//8
+        setHalflingTraits(halflingTraits);//8
         rd.add(halflingTraits);
 
-        setLightfootSubrace();//9
+        setLightfootSubrace(lightfootSubrace);//9
         rd.add(lightfootSubrace);
 
-        setStoutSubrace();//10
+        setStoutSubrace(stoutSubrace);//10
         rd.add(stoutSubrace);
 
-        setHumanTraits();//11
+        setHumanTraits(humanTraits);//11
         rd.add(humanTraits);
 
-        setDragonbornTraits();//12
+        setDragonbornTraits(dragonbornTraits);//12
         rd.add(dragonbornTraits);
 
-        setGnomeTraits();//13
+        setGnomeTraits(gnomeTraits);//13
         rd.add(gnomeTraits);
 
-        setForestGnomeSubrace();//14
+        setForestGnomeSubrace(forestGnomeSubrace);//14
         rd.add(forestGnomeSubrace);
 
-        setRockGnomeSubRace();//15
+        setRockGnomeSubRace(rockGnomeSubRace);//15
         rd.add(rockGnomeSubRace);
 
-        setHalforcTraits();//16
+        setHalforcTraits(halforcTraits);//16
         rd.add(halforcTraits);
 
-        setTeiflingTraits();//17
+        setTeiflingTraits(teiflingTraits);//17
         rd.add(teiflingTraits);
+
+        setHalfElfTraits(halflingTraits);//18
+        rd.add(halfElfTraits);
 
         return rd;
     }
