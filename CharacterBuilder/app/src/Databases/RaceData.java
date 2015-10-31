@@ -177,6 +177,98 @@ public class RaceData extends Data {
 
     }
 
+    Data gnomeTraits = new Data();
+    public void setGnomeTraits(){
+        gnomeTraits.abilName = "Gnome Traits";
+        gnomeTraits.dRace = "Gnome";
+        gnomeTraits.dlevel = 1;
+        int stats[] = {0,0,0,2,0,0};
+        gnomeTraits.statBoost = stats;
+        gnomeTraits.size = "Small";
+        gnomeTraits.speed = 25;
+        gnomeTraits.vision = "Darkvision. Accustomed to life underground, you have superior vision in dark and dim conditions. You can\n" +
+                "see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.";
+        gnomeTraits.resistance = "Gnome Cunning. You have advantage on all Intelligence, Wisdom, and Charisma saving throws against magic.";
+        gnomeTraits.languages = "Common, Gnomish";
+    }
+
+    Data forestGnomeSubrace = new Data();
+    public void setForestGnomeSubrace(){
+        forestGnomeSubrace.abilName = "Forest Gnome Subrace";
+        forestGnomeSubrace.dRace = "Gnome";
+        forestGnomeSubrace.dlevel = 1;
+        int stats[] = {0,1,0,0,0,0};
+        forestGnomeSubrace.statBoost = stats;
+        forestGnomeSubrace.extraCantripsByName = "Minor Illusion";
+        forestGnomeSubrace.misc1 = "Speak with SmallBeasts. Through sounds and\n" +
+                "gestures, you can communicate simple ideas with Small or smaller beasts. Forest gnomes love animals and often keep squirrels, badgers, rabbits, moles, woodpeckers, and other creatures as beloved pets.";
+    }
+
+    Data rockGnomeSubRace = new Data();
+    public void setRockGnomeSubRace(){
+        rockGnomeSubRace.abilName = "Rock Gnome Subrace";
+        rockGnomeSubRace.dRace = "Gnome";
+        rockGnomeSubRace.dlevel = 1;
+        int stats[] = {0,0,1,0,0,0};
+        rockGnomeSubRace.statBoost = stats;
+        rockGnomeSubRace.misc1 = "Whenever you make an Intelligence (History) check related to magic items, alchemical objects, or technological devices, you can add twice your proficiency bonus, instead of any proficiency bonus you normally apply.";
+        rockGnomeSubRace.misc2 = "Tinker. You have proficiency with artisan’s tools (tinker’s tools). Using those tools, you can spend 1\n" +
+                "hour and 10 gp worth of materials to construct a Tiny clockwork device (AC 5, 1 hp). The device ceases\n" +
+                "to function after 24 hours (unless you spend 1 hour repairing it to keep the device functioning), or when you use your action to dismantle it; at that time, you can reclaim the materials used to create it. You can have up to three such devices active at a time.";
+    }
+
+    Data halfElfTraits = new Data();
+    public void setHalfElfTraits(){
+        halfElfTraits.abilName = "Half Elf Traits";
+        halfElfTraits.dRace = "Half Elf";
+        halfElfTraits.dlevel = 1;
+        int stats[] = {0,0,0,0,0,2}; //Get an addional +1 to any of these...
+        halfElfTraits.statBoost = stats;
+        halfElfTraits.size = "Medium";
+        halfElfTraits.speed = 30;
+        halfElfTraits.vision = "Darkvision. Thanks to your elf blood, you have superior vision in dark and dim conditions. You can\n" +
+                "see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray.";
+        halfElfTraits.resistance = "FeyAncestry. You have advantage on saving throws against being charmed, and magic can’t put you to sleep.";
+        halfElfTraits.misc1 = "Skill Versatility. You gain proficiency in two skills of your choice.";
+        halfElfTraits.languages = "Common, Elvish";
+        halfElfTraits.misc2 = "Extra Language";
+    }
+
+    Data halforcTraits = new Data();
+    public void setHalforcTraits(){
+        halforcTraits.abilName = "Halforc Traits";
+        halforcTraits.dRace = "Halforc";
+        halforcTraits.dlevel = 1;
+        int stats[] = {2,0,1,0,0,0};
+        halforcTraits.statBoost = stats;
+        halforcTraits.size = "Medium";
+        halforcTraits.speed = 30;
+        halforcTraits.vision = "Darkvision. Thanks to your orc blood, you have superior vision in dark and dim conditions. You can\n" +
+                "see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.\n";
+        halforcTraits.misc1 = "Menacing. You gain proficiency in the Intimidation skill.";
+        halforcTraits.resistance = "RelentlessEndurance.When you are reduced to\n" +
+                "0 hit points but not killed outright, you can drop to 1 hit point instead. You can’t use this feature again until you finish a long rest.";
+        halforcTraits.misc2 = "SavageAttacks. When you score a critical hit with\n" +
+                "a melee weapon attack, you can roll one of the weapon’s damage dice one additional time and add it to the extra damage of the critical hit.";
+        halforcTraits.languages = "Common, Orc";
+    }
+
+    Data teiflingTraits = new Data();
+    public void setTeiflingTraits(){
+        teiflingTraits.abilName = "Teifling Traits";
+        teiflingTraits.dRace = "Teifling";
+        teiflingTraits.dlevel = 1;
+        int stats[] = {0,0,0,1,0,1};
+        teiflingTraits.statBoost = stats;
+        teiflingTraits.size = "Medium";
+        teiflingTraits.speed = 30;
+        teiflingTraits.vision = "Darkvision. Thanks to your infernal heritage, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray.";
+        teiflingTraits.resistance = "Hellish Resistance. You have resistance to fire damage.";
+        teiflingTraits.extraCantripsByName = "Thaumaturgy";
+        teiflingTraits.languages = "Common, Infernal";
+    }
+
+
     //This method returns all the race data
     public ArrayList<Data> getRd() {
         setAbility1(); //Be sure to set all abilities first
@@ -217,6 +309,21 @@ public class RaceData extends Data {
 
         setDragonbornTraits();//12
         rd.add(dragonbornTraits);
+
+        setGnomeTraits();//13
+        rd.add(gnomeTraits);
+
+        setForestGnomeSubrace();//14
+        rd.add(forestGnomeSubrace);
+
+        setRockGnomeSubRace();//15
+        rd.add(rockGnomeSubRace);
+
+        setHalforcTraits();//16
+        rd.add(halforcTraits);
+
+        setTeiflingTraits();//17
+        rd.add(teiflingTraits);
 
         return rd;
     }
