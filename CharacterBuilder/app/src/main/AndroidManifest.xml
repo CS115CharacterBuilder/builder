@@ -61,6 +61,8 @@
         </activity>
         <activity android:name=".SkillsPage" >
         </activity>
+        <activity android:name=".AbilitiesPage" >
+        </activity>
     </application>
 
 </manifest>

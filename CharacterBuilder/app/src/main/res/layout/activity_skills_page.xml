@@ -27,7 +27,7 @@
             <ListView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/listView2" />
+                android:id="@+id/StrList" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -39,7 +39,7 @@
             <ListView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/listView3" />
+                android:id="@+id/DexList" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -51,7 +51,7 @@
             <ListView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/listView4" />
+                android:id="@+id/IntList" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -63,7 +63,7 @@
             <ListView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/listView5" />
+                android:id="@+id/WisList" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -75,7 +75,7 @@
             <ListView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/listView6" />
+                android:id="@+id/CharList" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

@@ -1,40 +1,97 @@
 package lfg.characterbuilder;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import java.lang.Object;
 import java.util.ArrayList;
+import java.util.List;
 
 public class SkillsPage extends AppCompatActivity {
 
     public class SkillElement {
+        SkillElement() {
+        };
         String name;
         String type;
         String val;
         boolean prof;
     }
+    String[] charprof;
 
-    public SkillElement[] sList = new SkillElement[18];
+    private ArrayList<SkillElement> sList;
+
+    private class MyAdapter extends ArrayAdapter<SkillElement> {
+        int resource;
+        Context context;
+
+        public MyAdapter(Context _context, int _resource, List<SkillElement> skills) {
+            super(_context, _resource, skills);
+            resource = _resource;
+            context = _context;
+            this.context = _context;
+        }
+
+    }
+
+    public View getView(int position, View convertView, ViewGroup parent) {
+        LinearLayout newView;
+        final SkillElement s = sList.getItem(position);
+
+        if(convertView == null) {
+            newView = new LinearLayout(getContext());
+            String inflater = Context.LAYOUT_INFLATER_SERVICE;
+            LayoutInflater vi = (LayoutInflater) getContext.getSystemService(inflater);
+            vi.inflate(resource, newView, true);
+        } else {
+            newView = (LinearLayout) convertView;
+        }
+        TextView sName = (TextView) newView.findViewById(R.id.sNameTxt);
+        TextView sMod = (TextView) newView.findViewById(R.id.sModTxt);
+        TextView AttTxt = (TextView) newView.findViewById(R.id.AttTxt);
+        sName.setText(s.name);
+        sMod.setText(s.val);
+        AttTxt.setText(s.type);
+        return newView;
+    }
+
+    private MyAdapter aa;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_skills_page);
+        //automates creation of character skills
         for(int i = 0; i < 17; i++) {
             SkillElement skill = new SkillElement();
             if(i == 0)
             {
                 skill.name = "Athletics";
                 skill.type = "Strength";
+                //skill.val = findMod(Char.STR);
             }else if(i <= 3 && i > 0 ) {
                 if(i == 1) {
                     skill.name = "Acrobatics";
+
                 }else if(i == 2) {
                     skill.name = "Sleight of Hand";
                 }else {
                     skill.name = "Stealth";
                 }
                 skill.type = "Dexterity";
+                //skill.val = findMod(Char.DEX);
             }else if(i <= 8 && i > 3) {
                 if(i == 4) {
                     skill.name = "Arcana";
@@ -48,6 +105,7 @@ public class SkillsPage extends AppCompatActivity {
                     skill.name = "Religion";
                 }
                 skill.type = "Intelligence";
+                //skill.val = findMod(Char.INT);
             }else if(i <= 13 && i > 8) {
                 if(i == 9) {
                     skill.name = "Animal Handling";
@@ -61,6 +119,7 @@ public class SkillsPage extends AppCompatActivity {
                     skill.name = "Survival";
                 }
                 skill.type = "Wisdom";
+                //skill.val = findMod(Char.WIS);
             }else {
                 if(i == 14) {
                     skill.name = "Deception";
@@ -72,8 +131,33 @@ public class SkillsPage extends AppCompatActivity {
                     skill.name = "Persuasion";
                 }
                 skill.type = "Charisma";
+                //skill.val = findMod(Char.CHAR);
             }
+            checkProf(skill.name, skill);
             sList[i] = skill;
+        }
+    }
+
+    //takes stat value and converts it into the modifier
+    public String findMod(int x) {
+        int statMod = (x - 10)/2;
+        String modValue;
+        if(statMod > 0) {
+            modValue = "+" + Integer.toString(statMod);
+        }else {
+            modValue = Integer.toString(statMod);
+        }
+        return modValue;
+    }
+
+    //compares skill name with array of skill proficiencies and alters if true
+    public void checkProf(String x, SkillElement y) {
+        int j;
+        for(j = 0; j < charprof.length; j++) {
+            if (y.name == charprof[j]) {
+                y.prof = true;
+                //y.val += profval;
+            }
         }
     }
 }
