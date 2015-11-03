@@ -4,7 +4,6 @@
     <list default="true" id="12ac5066-2b89-4a0f-b373-8875c20c34f9" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CharacterBuilder/app/src/Databases/ClassData.java" afterPath="$PROJECT_DIR$/CharacterBuilder/app/src/Databases/ClassData.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CharacterBuilder/app/src/Databases/Data.java" afterPath="$PROJECT_DIR$/CharacterBuilder/app/src/Databases/Data.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="builder.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,8 +37,8 @@
       <file leaf-file-name="ClassData.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CharacterBuilder/app/src/Databases/ClassData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5088677">
-              <caret line="49" column="63" selection-start-line="49" selection-start-column="63" selection-end-line="49" selection-end-column="63" />
+            <state vertical-scroll-proportion="0.73397">
+              <caret line="74" column="0" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -49,7 +48,7 @@
         <entry file="file://$PROJECT_DIR$/CharacterBuilder/app/src/Databases/Data.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+              <caret line="36" column="23" selection-start-line="36" selection-start-column="23" selection-end-line="36" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -469,7 +468,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="23" width="1321" height="877" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -665,7 +664,7 @@
     <entry file="file://$PROJECT_DIR$/CharacterBuilder/app/src/Databases/Data.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <caret line="36" column="23" selection-start-line="36" selection-start-column="23" selection-end-line="36" selection-end-column="23" />
           <folding />
         </state>
       </provider>
@@ -680,8 +679,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CharacterBuilder/app/src/Databases/ClassData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5088677">
-          <caret line="49" column="63" selection-start-line="49" selection-start-column="63" selection-end-line="49" selection-end-column="63" />
+        <state vertical-scroll-proportion="0.73397">
+          <caret line="74" column="0" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
           <folding />
         </state>
       </provider>

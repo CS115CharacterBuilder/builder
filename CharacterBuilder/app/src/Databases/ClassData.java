@@ -24,6 +24,7 @@ public class ClassData extends Data {
         barbarianFeatures.save2 = "Constitution";
         String classskills[] = {"Animal Handling","Athletics","Intimidation","Nature","Perception","Survival"};
         barbarianFeatures.chaClassSkills= classskills;
+        barbarianFeatures.numclassSkills = 2;
     }
 
     Data barbarianRage = new Data();
@@ -50,6 +51,29 @@ public class ClassData extends Data {
         barbarianUnarmor.flavor = "While you are not wearing any armor, your Armor Class equals 10 + your Dexterity modifier + your Constitution modifier. You can use a shield and still gain this benefit.\n";
     }
 
+    Data bardFeatures = new Data();
+    public void setBardFeatures(Data bardFeatures){
+        bardFeatures.abilName = "Bard Class Features";
+        bardFeatures.dlevel = 1;
+        bardFeatures.dClass = "Bard";
+        int pbonus[] = {2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6};
+        int cans[] = {2,2,2,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4};
+        int spells[] = {4,5,6,7,8,9,10,11,12,14,15,15,16,18,19,19,20,22,22,22};
+        int slot1[] = {2,3,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4};
+        bardFeatures.profbonus = pbonus;
+        bardFeatures.knownCantrips = cans;
+        bardFeatures.knownSpells = spells;
+        bardFeatures.spellslots1 = slot1;
+        bardFeatures.hitdie = 8;
+        bardFeatures.armorProf = "Light Armor";
+        bardFeatures.weaponProf = "Simple Weapons, Hand Crossbow, Longswords, Rapiers, Shortswords";
+        String chaSkills[] = {"Acrobatics", "Animal Handling","Arcana","Athletics","Deception","History","Insight","Intimidation","Investigation","Medicine","Nature","Perception","Performance","Persuasion","Religion","Sleight of Hand","Stealth","Survival"};
+        bardFeatures.chaClassSkills = chaSkills;
+        bardFeatures.save1 = "Dexterity";
+        bardFeatures.save2 = "Charisma";
+        bardFeatures.toolProf = "Three musical instraments of your choice.";
+
+    }
 
     public ArrayList<Data> getCd() {
 
