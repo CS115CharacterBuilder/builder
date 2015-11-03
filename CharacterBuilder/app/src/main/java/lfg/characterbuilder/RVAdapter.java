@@ -19,6 +19,7 @@ import java.util.List;
  */
 public class RVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
     private static ClickListener clickListener;
+    private static LongClickListener longClickListener;
     private List<Character> characters;
     private static final int FOOTER_VIEW = 1;
 
@@ -46,7 +47,7 @@ public class RVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int i){
+    public void onBindViewHolder(final RecyclerView.ViewHolder holder, int i){
 
         try {
             if (holder instanceof CharacterViewHolder) {
@@ -56,9 +57,7 @@ public class RVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
                 cvh.charClass.setText(characters.get(i).getCharacterClass());
                 cvh.charPhoto.setImageResource(characters.get(i).getPhotoId());
             }
-            //else if (holder instanceof FooterViewHolder) {
-                //FooterViewHolder fvh = (FooterViewHolder) holder;
-            //}
+
         }
         catch (Exception e){
             e.printStackTrace();
@@ -74,13 +73,6 @@ public class RVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
 
     @Override
     public int getItemCount(){
-        if (characters == null) {
-            return 0;
-        }
-        if (characters.size() == 0) {
-            return 1;
-        }
-        //return characters.size() + 1; //+1 for footer
         return characters.size();
     }
 
@@ -98,8 +90,27 @@ public class RVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
         this.clickListener = clickListener;
     }
 
+    public void setOnLongItemClickListener(LongClickListener longClickListener){
+        this.longClickListener = longClickListener;
+    }
+
     public interface ClickListener {
         void onItemClick(int position, View v);
+    }
+
+    public interface LongClickListener {
+        void onLongItemClick(int position, View v);
+    }
+
+
+    public void deleteItem(int position){
+        characters.remove(position);
+        notifyItemRemoved(position);
+    }
+
+    public void insertItem(int position, Character newCharacter){
+        characters.add(position, newCharacter);
+        notifyItemInserted(position);
     }
 
 
@@ -119,12 +130,22 @@ public class RVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
             charClass = (TextView)itemView.findViewById(R.id.character_class);
             charPhoto = (ImageView)itemView.findViewById(R.id.character_photo);
 
-            itemView.setOnClickListener(new View.OnClickListener(){
+            itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v){
+                public void onClick(View v) {
                     clickListener.onItemClick(getAdapterPosition(), v);
                 }
             });
+
+            itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v){
+                    longClickListener.onLongItemClick(getAdapterPosition(),v);
+                    return true;
+                }
+            });
+
+
         }
 
         //@Override
