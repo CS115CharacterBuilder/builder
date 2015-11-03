@@ -55,6 +55,8 @@
         </activity>
         <activity android:name=".ItemsPage" >
         </activity>
+        <activity android:name=".NewCharacterCreation" >
+        </activity>
     </application>
 
 </manifest>

@@ -10,25 +10,25 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
+
 import java.util.Random;
 
-public class CharacterStats extends AppCompatActivity {
+public class NewCharacterCreation extends AppCompatActivity {
 
     private EditText CharNAME;
     private String Name;
     private EditText CharCLASS;
     private String Class;
 
+    private static final String STRING_LIST =
+            "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+    private static final int RANDOM_STRING_LENGTH = 8;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_character_stats);
         Button savebtn = (Button) findViewById(R.id.charbtn);
-        Character gotChar = getIntent().getParcelableExtra("characterTag");
-        loadViews();
     }
 
     /*private EditText CharSTR = (EditText) findViewById(R.id.CharSTR);
@@ -107,12 +107,31 @@ public class CharacterStats extends AppCompatActivity {
 
     }*/
 
-    //LoadViews READS from the passed Character Object
-    //and UPDATES text views
-    private void loadViews(){
+    private String generateId(){
+        StringBuffer randomString = new StringBuffer();
+        for(int i =0; i<RANDOM_STRING_LENGTH; ++i){
+            int number = getRandomNumber();
+            char ch = STRING_LIST.charAt(number);
+            randomString.append(ch);
+        }
+        return randomString.toString();
+    }
 
-        //Recieve Passed Character From HomeActivity
-        Character gotChar = getIntent().getParcelableExtra("characterTag");
+    private int getRandomNumber(){
+        int randomInt;
+        Random randomGenerator = new Random();
+        randomInt = randomGenerator.nextInt(STRING_LIST.length());
+        if (randomInt - 1 == -1) {
+            return randomInt;
+        } else {
+            return randomInt - 1;
+        }
+    }
+
+
+    //SaveStats WRITES to the SharedPreferences file
+    //with the name of the character unique_id
+    public void saveStats(View view){
 
         //Grab Public TextView fields
         CharNAME = (EditText) findViewById(R.id.CharNAME);
@@ -120,36 +139,28 @@ public class CharacterStats extends AppCompatActivity {
         CharCLASS = (EditText) findViewById(R.id.CharCLASS);
         Class = CharCLASS.getText().toString();
 
-        //Case Character Field is NULL, VOID, or uninitialized
-        if (gotChar == null) {
-            CharNAME.setText("CHAR_NAME_VOID");
-            CharCLASS.setText("CHAR_CLASS_VOID");
-        }
-        else{
-            CharNAME.setText(gotChar.getCharacterName());
-            CharCLASS.setText(gotChar.getCharacterClass());
-        }
-    }
+        Character newCharacter = new Character(
+                generateId(), CharNAME.getText().toString(),
+                CharCLASS.getText().toString(), R.drawable.ic_ranger
+        );
 
-    //SaveStats WRITES to the SharedPreferences file
-    //with the name of the character unique_id
-    public void saveStats(View view){
-        //Recieve loaded character
-        Character gotChar = getIntent().getParcelableExtra("characterTag");
-
-        //Open up it's sp file and make an editor
-        SharedPreferences sharedStats = getSharedPreferences(gotChar.getUnique_id(), Context.MODE_PRIVATE);
+        //Open up its new SP file and make its editor
+        SharedPreferences sharedStats = getSharedPreferences(newCharacter.getUnique_id(), Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedStats.edit();
 
-        //Save the char stats
-        editor.putString("CHAR_NAME", CharNAME.getText().toString());
-        editor.putString("CHAR_CLASS", CharCLASS.getText().toString());
-        editor.putInt("CHAR_PHOTO", gotChar.getPhotoId());
+        //Save the newly formed character stats
+        editor.putString("CHAR_NAME", newCharacter.getCharacterName());
+        editor.putString("CHAR_CLASS", newCharacter.getCharacterClass());
+        editor.putInt("CHAR_PHOTO", newCharacter.getPhotoId());
         editor.apply(); //maybe commit here?
 
-
         //Alert User that the current character has been saved
-        Toast.makeText(CharacterStats.this,"Saved!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(NewCharacterCreation.this, "New Character Created!", Toast.LENGTH_SHORT).show();
 
+        //Package the
+        Intent returnIntent = new Intent();
+        returnIntent.putExtra("newCharacterTag", newCharacter);
+        setResult(Activity.RESULT_OK, returnIntent);
+        finish();
     }
 }

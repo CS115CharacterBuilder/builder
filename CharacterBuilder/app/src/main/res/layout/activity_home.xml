@@ -9,27 +9,33 @@
     android:layout_height="match_parent">
 
 
-    <android.support.v7.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/rv"
-        >
 
-    </android.support.v7.widget.RecyclerView>
 
     <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/rv"
+            >
+
+        </android.support.v7.widget.RecyclerView>
+
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_create"
-            android:layout_gravity="bottom|right"
+            android:layout_gravity="end|bottom"
+            android:layout_alignParentBottom = "true"
+            android:layout_alignParentRight = "true"
             app:fabSize = "normal"
             app:borderWidth="0dp"
-            android:layout_marginBottom="@dimen/fab_size_mini"
-            android:layout_marginRight="@dimen/fab_size_mini">
+            android:layout_marginBottom="@dimen/fab_margin_bottom"
+            android:layout_marginRight="@dimen/fab_margin_right"
+            app:layout_behavior="lfg.characterbuilder.ScrollAwareFABBehavior">
 
         </android.support.design.widget.FloatingActionButton>
     </android.support.design.widget.CoordinatorLayout>
