@@ -20,6 +20,9 @@ public class Data {
     String misc1; //other stuff
     String misc2;
     String dragonAncestry[];
+    String chaClassSkills[];
+    String save1; //saving throw 1
+    String save2; //savomg throw 2
     boolean has; //character has this data object
     boolean prof; //character is proficient in this
     int profbonus[]; //19 index long (20 for 20 levels) holds the prof bonus for that level.
@@ -29,4 +32,7 @@ public class Data {
     int speed; //the speed of the character by race.
     int extraCantrips; //some races get an additional cantrip.
     int dlevel; //what level the player gets this
+    int hitdie; //hp at level one is always 1 hit die + Constitiution modifier.
+    int numHitDie; //number of hit dice the player has (should be = to level)
+
 }
