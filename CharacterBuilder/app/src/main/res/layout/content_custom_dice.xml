@@ -51,8 +51,10 @@
         android:text="@string/rollTotal"
         android:id="@+id/rollResultBox"
         android:layout_gravity="center_horizontal"
-        android:layout_centerVertical="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/button"
         android:layout_alignStart="@+id/button" />
+        //android:layout_alignStart="@+id/button" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -61,8 +63,8 @@
         android:ems="10"
         android:id="@+id/diceTypeInput"
         android:hint="Dice type"
-        android:layout_below="@+id/diceNumInput"
-        android:layout_alignEnd="@+id/diceNumInput"
-        android:layout_alignStart="@+id/diceNumInput" />
+        android:layout_below="@+id/diceNumInput"/>
+        //android:layout_alignEnd="@+id/diceNumInput"
+        //android:layout_alignStart="@+id/diceNumInput" />
 
 </RelativeLayout>

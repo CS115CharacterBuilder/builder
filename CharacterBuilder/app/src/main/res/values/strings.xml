@@ -7,15 +7,109 @@
 
 
     <string name="rollTotal">Result</string>
+
     <string-array name="diceModes">
         <item>Select a Dice Mode</item>
         <item>Custom Dice Roller</item>
         <item>4d6 Drop Lowest</item>
         <item>3d6 Reroll 1s</item>
     </string-array>
+
+    <string name="exQuestionOne">Choose a race!</string>
+    <string name="exQuestionTwo">Choose your Sub-Race!</string>
+    <string name="exQuestionThree">Choose your Class!</string>
+    <string name="exQuestionFour">Choose your Background!</string>
+
+    <string-array name="raceSpinner">
+        <item>Select a Race</item>
+        <item>Dwarf</item>
+        <item>Elf</item>
+        <item>Halfling</item>
+        <item>Human</item>
+        <item>DragonBorn</item>
+        <item>Gnome</item>
+        <item>Half-Elf</item>
+        <item>Half-Orc</item>
+        <item>Tiefling</item>
+    </string-array>
+    <string-array name="classSpinner">
+        <item>Select a Class</item>
+        <item>Barbarian</item>
+        <item>Bard</item>
+        <item>Cleric</item>
+        <item>Druid</item>
+        <item>Fighter</item>
+        <item>Monk</item>
+        <item>Paladin</item>
+        <item>Ranger</item>
+        <item>Rogue</item>
+        <item>Sorcerer</item>
+        <item>Warlock</item>
+        <item>Wizard</item>
+    </string-array>
+
+    <string-array name="backgroundSpinner">
+        <item>Select a Background</item>
+        <item>Acolyte</item>
+        <item>Charlatan</item>
+        <item>Criminal</item>
+        <item>Entertainer</item>
+        <item>Folk Hero</item>
+        <item>Guild Artisan</item>
+        <item>Hermit</item>
+        <item>Noble</item>
+        <item>Outlander</item>
+        <item>Sage</item>
+        <item>Sailor</item>
+        <item>Soldier</item>
+        <item>Urchin</item>
+    </string-array>
+
+    <string-array name="subDwarfSpinner">
+        <item>Select a Sub-Race</item>
+        <item>Hill Dwarf</item>
+        <item>Mountain Dwarf</item>
+    </string-array>
+
+    <string-array name="subElfSpinner">
+        <item>Select a Sub-Race</item>
+        <item>High Elf</item>
+        <item>Wood Elf</item>
+        <item>Dark Elf</item>
+    </string-array>
+
+    <string-array name="subHalflingSpinner">
+        <item>Select a Sub-Race</item>
+        <item>Lightfoot Halfling</item>
+        <item>Stout Halfling</item>
+    </string-array>
+
+    <string-array name="subDragonbornSpinner">
+        <item>Select a Sub-Race</item>
+        <item>Black</item>
+        <item>Blue</item>
+        <item>Brass</item>
+        <item>Bronze</item>
+        <item>Copper</item>
+        <item>Gold</item>
+        <item>Green</item>
+        <item>Red</item>
+        <item>Silver</item>
+        <item>White</item>
+    </string-array>
+
+    <string-array name="subGnomeSpinner">
+        <item>Select a Sub-Race</item>
+        <item>Forest Gnome</item>
+        <item>Rock Gnome</item>
+    </string-array>
+
     <string name="title_activity_custom_dice">customDiceActivity</string>
     <string name="title_activity_drop_lowest_dice">dropLowestDice</string>
     <string name="title_activity_drop_lowest_dice_mrkii">dropLowestDiceMRKII</string>
     <string name="title_activity_reroll_ones">rerollOnes</string>
     <string name="title_activity_ability_page">AbilityPage</string>
+    <string name="title_activity_noob_question">NoobQuestion</string>
+    <string name="title_activity_noob_questionnaire">NoobQuestionnaire</string>
+    <string name="title_activity_ex_questionnaire">ExQuestionnaire</string>
 </resources>
