@@ -23,6 +23,7 @@ public class Data {
     String chaClassSkills[];
     String save1; //saving throw 1
     String save2; //savomg throw 2
+    String cDomain[];
     boolean has; //character has this data object
     boolean prof; //character is proficient in this
     int profbonus[]; //19 index long (20 for 20 levels) holds the prof bonus for that level.
