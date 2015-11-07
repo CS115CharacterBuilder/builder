@@ -36,6 +36,8 @@ public class Data {
     int hitdie; //hp at level one is always 1 hit die + Constitiution modifier.
     int numHitDie; //number of hit dice the player has (should be = to level)
     int numclassSkills;
+    int kiPoints[];
+    int mArts[];
     int knownCantrips[];
     int knownSpells[];
     int spellslots1[];
