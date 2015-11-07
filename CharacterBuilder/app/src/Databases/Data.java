@@ -26,6 +26,7 @@ public class Data {
     String cDomain[];
     boolean has; //character has this data object
     boolean prof; //character is proficient in this
+    int invocations[];
     int profbonus[]; //19 index long (20 for 20 levels) holds the prof bonus for that level.
     int statBoost[]; //{str,dex,con,int,wis,cha} any ability modifier
     int classPoints[]; //rage, ki, sorcery points.
@@ -36,7 +37,7 @@ public class Data {
     int hitdie; //hp at level one is always 1 hit die + Constitiution modifier.
     int numHitDie; //number of hit dice the player has (should be = to level)
     int numclassSkills;
-    int kiPoints[];
+    int sneakDice[];
     int mArts[];
     int knownCantrips[];
     int knownSpells[];

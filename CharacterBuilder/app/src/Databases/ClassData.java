@@ -299,7 +299,7 @@ public class ClassData extends Data {
         int marts[] = {4,4,4,4,6,6,6,6,6,6,8,8,8,8,8,8,10,10,10,10};
         int ki[] = {0,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
         monkFeatures.profbonus = pbonus;
-        monkFeatures.kiPoints = ki;
+        monkFeatures.classPoints = ki;
         monkFeatures.mArts = marts;
         monkFeatures.hitdie = 8;
         monkFeatures.armorProf = "None";
@@ -335,6 +335,348 @@ public class ClassData extends Data {
                 "Certain monasteries use specialized forms of the monk weapons. For example, you might use a club\n" +
                 "that is two lengths of w ood connected by a short chain (called a nunchaku) or a sickle with a shorter, straighter blade (called a kama). Whatever name you use for a monk weapon, you can use the game statistics provided for the weapon in chapter 5.";
     }
+
+    Data paladinFeatures = new Data();
+    public void setPaladinFeature(Data paladinFeatures){
+        paladinFeatures.abilName = "Paladin Class Features";
+        paladinFeatures.dlevel = 1;
+        paladinFeatures.dClass = "Paladin";
+        int pbonus[]= {2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6};
+        int slot1[] = {0,2,3,3,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4};
+        paladinFeatures.profbonus = pbonus;
+        paladinFeatures.spellslots1 = slot1;
+        paladinFeatures.hitdie = 10;
+        paladinFeatures.armorProf = "All Armor, Shields";
+        paladinFeatures.weaponProf = "Simple Weapons, Martial Weapons";
+        paladinFeatures.numclassSkills = 2;
+        String chaSkills[] = {"Athletics","Insight","Intimidation","Medicine","Persuasion","Religion"};
+        paladinFeatures.chaClassSkills = chaSkills;
+        paladinFeatures.save1 = "Wisdom";
+        paladinFeatures.save2 = "Charisma";
+    }
+
+    Data paladinDivineSense = new Data();
+    public void setPaladinDivineSense(Data paladinDivineSense){
+        paladinDivineSense.abilName = "Divine Sense";
+        paladinDivineSense.dlevel = 1;
+        paladinDivineSense.dClass = "Paladin";
+        paladinDivineSense.flavor = "The presence of strong evil registers on your senses like a noxious odor, and powerful good rings like heavenly music in your ears. As an action, you can open your awareness to detect such forces. Until the end of your next turn, you know the location of any celestial, fiend, or undead within 60 feet of you that is not behind total cover. You know the type (celestial, fiend, or undead) of any being whose presence you sense, but not its identity (the vampire Count Strahd von Zarovich, for instance). Within the same radius, you also detect the presence\n" +
+                "of any place or object that has been consecrated or desecrated, as with the hallow spell.\n" +
+                "You can use this feature a number of times equal to\n" +
+                "1 + your Charisma modifier. When you finish a long rest,\n" +
+                "you regain all expended uses.\n";
+    }
+
+    Data paladinLayOnHands = new Data();
+    public void setPaladinLayOnHands(Data paladinLayOnHands){
+        paladinLayOnHands.abilName = "Lay On Hands";
+        paladinLayOnHands.dlevel = 1;
+        paladinLayOnHands.dClass = "Paladin";
+        paladinLayOnHands.flavor = "Your blessed touch can heal wounds. You have a pool of healing power that replenishes when you take a long rest. With that pool, you can restore a total number of hit points equal to your paladin level x 5.\n" +
+                "As an action, you can touch a creature and draw power from the pool to restore a number of hit points\n" +
+                "to that creature, up to the maximum amount remaining in your pool.\n" +
+                "Alternatively, you can expend 5 hit points from your pool of healing to cure the target of one disease or neutralize one poison affecting it. You can cure multiple diseases and neutralize multiple poisons with a single use of Lay on Hands, expending hit points separately for each one.\n" +
+                "This feature has no effect on undead and constructs.";
+    }
+
+    Data rangerFeatures = new Data();
+    public void setRangerFeatures(Data rangerFeatures){
+        rangerFeatures.abilName = "Ranger Class Features";
+        rangerFeatures.dlevel = 1;
+        rangerFeatures.dClass = "Ranger";
+        int pbonus[] = {2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6};
+        int spells[] = {0,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10,11,11};
+        int slot1[]  = {0,2,3,3,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4};
+        //add other spell slots for later levels here.
+        rangerFeatures.profbonus = pbonus;
+        rangerFeatures.knownSpells = spells;
+        rangerFeatures.spellslots1 = slot1;
+        rangerFeatures.hitdie = 10;
+        rangerFeatures.armorProf = "Light Armor, Medium Armor, Shields";
+        rangerFeatures.weaponProf = "Simple Weapons, Martial Weapons";
+        String chaSkills[] = {"Animal Handling","Athletics","Investigation","Insight","Investigation","Nature","Perception","Stealth","Survival"};
+        rangerFeatures.numclassSkills = 3;
+        rangerFeatures.chaClassSkills = chaSkills;
+        rangerFeatures.save1 = "Strength";
+        rangerFeatures.save2 = "Dexterity";
+    }
+
+    Data rangerFavoredEnemy = new Data();
+    public void setRangerFavoredEnemy(Data rangerFavoredEnemy){
+        rangerFavoredEnemy.abilName = "Favored Enemy";
+        rangerFavoredEnemy.dlevel = 1;
+        rangerFavoredEnemy.dClass = "Ranger";
+        rangerFavoredEnemy.flavor = "Beginning at 1st level, you have significant experience studying, tracking, hunting, and even talking to a certain type of enemy.\n" +
+                "Choose a type of favored enemy: aberrations,\n" +
+                "beasts, celestials, constructs, dragons, elementals, fey, fiends, giants, monstrosities, oozes, plants, or undead. Alternatively, you can select two races of humanoid (such as gnolls and orcs) as favored enemies.\n" +
+                "You have advantage on Wisdom (Survival) checks to track your favored enemies, as well as on Intelligence checks to recall information about them.\n" +
+                "When you gain this feature, you also learn one language of your choice that is spoken by your favored enemies, if they speak one at all.\n" +
+                "You choose one additional favored enemy, as well as an associated language, at 6th and 14th level. As you gain levels, your choices should reflect the types of monsters you have encountered on your adventures.";
+    }
+
+    Data rangerNaturalExplorer = new Data();
+    public void setRangerNaturalExplorer(Data rangerNaturalExplorer) {
+        rangerNaturalExplorer.abilName = "Natural Exploration";
+        rangerNaturalExplorer.dlevel = 1;
+        rangerNaturalExplorer.dClass = "Ranger";
+        rangerNaturalExplorer.flavor = "You are particularly familiar with one type of natural environment and are adept at traveling and surviving in such regions. Choose one type of favored terrain: arctic, coast, desert, forest, grassland, mountain, swamp,\n" +
+                "or the Underdark. When you make an Intelligence or Wisdomcheckrelatedtoyourfavoredterrain,your proficiency bonus is doubled if you are using a skill that you’re proficient in.\n" +
+                "While traveling for an hour or more in your favored terrain, you gain the following benefits:\n" +
+                "• Difficult terrain doesn’t slow your group’s travel.\n" +
+                "• Your group can’t becom e lost except by magical\n" +
+                "means.\n" +
+                "• Even when you are engaged in another activity while\n" +
+                "traveling (such as foraging, navigating, or tracking),\n" +
+                "you remain alert to danger.\n" +
+                "• If you are traveling alone, you can move stealthily at\n" +
+                "a normal pace.\n" +
+                "• When you forage, you find twice as much food as you\n" +
+                "normally would.\n" +
+                "• While tracking other creatures, you also learn their\n" +
+                "exact number, their sizes, and how long ago they passed through the area.\n" +
+                "You choose additional favored terrain types at 6th and 10th level.";
+    }
+
+    Data rogueFeatures = new Data();
+    public void setRogueFeatures(Data rogueFeatures){
+        rogueFeatures.abilName = "Rogue Class Features";
+        rogueFeatures.dlevel = 1;
+        rogueFeatures.dClass = "Rogue";
+        int pbonus[] = {2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6};
+        int sneekDie[] = {1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10};
+        //add other spell slots for later levels here.
+        rogueFeatures.profbonus = pbonus;
+        rogueFeatures.sneakDice = sneekDie;
+        rogueFeatures.hitdie = 8;
+        rogueFeatures.armorProf = "Light Armor";
+        rogueFeatures.weaponProf = "Simple Weapons, Hand Crossbow, Longsword, Rapier, Shortsword";
+        String chaSkills[] = {"Acrobatics","Athletics","Deception","Insight","Intimidation","Investigation","Perception","Performance","Persuasion","Sleight of Hand", "Stealth"};
+        rogueFeatures.numclassSkills = 4;
+        rogueFeatures.chaClassSkills = chaSkills;
+        rogueFeatures.save1 = "Dexterity";
+        rogueFeatures.save2 = "Intelegence";
+        rogueFeatures.toolProf = "Theives Tools";
+    }
+
+    Data rogueExpertise = new Data();
+    public void setRogueExpertise(Data rogueExpertise){
+        rogueExpertise.abilName = "Expertise";
+        rogueExpertise.dlevel = 1;
+        rogueExpertise.dClass = "Rogue";
+        rogueExpertise.flavor = "At 1st level, choose two of your skill proficiencies, or one of your skill proficiencies and your proficiency with thieves’ tools. Your proficiency bonus is doubled for any ability check you make that uses either of the chosen proficiencies.\n" +
+                "At 6th level, you can choose two more of your proficiencies (in skills or with thieves’ tools) to gain this benefit.\n";
+    }
+
+    Data rogueSneakAttack = new Data();
+    public void setRogueSneakAttack(Data rogueSneakAttack){
+        rogueSneakAttack.abilName = "Sneak Attack";
+        rogueSneakAttack.dlevel = 1;
+        rogueSneakAttack.dClass = "Rogue";
+        rogueSneakAttack.flavor = "Beginning at 1st level, you know how to strike subtly and exploit a foe’s distraction. Once per turn, you can deal an extra 1d6 damage to one creature you hit with an attack if you have advantage on the attack roll. The attack must use a finesse or a ranged weapon.\n" +
+                "You don’t need advantage on the attack roll if another enemy of the target is within 5 feet of it, that enemy isn’t incapacitated, and you don’t have disadvantage on the attack roll.\n" +
+                "The amount of the extra damage increases as you gain levels in this class, as shown in the Sneak Attack column of the Rogue table.";
+    }
+
+    Data rogueThievesCant = new Data();
+    public void setRogueThievesCant(Data rogueThievesCant){
+        rogueThievesCant.abilName = "Thieves' Cant";
+        rogueThievesCant.dlevel = 1;
+        rogueThievesCant.dClass = "Rogue";
+        rogueThievesCant.flavor =  "During your rogue training you learned thieves’ cant, a secret mix of dialect, jargon, and code that allows you to hide messages in seemingly normal conversation. Only another creature that knows thieves’ cant understands such messages. It takes four times longer to convey such a message than it does to speak the same idea plainly.\n" +
+                "In addition, you understand a set of secret signs and symbols used to convey short, simple messages, such as whether an area is dangerous or the territory of a thieves’ guild, whether loot is nearby, or whether the people in an area are easy marks or will provide a safe house for thieves on the run.";
+    }
+
+    Data sorcererFeatures = new Data();
+    public void setSorcererFeatures(Data sorcererFeatures){
+        sorcererFeatures.abilName = "Sorcerer Class Features";
+        sorcererFeatures.dlevel = 1;
+        sorcererFeatures.dClass = "Sorcerer";
+        int pbonus[] = {2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6};
+        int sorcPoints[] = {0,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
+        int cans[] = {4,4,4,5,5,5,5,5,5,6,6,6,6,6,6,6,6,6,6,6};
+        int spells[] = {2,3,4,5,6,7,8,9,10,11,12,12,13,13,14,14,15,15,15,15};
+        int slot1[] = {2,3,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4};
+        //add other spell slots for later levels here.
+        sorcererFeatures.classPoints = sorcPoints;
+        sorcererFeatures.profbonus = pbonus;
+        sorcererFeatures.knownCantrips = cans;
+        sorcererFeatures.knownSpells = spells;
+        sorcererFeatures.spellslots1 = slot1;
+        sorcererFeatures.hitdie = 6;
+        sorcererFeatures.armorProf = "None";
+        sorcererFeatures.weaponProf = "Daggers, Darts, Slings, Quarterstaffs, Light Crossbows";
+        String chaSkills[] = {"Arcana","Deception","Insight","Intimidation","Persuasion","Religion"};
+        sorcererFeatures.numclassSkills = 2;
+        sorcererFeatures.chaClassSkills = chaSkills;
+        sorcererFeatures.save1 = "Constitution";
+        sorcererFeatures.save2 = "Charisma";
+        sorcererFeatures.toolProf = "Three musical instraments of your choice.";
+    }
+
+    Data sorcSCFocus = new Data();
+    public void setSorcSCFocus(Data sorcSCFocus){
+        sorcSCFocus.abilName = "Spellcasting Focus";
+        sorcSCFocus.dlevel = 1;
+        sorcSCFocus.dClass = "Sorcerer";
+        sorcSCFocus.flavor = "You can use an arcane focus (found in chapter 5) as a spellcasting focus for your sorcerer spells.";
+    }
+
+    Data sorcSCAbility = new Data();
+    public void setSorcSCAbility(Data sorcSCAbility){
+        sorcSCAbility.abilName = "Spellcasting Ability";
+        sorcSCAbility.dlevel = 1;
+        sorcSCAbility.dClass = "Sorcerer";
+        sorcSCAbility.flavor = "Charisma is your spellcasting ability for your sorcerer spells, since the power of your magic relies on your ability to project your will into the world. You use your Charisma whenever a spell refers to your spellcasting ability. In addition, you use your Charisma modifier when setting the saving throw DC for a sorcerer spell you cast and when making an attack roll with one.";
+    }
+
+    Data sorcDraconicAncestor = new Data();
+    public void setSorcDraconicAncestor(Data sorcDraconicAncestor){
+        sorcDraconicAncestor.abilName = "Draconic Bloodline";
+        sorcDraconicAncestor.dlevel = 1;
+        sorcDraconicAncestor.dClass = "Sorcerer";
+        sorcDraconicAncestor.flavor = "At 1st level, you choose one type of dragon as your ancestor. The damage type associated with each dragon is used by features you gain later. You can speak, read, and write Draconic. Additionally, whenever you make a Charisma check when interacting with dragons, your proficiency bonus is doubled if it applies to the check.";
+    }
+
+    Data sorcDraconicResilience = new Data();
+    public void setSorcDraconicResilience(Data sorcDraconicResilience){
+        sorcDraconicResilience.abilName = "Draconic Resistance";
+        sorcDraconicResilience.dlevel = 1;
+        sorcDraconicResilience.dClass = "Sorcerer";
+        sorcDraconicResilience.flavor = "At 1st level, you choose one type of dragon as your ancestor. The damage type associated with each dragon is used by features you gain later. You can speak, read, and write Draconic. Additionally, whenever you make a Charisma check when interacting with dragons, your proficiency bonus is doubled if it applies to the check.";
+    }
+
+    Data sorcWildMagicSurge = new Data();
+    public void setSorcWildMagicSurge(Data sorcWildMagicSurge){
+        sorcWildMagicSurge.abilName = "Wild Magic Surge";
+        sorcWildMagicSurge.dlevel = 1;
+        sorcWildMagicSurge.dClass = "Sorcerer";
+        sorcWildMagicSurge.flavor = "Starting when you choose this origin at 1st level, your spellcasting can unleash surges of untamed magic. Immediately after you cast a sorcerer spell of 1st level or higher, the DM can have you roll a d20. If you roll a\n" +
+                "1, roll on the Wild Magic Surge table to create a random magical effect.";
+    }
+
+    Data sorcTidesOfChaos = new Data();
+    public void setSorcTidesOfChaos(Data sorcTidesOfChaos){
+        sorcTidesOfChaos.abilName = "Tides Of Chaos";
+        sorcTidesOfChaos.dlevel = 1;
+        sorcTidesOfChaos.dClass = "Sorcerer";
+        sorcTidesOfChaos.flavor = "Starting when you choose this origin at 1st level, your spellcasting can unleash surges of untamed magic. Immediately after you cast a sorcerer spell of 1st level or higher, the DM can have you roll a d20. If you roll a\n" +
+                "1, roll on the Wild Magic Surge table to create a random magical effect.";
+    }
+
+    Data warlockFeatures = new Data();
+    public void setWarlockFeatures(Data warlockFeatures){
+        warlockFeatures.abilName = "Warlock Class Features";
+        warlockFeatures.dlevel = 1;
+        warlockFeatures.dClass = "Warlock";
+        int pbonus[] = {2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6};
+        int cans[] = {2,2,2,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4};
+        int spells[] = {2,3,4,5,6,7,8,9,10,10,11,11,12,12,13,13,14,14,15,15};
+        int slot1[] = {1,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,4,4,4,4};
+        int slotlevel[] = {1,1,2,2,3,3,4,4,5,5,5,5,5,5,5,5,5,5,5,5};
+        int inv[] = {0,2,2,2,3,3,4,4,5,5,5,6,6,6,7,7,7,8,8,8};
+        //add other spell slots for later levels here.
+        warlockFeatures.classPoints = slotlevel;//this is the level of the spell slots.
+        warlockFeatures.profbonus = pbonus;
+        warlockFeatures.knownCantrips = cans;
+        warlockFeatures.knownSpells = spells;
+        warlockFeatures.spellslots1 = slot1;
+        warlockFeatures.invocations = inv;
+        warlockFeatures.hitdie = 8;
+        warlockFeatures.armorProf = "Light Armor";
+        warlockFeatures.weaponProf = "Simple Weapons";
+        String chaSkills[] = {"Arcana","Deception","History","Intimidation","Investigation","Nature","Religion"};
+        warlockFeatures.numclassSkills = 2;
+        warlockFeatures.chaClassSkills = chaSkills;
+        warlockFeatures.save1 = "Wisdom";
+        warlockFeatures.save2 = "Charisma";
+    }
+
+    Data warlockSCAbility = new Data();
+    public void setWarlockSCAbility(Data warlockSCAbility){
+        warlockSCAbility.abilName = "Spellcasting Ability";
+        warlockSCAbility.dlevel = 1;
+        warlockSCAbility.dClass = "Warlock";
+        warlockSCAbility.flavor =  "Charisma is your spellcasting ability for your warlock spells, so you use your Charisma whenever a spell refers to your spellcasting ability. In addition, you use your Charisma modifier when setting the saving throw DC for a warlock spell you cast and when making an attack roll with one.\n";
+    }
+
+    Data warlockSCFocus = new Data();
+    public void setWarlockSCFocus(Data warlockSCFocus){
+        warlockSCFocus.abilName = "Spellcasting Focus";
+        warlockSCFocus.dlevel = 1;
+        warlockSCFocus.dClass = "Warlock";
+        warlockSCFocus.flavor =  "You can use an arcane focus (found in chapter 5) as a spellcasting focus for your warlock spells.\n";
+    }
+
+    Data warlockEldrichInvocation = new Data();
+    public void setWarlockEldrichInvocation(Data warlockEldrichInvocation){
+        warlockEldrichInvocation.abilName = "Eldrich Invocation";
+        warlockEldrichInvocation.dlevel = 2;
+        warlockEldrichInvocation.dClass = "Warlock";
+        warlockEldrichInvocation.flavor =  "In your study of occult lore, you have unearthed eldritch invocations, fragments of forbidden knowledge that imbue you with an abiding magical ability.\n" +
+                "At 2nd level, you gain two eldritch invocations of your choice. Your invocation options are detailed at the end of the class description. When you gain certain warlock levels, you gain additional invocations of your choice,\n" +
+                "as shown in the Invocations Known column of the Warlock table.\n" +
+                "Additionally, when you gain a level in this class,\n" +
+                "you can choose one of the invocations you know and replace it with another invocation that you could learn at that level.";
+    }
+
+    Data wizardFeatures = new Data();
+    public void setWizardFeatures(Data wizardFeatures){
+        wizardFeatures.abilName = "Wizard Class Features";
+        wizardFeatures.dlevel = 1;
+        wizardFeatures.dClass = "Wizard";
+        int pbonus[] = {2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6};
+        int cans[] = {3,3,3,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5,5};
+        int slot1[] = {2,3,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4};
+        //add other spell slots for later levels here.
+        wizardFeatures.profbonus = pbonus;
+        wizardFeatures.knownCantrips = cans;
+        wizardFeatures.spellslots1 = slot1;
+        wizardFeatures.hitdie = 6;
+        wizardFeatures.armorProf = "None";
+        wizardFeatures.weaponProf = "Dagger, Darts, Slings, Quarterstaffs, Light Crossbows";
+        String chaSkills[] = {"Arcane","History","Insight","Investigation","Medicine","Religion"};
+        wizardFeatures.numclassSkills = 2;
+        wizardFeatures.chaClassSkills = chaSkills;
+        wizardFeatures.save1 = "Intelligence";
+        wizardFeatures.save2 = "Wisdom";
+        wizardFeatures.toolProf = "Three musical instraments of your choice.";
+    }
+
+    Data wizardSCFocus = new Data();
+    public void setWizardSCFocus(Data wizardSCFocus){
+        wizardSCFocus.abilName = "Spellcasting Focus";
+        wizardSCFocus.dlevel = 1;
+        wizardSCFocus.dClass = "Wizard";
+        wizardSCFocus.flavor =  "Intelligence is your spellcasting ability for your wizard spells, since you learn your spells through dedicated study and memorization. You use your Intelligence whenever a spell refers to your spellcasting ability.\n" +
+                "In addition, you use your Intelligence modifier when setting the saving throw DC for a wizard spell you cast and when making an attack roll with one.\n";
+    }
+
+    Data wizardSpellbook = new Data();
+    public void setWizardSpellbook(Data wizardSpellbook){
+        wizardSpellbook.abilName = "Spellbook";
+        wizardSpellbook.dlevel = 1;
+        wizardSpellbook.dClass = "Wizard";
+        wizardSpellbook.flavor =  "At 1st level, you have a spellbook containing six 1st-level wizard spells of your choice.";
+    }
+
+    Data wizardRitualCasting= new Data();
+    public void setWizardRitualCasting(Data wizardRitualCasting){
+        wizardRitualCasting.abilName = "Ritual Casting";
+        wizardRitualCasting.dlevel = 1;
+        wizardRitualCasting.dClass = "Wizard";
+        wizardRitualCasting.flavor =  "You can cast a wizard spell as a ritual if that spell has the ritual tag and you have the spell in your spellbook. You don't need to have the spell prepared.\n";
+    }
+
+    Data wizardArcaneRecovery= new Data();
+    public void setWizardArcaneRecovery(Data wizardArcaneRecovery){
+        wizardArcaneRecovery.abilName = "Arcane Recovery";
+        wizardArcaneRecovery.dlevel = 1;
+        wizardArcaneRecovery.dClass = "Wizard";
+        wizardArcaneRecovery.flavor =  "\n" +
+                "You have learned to regain some of your magical energy by studying your spellbook. Once per day when you finish a short rest, you can choose expended spell slots to recover. The spell slots can have a combined level that is equal to or less than half your wizard level (rounded up), and none of the slots can be 6th level or higher.\n" +
+                "For example, if you’re a 4th-level wizard, you can recover up to two levels worth of spell slots. You can recover either a 2nd-level spell slot or two 1st-level spell slots.";
+    }
+
 
     public ArrayList<Data> getCd() {
 
@@ -427,8 +769,88 @@ public class ClassData extends Data {
 
         setMonkUnarmoredDef(monkUnarmoredDef);
         cd.add(monkUnarmoredDef);
-        
 
+        //paladin
+        setPaladinFeature(paladinFeatures);
+        cd.add(paladinFeatures);
+
+        setPaladinLayOnHands(paladinLayOnHands);
+        cd.add(paladinLayOnHands);
+
+        setPaladinDivineSense(paladinDivineSense);
+        cd.add(paladinDivineSense);
+
+        //ranger
+        setRangerFeatures(rangerFeatures);
+        cd.add(rangerFeatures);
+
+        setRangerFavoredEnemy(rangerFavoredEnemy);
+        cd.add(rangerFavoredEnemy);
+
+        setRangerNaturalExplorer(rangerNaturalExplorer);
+        cd.add(rangerNaturalExplorer);
+
+        //rogue
+        setRogueFeatures(rogueFeatures);
+        cd.add(rogueFeatures);
+
+        setRogueExpertise(rogueExpertise);
+        cd.add(rogueExpertise);
+
+        setRogueSneakAttack(rogueSneakAttack);
+        cd.add(rogueSneakAttack);
+
+        setRogueThievesCant(rogueThievesCant);
+        cd.add(rogueThievesCant);
+
+        //sorcerer
+        setSorcererFeatures(sorcererFeatures);
+        cd.add(sorcererFeatures);
+
+        setSorcDraconicAncestor(sorcDraconicAncestor);
+        cd.add(sorcDraconicAncestor);
+
+        setSorcDraconicResilience(sorcDraconicResilience);
+        cd.add(sorcDraconicResilience);
+
+        setSorcSCAbility(sorcSCAbility);
+        cd.add(sorcSCAbility);
+
+        setSorcSCFocus(sorcSCFocus);
+        cd.add(sorcSCFocus);
+
+        setSorcWildMagicSurge(sorcWildMagicSurge);
+        cd.add(sorcWildMagicSurge);
+
+        setSorcTidesOfChaos(sorcTidesOfChaos);
+        cd.add(sorcTidesOfChaos);
+
+        //warlock
+        setWarlockFeatures(warlockFeatures);
+        cd.add(warlockFeatures);
+
+        setWarlockEldrichInvocation(warlockEldrichInvocation);
+        cd.add(warlockEldrichInvocation);
+
+        setWarlockSCAbility(warlockSCAbility);
+        cd.add(warlockSCAbility);
+
+        //wizard
+        setWizardFeatures(wizardFeatures);
+        cd.add(wizardFeatures);
+
+        setWizardSpellbook(wizardSpellbook);
+        cd.add(wizardSpellbook);
+
+        setWizardArcaneRecovery(wizardArcaneRecovery);
+        cd.add(wizardArcaneRecovery);
+
+        setWizardRitualCasting(wizardRitualCasting);
+        cd.add(wizardRitualCasting);
+
+        setWizardSCFocus(wizardSCFocus);
+        cd.add(wizardSCFocus);
+        
         return cd;
     }
 }
