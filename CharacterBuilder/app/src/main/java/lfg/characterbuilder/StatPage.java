@@ -7,6 +7,11 @@ import android.widget.TextView;
 
 public class StatPage extends AppCompatActivity {
 
+    TextView HPCurr = (TextView) findViewById(R.id.HpCurr);
+    TextView TempHP = (TextView) findViewById(R.id.TempHP);
+    TextView HDCount = (TextView) findViewById(R.id.HDCount);
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,11 +43,10 @@ public class StatPage extends AppCompatActivity {
         TextView ACVal = (TextView) findViewById(R.id.ACVal);
         TextView SpdVal = (TextView) findViewById(R.id.SpdVal);
         TextView PercVal = (TextView) findViewById(R.id.PercVal);
-        TextView HDCount = (TextView) findViewById(R.id.HDCount);
         TextView HDType = (TextView) findViewById(R.id.HDType);
-        TextView HPCurr = (TextView) findViewById(R.id.HpCurr);
+
         TextView HPTotal = (TextView) findViewById(R.id.HPTotal);
-        TextView TempHP = (TextView) findViewById(R.id.TempHP);
+
 
         int modValue = 0;// = findMod(Character.Str);
         StrMod.setText(modValue);
@@ -77,5 +81,47 @@ public class StatPage extends AppCompatActivity {
             modValue = Integer.toString(statMod);
         }
         return modValue;
+    }
+
+    public void addHP () {
+        int hp = (Integer)char_hitpoints;
+        hp += 1;
+        String newhp = Integer.toString(hp);
+        HPCurr.setText(newhp);
+    }
+
+    public void removeHP () {
+        int hp = (Integer)char_hitpoints;
+        hp -= 1;
+        String newhp = Integer.toString(hp);
+        HPCurr.setText(newhp);
+    }
+
+    public void addTHP () {
+        int hp = (Integer)char_temporaryhp;
+        hp += 1;
+        String newhp = Integer.toString(hp);
+        TempHP.setText(newhp);
+    }
+
+    public void removeTHP () {
+        int hp = (Integer)char_temporaryhp;
+        hp -= 1;
+        String newhp = Integer.toString(hp);
+        TempHP.setText(newhp);
+    }
+
+    public void addHD () {
+        int hp = (Integer)char_hitdice;
+        hp += 1;
+        String newhp = Integer.toString(hp);
+        HDCount.setText(newhp);
+    }
+
+    public void removeHD () {
+        int hp = (Integer)char_hitdice;
+        hp -= 1;
+        String newhp = Integer.toString(hp);
+        HDCount.setText(newhp);
     }
 }

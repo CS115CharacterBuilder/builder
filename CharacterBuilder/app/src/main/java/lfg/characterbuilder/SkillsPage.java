@@ -7,6 +7,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +17,8 @@ import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import java.lang.Object;
 import java.util.ArrayList;
@@ -36,36 +41,38 @@ public class SkillsPage extends AppCompatActivity {
     private class MyAdapter extends ArrayAdapter<SkillElement> {
         int resource;
         Context context;
-
-        public MyAdapter(Context _context, int _resource, List<SkillElement> skills) {
-            super(_context, _resource, skills);
-            resource = _resource;
-            context = _context;
-            this.context = _context;
+        public MyAdapter(Context context, int resource, List<SkillElement> skills) {
+            super(context, resource, skills);
+            resource = resource;
+            context = context;
+            this.context = context;
         }
 
-    }
+        public View getView(int position, View convertView, ViewGroup parent) {
+            LinearLayout newView;
+            final SkillElement s = getItem(position);
 
-    public View getView(int position, View convertView, ViewGroup parent) {
-        LinearLayout newView;
-        final SkillElement s = sList.getItem(position);
+            if(convertView == null) {
+                newView = new LinearLayout(getContext());
+                String inflater = Context.LAYOUT_INFLATER_SERVICE;
+                LayoutInflater vi = (LayoutInflater) getContext().getSystemService(inflater);
+                vi.inflate(resource, newView, true);
+            } else {
+                newView = (LinearLayout) convertView;
+            }
 
-        if(convertView == null) {
-            newView = new LinearLayout(getContext());
-            String inflater = Context.LAYOUT_INFLATER_SERVICE;
-            LayoutInflater vi = (LayoutInflater) getContext.getSystemService(inflater);
-            vi.inflate(resource, newView, true);
-        } else {
-            newView = (LinearLayout) convertView;
+            TextView sMod = (TextView) newView.findViewById(R.id.sModTxt);
+            TextView sName = (TextView) newView.findViewById(R.id.sNameTxt);
+            TextView AttTxt = (TextView) newView.findViewById(R.id.AttTxt);
+
+            sMod.setText(s.val);
+            sName.setText(s.name);
+            AttTxt.setText(s.type);
+
+            return newView;
         }
-        TextView sName = (TextView) newView.findViewById(R.id.sNameTxt);
-        TextView sMod = (TextView) newView.findViewById(R.id.sModTxt);
-        TextView AttTxt = (TextView) newView.findViewById(R.id.AttTxt);
-        sName.setText(s.name);
-        sMod.setText(s.val);
-        AttTxt.setText(s.type);
-        return newView;
     }
+
 
     private MyAdapter aa;
 
@@ -73,70 +80,77 @@ public class SkillsPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_skills_page);
-        //automates creation of character skills
-        for(int i = 0; i < 17; i++) {
+            createSkills();
+            aa = new MyAdapter(this, R.layout.skillelement, sList);
+            ListView skillList = (ListView)findViewById(R.id.skillList);
+            skillList.setAdapter(aa);
+    }
+
+    //automates creation of character skills
+    public void createSkills() {
+        for (int i = 0; i < 17; i++) {
             SkillElement skill = new SkillElement();
-            if(i == 0)
-            {
+            if (i == 0) {
                 skill.name = "Athletics";
                 skill.type = "Strength";
                 //skill.val = findMod(Char.STR);
-            }else if(i <= 3 && i > 0 ) {
-                if(i == 1) {
+            } else if (i <= 3 && i > 0) {
+                if (i == 1) {
                     skill.name = "Acrobatics";
 
-                }else if(i == 2) {
+                } else if (i == 2) {
                     skill.name = "Sleight of Hand";
-                }else {
+                } else {
                     skill.name = "Stealth";
                 }
                 skill.type = "Dexterity";
                 //skill.val = findMod(Char.DEX);
-            }else if(i <= 8 && i > 3) {
-                if(i == 4) {
+            } else if (i <= 8 && i > 3) {
+                if (i == 4) {
                     skill.name = "Arcana";
-                }else if (i == 5) {
+                } else if (i == 5) {
                     skill.name = "History";
-                }else if (i == 6) {
+                } else if (i == 6) {
                     skill.name = "Investigation";
-                }else if (i == 7) {
+                } else if (i == 7) {
                     skill.name = "Nature";
-                }else {
+                } else {
                     skill.name = "Religion";
                 }
                 skill.type = "Intelligence";
                 //skill.val = findMod(Char.INT);
-            }else if(i <= 13 && i > 8) {
-                if(i == 9) {
+            } else if (i <= 13 && i > 8) {
+                if (i == 9) {
                     skill.name = "Animal Handling";
-                }else if(i == 10) {
+                } else if (i == 10) {
                     skill.name = "Insight";
-                }else if(i == 11) {
+                } else if (i == 11) {
                     skill.name = "Medicine";
-                }else if(i == 12) {
+                } else if (i == 12) {
                     skill.name = "Perception";
-                }else {
+                } else {
                     skill.name = "Survival";
                 }
                 skill.type = "Wisdom";
                 //skill.val = findMod(Char.WIS);
-            }else {
-                if(i == 14) {
+            } else {
+                if (i == 14) {
                     skill.name = "Deception";
-                }else if(i == 15) {
+                } else if (i == 15) {
                     skill.name = "Intimidation";
-                }else if(i == 16) {
+                } else if (i == 16) {
                     skill.name = "Performance";
-                }else {
+                } else {
                     skill.name = "Persuasion";
                 }
                 skill.type = "Charisma";
                 //skill.val = findMod(Char.CHAR);
             }
             checkProf(skill.name, skill);
-            sList[i] = skill;
+            sList.set(i, skill);
         }
     }
+
 
     //takes stat value and converts it into the modifier
     public String findMod(int x) {

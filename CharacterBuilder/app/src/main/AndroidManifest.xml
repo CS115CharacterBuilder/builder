@@ -64,6 +64,7 @@
             android:name=".ExQuestionnaire"
             android:label="@string/title_activity_ex_questionnaire"
             android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
         <activity android:name=".StatPage" >
         </activity>
         <activity android:name=".BackgroundPage" >
@@ -71,6 +72,12 @@
         <activity android:name=".SkillsPage" >
         </activity>
         <activity android:name=".AbilitiesPage" >
+        </activity>
+        <activity android:name=".EquipmentPage" >
+        </activity>
+        <activity android:name=".KnownSpells" >
+        </activity>
+        <activity android:name=".SpellPage" >
         </activity>
     </application>
 
