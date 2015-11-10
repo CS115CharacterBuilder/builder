@@ -14,14 +14,15 @@ public class ClassData extends Data {
         int pbonus[] = {2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6};
         int rages[] = {2,2,3,3,3,4,4,4,4,4,4,5,5,5,5,5,6,6,6,100};
         int rageDam[] = {2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,4,4,4,4,4};
+        //                {Str,  Dex  ,Con  ,Int  ,Wis  ,Cha  };
+        boolean saves[] = {true,false,true,false,false,false};
         barbarianFeatures.profbonus = pbonus;
         barbarianFeatures.classPoints = rages;
         barbarianFeatures.ragedamage = rageDam;
         barbarianFeatures.hitdie = 12;
         barbarianFeatures.armorProf = "Light Armor, Medium Armor, Shields";
         barbarianFeatures.weaponProf = "Simple Weapons, Martial Weapons";
-        barbarianFeatures.save1 = "Strength";
-        barbarianFeatures.save2 = "Constitution";
+        barbarianFeatures.savingThrows = saves;
         //Skills alphabetically: Acrobatics, Animal Handling, Arcana, Athletics, Deception, History, Insight, Intimidation,Investigation, Medicine, Nature, Perception, Performance, Persuasion, Religion, Sleight of Hand, Stealth, Survival.
         boolean classskills[] = {false,true,false,true,false,false,false,true,false,false,true,true,false,false,false,false,false,true};
         barbarianFeatures.chaClassSkills= classskills;
@@ -61,6 +62,8 @@ public class ClassData extends Data {
         int cans[] = {2,2,2,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4};
         int spells[] = {4,5,6,7,8,9,10,11,12,14,15,15,16,18,19,19,20,22,22,22};
         int slot1[] = {2,3,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4};
+        //                {Str,  Dex  ,Con  ,Int  ,Wis  ,Cha  };
+        boolean saves[] = {false,true,false,false,false,true};
         //add other spell slots for later levels here.
         bardFeatures.profbonus = pbonus;
         bardFeatures.knownCantrips = cans;
@@ -73,8 +76,7 @@ public class ClassData extends Data {
         boolean classskills[] = {true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true};
         bardFeatures.numclassSkills = 3;
         bardFeatures.chaClassSkills = classskills;
-        bardFeatures.save1 = "Dexterity";
-        bardFeatures.save2 = "Charisma";
+        bardFeatures.savingThrows = saves;
         bardFeatures.toolProf = "Three musical instraments of your choice.";
     }
 
@@ -123,6 +125,9 @@ public class ClassData extends Data {
         int cans[] = {3,3,3,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5,5};
         int slot1[] = {2,3,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5,5};
         String domain[] = {"Knowledge","Life","Light","Nature","Tempest","Trickery","War"};
+        //                {Str,  Dex  ,Con  ,Int  ,Wis  ,Cha  };
+        boolean saves[] = {false,false,false,false,true,true};
+
         clericFeatures.profbonus = pbonus;
         clericFeatures.knownCantrips = cans;
         clericFeatures.spellslots1 = slot1;
@@ -133,8 +138,7 @@ public class ClassData extends Data {
         //Skills alphabetically: Acrobatics, Animal Handling, Arcana, Athletics, Deception, History, Insight, Intimidation,Investigation, Medicine, Nature, Perception, Performance, Persuasion, Religion, Sleight of Hand, Stealth, Survival.
         boolean classskills[] = {false,false,false,false,false,true,true,false,false,true,false,true,false,false,true,false,false,false};
         clericFeatures.chaClassSkills = classskills;
-        clericFeatures.save1 = "Wisdom";
-        clericFeatures.save2 = "Charisma";
+        clericFeatures.savingThrows = saves;
         clericFeatures.cDomain = domain;
     }
 
@@ -170,6 +174,9 @@ public class ClassData extends Data {
         int pbonus[]= {2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6};
         int cans[]  = {2,2,2,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4};
         int slot1[] = {2,3,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4};
+        //                {Str,  Dex  ,Con  ,Int  ,Wis  ,Cha  };
+        boolean saves[] = {false,false,false,true,true,false};
+
         druidFeatures.profbonus = pbonus;
         druidFeatures.knownCantrips = cans;
         druidFeatures.spellslots1 = slot1;
@@ -181,8 +188,7 @@ public class ClassData extends Data {
         boolean classskills[] = {false,true ,true ,false,false,false,true ,false,false,true ,true ,false,true ,false,true ,false,false,true};
         druidFeatures.toolProf = "Herbalism Kit";
         druidFeatures.chaClassSkills = classskills;
-        druidFeatures.save1 = "Intelligence";
-        druidFeatures.save2 = "Wisdom";
+        druidFeatures.savingThrows = saves;
     }
 
     Data druidic = new Data();
@@ -226,6 +232,9 @@ public class ClassData extends Data {
         fighterFeatures.dlevel = 1;
         fighterFeatures.dClass = "Fighter";
         int pbonus[]= {2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6};
+        //                {Str,  Dex  ,Con  ,Int  ,Wis  ,Cha  };
+        boolean saves[] = {true,false,true,false,false,false};
+
         fighterFeatures.profbonus = pbonus;
         fighterFeatures.hitdie = 10;
         fighterFeatures.armorProf = "All Armor, Shields)";
@@ -233,8 +242,7 @@ public class ClassData extends Data {
         fighterFeatures.numclassSkills = 2;
         boolean classskills[] = {true,true,false,true,false,true,true,true,false,false,false,true,false,false,false,false,false,true};
         fighterFeatures.chaClassSkills = classskills;
-        fighterFeatures.save1 = "Strength";
-        fighterFeatures.save2 = "Constitution";
+        fighterFeatures.savingThrows = saves;
     }
 
     Data fightStyleArchery = new Data();
@@ -302,6 +310,9 @@ public class ClassData extends Data {
         int pbonus[] = {2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6};
         int marts[] = {4,4,4,4,6,6,6,6,6,6,8,8,8,8,8,8,10,10,10,10};
         int ki[] = {0,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
+        //                {Str,  Dex  ,Con  ,Int  ,Wis  ,Cha  };
+        boolean saves[] = {true,true,false,false,false,false};
+
         monkFeatures.profbonus = pbonus;
         monkFeatures.classPoints = ki;
         monkFeatures.mArts = marts;
@@ -312,8 +323,7 @@ public class ClassData extends Data {
         boolean classskills[] = {true,false,false,true,false,true,true,false,false,false,false,false,false,false,true,false,false,true};
         monkFeatures.numclassSkills = 2;
         monkFeatures.chaClassSkills = classskills;
-        monkFeatures.save1 = "Strength";
-        monkFeatures.save2 = "Dexterity";
+        monkFeatures.savingThrows = saves;
         monkFeatures.toolProf = "Choose one type of artisan’s tools or one musical instrument.";
 
     }
@@ -394,6 +404,9 @@ public class ClassData extends Data {
         int spells[] = {0,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10,11,11};
         int slot1[]  = {0,2,3,3,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4};
         //add other spell slots for later levels here.
+        //                {Str,  Dex  ,Con  ,Int  ,Wis  ,Cha  };
+        boolean saves[] = {true,true,false,false,false,false};
+
         rangerFeatures.profbonus = pbonus;
         rangerFeatures.knownSpells = spells;
         rangerFeatures.spellslots1 = slot1;
@@ -404,8 +417,7 @@ public class ClassData extends Data {
         boolean classskills[] = {false,true,false,true,false,false,true,false,true,false,true,true,false,false,false,false,true,true};
         rangerFeatures.numclassSkills = 3;
         rangerFeatures.chaClassSkills = classskills;
-        rangerFeatures.save1 = "Strength";
-        rangerFeatures.save2 = "Dexterity";
+        rangerFeatures.savingThrows = saves;
     }
 
     Data rangerFavoredEnemy = new Data();
@@ -452,6 +464,9 @@ public class ClassData extends Data {
         int pbonus[] = {2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6};
         int sneekDie[] = {1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10};
         //add other spell slots for later levels here.
+        //                {Str,  Dex  ,Con  ,Int  ,Wis  ,Cha  };
+        boolean saves[] = {false,true,false,true,false,false};
+
         rogueFeatures.profbonus = pbonus;
         rogueFeatures.sneakDice = sneekDie;
         rogueFeatures.hitdie = 8;
@@ -461,8 +476,7 @@ public class ClassData extends Data {
         boolean classskills[] = {true,false,false,true,true,false,true,true,true,false,false,true,false,true,false,true,true,false};
         rogueFeatures.numclassSkills = 4;
         rogueFeatures.chaClassSkills = classskills;
-        rogueFeatures.save1 = "Dexterity";
-        rogueFeatures.save2 = "Intelegence";
+        rogueFeatures.savingThrows = saves;
         rogueFeatures.toolProf = "Theives Tools";
     }
 
@@ -505,6 +519,9 @@ public class ClassData extends Data {
         int spells[] = {2,3,4,5,6,7,8,9,10,11,12,12,13,13,14,14,15,15,15,15};
         int slot1[] = {2,3,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4};
         //add other spell slots for later levels here.
+        //                {Str,  Dex  ,Con  ,Int  ,Wis  ,Cha  };
+        boolean saves[] = {false,false,true,false,false,true};
+
         sorcererFeatures.classPoints = sorcPoints;
         sorcererFeatures.profbonus = pbonus;
         sorcererFeatures.knownCantrips = cans;
@@ -517,8 +534,7 @@ public class ClassData extends Data {
         boolean classskills[] = {false,false,true,false,true,false,true,true,false,false,false,false,false,true,true,false,false,false};
         sorcererFeatures.numclassSkills = 2;
         sorcererFeatures.chaClassSkills = classskills;
-        sorcererFeatures.save1 = "Constitution";
-        sorcererFeatures.save2 = "Charisma";
+        sorcererFeatures.savingThrows = saves;
         sorcererFeatures.toolProf = "Three musical instraments of your choice.";
     }
 
@@ -584,6 +600,9 @@ public class ClassData extends Data {
         int slotlevel[] = {1,1,2,2,3,3,4,4,5,5,5,5,5,5,5,5,5,5,5,5};
         int inv[] = {0,2,2,2,3,3,4,4,5,5,5,6,6,6,7,7,7,8,8,8};
         //add other spell slots for later levels here.
+        //                {Str,  Dex  ,Con  ,Int  ,Wis  ,Cha  };
+        boolean saves[] = {false,false,false,false,true,true};
+
         warlockFeatures.classPoints = slotlevel;//this is the level of the spell slots.
         warlockFeatures.profbonus = pbonus;
         warlockFeatures.knownCantrips = cans;
@@ -598,8 +617,7 @@ public class ClassData extends Data {
 
         warlockFeatures.numclassSkills = 2;
         warlockFeatures.chaClassSkills = classskills;
-        warlockFeatures.save1 = "Wisdom";
-        warlockFeatures.save2 = "Charisma";
+        warlockFeatures.savingThrows = saves;
     }
 
     Data warlockSCAbility = new Data();
@@ -639,6 +657,9 @@ public class ClassData extends Data {
         int cans[] = {3,3,3,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5,5};
         int slot1[] = {2,3,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4};
         //add other spell slots for later levels here.
+        //                {Str,  Dex  ,Con  ,Int  ,Wis  ,Cha  };
+        boolean saves[] = {false,false,false,true,true,false};
+
         wizardFeatures.profbonus = pbonus;
         wizardFeatures.knownCantrips = cans;
         wizardFeatures.spellslots1 = slot1;
@@ -649,8 +670,7 @@ public class ClassData extends Data {
         boolean classskills[] = {false,false,true,false,false,true,true,false,true,true,false,false,false,false,true,false,false,false};
         wizardFeatures.numclassSkills = 2;
         wizardFeatures.chaClassSkills = classskills;
-        wizardFeatures.save1 = "Intelligence";
-        wizardFeatures.save2 = "Wisdom";
+        wizardFeatures.savingThrows = saves;
         wizardFeatures.toolProf = "Three musical instraments of your choice.";
     }
 
