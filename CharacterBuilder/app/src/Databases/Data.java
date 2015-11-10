@@ -20,7 +20,7 @@ public class Data {
     String misc1; //other stuff
     String misc2;
     String dragonAncestry[];
-    String chaClassSkills[];
+    boolean chaClassSkills[];
     String save1; //saving throw 1
     String save2; //savomg throw 2
     String cDomain[];

@@ -22,7 +22,8 @@ public class ClassData extends Data {
         barbarianFeatures.weaponProf = "Simple Weapons, Martial Weapons";
         barbarianFeatures.save1 = "Strength";
         barbarianFeatures.save2 = "Constitution";
-        String classskills[] = {"Animal Handling","Athletics","Intimidation","Nature","Perception","Survival"};
+        //Skills alphabetically: Acrobatics, Animal Handling, Arcana, Athletics, Deception, History, Insight, Intimidation,Investigation, Medicine, Nature, Perception, Performance, Persuasion, Religion, Sleight of Hand, Stealth, Survival.
+        boolean classskills[] = {false,true,false,true,false,false,false,true,false,false,true,true,false,false,false,false,false,true};
         barbarianFeatures.chaClassSkills= classskills;
         barbarianFeatures.numclassSkills = 2;
     }
@@ -68,9 +69,10 @@ public class ClassData extends Data {
         bardFeatures.hitdie = 8;
         bardFeatures.armorProf = "Light Armor";
         bardFeatures.weaponProf = "Simple Weapons, Hand Crossbow, Longswords, Rapiers, Shortswords";
-        String chaSkills[] = {"Acrobatics", "Animal Handling","Arcana","Athletics","Deception","History","Insight","Intimidation","Investigation","Medicine","Nature","Perception","Performance","Persuasion","Religion","Sleight of Hand","Stealth","Survival"};
+        //Skills alphabetically: Acrobatics, Animal Handling, Arcana, Athletics, Deception, History, Insight, Intimidation,Investigation, Medicine, Nature, Perception, Performance, Persuasion, Religion, Sleight of Hand, Stealth, Survival.
+        boolean classskills[] = {true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true};
         bardFeatures.numclassSkills = 3;
-        bardFeatures.chaClassSkills = chaSkills;
+        bardFeatures.chaClassSkills = classskills;
         bardFeatures.save1 = "Dexterity";
         bardFeatures.save2 = "Charisma";
         bardFeatures.toolProf = "Three musical instraments of your choice.";
@@ -128,8 +130,9 @@ public class ClassData extends Data {
         clericFeatures.armorProf = "Light Armor, Medium Armor, Shields";
         clericFeatures.weaponProf = "All Simple Weapons";
         clericFeatures.numclassSkills = 2;
-        String chaSkills[] = {"History","Insight","Medicine","Persuasion","Religion"};
-        clericFeatures.chaClassSkills = chaSkills;
+        //Skills alphabetically: Acrobatics, Animal Handling, Arcana, Athletics, Deception, History, Insight, Intimidation,Investigation, Medicine, Nature, Perception, Performance, Persuasion, Religion, Sleight of Hand, Stealth, Survival.
+        boolean classskills[] = {false,false,false,false,false,true,true,false,false,true,false,true,false,false,true,false,false,false};
+        clericFeatures.chaClassSkills = classskills;
         clericFeatures.save1 = "Wisdom";
         clericFeatures.save2 = "Charisma";
         clericFeatures.cDomain = domain;
@@ -174,9 +177,10 @@ public class ClassData extends Data {
         druidFeatures.armorProf = "Light Armor, Medium Armor, Shields (but nothing made of metal)";
         druidFeatures.weaponProf = "Clubs, Daggers, Darts, Javelins, Maces, Quarterstaffs, Scimitars, Sickles, Slings, Spears";
         druidFeatures.numclassSkills = 2;
-        String chaSkills[] = {"Arcana","Animal Handling", "Insight", "Medicine", "Nature", "Perception","Religion","Survival"};
+        //                      {0    ,1    ,2    ,3    ,4    ,5    ,6    ,7    ,8    ,9    ,10   ,11   ,12   ,13   ,14   ,15   ,16   ,17  }
+        boolean classskills[] = {false,true ,true ,false,false,false,true ,false,false,true ,true ,false,true ,false,true ,false,false,true};
         druidFeatures.toolProf = "Herbalism Kit";
-        druidFeatures.chaClassSkills = chaSkills;
+        druidFeatures.chaClassSkills = classskills;
         druidFeatures.save1 = "Intelligence";
         druidFeatures.save2 = "Wisdom";
     }
@@ -227,8 +231,8 @@ public class ClassData extends Data {
         fighterFeatures.armorProf = "All Armor, Shields)";
         fighterFeatures.weaponProf = "Simple Weapons, Martial Weapons";
         fighterFeatures.numclassSkills = 2;
-        String chaSkills[] = {"Acrobatics","Animal","Handling","Athletics","History","Insight","Intimidation","Perception","Survival"};
-        fighterFeatures.chaClassSkills = chaSkills;
+        boolean classskills[] = {true,true,false,true,false,true,true,true,false,false,false,true,false,false,false,false,false,true};
+        fighterFeatures.chaClassSkills = classskills;
         fighterFeatures.save1 = "Strength";
         fighterFeatures.save2 = "Constitution";
     }
@@ -304,9 +308,10 @@ public class ClassData extends Data {
         monkFeatures.hitdie = 8;
         monkFeatures.armorProf = "None";
         monkFeatures.weaponProf = "Simple Weapons, Shortswords";
-        String chaSkills[] = {"Acrobatics", "Athletics","History","Insight","Religion","Stealth"};
+        //                      {0    ,1   ,2    ,3    ,4   ,5   ,6   ,7   ,8    ,9   ,10     ,11   ,12   ,13   ,14   ,15   ,16   ,17  }
+        boolean classskills[] = {true,false,false,true,false,true,true,false,false,false,false,false,false,false,true,false,false,true};
         monkFeatures.numclassSkills = 2;
-        monkFeatures.chaClassSkills = chaSkills;
+        monkFeatures.chaClassSkills = classskills;
         monkFeatures.save1 = "Strength";
         monkFeatures.save2 = "Dexterity";
         monkFeatures.toolProf = "Choose one type of artisan’s tools or one musical instrument.";
@@ -349,8 +354,9 @@ public class ClassData extends Data {
         paladinFeatures.armorProf = "All Armor, Shields";
         paladinFeatures.weaponProf = "Simple Weapons, Martial Weapons";
         paladinFeatures.numclassSkills = 2;
-        String chaSkills[] = {"Athletics","Insight","Intimidation","Medicine","Persuasion","Religion"};
-        paladinFeatures.chaClassSkills = chaSkills;
+        //                      {0    ,1    ,2    ,3    ,4    ,5    ,6    ,7    ,8    ,9    ,10   ,11   ,12   ,13   ,14   ,15   ,16   ,17  }
+        boolean classskills[] = {false,false,false,true,false,false,true,true,false,true,false,false,false,true,true,false,false,false};
+        paladinFeatures.chaClassSkills = classskills;
         paladinFeatures.save1 = "Wisdom";
         paladinFeatures.save2 = "Charisma";
     }
@@ -394,9 +400,10 @@ public class ClassData extends Data {
         rangerFeatures.hitdie = 10;
         rangerFeatures.armorProf = "Light Armor, Medium Armor, Shields";
         rangerFeatures.weaponProf = "Simple Weapons, Martial Weapons";
-        String chaSkills[] = {"Animal Handling","Athletics","Investigation","Insight","Investigation","Nature","Perception","Stealth","Survival"};
+        //                      {0    ,1    ,2    ,3    ,4    ,5    ,6    ,7    ,8    ,9    ,10   ,11   ,12   ,13   ,14   ,15   ,16   ,17  }
+        boolean classskills[] = {false,true,false,true,false,false,true,false,true,false,true,true,false,false,false,false,true,true};
         rangerFeatures.numclassSkills = 3;
-        rangerFeatures.chaClassSkills = chaSkills;
+        rangerFeatures.chaClassSkills = classskills;
         rangerFeatures.save1 = "Strength";
         rangerFeatures.save2 = "Dexterity";
     }
@@ -450,9 +457,10 @@ public class ClassData extends Data {
         rogueFeatures.hitdie = 8;
         rogueFeatures.armorProf = "Light Armor";
         rogueFeatures.weaponProf = "Simple Weapons, Hand Crossbow, Longsword, Rapier, Shortsword";
-        String chaSkills[] = {"Acrobatics","Athletics","Deception","Insight","Intimidation","Investigation","Perception","Performance","Persuasion","Sleight of Hand", "Stealth"};
+        //                      {0    ,1    ,2    ,3    ,4    ,5    ,6    ,7    ,8    ,9    ,10   ,11   ,12   ,13   ,14   ,15   ,16   ,17  }
+        boolean classskills[] = {true,false,false,true,true,false,true,true,true,false,false,true,false,true,false,true,true,false};
         rogueFeatures.numclassSkills = 4;
-        rogueFeatures.chaClassSkills = chaSkills;
+        rogueFeatures.chaClassSkills = classskills;
         rogueFeatures.save1 = "Dexterity";
         rogueFeatures.save2 = "Intelegence";
         rogueFeatures.toolProf = "Theives Tools";
@@ -505,9 +513,10 @@ public class ClassData extends Data {
         sorcererFeatures.hitdie = 6;
         sorcererFeatures.armorProf = "None";
         sorcererFeatures.weaponProf = "Daggers, Darts, Slings, Quarterstaffs, Light Crossbows";
-        String chaSkills[] = {"Arcana","Deception","Insight","Intimidation","Persuasion","Religion"};
+        //                      {0    ,1    ,2    ,3    ,4    ,5    ,6    ,7    ,8    ,9    ,10   ,11   ,12   ,13   ,14   ,15   ,16   ,17  }
+        boolean classskills[] = {false,false,true,false,true,false,true,true,false,false,false,false,false,true,true,false,false,false};
         sorcererFeatures.numclassSkills = 2;
-        sorcererFeatures.chaClassSkills = chaSkills;
+        sorcererFeatures.chaClassSkills = classskills;
         sorcererFeatures.save1 = "Constitution";
         sorcererFeatures.save2 = "Charisma";
         sorcererFeatures.toolProf = "Three musical instraments of your choice.";
@@ -584,9 +593,11 @@ public class ClassData extends Data {
         warlockFeatures.hitdie = 8;
         warlockFeatures.armorProf = "Light Armor";
         warlockFeatures.weaponProf = "Simple Weapons";
-        String chaSkills[] = {"Arcana","Deception","History","Intimidation","Investigation","Nature","Religion"};
+        //                      {0    ,1    ,2    ,3    ,4    ,5    ,6    ,7    ,8    ,9    ,10   ,11   ,12   ,13   ,14   ,15   ,16   ,17  }
+        boolean classskills[] = {false,false,true,false,true,true,false,true,true,false,true,false,false,false,true,false,false,false};
+
         warlockFeatures.numclassSkills = 2;
-        warlockFeatures.chaClassSkills = chaSkills;
+        warlockFeatures.chaClassSkills = classskills;
         warlockFeatures.save1 = "Wisdom";
         warlockFeatures.save2 = "Charisma";
     }
@@ -634,9 +645,10 @@ public class ClassData extends Data {
         wizardFeatures.hitdie = 6;
         wizardFeatures.armorProf = "None";
         wizardFeatures.weaponProf = "Dagger, Darts, Slings, Quarterstaffs, Light Crossbows";
-        String chaSkills[] = {"Arcane","History","Insight","Investigation","Medicine","Religion"};
+        //                      {0    ,1    ,2    ,3    ,4    ,5    ,6    ,7    ,8    ,9    ,10   ,11   ,12   ,13   ,14   ,15   ,16   ,17  }
+        boolean classskills[] = {false,false,true,false,false,true,true,false,true,true,false,false,false,false,true,false,false,false};
         wizardFeatures.numclassSkills = 2;
-        wizardFeatures.chaClassSkills = chaSkills;
+        wizardFeatures.chaClassSkills = classskills;
         wizardFeatures.save1 = "Intelligence";
         wizardFeatures.save2 = "Wisdom";
         wizardFeatures.toolProf = "Three musical instraments of your choice.";
