@@ -208,6 +208,176 @@ public class BackgroundData extends Data {
                 "Work with your DM to determine the details of your discovery and its impact on the campaign.";
     }
 
+    Data nobleFeatures = new Data();
+    public void setNobleFeatures(Data nobleFeatures) {
+        nobleFeatures.abilName = "Noble Features";
+        //Skills alphabetically: Acrobatics, Animal Handling, Arcana, Athletics, Deception, History, Insight, Intimidation,Investigation, Medicine, Nature, Perception, Performance, Persuasion, Religion, Sleight of Hand, Stealth, Survival.
+        //                 {0    ,1     ,2     ,3     ,4     ,5     ,6     ,7     ,8     ,9     ,10    ,11    ,12    ,13    ,14    ,15    ,16    ,17  }
+        boolean skills[] = {false, false, false, false, false, true, false, false, false, false, false, false, false, true, false, false, false, false};
+        nobleFeatures.backgroundSkills = skills;
+        nobleFeatures.toolProf = "One type of gaming set";
+        nobleFeatures.languages = "One of your choice";
+        nobleFeatures.startGold = 25;
+        nobleFeatures.flavor = "You understand wealth, power, and privilege. You\n" +
+                "carry a noble title, and your family owns land, collects taxes, and wields significant political influence. You might be a pampered aristocrat unfamiliar with\n" +
+                "work or discomfort, a former merchant just elevated\n" +
+                "to the nobility, or a disinherited scoundrel with a disproportionate sense of entitlement. Or you could be an honest, hard-working landowner who cares deeply about the people who live and work on your land, keenly aware of your responsibility to them.\n" +
+                "Work with your DM to come up with an appropriate title and determine how much authority that title carries. A noble title doesn’t stand on its own—it’s connected to an entire family, and whatever title you hold, you will pass it down to your own children. Not only do you need to determine your noble title, but you should also work with the DM to describe your family and their influence on you.\n" +
+                "Is your family old and established, or was your title only recently bestowed? How much influence do they wield, and over what area? What kind of reputation does your family have among the other aristocrats of the region? How do the common people regard them?\n" +
+                "What’s your position in the family? Are you the heir to the head of the family? Have you already inherited the title? How do you feel about that responsibility? Or are you so far down the line of inheritance that no one cares what you do, as long as you don’t embarrass the family? How does the head of your family feel about your adventuring career? Are you in your family’s good graces, or shunned by the rest of your family?\n" +
+                "Does your family have a coat of arms? An insignia you might wear on a signet ring? Particular colors you wear all the time? An animal you regard as a symbol of your line or even a spiritual member of the family?\n" +
+                "These details help establish your family and your title as features of the world of the campaign.";
+    }
+
+    Data noblePrivilage = new Data();
+    public void setNoblePrivilage(Data noblePrivilage) {
+        noblePrivilage.abilName = "Position of Privilage";
+        noblePrivilage.dlevel = 1;
+        noblePrivilage.flavor = "Thanks to your noble birth, people are inclined to\n" +
+                "think the best of you. You are welcome in high society, and people assume you have the right to be wherever you are. The common folk make every effort to accommodate you and avoid your displeasure, and other people of high birth treat you as a member of the same social sphere. You can secure an audience with a local noble if you need to.";
+    }
+
+    Data nobleVariantKnight = new Data();
+    public void setNobleVariantKnight(Data nobleVariantKnight) {
+        nobleVariantKnight.abilName = "Knight";
+        nobleVariantKnight.dlevel = 1;
+        nobleVariantKnight.flavor = "A knighthood is among the lowest noble titles in most\n" +
+                "societies, but it can be a path to higher status. If you wish to be a knight, choose the Retainers feature (see the sidebar) instead of the Position of Privilege feature. One of your commoner retainers is replaced by a noble who serves as your squire, aiding you in exchange for training on his or her own path to knighthood. Your two remaining retainers might include a groom to care for your horse and a servant who polishes your armor (and even helps you put it on).\n" +
+                "As an emblem of chivalry and the ideals of courtly love, you might include among your equipment a banner or other token from a noble lord or lady to whom you have given your heart—in a chaste sort of devotion. (This person could be your bond.)";
+    }
+
+    Data nobleVariantFeature = new Data();
+    public void setNobleVariantFeature(Data nobleVariantFeature) {
+        nobleVariantFeature.abilName = "Retainers";
+        nobleVariantFeature.dlevel = 1;
+        nobleVariantFeature.flavor = "If your character has a noble background, you may select this background feature instead of Position of Privilege.\n" +
+                "You have the service of three retainers loyal to your family. These retainers can be attendants or messengers, and one might be a majordomo. Your retainers are commoners who can perform mundane tasks for you, but they do not fight for you, will not follow you into obviously dangerous areas (such as dungeons), and will leave if they are frequently endangered or abused.";
+    }
+
+    Data outlanderFeatures = new Data();
+    public void setOutlanderFeatures(Data outlanderFeatures) {
+        outlanderFeatures.abilName = "Outlander Features";
+        //Skills alphabetically: Acrobatics, Animal Handling, Arcana, Athletics, Deception, History, Insight, Intimidation,Investigation, Medicine, Nature, Perception, Performance, Persuasion, Religion, Sleight of Hand, Stealth, Survival.
+        //                 {0    ,1     ,2     ,3     ,4     ,5     ,6     ,7     ,8     ,9     ,10    ,11    ,12    ,13    ,14    ,15    ,16    ,17  }
+        boolean skills[] = {false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, true};
+        outlanderFeatures.backgroundSkills = skills;
+        outlanderFeatures.toolProf = "One type of musical instrument";
+        outlanderFeatures.languages = "One language of your choice.";
+        outlanderFeatures.startGold = 10;
+        outlanderFeatures.flavor = "You grew up in the wilds, far from civilization and the comforts of town and technology. You’ve witnessed the migration of herds larger than forests, survived weather more extreme than any city-dweller could comprehend, and enjoyed the solitude of being the only thinking creature for miles in any direction. The wilds are in your blood, whether you were a nomad, an explorer, a recluse, a hunter-gatherer, or even a marauder. Even in places where you don’t know the specific features of the terrain, you know the ways of the wild.";
+    }
+
+    Data outlanderWanderer = new Data();
+    public void setOutlanderWanderer(Data outlanderWanderer) {
+        outlanderWanderer.abilName = "Wanderer";
+        outlanderWanderer.dlevel = 1;
+        outlanderWanderer.flavor = "You have an excellent memory for maps and geography, and you can always recall the general layout of terrain, settlements, and other features around you. In addition, you can find food and fresh water for yourself and up to five other people each day, provided that the land offers berries,small game,water,and so forth.";
+    }
+
+    Data sageFeatures = new Data();
+    public void setSageFeatures(Data sageFeatures) {
+        sageFeatures.abilName = "Outlander Features";
+        //Skills alphabetically: Acrobatics, Animal Handling, Arcana, Athletics, Deception, History, Insight, Intimidation,Investigation, Medicine, Nature, Perception, Performance, Persuasion, Religion, Sleight of Hand, Stealth, Survival.
+        //                 {0    ,1     ,2     ,3     ,4     ,5     ,6     ,7     ,8     ,9     ,10    ,11    ,12    ,13    ,14    ,15    ,16    ,17  }
+        boolean skills[] = {false, false, true, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false};
+        sageFeatures.backgroundSkills = skills;
+        sageFeatures.languages = "Two languages of your choice.";
+        sageFeatures.startGold = 10;
+        sageFeatures.flavor = "You spent years learning the lore of the multiverse. You scoured manuscripts, studied scrolls, and listened to the greatest experts on the subjects that interest you. Your efforts have made you a master in your fields of study.\n";
+    }
+
+    Data sageResearcher = new Data();
+    public void setSageResearcher(Data sageResearcher) {
+        sageResearcher.abilName = "Researcher";
+        sageResearcher.dlevel = 1;
+        sageResearcher.flavor = "When you attempt to learn or recall a piece of lore, if you do not know that information, you often know where and from whom you can obtain it. Usually, this information com es from a library, scriptorium, university, or a sage or other learned person or creature. Your DM might\n" +
+                "rule that the knowledge you seek is secreted away in an almost inaccessible place, or that it simply cannot be found. Unearthing the deepest secrets of the multiverse can require an adventure or even a whole campaign.";
+    }
+
+    Data sailorFeatures = new Data();
+    public void setSailorFeatures(Data sailorFeatures) {
+        sailorFeatures.abilName = "Sailor Features";
+        //Skills alphabetically: Acrobatics, Animal Handling, Arcana, Athletics, Deception, History, Insight, Intimidation,Investigation, Medicine, Nature, Perception, Performance, Persuasion, Religion, Sleight of Hand, Stealth, Survival.
+        //                 {0    ,1     ,2     ,3     ,4     ,5     ,6     ,7     ,8     ,9     ,10    ,11    ,12    ,13    ,14    ,15    ,16    ,17  }
+        boolean skills[] = {false, false, false, true, false, false, false, false, false, false, false, true, false, false, false, false, false, false};
+        sailorFeatures.backgroundSkills = skills;
+        sailorFeatures.toolProf = "Navigator's Tools. Vehicles(water)";
+        sailorFeatures.startGold = 10;
+        sailorFeatures.flavor = "You sailed on a seagoing vessel for years. In that time, you faced down mighty storms, monsters of the deep, and those who wanted to sink your craft to the bottomless depths. Your first love is the distant line of the horizon, but the time has come to try your hand\n" +
+                "at something new.\n" +
+                "Discuss the nature of the ship you previously sailed with your Dungeon Master. Was it a merchant ship,\n" +
+                "a naval vessel, a ship of discovery, or a pirate ship? How famous (or infamous) is it? Is it widely traveled? Is it still sailing, or is it missing and presumed lost with all hands?\n" +
+                "What were your duties on board—boatswain, captain, navigator, cook, or some other position? Who were the captain and first mate? Did you leave your ship on good terms with your fellows, or on the run?\n";
+    }
+
+    Data sailorShipsPassage = new Data();
+    public void setSailorShipsPassage(Data sailorShipsPassage) {
+        sailorShipsPassage.abilName = "Ship's Passage";
+        sailorShipsPassage.dlevel = 1;
+        sailorShipsPassage.flavor = "When you need to, you can secure free passage on\n" +
+                "a sailing ship for yourself and your adventuring companions. You might sail on the ship you served on, or another ship you have good relations with (perhaps one captained by a former crewmate). Because you’re calling in a favor, you can’t be certain of a schedule or route that will meet your every need. Your Dungeon Master will determine how long it takes to get where you need to go. In return for your free passage, you and your companions are expected to assist the crew during the voyage.";
+    }
+
+    Data sailorVariantPirate = new Data();
+    public void setSailorVariantPirate(Data sailorVariantPirate) {
+        sailorVariantPirate.abilName = "Pirate";
+        sailorVariantPirate.dlevel = 1;
+        sailorVariantPirate.flavor = "You spent your youth under the sway of a dread pirate,\n" +
+                "a ruthless cutthroat who taught you how to survive in a world of sharks and savages. You’ve indulged in larceny on the high seas and sent more than one deserving soul to a briny grave. Fear and bloodshed are no strangers\n" +
+                "to you, and you’ve garnered a somewhat unsavory reputation in many a port town.\n" +
+                "If you decide that your sailing career involved piracy, you can choose the Bad Reputation feature (see sidebar) instead of the Ship’s Passage feature.\n";
+    }
+
+    Data sailorVariantFeature = new Data();
+    public void setSailorVariantFeature(Data sailorVariantFeature) {
+        sailorVariantFeature.abilName = "Bad Reputation";
+        sailorVariantFeature.dlevel = 1;
+        sailorVariantFeature.flavor = "If your character has a sailor background, you may select this background feature instead of Ship’s Passage.\n" +
+                "No matter where you go, people are afraid of you due to your reputation. When you are in a civilized settlement, you can get away with minor criminal offenses, such as refusing to pay for food at a tavern or breaking down doors at a local shop, since most people will not report your activity to the authorities.";
+    }
+
+    Data soldierFeature = new Data();
+    public void setSoldierFeature(Data soldierFeature) {
+        soldierFeature.abilName = "Soldier Features";
+        //Skills alphabetically: Acrobatics, Animal Handling, Arcana, Athletics, Deception, History, Insight, Intimidation,Investigation, Medicine, Nature, Perception, Performance, Persuasion, Religion, Sleight of Hand, Stealth, Survival.
+        //                 {0    ,1     ,2     ,3     ,4     ,5     ,6     ,7     ,8     ,9     ,10    ,11    ,12    ,13    ,14    ,15    ,16    ,17  }
+        boolean skills[] = {false, false, false, true, false, false, false, true, false, false, false, false, false, false, false, false, false, false};
+        soldierFeature.backgroundSkills = skills;
+        soldierFeature.toolProf = "One type of gaming set.";
+        soldierFeature.startGold = 10;
+        soldierFeature.flavor = "War has been your life for as long as you care to remember. You trained as a youth, studied the use of weapons and armor, learned basic survival techniques, including how to stay alive on the battlefield. You\n" +
+                "might have been part of a standing national army or a mercenary company, or perhaps a member of a local militia who rose to prominence during a recent war.\n" +
+                "When you choose this background, work with your DM to determine which military organization you were\n" +
+                "a part of, how far through its ranks you progressed, and what kind of experiences you had during your military career.Wasitastandingarmy,atownguard,oravillage militia? Or it might have been a noble’s or merchant’s private army, or a mercenary company.";
+    }
+
+    Data soldierMilitaryRank = new Data();
+    public void setSoldierMilitaryRank(Data soldierMilitaryRank) {
+        soldierMilitaryRank.abilName = "Military Rank";
+        soldierMilitaryRank.dlevel = 1;
+        soldierMilitaryRank.flavor = "You have a military rank from your career as a soldier. Soldiers loyal to your former military organization still recognize your authority and influence, and they defer to you if they are of a lower rank. You can invoke your rank to exert influence over other soldiers and requisition simple equipment or horses for temporary use. You can also usually gain access to friendly military encampments and fortresses where your rank is recognized.\n";
+    }
+
+    Data urchinFeatures = new Data();
+    public void setUrchinFeatures(Data urchinFeatures) {
+        urchinFeatures.abilName = "Urchin Features";
+        //Skills alphabetically: Acrobatics, Animal Handling, Arcana, Athletics, Deception, History, Insight, Intimidation,Investigation, Medicine, Nature, Perception, Performance, Persuasion, Religion, Sleight of Hand, Stealth, Survival.
+        //                 {0    ,1     ,2     ,3     ,4     ,5     ,6     ,7     ,8     ,9     ,10    ,11    ,12    ,13    ,14    ,15    ,16    ,17  }
+        boolean skills[] = {false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, true, false};
+        urchinFeatures.backgroundSkills = skills;
+        urchinFeatures.toolProf = "Disguise Kit, Thieves' Tools";
+        urchinFeatures.startGold = 10;
+        urchinFeatures.flavor = "You grew up on the streets alone, orphaned, and poor. You had no one to watch over you or to provide for\n" +
+                "you, so you learned to provide for yourself. You fought fiercely over food and kept a constant watch out for other desperate souls who might steal from you. You slept on rooftops and in alleyways, exposed to the elements, and endured sickness without the advantage of medicine or a place to recuperate. You’ve survived despite all odds, and did so through cunning, strength, speed, or some combination of each.\n" +
+                "You begin your adventuring career with enough money to live modestly but securely for at least ten days. How did you come by that money? What allowed you to break free ofyour desperate circumstances and embark on a better life?";
+    }
+
+    Data urchinCitySecrets = new Data();
+    public void setUrchinCitySecrets(Data urchinCitySecrets) {
+        urchinCitySecrets.abilName = "City Secrets";
+        urchinCitySecrets.dlevel = 1;
+        urchinCitySecrets.flavor = "You know the secret patterns and flow to cities and can find passages through the urban sprawl that others would miss. When you are not in combat, you (and companions you lead) can travel between any two locations in the city twice as fast as your speed would normally allow.\n";
+    }
 
     public ArrayList<Data> getBd(){
         //acolyte
@@ -275,8 +445,58 @@ public class BackgroundData extends Data {
         bd.add(hermitDiscovery);
 
         //Noble
+        setNobleFeatures(nobleFeatures);
+        bd.add(nobleFeatures);
 
+        setNoblePrivilage(noblePrivilage);
+        bd.add(noblePrivilage);
 
+        setNobleVariantKnight(nobleVariantKnight);
+        bd.add(nobleVariantKnight);
+
+        setNobleVariantFeature(nobleVariantFeature);
+        bd.add(nobleVariantFeature);
+
+        //Outlander
+        setOutlanderFeatures(outlanderFeatures);
+        bd.add(outlanderFeatures);
+
+        setOutlanderWanderer(outlanderWanderer);
+        bd.add(outlanderWanderer);
+
+        //Sage
+        setSageFeatures(sageFeatures);
+        bd.add(sageFeatures);
+
+        setSageResearcher(sageResearcher);
+        bd.add(sageResearcher);
+
+        //Sailor
+        setSailorFeatures(sailorFeatures);
+        bd.add(sailorFeatures);
+
+        setSailorShipsPassage(sailorShipsPassage);
+        bd.add(sailorShipsPassage);
+
+        setSailorVariantPirate(sailorVariantPirate);
+        bd.add(sailorVariantPirate);
+
+        setSailorVariantFeature(sailorVariantFeature);
+        bd.add(sailorVariantFeature);
+
+        //Soldier
+        setSoldierFeature(soldierFeature);
+        bd.add(soldierFeature);
+
+        setSoldierMilitaryRank(soldierMilitaryRank);
+        bd.add(soldierMilitaryRank);
+
+        //Urchin
+        setUrchinFeatures(urchinFeatures);
+        bd.add(urchinFeatures);
+
+        setUrchinCitySecrets(urchinCitySecrets);
+        bd.add(urchinCitySecrets);
 
         return bd;
     }
