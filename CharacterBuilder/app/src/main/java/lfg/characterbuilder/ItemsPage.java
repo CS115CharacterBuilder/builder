@@ -1,6 +1,7 @@
 package lfg.characterbuilder;
 
 import android.content.Context;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,7 +15,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class ItemsPage extends AppCompatActivity {
+public class ItemsPage extends Fragment {
 
 
     public class ItemElement {
@@ -65,36 +66,40 @@ public class ItemsPage extends AppCompatActivity {
     private MyAdapter aa;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_items_page);
-
-        aa = new MyAdapter(this, R.layout.item_element, iList);
-        ListView itemList = (ListView)findViewById(R.id.itemList);
+        aa = new MyAdapter(this.getActivity(), R.layout.item_element, iList);
+        ListView itemList = (ListView)getView().findViewById(R.id.itemList);
         itemList.setAdapter(aa);
         aa.notifyDataSetChanged();
 
 
     }
 
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        public void addItem(View v) {
-            EditText et = (EditText) findViewById(R.id.ItemName);
-            EditText et2 = (EditText) findViewById(R.id.ItemDescription);
-            String iName = et.getText().toString(); //gets name of item from box
-            String iDesc = et2.getText().toString(); // gets item description from box
-            ItemElement newItem = new ItemElement(); //creates new item and fills in fields
-            newItem.itemName = iName;
-            newItem.itemDescription = iDesc;
-            newItem.position = iList.size(); //adds newly created item to the arraylist
-            iList.add(newItem);
-        }
+        super.onCreateView(inflater, container, savedInstanceState);
+        return inflater.inflate(R.layout.activity_items_page, container, false);
+    }
 
-        public void clickRemove(View v) {
 
-            int position = (Integer)v.getTag();
-            iList.remove(position);
-        }
+    public void addItem(View v) {
+        EditText et = (EditText) getView().findViewById(R.id.ItemName);
+        EditText et2 = (EditText) getView().findViewById(R.id.ItemDescription);
+        String iName = et.getText().toString(); //gets name of item from box
+        String iDesc = et2.getText().toString(); // gets item description from box
+        ItemElement newItem = new ItemElement(); //creates new item and fills in fields
+        newItem.itemName = iName;
+        newItem.itemDescription = iDesc;
+        newItem.position = iList.size(); //adds newly created item to the arraylist
+        iList.add(newItem);
+    }
+
+    public void clickRemove(View v) {
+
+        int position = (Integer)v.getTag();
+        iList.remove(position);
+    }
 
 
 

@@ -1,6 +1,8 @@
 package lfg.characterbuilder;
 
 import android.content.Context;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,7 +18,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EquipmentPage extends AppCompatActivity {
+public class EquipmentPage extends Fragment {
 
     public class mWeapon {
         mWeapon() {
@@ -42,8 +44,8 @@ public class EquipmentPage extends AppCompatActivity {
     //adapter for melee weapons
     private class mAdapter extends ArrayAdapter<mWeapon> {
         int resource;
-        Context context;
-        public mAdapter(Context context, int resource, List<mWeapon> mWList) {
+        FragmentActivity context;
+        public mAdapter(FragmentActivity context, int resource, List<mWeapon> mWList) {
             super(context, resource, mWList);
             this.context = context;
             resource = resource;
@@ -62,7 +64,7 @@ public class EquipmentPage extends AppCompatActivity {
                 newView = (LinearLayout) convertView;
             }
 
-            Button remove = (Button) findViewById(R.id.mWRemove);
+            Button remove = (Button) newView.findViewById(R.id.mWRemove);
             remove.setTag(position);
             //set to load stored weapons
             EditText mName = (EditText) newView.findViewById(R.id.mWeaponVal);
@@ -78,8 +80,8 @@ public class EquipmentPage extends AppCompatActivity {
     //adapter for ranged weapons
     private class rAdapter extends ArrayAdapter<rWeapon> {
         int resource;
-        Context context;
-        public rAdapter(Context context, int resource, List<rWeapon> rWList) {
+        FragmentActivity context;
+        public rAdapter(FragmentActivity context, int resource, List<rWeapon> rWList) {
             super(context, resource, rWList);
             this.context = context;
             resource = resource;
@@ -98,7 +100,7 @@ public class EquipmentPage extends AppCompatActivity {
                 newView = (LinearLayout) convertView;
             }
 
-            Button remove = (Button) findViewById(R.id.rWRemove);
+            Button remove = (Button) newView.findViewById(R.id.rWRemove);
             remove.setTag(position);
             //set to load stored weapons
             EditText rName = (EditText) newView.findViewById(R.id.rWeaponVal);
@@ -114,9 +116,8 @@ public class EquipmentPage extends AppCompatActivity {
     private rAdapter rW;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_equipment_page);
         //input list of proficiencies
         /*ArrayList<String> proficiencies = new ArrayList<String>();
          *String ProfList = ""
@@ -126,16 +127,23 @@ public class EquipmentPage extends AppCompatActivity {
          * ProfList.setText(ProfList);
          */
         //creates the arraylists with weapons and refreshes when arraylists are updated
-        mW = new mAdapter(this, R.layout.mweapon_element, mWList);
-        rW = new rAdapter(this, R.layout.rweapon_element, rWList);
-        ListView mWeaponsList = (ListView)findViewById(R.id.mWeaponsList);
-        ListView rWeaponsList = (ListView)findViewById(R.id.rWeaponsList);
+        mW = new mAdapter(this.getActivity(), R.layout.mweapon_element, mWList);
+        rW = new rAdapter(this.getActivity(), R.layout.rweapon_element, rWList);
+        ListView mWeaponsList = (ListView)getView().findViewById(R.id.mWeaponsList);
+        ListView rWeaponsList = (ListView)getView().findViewById(R.id.rWeaponsList);
         mWeaponsList.setAdapter(mW);
         rWeaponsList.setAdapter(rW);
         mW.notifyDataSetChanged();
         rW.notifyDataSetChanged();
 
 
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        super.onCreateView(inflater, container, savedInstanceState);
+        return inflater.inflate(R.layout.activity_equipment_page, container, false);
     }
 
     //adds new melee weapons to list

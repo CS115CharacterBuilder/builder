@@ -2,6 +2,8 @@ package lfg.characterbuilder;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -20,7 +22,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class AbilitiesPage extends AppCompatActivity {
+public class AbilitiesPage extends Fragment {
 
     ExpandableListAdapter listAdapter;
     ExpandableListView expListView;
@@ -37,24 +39,29 @@ public class AbilitiesPage extends AppCompatActivity {
 
     }
 
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        createlist();
+        expListView = (ExpandableListView) getView().findViewById(R.id.expandableListView);
+        listAdapter = new ExpandableListAdapter(this.getActivity(), abilityTypes, listAbilities);
+        expListView.setAdapter(listAdapter);
+
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_abilities_page);
-        createlist();
-        expListView = (ExpandableListView) findViewById(R.id.expandableListView);
-        listAdapter = new ExpandableListAdapter(this, abilityTypes, listAbilities);
-        expListView.setAdapter(listAdapter);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        super.onCreateView(inflater, container, savedInstanceState);
+        return inflater.inflate(R.layout.activity_abilities_page, container, false);
     }
 
     //creates expandable list adapter to contain different abilities
     private class ExpandableListAdapter extends BaseExpandableListAdapter {
-        private Context _context;
+        private FragmentActivity _context;
         private List<String> _listDataHeader;
         private HashMap<String, List<Ability>> _listDataChild;
 
-        public ExpandableListAdapter(Context context, List<String> listDataHeader, HashMap<String, List<Ability>> _listChildData) {
+        public ExpandableListAdapter(FragmentActivity context, List<String> listDataHeader, HashMap<String, List<Ability>> _listChildData) {
             this._context = context;
             this._listDataHeader = listDataHeader;
             this._listDataChild = _listDataChild;

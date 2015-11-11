@@ -1,6 +1,7 @@
 package lfg.characterbuilder;
 
 import android.content.Context;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.content.Context;
@@ -24,7 +25,7 @@ import java.lang.Object;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SkillsPage extends AppCompatActivity {
+public class SkillsPage extends Fragment {
 
     public class SkillElement {
         SkillElement() {
@@ -77,13 +78,18 @@ public class SkillsPage extends AppCompatActivity {
     private MyAdapter aa;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_skills_page);
             createSkills();
-            aa = new MyAdapter(this, R.layout.skillelement, sList);
-            ListView skillList = (ListView)findViewById(R.id.skillList);
+            aa = new MyAdapter(this.getActivity(), R.layout.skillelement, sList);
+            ListView skillList = (ListView)getView().findViewById(R.id.skillList);
             skillList.setAdapter(aa);
+    }
+
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        super.onCreateView(inflater, container, savedInstanceState);
+        return inflater.inflate(R.layout.activity_skills_page, container, false);
     }
 
     //automates creation of character skills
