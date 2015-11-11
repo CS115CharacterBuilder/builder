@@ -22,7 +22,8 @@
             android:text="Add Description"
             android:id="@+id/button3"
             android:layout_column="3"
-            android:gravity="right" />
+            android:gravity="right"
+            android:paddingTop="15dp" />
 
     </TableRow>
 

@@ -33,12 +33,12 @@ public class ItemsPage extends AppCompatActivity {
         public void addItem(View v) {
             EditText et = (EditText) findViewById(R.id.ItemName);
             EditText et2 = (EditText) findViewById(R.id.ItemDescription);
-            String iName = et.getText().toString();
-            String iDesc = et2.getText().toString();
-            ItemElement newItem = new ItemElement();
+            String iName = et.getText().toString(); //gets name of item from box
+            String iDesc = et2.getText().toString(); // gets item description from box
+            ItemElement newItem = new ItemElement(); //creates new item and fills in fields
             newItem.itemName = iName;
             newItem.itemDescription = iDesc;
-            newItem.position = iList.size();
+            newItem.position = iList.size(); //adds newly created item to the arraylist
             iList.add(newItem);
         }
 
