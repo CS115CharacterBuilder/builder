@@ -25,8 +25,10 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Medium Text"
         android:id="@+id/cOneText"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_marginTop="59dp"
+        android:layout_below="@+id/questText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -34,8 +36,10 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Medium Text"
         android:id="@+id/cTwoText"
+        android:layout_marginTop="80dp"
         android:layout_below="@+id/cOneText"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignLeft="@+id/cOneText"
+        android:layout_alignStart="@+id/cOneText" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -44,7 +48,9 @@
         android:text="Medium Text"
         android:id="@+id/cThreeText"
         android:layout_below="@+id/cTwoText"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignLeft="@+id/cTwoText"
+        android:layout_alignStart="@+id/cTwoText"
+        android:layout_marginTop="97dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -52,6 +58,8 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Medium Text"
         android:id="@+id/cFourText"
+        android:layout_marginTop="100dp"
         android:layout_below="@+id/cThreeText"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignLeft="@+id/cThreeText"
+        android:layout_alignStart="@+id/cThreeText" />
 </RelativeLayout>

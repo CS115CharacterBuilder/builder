@@ -87,7 +87,7 @@ public class StatPage extends Fragment {
         }
         return modValue;
     }
-
+/*
     public void addHP () {
         int hp = (Integer)char_hitpoints;
         hp += 1;
@@ -129,4 +129,5 @@ public class StatPage extends Fragment {
         String newhp = Integer.toString(hp);
         HDCount.setText(newhp);
     }
+    */
 }

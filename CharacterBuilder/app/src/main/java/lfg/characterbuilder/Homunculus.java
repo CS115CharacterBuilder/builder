@@ -12,6 +12,14 @@ public class Homunculus{
     private String hClass;
     private String hSubrace;
     private String hBackground;
+    private int barbarianScore;
+    private int fighterScore;
+    private int paladinScore;
+    private int monkScore;
+    private int rangerScore;
+    private int warlockScore;
+    private int rogueScore;
+    private int wizardScore;
 
     public Homunculus(){
         hRace = "";
