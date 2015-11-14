@@ -515,7 +515,8 @@
                         android:layout_height="39dp"
                         android:text="-"
                         android:id="@+id/HDSubBtn"
-                        android:textSize="25dp" />
+                        android:textSize="25dp"
+                        android:onClick="removeHD" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -537,7 +538,8 @@
                         android:layout_height="37dp"
                         android:text="+"
                         android:id="@+id/HDAddBtn"
-                        android:textSize="25dp" />
+                        android:textSize="25dp"
+                        android:onClick="addHD" />
                 </LinearLayout>
 
                 <TextView
@@ -561,7 +563,8 @@
                         android:layout_height="39dp"
                         android:text="-"
                         android:id="@+id/HPSubBtn"
-                        android:textSize="25dp" />
+                        android:textSize="25dp"
+                        android:onClick="removeHP" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -585,7 +588,8 @@
                         android:layout_height="37dp"
                         android:text="+"
                         android:id="@+id/HPAddBtn"
-                        android:textSize="25dp" />
+                        android:textSize="25dp"
+                        android:onClick="addHP" />
 
                 </LinearLayout>
 
@@ -602,7 +606,8 @@
                         android:layout_height="39dp"
                         android:text="-"
                         android:id="@+id/TempSubBtn"
-                        android:textSize="25dp" />
+                        android:textSize="25dp"
+                        android:onClick="removeTHP" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -618,7 +623,8 @@
                         android:layout_height="37dp"
                         android:text="+"
                         android:id="@+id/TempAddBtn"
-                        android:textSize="25dp" />
+                        android:textSize="25dp"
+                        android:onClick="addTHP" />
                 </LinearLayout>
 
                 <TextView
