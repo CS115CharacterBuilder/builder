@@ -1,5 +1,7 @@
 package lfg.characterbuilder;
 
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -14,6 +16,7 @@ public class MainActivity extends FragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Character gotChar = getIntent().getParcelableExtra("characterTag");
         setContentView(R.layout.activity_main);
         viewPager = (ViewPager) findViewById(R.id.pager);
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -55,3 +58,4 @@ class MyAdapter extends FragmentPagerAdapter {
         return 8;
     }
 }
+
