@@ -183,9 +183,9 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void addDrawerItems() {
-        String[] Drawer_Text_Array = {"Dice", "Calculator", "Rules", "Experienced Questionnaire"};
+        String[] Drawer_Text_Array = {"Dice", "Calculator", "Rules", "Experienced Questionnaire", "Noob Questionnaire"};
         Integer[] Drawer_Index_Array = {R.drawable.ic_dice, R.drawable.ic_calculator,
-                                        R.drawable.ic_rules, R.drawable.ic_rules};
+                                        R.drawable.ic_rules, R.drawable.ic_rules, R.drawable.ic_rules};
 
         Drawer_Adapter = new NavBarAdapter(this, Drawer_Text_Array, Drawer_Index_Array);
         Drawer_List.setAdapter(Drawer_Adapter);
@@ -209,6 +209,11 @@ public class HomeActivity extends AppCompatActivity {
                         Toast.makeText(HomeActivity.this, "Ayy lmao, this is a test for the ExQuestionnaire", Toast.LENGTH_SHORT).show();
                         Intent exQuestionIntent = new Intent(HomeActivity.this, ExQuestionnaire.class);
                         startActivity(exQuestionIntent);
+                        break;
+                    case 4:
+                        Toast.makeText(HomeActivity.this, "Ayy lmao, this is a test for the NoobQuestionnaire", Toast.LENGTH_SHORT).show();
+                        Intent noobQuestionIntent = new Intent(HomeActivity.this, NoobQuestionnaire.class);
+                        startActivity(noobQuestionIntent);
                         break;
                     default:
                         break;
