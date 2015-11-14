@@ -19,15 +19,22 @@ public class Data {
     String extraCantripsByName; //if there is a spell gained by name.
     String misc1; //other stuff
     String misc2;
+    String duration;
+    String components;
     String dragonAncestry[];
+    String castTime;
+    String school;
     boolean chaClassSkills[];
     boolean backgroundSkills[];
     boolean raceSkills[];
     boolean savingThrows[]; // {str,dex,con,int,wis,cha}
+    boolean spells[];//which classes are proficient in the spell.
     String save1; //saving throw 1
     String save2; //savomg throw 2
     boolean has; //character has this data object
     boolean prof; //character is proficient in this
+    int range;
+    int spellLevel;
     int startGold;
     int speed; //the speed of the character by race.
     int extraCantrips; //some races get an additional cantrip.
