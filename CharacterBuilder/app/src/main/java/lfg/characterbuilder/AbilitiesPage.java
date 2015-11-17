@@ -23,6 +23,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public class AbilitiesPage extends Fragment {
+    Character gotChar = getActivity().getIntent().getParcelableExtra("characterTag");
 
     ExpandableListAdapter listAdapter;
     ExpandableListView expListView;

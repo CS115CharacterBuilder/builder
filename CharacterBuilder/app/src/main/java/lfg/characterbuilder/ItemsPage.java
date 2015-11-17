@@ -16,7 +16,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class ItemsPage extends Fragment {
-
+    Character gotChar = getActivity().getIntent().getParcelableExtra("characterTag");
 
     public class ItemElement {
         ItemElement() {

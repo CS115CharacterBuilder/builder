@@ -26,7 +26,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SkillsPage extends Fragment {
-
+    Character gotChar = getActivity().getIntent().getParcelableExtra("characterTag");
     public class SkillElement {
         SkillElement() {
         };
