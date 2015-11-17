@@ -74,7 +74,9 @@ public class StatPage extends Fragment {
 
     }
 
-
+    int char_hitpoints;
+    int char_hitdice;
+    int char_temporaryhp;
 
     //takes stat value and converts it into the modifier
     public String findMod(int x) {

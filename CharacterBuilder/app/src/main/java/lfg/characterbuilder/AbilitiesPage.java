@@ -156,6 +156,9 @@ public class AbilitiesPage extends Fragment {
         List<Ability> Class = new ArrayList<Ability>();
         List<Ability> Race = new ArrayList<Ability>();
         List<Ability> Background = new ArrayList<Ability>();
+
+        //This line does nothing, added to make it work. Delete on merge.
+        List<Ability> abilities = new ArrayList<Ability>();
         for(int i = 0; i < abilities.size(); i++) {
             Ability a = abilities.get(i);
             if(a.type == "Class") {
