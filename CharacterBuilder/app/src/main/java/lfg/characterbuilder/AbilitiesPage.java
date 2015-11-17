@@ -41,10 +41,12 @@ public class AbilitiesPage extends Fragment {
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        createlist();
         expListView = (ExpandableListView) getView().findViewById(R.id.expandableListView);
         listAdapter = new ExpandableListAdapter(this.getActivity(), abilityTypes, listAbilities);
         expListView.setAdapter(listAdapter);
+        Character gotChar = getActivity().getIntent().getParcelableExtra("characterTag");
+        String[] test = gotChar.getAbilties();
+        createlist(gotChar);
 
     }
 
@@ -145,7 +147,7 @@ public class AbilitiesPage extends Fragment {
         }
     }
 
-    public void createlist() {
+    public void createlist(Character gotChar) {
         abilityTypes = new ArrayList<String>();
         listAbilities = new HashMap<String, List<Ability>>();
         abilityTypes.add("Class");
@@ -156,8 +158,10 @@ public class AbilitiesPage extends Fragment {
         List<Ability> Class = new ArrayList<Ability>();
         List<Ability> Race = new ArrayList<Ability>();
         List<Ability> Background = new ArrayList<Ability>();
-        for(int i = 0; i < abilities.size(); i++) {
-            Ability a = abilities.get(i);
+        String[] s = gotChar.getAbilties();
+        for(int i = 0; i < s.length; i++) {
+            Ability a = new Ability();
+            a.name = s[i];
             if(a.type == "Class") {
                 Class.add(a);
             } else if(a.type == "Race") {

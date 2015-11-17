@@ -34,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:ems="10"
-                android:id="@+id/editText"
+                android:id="@+id/GoldVal"
                 android:layout_gravity="center_horizontal"
                 android:textSize="20dp"
                 android:text="10000" />
@@ -59,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:ems="10"
-                android:id="@+id/editText2"
+                android:id="@+id/SilverVal"
                 android:layout_gravity="center_horizontal"
                 android:textSize="20dp"
                 android:text="10000" />
@@ -84,7 +84,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:ems="10"
-                android:id="@+id/editText3"
+                android:id="@+id/CopperVal"
                 android:layout_gravity="center_horizontal"
                 android:textSize="20dp"
                 android:text="10000" />

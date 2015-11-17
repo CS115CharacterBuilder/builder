@@ -16,8 +16,10 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class ItemsPage extends Fragment {
+    //pulls character object
+    Character gotChar = getActivity().getIntent().getParcelableExtra("characterTag");
 
-
+    //declares item object
     public class ItemElement {
         ItemElement() {
         };
@@ -30,6 +32,7 @@ public class ItemsPage extends Fragment {
 
     public ArrayList<ItemElement> iList;
 
+    //adapter to create item object cards
     private class MyAdapter extends ArrayAdapter<ItemElement> {
         int resource;
         Context context;
@@ -68,10 +71,12 @@ public class ItemsPage extends Fragment {
     @Override
      public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        initializeIList();
         aa = new MyAdapter(this.getActivity(), R.layout.item_element, iList);
         ListView itemList = (ListView)getView().findViewById(R.id.itemList);
         itemList.setAdapter(aa);
         aa.notifyDataSetChanged();
+
 
 
     }
@@ -79,6 +84,12 @@ public class ItemsPage extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         super.onCreateView(inflater, container, savedInstanceState);
+        EditText GoldVal = (EditText) getView().findViewById(R.id.GoldVal);
+        EditText SilverVal = (EditText) getView().findViewById(R.id.SilverVal);
+        EditText CopperVal = (EditText) getView().findViewById(R.id.CopperVal);
+        GoldVal.setText(gotChar.getGold());
+        SilverVal.setText(gotChar.getSilver());
+        CopperVal.setText(gotChar.getCopper());
         return inflater.inflate(R.layout.activity_items_page, container, false);
     }
 
@@ -101,6 +112,17 @@ public class ItemsPage extends Fragment {
         iList.remove(position);
     }
 
+    public void initializeIList() {
+        String[] items = gotChar.getItemNames();
+        String[] itemDesc = gotChar.getItemDescriptions();
+        for(int i = 0; i < items.length; i++) {
+            ItemElement IE = new ItemElement();
+            IE.itemName = items[i];
+            IE.itemDescription = itemDesc[i];
+            IE.position = i;
+            iList.add(IE);
+        }
+    }
 
 
 
