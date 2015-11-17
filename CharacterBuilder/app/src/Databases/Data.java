@@ -33,7 +33,7 @@ public class Data {
     String save2; //savomg throw 2
     boolean has; //character has this data object
     boolean prof; //character is proficient in this
-    int range;
+    String range;
     int spellLevel;
     int startGold;
     int speed; //the speed of the character by race.
