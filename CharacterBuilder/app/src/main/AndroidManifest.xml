@@ -53,6 +53,7 @@
         </activity>
         <activity android:name=".CharacterStats" >
         </activity>
+
         <activity
             android:name=".NoobQuestionnaire"
             android:label="@string/title_activity_noob_questionnaire"
@@ -63,7 +64,6 @@
             android:label="@string/title_activity_ex_questionnaire"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
-        <activity android:name=".NewCharacterCreation" ></activity>
     </application>
 
 </manifest>

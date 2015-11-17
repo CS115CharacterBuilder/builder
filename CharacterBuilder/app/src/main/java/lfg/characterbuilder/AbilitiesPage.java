@@ -169,5 +169,6 @@ public class AbilitiesPage extends Fragment {
                 Background.add(a);
             }
         }
+
     }
 }
