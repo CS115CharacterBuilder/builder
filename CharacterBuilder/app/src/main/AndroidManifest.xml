@@ -55,7 +55,6 @@
         </activity>
         <activity android:name=".ItemsPage" >
         </activity>
-<<<<<<< HEAD
         <activity
             android:name=".NoobQuestionnaire"
             android:label="@string/title_activity_noob_questionnaire"
@@ -68,10 +67,8 @@
         </activity>
         <activity android:name=".StatPage" >
         </activity>
-        <activity android:name=".BackgroundPage" >
-=======
+        <activity android:name=".BackgroundPage" />
         <activity android:name=".NewCharacterCreation" >
->>>>>>> lfg-character-builder
         </activity>
         <activity android:name=".SkillsPage" >
         </activity>
