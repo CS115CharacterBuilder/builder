@@ -53,8 +53,6 @@
         </activity>
         <activity android:name=".CharacterStats" >
         </activity>
-        <activity android:name=".ItemsPage" >
-        </activity>
         <activity
             android:name=".NoobQuestionnaire"
             android:label="@string/title_activity_noob_questionnaire"
@@ -65,21 +63,9 @@
             android:label="@string/title_activity_ex_questionnaire"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
-        <activity android:name=".StatPage" >
-        </activity>
-        <activity android:name=".BackgroundPage" />
         <activity android:name=".NewCharacterCreation" >
         </activity>
-        <activity android:name=".SkillsPage" >
-        </activity>
-        <activity android:name=".AbilitiesPage" >
-        </activity>
-        <activity android:name=".EquipmentPage" >
-        </activity>
-        <activity android:name=".KnownSpells" >
-        </activity>
-        <activity android:name=".SpellPage" >
-        </activity>
+
     </application>
 
 </manifest>
