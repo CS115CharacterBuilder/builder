@@ -51,7 +51,7 @@ public class RaceData extends Data {
         dwarfTraits.statBoost = stats;
         dwarfTraits.size = "Medium";
         dwarfTraits.speed = 25;
-        dwarfTraits.vision = "Dark Vision:Accustomed to life underground, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray.";
+        dwarfTraits.vision = "Dark Vision: Accustomed to life underground, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray.";
         dwarfTraits.resistance = "Poison. Save vs. Poison. Resistant to poison damage.";
         dwarfTraits.weaponProf = "Battleaxe, Handaxe, Throwing Hammer, War Hammer";
         dwarfTraits.toolProf =  "Smith Tools, Brewers Supplies, Mason's Tools";
@@ -67,7 +67,7 @@ public class RaceData extends Data {
         elfTraits.statBoost = stats;
         elfTraits.size = "Medium";
         elfTraits.speed = 30;
-        elfTraits.vision = "Dark Vision: Dark Vision:Accustomed to life underground, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray.";
+        elfTraits.vision = "Dark Vision: Accustomed to life underground, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray.";
         elfTraits.skillProf = "Perception";
         elfTraits.resistance = "Charm. Advantage on save vs charm. Can not be put to sleep.";
         elfTraits.misc1 = "Trance.Elvesdon’tneedtosleep.Instead,they meditate deeply, remaining semiconscious, for 4\n" +
