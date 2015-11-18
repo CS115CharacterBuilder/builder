@@ -59,7 +59,7 @@ public class StatPage extends Fragment {
         TextView IniVal = (TextView) getView().findViewById(R.id.IniVal);
         IniVal.setText(Integer.toString(stats[7]));
         TextView ACVal = (TextView) getView().findViewById(R.id.ACVal);
-        ACVal.setText(Integer.toString(stats[8]));
+        ACVal.setText(Integer.toString(((stats[1] - 10)/2) + 10));
         TextView SpdVal = (TextView) getView().findViewById(R.id.SpdVal);
         SpdVal.setText(Integer.toString(stats[9]));
         TextView PercVal = (TextView) getView().findViewById(R.id.PercVal);
