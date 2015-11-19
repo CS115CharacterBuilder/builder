@@ -28,7 +28,7 @@ public class Character implements Parcelable {
     private int level;
     private int classpoints;
     /*stats follow the following format: (Strength, Dex, Constitution, Int, Wis, Char, Proficiency,
-    Initiative, Armor class, Speed, Perception, Hit Dice number, Hit Dice type, Current HP, Total HP
+    Initiative, Speed, Perception, Hit Dice number, Hit Dice type, Current HP, Total HP
     Temoporary HP)
      */
     private int[] stats;

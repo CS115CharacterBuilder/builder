@@ -63,7 +63,8 @@
             android:label="@string/title_activity_ex_questionnaire"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
-
+        <activity android:name=".NewCharacterCreation" >
+        </activity>
     </application>
 
 </manifest>
