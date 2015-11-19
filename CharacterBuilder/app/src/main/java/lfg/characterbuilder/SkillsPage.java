@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SkillsPage extends Fragment {
+    protected View mView;
     Character gotChar = getActivity().getIntent().getParcelableExtra("characterTag");
     public class SkillElement {
         SkillElement() {
@@ -77,18 +78,15 @@ public class SkillsPage extends Fragment {
 
     private MyAdapter aa;
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-            createSkills();
-            aa = new MyAdapter(this.getActivity(), R.layout.skillelement, sList);
-            ListView skillList = (ListView)getView().findViewById(R.id.skillList);
-            skillList.setAdapter(aa);
-    }
-
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
+        View fragmentView = inflater.inflate(R.layout.activity_skills_page, container, false);
         super.onCreateView(inflater, container, savedInstanceState);
+        createSkills();
+        aa = new MyAdapter(this.getActivity(), R.layout.skillelement, sList);
+        this.mView = fragmentView;
+        ListView skillList = (ListView)mView.findViewById(R.id.skillList);
+        skillList.setAdapter(aa);
         return inflater.inflate(R.layout.activity_skills_page, container, false);
     }
 

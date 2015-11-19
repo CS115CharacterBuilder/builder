@@ -19,7 +19,11 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class ItemsPage extends Fragment {
+    protected View mView;
+    //pulls character object
     Character gotChar = getActivity().getIntent().getParcelableExtra("characterTag");
+
+    //declares item object
     String[] itemNames = gotChar.getItemNames();
     String[] itemDesc = gotChar.getItemDescriptions();
 
@@ -35,6 +39,7 @@ public class ItemsPage extends Fragment {
 
     public ArrayList<ItemElement> iList;
 
+    //adapter to create item object cards
     private class MyAdapter extends ArrayAdapter<ItemElement> {
         int resource;
         Context context;
@@ -70,9 +75,11 @@ public class ItemsPage extends Fragment {
 
     private MyAdapter aa;
 
-    @Override
-     public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View fragmentView = inflater.inflate(R.layout.activity_items_page, container, false);
+        this.mView = fragmentView;
+        super.onCreateView(inflater, container, savedInstanceState);
+        initializeIList();
         for(int i = 0; i < itemNames.length; i++) {
             ItemElement IE = new ItemElement();
             IE.itemName = itemNames[i];
@@ -81,23 +88,23 @@ public class ItemsPage extends Fragment {
             iList.add(IE);
         }
         aa = new MyAdapter(this.getActivity(), R.layout.item_element, iList);
-        ListView itemList = (ListView)getView().findViewById(R.id.itemList);
+        ListView itemList = (ListView)mView.findViewById(R.id.itemList);
         itemList.setAdapter(aa);
+        //refreshes page when iList is updated
         aa.notifyDataSetChanged();
-
-
-    }
-
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
-        super.onCreateView(inflater, container, savedInstanceState);
+        EditText GoldVal = (EditText) mView.findViewById(R.id.GoldVal);
+        EditText SilverVal = (EditText) mView.findViewById(R.id.SilverVal);
+        EditText CopperVal = (EditText) mView.findViewById(R.id.CopperVal);
+        GoldVal.setText(gotChar.getGold());
+        SilverVal.setText(gotChar.getSilver());
+        CopperVal.setText(gotChar.getCopper());
         return inflater.inflate(R.layout.activity_items_page, container, false);
     }
 
 
     public void addItem(View v) {
-        EditText et = (EditText) getView().findViewById(R.id.ItemName);
-        EditText et2 = (EditText) getView().findViewById(R.id.ItemDescription);
+        EditText et = (EditText) mView.findViewById(R.id.ItemName);
+        EditText et2 = (EditText) mView.findViewById(R.id.ItemDescription);
         String iName = et.getText().toString(); //gets name of item from box
         String iDesc = et2.getText().toString(); // gets item description from box
         ItemElement newItem = new ItemElement(); //creates new item and fills in fields
@@ -159,6 +166,17 @@ public class ItemsPage extends Fragment {
         itemDesc = gotChar.getItemDescriptions();
     }
 
+    public void initializeIList() {
+        String[] items = gotChar.getItemNames();
+        String[] itemDesc = gotChar.getItemDescriptions();
+        for(int i = 0; i < items.length; i++) {
+            ItemElement IE = new ItemElement();
+            IE.itemName = items[i];
+            IE.itemDescription = itemDesc[i];
+            IE.position = i;
+            iList.add(IE);
+        }
+    }
 
 
 

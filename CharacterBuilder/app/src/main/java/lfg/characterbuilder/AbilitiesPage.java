@@ -24,7 +24,7 @@ import java.util.List;
 
 public class AbilitiesPage extends Fragment {
     Character gotChar = getActivity().getIntent().getParcelableExtra("characterTag");
-
+    protected View mView;
     ExpandableListAdapter listAdapter;
     ExpandableListView expListView;
     List<String> abilityTypes;
@@ -40,19 +40,18 @@ public class AbilitiesPage extends Fragment {
 
     }
 
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        createlist();
-        expListView = (ExpandableListView) getView().findViewById(R.id.expandableListView);
-        listAdapter = new ExpandableListAdapter(this.getActivity(), abilityTypes, listAbilities);
-        expListView.setAdapter(listAdapter);
-
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         super.onCreateView(inflater, container, savedInstanceState);
+        View fragmentView = inflater.inflate(R.layout.activity_abilities_page, container, false);
+        this.mView = fragmentView;
+        expListView = (ExpandableListView) mView.findViewById(R.id.expandableListView);
+        listAdapter = new ExpandableListAdapter(this.getActivity(), abilityTypes, listAbilities);
+        expListView.setAdapter(listAdapter);
+        Character gotChar = getActivity().getIntent().getParcelableExtra("characterTag");
+        String[] test = gotChar.getAbilties();
+        createlist(gotChar);
         return inflater.inflate(R.layout.activity_abilities_page, container, false);
     }
 
@@ -146,7 +145,7 @@ public class AbilitiesPage extends Fragment {
         }
     }
 
-    public void createlist() {
+    public void createlist(Character gotChar) {
         abilityTypes = new ArrayList<String>();
         listAbilities = new HashMap<String, List<Ability>>();
         abilityTypes.add("Class");
@@ -157,6 +156,18 @@ public class AbilitiesPage extends Fragment {
         List<Ability> Class = new ArrayList<Ability>();
         List<Ability> Race = new ArrayList<Ability>();
         List<Ability> Background = new ArrayList<Ability>();
+        String[] s = gotChar.getAbilties();
+        for(int i = 0; i < s.length; i++) {
+            Ability a = new Ability();
+            a.name = s[i];
+            if(a.type == "Class") {
+                Class.add(a);
+            } else if(a.type == "Race") {
+                Race.add(a);
+            } else {
+                Background.add(a);
+            }
+        }
         //for(int i = 0; i < abilities.size(); i++) {
             //Ability a = abilities.get(i);
             //if(a.type == "Class") {

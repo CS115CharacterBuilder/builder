@@ -27,6 +27,10 @@ public class Character implements Parcelable {
     //stats page info
     private int level;
     private int classpoints;
+    /*stats follow the following format: (Strength, Dex, Constitution, Int, Wis, Char, Proficiency,
+    Initiative, Speed, Perception, Hit Dice number, Hit Dice type, Current HP, Total HP
+    Temoporary HP)
+     */
     private int[] stats;
     //abilities page info
     private boolean[] skillproficiencies;
@@ -129,7 +133,7 @@ public class Character implements Parcelable {
 
     public boolean[] getSkillproficiencies() { return this.skillproficiencies; }
 
-    //public String[] getAbilties() { return this.abilities; }
+    public String[] getAbilties() { return this.abilities; }
 
     public String[] getmWeapons() { return this.m_weapons_held; }
 
