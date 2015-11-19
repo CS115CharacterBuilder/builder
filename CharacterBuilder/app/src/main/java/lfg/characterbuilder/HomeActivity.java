@@ -70,7 +70,8 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onItemClick(int position, View v) {
                 Character sendChar = characters.get(position);
-                Intent intent = new Intent(HomeActivity.this, CharacterStats.class);
+                //Intent intent = new Intent(HomeActivity.this, CharacterStats.class);
+                Intent intent = new Intent(HomeActivity.this, MainActivity.class);
                 intent.putExtra("characterTag", sendChar);
                 startActivity(intent);
             }
@@ -83,7 +84,7 @@ public class HomeActivity extends AppCompatActivity {
                 DialogFragment dialog = new DeleteDialog();
                 String delete_char_name = characters.get(position).getCharacterName();
                 String title = "Delete "+delete_char_name+"?";
-                String message = "Are you should you would like to delete "+delete_char_name+"?";
+                String message = "Are you sure you would like to delete "+delete_char_name+"?";
                 Bundle args = new Bundle();
                 args.putString("title", title);
                 args.putString("message", message);
@@ -139,6 +140,9 @@ public class HomeActivity extends AppCompatActivity {
                 //Implement a new intent activity here. This would pass the control
                 //to a new activity on the activity stack. For now just show a toast.
                 Toast.makeText(HomeActivity.this, "Implement Settings", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(HomeActivity.this, ProductTour.class);
+                startActivity(intent);
+
 
             default:
                 return super.onOptionsItemSelected(item);
@@ -257,7 +261,7 @@ public class HomeActivity extends AppCompatActivity {
     private void initialLoad(){
         SharedPreferences sp_mngr = getSharedPreferences("SP_MANAGER", Context.MODE_PRIVATE);
         int char_size = sp_mngr.getInt("CHAR_COUNT", -1);
-        Toast.makeText(HomeActivity.this,"Size:"+char_size, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(HomeActivity.this,"Size:"+char_size, Toast.LENGTH_SHORT).show();
         for (int i = 0; i < char_size; ++i){
             //Get the SP_File unique ID name associated with the indexed character
             String sp_file_name = sp_mngr.getString(Integer.toString(i), "0");
@@ -297,7 +301,7 @@ public class HomeActivity extends AppCompatActivity {
         }
         editor.putInt("CHAR_COUNT", characters.size());
         editor.apply();
-        Toast.makeText(HomeActivity.this,"Size loaded into char_size:"+characters.size(), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(HomeActivity.this,"Size loaded into char_size:"+characters.size(), Toast.LENGTH_SHORT).show();
     }
 
     protected void deleteCharacter(int position){
@@ -321,6 +325,10 @@ public class HomeActivity extends AppCompatActivity {
         //Alert the RVAdapter and re-initialize the SP_manager
         adapter.deleteItem(position);
         reloadSPManager();
+
+        View coordLayoutView = findViewById(R.id.coordview);
+        Snackbar.make(coordLayoutView, "Character Deleted", Snackbar.LENGTH_LONG)
+               .setAction("UNDO", null).show();
     }
 
     protected void createCharacter(int position, Character newCharacter){

@@ -29,6 +29,8 @@ public class AbilitiesPage extends Fragment {
     List<String> abilityTypes;
     HashMap<String, List<Ability>> listAbilities;
 
+    protected View mView;
+
     public class Ability {
         Ability() {
         };
@@ -41,17 +43,22 @@ public class AbilitiesPage extends Fragment {
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        createlist();
+        /*createlist();
         expListView = (ExpandableListView) getView().findViewById(R.id.expandableListView);
         listAdapter = new ExpandableListAdapter(this.getActivity(), abilityTypes, listAbilities);
-        expListView.setAdapter(listAdapter);
+        expListView.setAdapter(listAdapter);*/
 
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
         super.onCreateView(inflater, container, savedInstanceState);
+        View fragmentView = inflater.inflate(R.layout.activity_abilities_page, container, false);
+        mView = fragmentView;
+        createlist();
+        expListView = (ExpandableListView) mView.findViewById(R.id.expandableListView);
+        listAdapter = new ExpandableListAdapter(this.getActivity(), abilityTypes, listAbilities);
+        expListView.setAdapter(listAdapter);
         return inflater.inflate(R.layout.activity_abilities_page, container, false);
     }
 

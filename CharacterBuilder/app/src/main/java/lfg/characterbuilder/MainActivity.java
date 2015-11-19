@@ -39,7 +39,7 @@ class MyAdapter extends FragmentPagerAdapter {
             fragment = new AbilitiesPage();
         }else if(position == 2) {
             fragment = new EquipmentPage();
-        }else if(position == 3) {
+        }/*else if(position == 3) {
             fragment = new ItemsPage();
         }else if(position == 4) {
             fragment = new SkillsPage();
@@ -49,13 +49,13 @@ class MyAdapter extends FragmentPagerAdapter {
             fragment = new SpellPage();
         }else if(position == 7) {
 
-        }
+        }*/
         return fragment;
     }
 
     @Override
     public int getCount() {
-        return 8;
+        return 3;
     }
 }
 

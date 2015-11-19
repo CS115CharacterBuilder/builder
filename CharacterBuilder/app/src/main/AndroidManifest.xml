@@ -15,6 +15,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MainActivity" >
+        </activity>
         <activity
             android:name=".DiceRollerMenu"
             android:label="@string/title_activity_dice_roller_menu"
@@ -53,7 +55,6 @@
         </activity>
         <activity android:name=".CharacterStats" >
         </activity>
-
         <activity
             android:name=".NoobQuestionnaire"
             android:label="@string/title_activity_noob_questionnaire"
@@ -63,6 +64,10 @@
             android:name=".ExQuestionnaire"
             android:label="@string/title_activity_ex_questionnaire"
             android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity android:name=".NewCharacterCreation" />
+        <activity android:name=".ProductTour"
+            android:theme="@style/AppTheme.NoActionBar">
         </activity>
     </application>
 
