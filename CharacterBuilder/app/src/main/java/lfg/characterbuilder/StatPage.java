@@ -12,39 +12,46 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class StatPage extends Fragment {
-
-    /*TextView HPCurr = (TextView) getView().findViewById(R.id.HpCurr);
-    TextView TempHP = (TextView) getView().findViewById(R.id.TempHP);
-    TextView HDCount = (TextView) getView().findViewById(R.id.HDCount);*/
     protected View mView;
-
+    Character gotChar = getActivity().getIntent().getParcelableExtra("characterTag");
+    TextView HPCurr = (TextView) mView.findViewById(R.id.HpCurr);
+    TextView TempHP = (TextView) mView.findViewById(R.id.TempHP);
+    TextView HDCount = (TextView) mView.findViewById(R.id.HDCount);
+    int[] stats = gotChar.getStats();
 
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View fragmentView = inflater.inflate(R.layout.activity_stat_page, container, false);
-        this.mView  = fragmentView;
-        if (this.mView == null) {
-            Toast.makeText(getActivity(),"FragmentView was null", Toast.LENGTH_SHORT).show();
-        }
-        TextView HPCurr = (TextView) mView.findViewById(R.id.HpCurr);
-        TextView TempHP = (TextView) mView.findViewById(R.id.TempHP);
-        TextView HDCount = (TextView) mView.findViewById(R.id.HDCount);
-        //Initialize stat modifier textviews
-        TextView StrMod = (TextView) mView.findViewById(R.id.StrMod);
-        TextView DexMod = (TextView) mView.findViewById(R.id.DexMod);
-        TextView ConMod = (TextView) mView.findViewById(R.id.ConMod);
-        TextView IntMod = (TextView) mView.findViewById(R.id.IntMod);
-        TextView WisMod = (TextView) mView.findViewById(R.id.WisMod);
-        TextView CharMod = (TextView) mView.findViewById(R.id.CharMod);
+        this.mView = fragmentView;
         //Initialize stat value textviews
         TextView StrVal = (TextView) mView.findViewById(R.id.StrVal);
+        StrVal.setText(Integer.toString(stats[0]));
         TextView DexVal = (TextView) mView.findViewById(R.id.DexVal);
+        DexVal.setText(Integer.toString(stats[1]));
         TextView ConVal = (TextView) mView.findViewById(R.id.ConVal);
+        ConVal.setText(Integer.toString(stats[2]));
         TextView IntVal = (TextView) mView.findViewById(R.id.IntVal);
+        IntVal.setText(Integer.toString(stats[3]));
         TextView WisVal = (TextView) mView.findViewById(R.id.WisVal);
+        WisVal.setText(Integer.toString(stats[4]));
         TextView CharVal = (TextView) mView.findViewById(R.id.CharVal);
+        CharVal.setText(Integer.toString(stats[5]));
+        //Initialize stat modifier textviews
+        TextView StrMod = (TextView) mView.findViewById(R.id.StrMod);
+        StrMod.setText(findMod(stats[0]));
+        TextView DexMod = (TextView) mView.findViewById(R.id.DexMod);
+        DexMod.setText(findMod(stats[1]));
+        TextView ConMod = (TextView) mView.findViewById(R.id.ConMod);
+        ConMod.setText(findMod(stats[2]));
+        TextView IntMod = (TextView) mView.findViewById(R.id.IntMod);
+        IntMod.setText(findMod(stats[3]));
+        TextView WisMod = (TextView) mView.findViewById(R.id.WisMod);
+        WisMod.setText(findMod(stats[4]));
+        TextView CharMod = (TextView) mView.findViewById(R.id.CharMod);
+        CharMod.setText(findMod(stats[5]));
+
         //Initialize stat save textviews
         TextView StrSave = (TextView) mView.findViewById(R.id.StrSave);
         TextView DexSave = (TextView) mView.findViewById(R.id.DexSave);
@@ -53,21 +60,29 @@ public class StatPage extends Fragment {
         TextView WisSave = (TextView) mView.findViewById(R.id.WisSave);
         TextView CharSave = (TextView) mView.findViewById(R.id.CharSave);
         //Initialize miscellaneous textviews
+
         TextView ProfVal = (TextView) mView.findViewById(R.id.ProfVal);
+        ProfVal.setText(Integer.toString(stats[6]));
         TextView IniVal = (TextView) mView.findViewById(R.id.IniVal);
+        IniVal.setText(Integer.toString(stats[7]));
         TextView ACVal = (TextView) mView.findViewById(R.id.ACVal);
+        ACVal.setText(Integer.toString(((stats[1] - 10)/2) + 10));
         TextView SpdVal = (TextView) mView.findViewById(R.id.SpdVal);
+        SpdVal.setText(Integer.toString(stats[8]));
         TextView PercVal = (TextView) mView.findViewById(R.id.PercVal);
+        PercVal.setText(Integer.toString(stats[9]));
+        TextView HDCount = (TextView) mView.findViewById(R.id.HDCount);
+        HDCount.setText(Integer.toString(stats[10]));
         TextView HDType = (TextView) mView.findViewById(R.id.HDType);
-
+        HDType.setText("D" +Integer.toString(stats[11]));
+        TextView HPCurr = (TextView) mView.findViewById(R.id.HpCurr);
+        HPCurr.setText(Integer.toString(stats[12]));
         TextView HPTotal = (TextView) mView.findViewById(R.id.HPTotal);
-        return inflater.inflate(R.layout.activity_stat_page,container,false);
+        HPTotal.setText(Integer.toString(stats[13]));
+        TextView TempHP = (TextView) mView.findViewById(R.id.TempHP);
+        TempHP.setText(Integer.toString(stats[14]));
+        return inflater.inflate(R.layout.activity_stat_page, container, false);
     }
-
-
-    int char_hitpoints;
-    int char_hitdice;
-    int char_temporaryhp;
 
     //takes stat value and converts it into the modifier
     public String findMod(int x) {
@@ -80,47 +95,60 @@ public class StatPage extends Fragment {
         }
         return modValue;
     }
-/*
+
+
+    //adds hp value on click
     public void addHP () {
-        int hp = (Integer)char_hitpoints;
+        int hp = stats[12];
         hp += 1;
+        stats[12] = hp;
         String newhp = Integer.toString(hp);
         HPCurr.setText(newhp);
     }
 
+    //subtracts hp value on click
     public void removeHP () {
-        int hp = (Integer)char_hitpoints;
+
+        int hp = stats[12];
         hp -= 1;
+        stats[12] = hp;
         String newhp = Integer.toString(hp);
         HPCurr.setText(newhp);
     }
 
+    // adds temp hp value on click
     public void addTHP () {
-        int hp = (Integer)char_temporaryhp;
-        hp += 1;
-        String newhp = Integer.toString(hp);
-        TempHP.setText(newhp);
+        int TempHp = stats[14];
+        TempHp += 1;
+        stats[14] = TempHp;
+        String newTempHp = Integer.toString(TempHp);
+        TempHP.setText(newTempHp);
     }
 
+    //subtracts temp hp value on click
     public void removeTHP () {
-        int hp = (Integer)char_temporaryhp;
-        hp -= 1;
-        String newhp = Integer.toString(hp);
-        TempHP.setText(newhp);
+        int TempHp = stats[14];
+        TempHp -= 1;
+        stats[14] = TempHp;
+        String newTempHp = Integer.toString(TempHp);
+        TempHP.setText(newTempHp);
     }
 
+    //adds hit dice coutn on click
     public void addHD () {
-        int hp = (Integer)char_hitdice;
-        hp += 1;
-        String newhp = Integer.toString(hp);
-        HDCount.setText(newhp);
+        int hdCount = stats[10];
+        hdCount += 1;
+        stats[10] = hdCount;
+        String newHDCount = Integer.toString(hdCount);
+        HDCount.setText(newHDCount);
     }
 
+    //subtracts hit dice count on click
     public void removeHD () {
-        int hp = (Integer)char_hitdice;
-        hp -= 1;
-        String newhp = Integer.toString(hp);
-        HDCount.setText(newhp);
+        int hdCount = stats[10];
+        hdCount -= 1;
+        stats[10] = hdCount;
+        String newHDCount = Integer.toString(hdCount);
+        HDCount.setText(newHDCount);
     }
-    */
 }
