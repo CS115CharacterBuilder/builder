@@ -9,11 +9,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 public class BackgroundPage extends Fragment {
-    Character gotChar = getActivity().getIntent().getParcelableExtra("characterTag");
+    Character gotChar;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //gotChar
         TextView NameVal = (TextView) getView().findViewById(R.id.NameVal);
         TextView ClassVal = (TextView) getView().findViewById(R.id.ClassVal);
         ClassVal.setText(gotChar.getCharacterName());
