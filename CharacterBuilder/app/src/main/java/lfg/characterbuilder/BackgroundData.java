@@ -11,6 +11,7 @@ public class BackgroundData extends Data {
     Data acolytebackground = new Data();
     public void setAcolytebackground(Data acolytebackground){
         acolytebackground.abilName = "Acolyte Background Features";
+        acolytebackground.backgroundType = "Acolyte";
         //Skills alphabetically: Acrobatics, Animal Handling, Arcana, Athletics, Deception, History, Insight, Intimidation,Investigation, Medicine, Nature, Perception, Performance, Persuasion, Religion, Sleight of Hand, Stealth, Survival.
         //                  {0    ,1    ,2    ,3    ,4    ,5    ,6    ,7    ,8    ,9    ,10   ,11   ,12   ,13   ,14   ,15   ,16   ,17  }
         boolean skills[] =  {false,false,false,false,false,true,false,false,false,false,false,false,false,false,true,false,false,false};
@@ -30,6 +31,7 @@ public class BackgroundData extends Data {
     Data acolyteShelterOfTheFaithful = new Data();
     public void setAcolyteShelterOfTheFaithful(Data acolyteShelterOfTheFaithful){
         acolyteShelterOfTheFaithful.abilName = "Shelter Of the Faithful";
+        acolyteShelterOfTheFaithful.backgroundType = "Acolyte";
         acolyteShelterOfTheFaithful.dlevel = 1;
         acolyteShelterOfTheFaithful.flavor = "As an acolyte, you command the respect of those who share your faith, and you can perform the religious ceremonies of your deity. You and your adventuring companions can expect to receive free healing and care at a temple, shrine, or other established presence of your faith, though you must provide any material components needed for spells. Those who share\n" +
                 "your religion will support you (but only you) at a modest lifestyle.\n" +
@@ -39,6 +41,7 @@ public class BackgroundData extends Data {
     Data charlatanFeatures = new Data();
     public void setCharlatanFeatures(Data charlatanFeatures){
         charlatanFeatures.abilName = "Charlatan Features";
+        charlatanFeatures.backgroundType = "Charlatan";
         //Skills alphabetically: Acrobatics, Animal Handling, Arcana, Athletics, Deception, History, Insight, Intimidation,Investigation, Medicine, Nature, Perception, Performance, Persuasion, Religion, Sleight of Hand, Stealth, Survival.
         //                  {0    ,1    ,2    ,3    ,4    ,5    ,6    ,7    ,8    ,9    ,10   ,11   ,12   ,13   ,14   ,15   ,16   ,17  }
         boolean skills[] =  {false,false,false,false,true,false,false,false,false,false,false,false,false,false,false,true,false,false};
@@ -52,6 +55,7 @@ public class BackgroundData extends Data {
 
     Data charlatanFalseID = new Data();
     public void setCharlatanFalseID(Data charlatanFalseID){
+        charlatanFeatures.backgroundType = "Charlatan";
         charlatanFalseID.abilName = "False Identity";
         charlatanFalseID.dlevel = 1;
         charlatanFalseID.flavor = "You have created a second identity that includes documentation, established acquaintances, and disguises that allow you to assume that persona. Additionally, you can forge documents including official papers and personal letters, as long as you have seen an example of the kind of document or the handwriting you are trying to copy.";
@@ -60,6 +64,7 @@ public class BackgroundData extends Data {
     Data criminalFeatures = new Data();
     public void setCriminalFeatures(Data criminalFeatures) {
         criminalFeatures.abilName = "Criminal Features";
+        criminalFeatures.backgroundType = "Criminal";
         //Skills alphabetically: Acrobatics, Animal Handling, Arcana, Athletics, Deception, History, Insight, Intimidation,Investigation, Medicine, Nature, Perception, Performance, Persuasion, Religion, Sleight of Hand, Stealth, Survival.
         //                  {0    ,1    ,2    ,3    ,4    ,5    ,6    ,7    ,8    ,9    ,10   ,11   ,12   ,13   ,14   ,15   ,16   ,17  }
         boolean skills[] = {false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, true, false};
@@ -72,6 +77,7 @@ public class BackgroundData extends Data {
     Data criminalContact = new Data();
     public void setCriminalContact(Data criminalContact) {
         criminalContact.abilName = "Criminal Contact";
+        criminalFeatures.backgroundType = "Criminal";
         criminalContact.dlevel = 1;
         criminalContact.flavor = "You have a reliable and trustworthy contact who acts as your liaison to a network of other criminals. You know how to get messages to and from your contact, even\n" +
                 "over great distances; specifically, you know the local messengers, corrupt caravan masters, and seedy sailors who can deliver messages for you.\n";
@@ -80,6 +86,7 @@ public class BackgroundData extends Data {
     Data criminalVariantSpy = new Data();
     public void setCriminalVariantSpy(Data criminalVariantSpy){
         criminalVariantSpy.abilName = "False Identity";
+        criminalFeatures.backgroundType = "Criminal";
         criminalVariantSpy.dlevel = 1;
         criminalVariantSpy.flavor = "You have created a second identity that includes documentation, established acquaintances, and disguises that allow you to assume that persona. Additionally, you can forge documents including official papers and personal letters, as long as you have seen an example of the kind of document or the handwriting you are trying to copy.";
     }
@@ -87,6 +94,7 @@ public class BackgroundData extends Data {
     Data entertainerFeatures = new Data();
     public void setEntertainerFeatures(Data entertainerFeatures) {
         entertainerFeatures.abilName = "Criminal Features";
+        entertainerFeatures.backgroundType = "Entertainer";
         //Skills alphabetically: Acrobatics, Animal Handling, Arcana, Athletics, Deception, History, Insight, Intimidation,Investigation, Medicine, Nature, Perception, Performance, Persuasion, Religion, Sleight of Hand, Stealth, Survival.
         //                 {0   ,1     ,2     ,3     ,4     ,5     ,6     ,7     ,8     ,9     ,10    ,11    ,12    ,13    ,14    ,15    ,16    ,17  }
         boolean skills[] = {true, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false};
@@ -99,6 +107,7 @@ public class BackgroundData extends Data {
     Data entertainerByPopularDemand = new Data();
     public void setEntertainerByPopularDemand(Data entertainerByPopularDemand) {
         entertainerByPopularDemand.abilName = "By Popular Demand";
+        entertainerFeatures.backgroundType = "Entertainer";
         entertainerByPopularDemand.dlevel = 1;
         entertainerByPopularDemand.flavor ="You can always find a place to perform, usually in an\n" +
                 "inn or tavern but possibly with a circus, at a theater, or even in a noble’s court. At such a place, you receive free lodging and food of a modest or comfortable standard (depending on the quality of the establishment), as\n" +
@@ -108,6 +117,7 @@ public class BackgroundData extends Data {
     Data entertainerVariantGlad = new Data();
     public void setEntertainerVariantGlad(Data entertainerVariantGlad){
         entertainerVariantGlad.abilName = "Variant: Gladiator";
+        entertainerFeatures.backgroundType = "Entertainer";
         entertainerVariantGlad.dlevel = 1;
         entertainerVariantGlad.flavor = "A gladiator is as much an entertainer as any minstrel\n" +
                 "or circus performer, trained to make the arts of combat into a spectacle the crowd can enjoy. This kind of\n" +
@@ -118,6 +128,7 @@ public class BackgroundData extends Data {
     Data folkHeroFeatures = new Data();
     public void setFolkHeroFeatures(Data folkHeroFeatures) {
         folkHeroFeatures.abilName = "Folk Hero Features";
+        folkHeroFeatures.backgroundType = "Folk Hero";
         //Skills alphabetically: Acrobatics, Animal Handling, Arcana, Athletics, Deception, History, Insight, Intimidation,Investigation, Medicine, Nature, Perception, Performance, Persuasion, Religion, Sleight of Hand, Stealth, Survival.
         //                 {0    ,1     ,2     ,3     ,4     ,5     ,6     ,7     ,8     ,9     ,10    ,11    ,12    ,13    ,14    ,15    ,16    ,17  }
         boolean skills[] = {false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true};
@@ -131,6 +142,7 @@ public class BackgroundData extends Data {
     Data folkHeroRusticHos = new Data();
     public void setFolkHeroRusticHos(Data folkHeroRusticHos){
         folkHeroRusticHos.abilName = "Rustic Hospitality";
+        folkHeroFeatures.backgroundType = "Folk Hero";
         folkHeroRusticHos.dlevel = 1;
         folkHeroRusticHos.flavor = "Since you come from the ranks of the common folk, you fit in among them with ease. You can find a place to hide, rest, or recuperate among other commoners, unless you have shown yourself to be a danger to them. They will shield you from the law or anyone else searching for you, though they will not risk\n" +
                 "their lives for you.";
@@ -139,6 +151,7 @@ public class BackgroundData extends Data {
     Data guildArtisanFeatures = new Data();
     public void setGuildArtisanFeatures(Data guildArtisanFeatures) {
         guildArtisanFeatures.abilName = "Guild Artisan Features";
+        guildArtisanFeatures.backgroundType = "Guild Artisan";
         //Skills alphabetically: Acrobatics, Animal Handling, Arcana, Athletics, Deception, History, Insight, Intimidation,Investigation, Medicine, Nature, Perception, Performance, Persuasion, Religion, Sleight of Hand, Stealth, Survival.
         //                 {0    ,1     ,2     ,3     ,4     ,5     ,6     ,7     ,8     ,9     ,10    ,11    ,12    ,13    ,14    ,15    ,16    ,17  }
         boolean skills[] = {false, false, false, false, false, false, true, false, false, false, false, false, false, true, false, false, false, false};
@@ -153,6 +166,7 @@ public class BackgroundData extends Data {
     Data guildArtisanGuildBusiness = new Data();
     public void setGuildArtisanGuildBusiness(Data guildArtisanGuildBusiness) {
         guildArtisanGuildBusiness.abilName = "Guild Business";
+        guildArtisanFeatures.backgroundType = "Guild Artisan";
         guildArtisanGuildBusiness.dlevel = 1;
         guildArtisanGuildBusiness.flavor = "Guilds are generally found in cities large enough to support several artisans practicing the same trade. However, your guild might instead be a loose network of artisans who each work in a different village within a larger realm. Work with your DM to determine the nature of your guild. As a member of your guild, you know the skills needed to create finished items from raw materials (reflected in your proficiency with a certain kind of artisan’s tools),\n" +
                 "as well as the principles of trade and good business practices. The question now is whether you abandon your trade for adventure, or take on the extra effort to weave adventuring and trade together. ";
@@ -161,6 +175,7 @@ public class BackgroundData extends Data {
     Data guildArtisanGuildMember = new Data();
     public void setGuildArtisanGuildMember(Data guildArtisanGuildMember) {
         guildArtisanGuildMember.abilName = "Guild Member";
+        guildArtisanFeatures.backgroundType = "Guild Artisan";
         guildArtisanGuildMember.dlevel = 1;
         guildArtisanGuildMember.flavor = "As an established and respected member of a guild, you can rely on certain benefits that membership provides. Your fellow guild members will provide you with lodging and food if necessary, and pay for your funeral if needed. In some cities and towns, a guildhall offers a central place to meet other members of your profession, which can be a good place to meet potential patrons, allies, or hirelings.\n" +
                 "Guilds often wield tremendous political power. If\n" +
@@ -172,6 +187,7 @@ public class BackgroundData extends Data {
     Data guildArtisanVariantMerchant = new Data();
     public void setGuildArtisanVariantMerchant(Data guildArtisanVariantMerchant) {
         guildArtisanVariantMerchant.abilName = "Guild Merchant";
+        guildArtisanFeatures.backgroundType = "Guild Artisan";
         guildArtisanVariantMerchant.dlevel = 1;
         guildArtisanVariantMerchant.flavor = "Instead of an artisans’ guild, you might belong to a\n" +
                 "guild of traders, caravan masters, or shopkeepers. You don’t craft items yourself but earn a living by buying\n" +
@@ -182,6 +198,7 @@ public class BackgroundData extends Data {
     Data hermitFeatures = new Data();
     public void setHermitFeatures(Data hermitFeatures) {
         hermitFeatures.abilName = "Hermit Features";
+        hermitFeatures.backgroundType = "Hermit";
         //Skills alphabetically: Acrobatics, Animal Handling, Arcana, Athletics, Deception, History, Insight, Intimidation,Investigation, Medicine, Nature, Perception, Performance, Persuasion, Religion, Sleight of Hand, Stealth, Survival.
         //                 {0    ,1     ,2     ,3     ,4     ,5     ,6     ,7     ,8     ,9     ,10    ,11    ,12    ,13    ,14    ,15    ,16    ,17  }
         boolean skills[] = {false, false, false, false, false, false, false, false, false, true, false, false, false, false, true, false, false, false};
@@ -195,6 +212,7 @@ public class BackgroundData extends Data {
     Data hermitLife = new Data();
     public void setHermitLife(Data hermitLife) {
         hermitLife.abilName = "Life of Seclusion";
+        hermitFeatures.backgroundType = "Hermit";
         hermitLife.dlevel = 1;
         hermitLife.flavor = "What was the reason for your isolation, and what changed to allow you to end your solitude? You can work with your DM to determine the exact nature of your seclusion, or you can choose or roll on the table below to determine the reason behind your seclusion.";
     }
@@ -202,6 +220,7 @@ public class BackgroundData extends Data {
     Data hermitDiscovery = new Data();
     public void setHermitDiscovery(Data hermitDiscovery) {
         hermitDiscovery.abilName = "Discovery";
+        hermitFeatures.backgroundType = "Hermit";
         hermitDiscovery.dlevel = 1;
         hermitDiscovery.flavor = "The quiet seclusion of your extended hermitage gave you\n" +
                 "access to a unique and powerful discovery. The exact nature of this revelation depends on the nature of your seclusion. It might be a great truth about the cosmos, the deities, the powerful beings of the outer planes, or the forces of nature. It could be a site that no one else has ever seen. You might have uncovered a fact that has long been forgotten, or unearthed some relic of the past that could rewrite history. It might be information that would be damaging to the people who or consigned you to exile, and hence the reason for your return to society.\n" +
@@ -211,6 +230,7 @@ public class BackgroundData extends Data {
     Data nobleFeatures = new Data();
     public void setNobleFeatures(Data nobleFeatures) {
         nobleFeatures.abilName = "Noble Features";
+        nobleFeatures.backgroundType = "Noble";
         //Skills alphabetically: Acrobatics, Animal Handling, Arcana, Athletics, Deception, History, Insight, Intimidation,Investigation, Medicine, Nature, Perception, Performance, Persuasion, Religion, Sleight of Hand, Stealth, Survival.
         //                 {0    ,1     ,2     ,3     ,4     ,5     ,6     ,7     ,8     ,9     ,10    ,11    ,12    ,13    ,14    ,15    ,16    ,17  }
         boolean skills[] = {false, false, false, false, false, true, false, false, false, false, false, false, false, true, false, false, false, false};
@@ -232,6 +252,7 @@ public class BackgroundData extends Data {
     Data noblePrivilage = new Data();
     public void setNoblePrivilage(Data noblePrivilage) {
         noblePrivilage.abilName = "Position of Privilage";
+        nobleFeatures.backgroundType = "Noble";
         noblePrivilage.dlevel = 1;
         noblePrivilage.flavor = "Thanks to your noble birth, people are inclined to\n" +
                 "think the best of you. You are welcome in high society, and people assume you have the right to be wherever you are. The common folk make every effort to accommodate you and avoid your displeasure, and other people of high birth treat you as a member of the same social sphere. You can secure an audience with a local noble if you need to.";
@@ -240,6 +261,7 @@ public class BackgroundData extends Data {
     Data nobleVariantKnight = new Data();
     public void setNobleVariantKnight(Data nobleVariantKnight) {
         nobleVariantKnight.abilName = "Knight";
+        nobleFeatures.backgroundType = "Noble";
         nobleVariantKnight.dlevel = 1;
         nobleVariantKnight.flavor = "A knighthood is among the lowest noble titles in most\n" +
                 "societies, but it can be a path to higher status. If you wish to be a knight, choose the Retainers feature (see the sidebar) instead of the Position of Privilege feature. One of your commoner retainers is replaced by a noble who serves as your squire, aiding you in exchange for training on his or her own path to knighthood. Your two remaining retainers might include a groom to care for your horse and a servant who polishes your armor (and even helps you put it on).\n" +
@@ -249,6 +271,7 @@ public class BackgroundData extends Data {
     Data nobleVariantFeature = new Data();
     public void setNobleVariantFeature(Data nobleVariantFeature) {
         nobleVariantFeature.abilName = "Retainers";
+        nobleFeatures.backgroundType = "Noble";
         nobleVariantFeature.dlevel = 1;
         nobleVariantFeature.flavor = "If your character has a noble background, you may select this background feature instead of Position of Privilege.\n" +
                 "You have the service of three retainers loyal to your family. These retainers can be attendants or messengers, and one might be a majordomo. Your retainers are commoners who can perform mundane tasks for you, but they do not fight for you, will not follow you into obviously dangerous areas (such as dungeons), and will leave if they are frequently endangered or abused.";
@@ -257,6 +280,7 @@ public class BackgroundData extends Data {
     Data outlanderFeatures = new Data();
     public void setOutlanderFeatures(Data outlanderFeatures) {
         outlanderFeatures.abilName = "Outlander Features";
+        outlanderFeatures.backgroundType = "Outlander";
         //Skills alphabetically: Acrobatics, Animal Handling, Arcana, Athletics, Deception, History, Insight, Intimidation,Investigation, Medicine, Nature, Perception, Performance, Persuasion, Religion, Sleight of Hand, Stealth, Survival.
         //                 {0    ,1     ,2     ,3     ,4     ,5     ,6     ,7     ,8     ,9     ,10    ,11    ,12    ,13    ,14    ,15    ,16    ,17  }
         boolean skills[] = {false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, true};
@@ -270,6 +294,7 @@ public class BackgroundData extends Data {
     Data outlanderWanderer = new Data();
     public void setOutlanderWanderer(Data outlanderWanderer) {
         outlanderWanderer.abilName = "Wanderer";
+        outlanderFeatures.backgroundType = "Outlander";
         outlanderWanderer.dlevel = 1;
         outlanderWanderer.flavor = "You have an excellent memory for maps and geography, and you can always recall the general layout of terrain, settlements, and other features around you. In addition, you can find food and fresh water for yourself and up to five other people each day, provided that the land offers berries,small game,water,and so forth.";
     }
@@ -277,6 +302,7 @@ public class BackgroundData extends Data {
     Data sageFeatures = new Data();
     public void setSageFeatures(Data sageFeatures) {
         sageFeatures.abilName = "Outlander Features";
+        sageFeatures.backgroundType = "Sage";
         //Skills alphabetically: Acrobatics, Animal Handling, Arcana, Athletics, Deception, History, Insight, Intimidation,Investigation, Medicine, Nature, Perception, Performance, Persuasion, Religion, Sleight of Hand, Stealth, Survival.
         //                 {0    ,1     ,2     ,3     ,4     ,5     ,6     ,7     ,8     ,9     ,10    ,11    ,12    ,13    ,14    ,15    ,16    ,17  }
         boolean skills[] = {false, false, true, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false};
@@ -289,6 +315,7 @@ public class BackgroundData extends Data {
     Data sageResearcher = new Data();
     public void setSageResearcher(Data sageResearcher) {
         sageResearcher.abilName = "Researcher";
+        sageFeatures.backgroundType = "Sage";
         sageResearcher.dlevel = 1;
         sageResearcher.flavor = "When you attempt to learn or recall a piece of lore, if you do not know that information, you often know where and from whom you can obtain it. Usually, this information com es from a library, scriptorium, university, or a sage or other learned person or creature. Your DM might\n" +
                 "rule that the knowledge you seek is secreted away in an almost inaccessible place, or that it simply cannot be found. Unearthing the deepest secrets of the multiverse can require an adventure or even a whole campaign.";
@@ -297,6 +324,7 @@ public class BackgroundData extends Data {
     Data sailorFeatures = new Data();
     public void setSailorFeatures(Data sailorFeatures) {
         sailorFeatures.abilName = "Sailor Features";
+        sailorFeatures.backgroundType = "Sailor";
         //Skills alphabetically: Acrobatics, Animal Handling, Arcana, Athletics, Deception, History, Insight, Intimidation,Investigation, Medicine, Nature, Perception, Performance, Persuasion, Religion, Sleight of Hand, Stealth, Survival.
         //                 {0    ,1     ,2     ,3     ,4     ,5     ,6     ,7     ,8     ,9     ,10    ,11    ,12    ,13    ,14    ,15    ,16    ,17  }
         boolean skills[] = {false, false, false, true, false, false, false, false, false, false, false, true, false, false, false, false, false, false};
@@ -313,6 +341,7 @@ public class BackgroundData extends Data {
     Data sailorShipsPassage = new Data();
     public void setSailorShipsPassage(Data sailorShipsPassage) {
         sailorShipsPassage.abilName = "Ship's Passage";
+        sailorFeatures.backgroundType = "Sailor";
         sailorShipsPassage.dlevel = 1;
         sailorShipsPassage.flavor = "When you need to, you can secure free passage on\n" +
                 "a sailing ship for yourself and your adventuring companions. You might sail on the ship you served on, or another ship you have good relations with (perhaps one captained by a former crewmate). Because you’re calling in a favor, you can’t be certain of a schedule or route that will meet your every need. Your Dungeon Master will determine how long it takes to get where you need to go. In return for your free passage, you and your companions are expected to assist the crew during the voyage.";
@@ -321,6 +350,7 @@ public class BackgroundData extends Data {
     Data sailorVariantPirate = new Data();
     public void setSailorVariantPirate(Data sailorVariantPirate) {
         sailorVariantPirate.abilName = "Pirate";
+        sailorFeatures.backgroundType = "Sailor";
         sailorVariantPirate.dlevel = 1;
         sailorVariantPirate.flavor = "You spent your youth under the sway of a dread pirate,\n" +
                 "a ruthless cutthroat who taught you how to survive in a world of sharks and savages. You’ve indulged in larceny on the high seas and sent more than one deserving soul to a briny grave. Fear and bloodshed are no strangers\n" +
@@ -331,6 +361,7 @@ public class BackgroundData extends Data {
     Data sailorVariantFeature = new Data();
     public void setSailorVariantFeature(Data sailorVariantFeature) {
         sailorVariantFeature.abilName = "Bad Reputation";
+        sailorFeatures.backgroundType = "Sailor";
         sailorVariantFeature.dlevel = 1;
         sailorVariantFeature.flavor = "If your character has a sailor background, you may select this background feature instead of Ship’s Passage.\n" +
                 "No matter where you go, people are afraid of you due to your reputation. When you are in a civilized settlement, you can get away with minor criminal offenses, such as refusing to pay for food at a tavern or breaking down doors at a local shop, since most people will not report your activity to the authorities.";
@@ -339,6 +370,7 @@ public class BackgroundData extends Data {
     Data soldierFeature = new Data();
     public void setSoldierFeature(Data soldierFeature) {
         soldierFeature.abilName = "Soldier Features";
+        soldierFeature.backgroundType = "Soldier";
         //Skills alphabetically: Acrobatics, Animal Handling, Arcana, Athletics, Deception, History, Insight, Intimidation,Investigation, Medicine, Nature, Perception, Performance, Persuasion, Religion, Sleight of Hand, Stealth, Survival.
         //                 {0    ,1     ,2     ,3     ,4     ,5     ,6     ,7     ,8     ,9     ,10    ,11    ,12    ,13    ,14    ,15    ,16    ,17  }
         boolean skills[] = {false, false, false, true, false, false, false, true, false, false, false, false, false, false, false, false, false, false};
@@ -354,6 +386,7 @@ public class BackgroundData extends Data {
     Data soldierMilitaryRank = new Data();
     public void setSoldierMilitaryRank(Data soldierMilitaryRank) {
         soldierMilitaryRank.abilName = "Military Rank";
+        soldierFeature.backgroundType = "Soldier";
         soldierMilitaryRank.dlevel = 1;
         soldierMilitaryRank.flavor = "You have a military rank from your career as a soldier. Soldiers loyal to your former military organization still recognize your authority and influence, and they defer to you if they are of a lower rank. You can invoke your rank to exert influence over other soldiers and requisition simple equipment or horses for temporary use. You can also usually gain access to friendly military encampments and fortresses where your rank is recognized.\n";
     }
@@ -361,6 +394,7 @@ public class BackgroundData extends Data {
     Data urchinFeatures = new Data();
     public void setUrchinFeatures(Data urchinFeatures) {
         urchinFeatures.abilName = "Urchin Features";
+        urchinFeatures.backgroundType = "Urchin";
         //Skills alphabetically: Acrobatics, Animal Handling, Arcana, Athletics, Deception, History, Insight, Intimidation,Investigation, Medicine, Nature, Perception, Performance, Persuasion, Religion, Sleight of Hand, Stealth, Survival.
         //                 {0    ,1     ,2     ,3     ,4     ,5     ,6     ,7     ,8     ,9     ,10    ,11    ,12    ,13    ,14    ,15    ,16    ,17  }
         boolean skills[] = {false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, true, false};
@@ -375,6 +409,7 @@ public class BackgroundData extends Data {
     Data urchinCitySecrets = new Data();
     public void setUrchinCitySecrets(Data urchinCitySecrets) {
         urchinCitySecrets.abilName = "City Secrets";
+        urchinFeatures.backgroundType = "Urchin";
         urchinCitySecrets.dlevel = 1;
         urchinCitySecrets.flavor = "You know the secret patterns and flow to cities and can find passages through the urban sprawl that others would miss. When you are not in combat, you (and companions you lead) can travel between any two locations in the city twice as fast as your speed would normally allow.\n";
     }
