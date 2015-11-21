@@ -246,7 +246,7 @@ public class HomeActivity extends AppCompatActivity {
         //REPLACE ME WITH LOADING SHARED PREFERENCES FROM SP_MANAGER
 
         initialLoad();
-        //characters.add(new Character("qwertyui", "Testerman Stormshield", "Fighter", R.drawable.ic_warrior));
+        characters.add(new Character("qwertyui", "Testerman Stormshield", "Fighter", R.drawable.ic_warrior));
         //characters.add(new Character("asdfghjk", "Mockupite Wandwhisper", "Wizard", R.drawable.ic_mage));
         //reloadCharacterCards();
         /*characters.add(new Character("Mockupite Wandwhisper", "Wizard", R.drawable.ic_mage));

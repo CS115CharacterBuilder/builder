@@ -1,4 +1,5 @@
-package Databases;
+package lfg.characterbuilder;
+
 import java.util.*;
 /**
  * Created by AndrewMiller on 10/29/15.

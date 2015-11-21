@@ -23,8 +23,8 @@ import java.util.HashMap;
 import java.util.List;
 
 public class AbilitiesPage extends Fragment {
-    //Character gotChar = getActivity().getIntent().getParcelableExtra("characterTag");
-    Character gotChar = new Character("zxcvbnml", "char name", "char class", R.drawable.ic_ranger);
+
+    Character gotChar;
     ExpandableListAdapter listAdapter;
     ExpandableListView expListView;
     List<String> abilityTypes;
@@ -39,12 +39,14 @@ public class AbilitiesPage extends Fragment {
         public String name;
         public String description;
         public String type;
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
+        ClassData cdDATABASE = new ClassData();
+
+        ArrayList<Data> classDataDB = cdDATABASE.getCd();
         View fragmentView = inflater.inflate(R.layout.activity_abilities_page, container, false);
         this.mView = fragmentView;
         expListView = (ExpandableListView) mView.findViewById(R.id.expandableListView);

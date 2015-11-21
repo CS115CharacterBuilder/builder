@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
+
 public class MainActivity extends FragmentActivity {
 
     ViewPager viewPager = null;
@@ -22,6 +23,7 @@ public class MainActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         gotChar = getIntent().getParcelableExtra("characterTag");
         setContentView(R.layout.activity_main);
+        Character gotChar = getIntent().getParcelableExtra("characterTag");
         viewPager = (ViewPager) findViewById(R.id.pager);
         FragmentManager fragmentManager = getSupportFragmentManager();
         viewPager.setAdapter(new MyAdapter(fragmentManager));
@@ -44,10 +46,10 @@ class MyAdapter extends FragmentPagerAdapter {
             bundle.putParcelable("charToStats", gotChar);
             fragment = new StatPage();
             fragment.setArguments(bundle);
-        }/*else if(position == 1) {
+        }else if(position == 1) {
             fragment = new AbilitiesPage();
-        }else if(position == 2) {
-            fragment = new EquipmentPage();
+        }/*else if(position == 2) {
+           fragment = new EquipmentPage();
         }else if(position == 3) {
             fragment = new ItemsPage();
         }else if(position == 4) {
