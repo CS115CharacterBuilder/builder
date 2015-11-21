@@ -70,7 +70,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onItemClick(int position, View v) {
                 Character sendChar = characters.get(position);
-                Intent intent = new Intent(HomeActivity.this, CharacterStats.class);
+                Intent intent = new Intent(HomeActivity.this, MainActivity.class);
                 intent.putExtra("characterTag", sendChar);
                 startActivity(intent);
             }
@@ -242,7 +242,7 @@ public class HomeActivity extends AppCompatActivity {
         //REPLACE ME WITH LOADING SHARED PREFERENCES FROM SP_MANAGER
 
         initialLoad();
-        //characters.add(new Character("qwertyui", "Testerman Stormshield", "Fighter", R.drawable.ic_warrior));
+        characters.add(new Character("qwertyui", "Testerman Stormshield", "Fighter", R.drawable.ic_warrior));
         //characters.add(new Character("asdfghjk", "Mockupite Wandwhisper", "Wizard", R.drawable.ic_mage));
         //reloadCharacterCards();
         /*characters.add(new Character("Mockupite Wandwhisper", "Wizard", R.drawable.ic_mage));
