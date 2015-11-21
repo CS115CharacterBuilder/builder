@@ -70,7 +70,7 @@ public class RaceData extends Data {
         elfTraits.vision = "Dark Vision: Accustomed to life underground, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray.";
         elfTraits.skillProf = "Perception";
         elfTraits.resistance = "Charm. Advantage on save vs charm. Can not be put to sleep.";
-        elfTraits.misc1 = "Trance.Elvesdon’tneedtosleep.Instead,they meditate deeply, remaining semiconscious, for 4\n" +
+        elfTraits.misc1 = "Trance.Elves don’t need to sleep. Instead,they meditate deeply, remaining semiconscious, for 4\n" +
                 "hours a day. (The Common word for such meditation\n" +
                 "is “trance.”) While meditating, you can dream after a fashion; such dreams are actually mental exercises that have become reflexive through years of practice. After resting in this way, you gain the same benefit that a human does from 8 hours of sleep.";
         elfTraits.languages = "Common, Elvish";
