@@ -23,12 +23,14 @@ import java.util.HashMap;
 import java.util.List;
 
 public class AbilitiesPage extends Fragment {
-    Character gotChar = getActivity().getIntent().getParcelableExtra("characterTag");
-    protected View mView;
+
+    Character gotChar;
     ExpandableListAdapter listAdapter;
     ExpandableListView expListView;
     List<String> abilityTypes;
     HashMap<String, List<Ability>> listAbilities;
+
+    protected View mView;
 
     public class Ability {
         Ability() {
@@ -37,19 +39,20 @@ public class AbilitiesPage extends Fragment {
         public String name;
         public String description;
         public String type;
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
         super.onCreateView(inflater, container, savedInstanceState);
+        ClassData cdDATABASE = new ClassData();
+
+        ArrayList<Data> classDataDB = cdDATABASE.getCd();
         View fragmentView = inflater.inflate(R.layout.activity_abilities_page, container, false);
         this.mView = fragmentView;
         expListView = (ExpandableListView) mView.findViewById(R.id.expandableListView);
         listAdapter = new ExpandableListAdapter(this.getActivity(), abilityTypes, listAbilities);
         expListView.setAdapter(listAdapter);
-        Character gotChar = getActivity().getIntent().getParcelableExtra("characterTag");
+        //Character gotChar = getActivity().getIntent().getParcelableExtra("characterTag");
         String[] test = gotChar.getAbilties();
         createlist(gotChar);
         return inflater.inflate(R.layout.activity_abilities_page, container, false);
@@ -168,15 +171,5 @@ public class AbilitiesPage extends Fragment {
                 Background.add(a);
             }
         }
-        //for(int i = 0; i < abilities.size(); i++) {
-            //Ability a = abilities.get(i);
-            //if(a.type == "Class") {
-              //  Class.add(a);
-            //} else if(a.type == "Race") {
-              //  Race.add(a);
-            //} else {
-            //    Background.add(a);
-          //  }
-        //}
     }
 }
