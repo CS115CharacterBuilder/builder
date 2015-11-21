@@ -15,6 +15,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -71,8 +72,16 @@ public class HomeActivity extends AppCompatActivity {
             public void onItemClick(int position, View v) {
                 Character sendChar = characters.get(position);
                 //Intent intent = new Intent(HomeActivity.this, CharacterStats.class);
+
+                //Pass the stats
+                int[] statsToPass = sendChar.getStats();
+                Bundle statsBundle = new Bundle();
+                statsBundle.putIntArray("statsBundle", statsToPass);
+
+                //Pass the character
                 Intent intent = new Intent(HomeActivity.this, MainActivity.class);
                 intent.putExtra("characterTag", sendChar);
+                intent.putExtras(statsBundle);
                 startActivity(intent);
             }
         });

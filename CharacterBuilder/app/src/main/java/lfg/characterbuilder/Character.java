@@ -56,13 +56,10 @@ public class Character implements Parcelable {
         this.name = char_name;
         this.class_name = char_class;
         this.photoId = char_photoId;
-        this.stats = new int[15];
-        this.stats[0] = 0;
-        this.stats[1] = 0;
-        this.stats[2] = 0;
-        this.stats[3] = 0;
-        this.stats[4] = 0;
-        this.stats[5] = 0;
+        this.stats = new int[16];
+        for(int i = 0; i < stats.length; i++) {
+            stats[i] = 666;
+        }
 
     }
 
