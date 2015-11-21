@@ -20,6 +20,8 @@ import java.util.List;
 
 public class EquipmentPage extends Fragment {
 
+    protected View mView;
+
     public class mWeapon {
         mWeapon() {
         };
@@ -127,14 +129,14 @@ public class EquipmentPage extends Fragment {
          * ProfList.setText(ProfList);
          */
         //creates the arraylists with weapons and refreshes when arraylists are updated
-        mW = new mAdapter(this.getActivity(), R.layout.mweapon_element, mWList);
+        /*mW = new mAdapter(this.getActivity(), R.layout.mweapon_element, mWList);
         rW = new rAdapter(this.getActivity(), R.layout.rweapon_element, rWList);
         ListView mWeaponsList = (ListView)getView().findViewById(R.id.mWeaponsList);
         ListView rWeaponsList = (ListView)getView().findViewById(R.id.rWeaponsList);
         mWeaponsList.setAdapter(mW);
         rWeaponsList.setAdapter(rW);
         mW.notifyDataSetChanged();
-        rW.notifyDataSetChanged();
+        */rW.notifyDataSetChanged();
 
 
     }
@@ -143,6 +145,17 @@ public class EquipmentPage extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         super.onCreateView(inflater, container, savedInstanceState);
+
+        View fragmentView = inflater.inflate(R.layout.activity_equipment_page, container,false);
+        mView = fragmentView;
+        mW = new mAdapter(this.getActivity(), R.layout.mweapon_element, mWList);
+        rW = new rAdapter(this.getActivity(), R.layout.rweapon_element, rWList);
+        ListView mWeaponsList = (ListView) mView.findViewById(R.id.mWeaponsList);
+        ListView rWeaponsList = (ListView) mView.findViewById(R.id.rWeaponsList);
+        mWeaponsList.setAdapter(mW);
+        rWeaponsList.setAdapter(rW);
+        mW.notifyDataSetChanged();
+        rW.notifyDataSetChanged();
         return inflater.inflate(R.layout.activity_equipment_page, container, false);
     }
 

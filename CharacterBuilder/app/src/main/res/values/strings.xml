@@ -104,9 +104,9 @@
         <item>Rock Gnome</item>
     </string-array>
 
-    <string name="title_activity_custom_dice">customDiceActivity</string>
+    <string name="title_activity_custom_dice">Dice Roller - Custom</string>
     <string name="title_activity_drop_lowest_dice">dropLowestDice</string>
-    <string name="title_activity_drop_lowest_dice_mrkii">dropLowestDiceMRKII</string>
+    <string name="title_activity_drop_lowest_dice_mrkii">Dice Roller - Drop Lowest</string>
     <string name="title_activity_reroll_ones">rerollOnes</string>
     <string name="title_activity_ability_page">AbilityPage</string>
     <string name="title_activity_noob_question">NoobQuestion</string>

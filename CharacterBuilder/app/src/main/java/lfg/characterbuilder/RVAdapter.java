@@ -30,19 +30,9 @@ public class RVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i){
-        //View v;
-
-       //if(i == FOOTER_VIEW){
-           // v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_view, viewGroup, false); //potential bug here
-            //FooterViewHolder vh = new FooterViewHolder(v);
-            //return vh;
-        //}
-
-        //else {
             View v2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_view, viewGroup, false);
             CharacterViewHolder cvh = new CharacterViewHolder(v2);
             return cvh;
-        //}
 
     }
 
