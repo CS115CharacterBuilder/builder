@@ -27,7 +27,7 @@ import java.util.List;
 
 public class SkillsPage extends Fragment {
     protected View mView;
-    Character gotChar = getActivity().getIntent().getParcelableExtra("characterTag");
+    Character gotChar;
     public class SkillElement {
         SkillElement() {
         };
@@ -52,13 +52,14 @@ public class SkillsPage extends Fragment {
 
         public View getView(int position, View convertView, ViewGroup parent) {
             LinearLayout newView;
+            System.out.println(position);
             final SkillElement s = getItem(position);
 
             if(convertView == null) {
                 newView = new LinearLayout(getContext());
                 String inflater = Context.LAYOUT_INFLATER_SERVICE;
                 LayoutInflater vi = (LayoutInflater) getContext().getSystemService(inflater);
-                vi.inflate(resource, newView, true);
+                vi.inflate(R.layout.skillelement, newView, true);
             } else {
                 newView = (LinearLayout) convertView;
             }
@@ -66,7 +67,6 @@ public class SkillsPage extends Fragment {
             TextView sMod = (TextView) newView.findViewById(R.id.sModTxt);
             TextView sName = (TextView) newView.findViewById(R.id.sNameTxt);
             TextView AttTxt = (TextView) newView.findViewById(R.id.AttTxt);
-
             sMod.setText(s.val);
             sName.setText(s.name);
             AttTxt.setText(s.type);
@@ -82,21 +82,23 @@ public class SkillsPage extends Fragment {
 
         View fragmentView = inflater.inflate(R.layout.activity_skills_page, container, false);
         super.onCreateView(inflater, container, savedInstanceState);
+        sList = new ArrayList<SkillElement>();
         createSkills();
         aa = new MyAdapter(this.getActivity(), R.layout.skillelement, sList);
         this.mView = fragmentView;
-        ListView skillList = (ListView)mView.findViewById(R.id.skillList);
+        ListView skillList = (ListView)this.mView.findViewById(R.id.skillList);
         skillList.setAdapter(aa);
-        return inflater.inflate(R.layout.activity_skills_page, container, false);
+        return this.mView;
     }
 
     //automates creation of character skills
     public void createSkills() {
-        for (int i = 0; i < 17; i++) {
+        for (int i = 0; i <= 17; i++) {
             SkillElement skill = new SkillElement();
             if (i == 0) {
                 skill.name = "Athletics";
                 skill.type = "Strength";
+                skill.val = Integer.toString(0);
                 //skill.val = findMod(Char.STR);
             } else if (i <= 3 && i > 0) {
                 if (i == 1) {
@@ -108,6 +110,7 @@ public class SkillsPage extends Fragment {
                     skill.name = "Stealth";
                 }
                 skill.type = "Dexterity";
+                skill.val = Integer.toString(0);
                 //skill.val = findMod(Char.DEX);
             } else if (i <= 8 && i > 3) {
                 if (i == 4) {
@@ -122,6 +125,7 @@ public class SkillsPage extends Fragment {
                     skill.name = "Religion";
                 }
                 skill.type = "Intelligence";
+                skill.val = Integer.toString(0);
                 //skill.val = findMod(Char.INT);
             } else if (i <= 13 && i > 8) {
                 if (i == 9) {
@@ -136,6 +140,7 @@ public class SkillsPage extends Fragment {
                     skill.name = "Survival";
                 }
                 skill.type = "Wisdom";
+                skill.val = Integer.toString(0);
                 //skill.val = findMod(Char.WIS);
             } else {
                 if (i == 14) {
@@ -148,10 +153,11 @@ public class SkillsPage extends Fragment {
                     skill.name = "Persuasion";
                 }
                 skill.type = "Charisma";
+                skill.val = Integer.toString(0);
                 //skill.val = findMod(Char.CHAR);
             }
-            checkProf(skill.name, skill);
-            sList.set(i, skill);
+            //checkProf(skill.name, skill);
+            sList.add(skill);
         }
     }
 

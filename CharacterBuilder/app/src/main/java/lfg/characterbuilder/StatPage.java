@@ -20,12 +20,11 @@ public class StatPage extends Fragment {
 
 
 
-    @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View fragmentView = inflater.inflate(R.layout.activity_stat_page, container, false);
         this.mView = fragmentView;
-        gotChar = getActivity().getIntent().getParcelableExtra("characterTag");
+        //gotChar = getActivity().getIntent().getParcelableExtra("characterTag");
         TempHP = (TextView) mView.findViewById(R.id.TempHP);
         HDCount = (TextView) mView.findViewById(R.id.HDCount);
         HPCurr = (TextView) mView.findViewById(R.id.HpCurr);
