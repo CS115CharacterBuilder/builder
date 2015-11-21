@@ -24,6 +24,7 @@ public class Data {
     String dragonAncestry[];
     String castTime;
     String school;
+    String backgroundType;
     boolean chaClassSkills[];
     boolean backgroundSkills[];
     boolean raceSkills[];
