@@ -12,11 +12,11 @@ import android.widget.TextView;
 
 public class StatPage extends Fragment {
     protected View mView;
-    Character gotChar = getActivity().getIntent().getParcelableExtra("characterTag");
-    TextView HPCurr = (TextView) mView.findViewById(R.id.HpCurr);
-    TextView TempHP = (TextView) mView.findViewById(R.id.TempHP);
-    TextView HDCount = (TextView) mView.findViewById(R.id.HDCount);
-    int[] stats = gotChar.getStats();
+    Character gotChar;
+    TextView HPCurr;
+    TextView TempHP;
+    TextView HDCount;
+    int[] stats;
 
 
 
@@ -25,6 +25,14 @@ public class StatPage extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View fragmentView = inflater.inflate(R.layout.activity_stat_page, container, false);
         this.mView = fragmentView;
+        gotChar = getActivity().getIntent().getParcelableExtra("characterTag");
+        TempHP = (TextView) mView.findViewById(R.id.TempHP);
+        HDCount = (TextView) mView.findViewById(R.id.HDCount);
+        HPCurr = (TextView) mView.findViewById(R.id.HpCurr);
+        stats = /*gotChar.getStats();*/ new int[16];
+        for(int i = 0; i < stats.length; i++) {
+            stats[i] = 0;
+        }
         //Initialize stat value textviews
         TextView StrVal = (TextView) mView.findViewById(R.id.StrVal);
         StrVal.setText(Integer.toString(stats[0]));
@@ -79,7 +87,7 @@ public class StatPage extends Fragment {
         HPTotal.setText(Integer.toString(stats[13]));
         TextView TempHP = (TextView) mView.findViewById(R.id.TempHP);
         TempHP.setText(Integer.toString(stats[14]));
-        return inflater.inflate(R.layout.activity_stat_page, container, false);
+        return this.mView;
     }
 
     //takes stat value and converts it into the modifier
