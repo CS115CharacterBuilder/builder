@@ -35,7 +35,6 @@ public class Character implements Parcelable {
 
     //abilities page info
     private boolean[] skillproficiencies;
-    private String[] abilities;
     //equipment page info
     private String[] m_weapons_held;
     private int[] m_weapons_bonus;
@@ -138,8 +137,6 @@ public class Character implements Parcelable {
 
     public boolean[] getSkillproficiencies() { return this.skillproficiencies; }
 
-    public String[] getAbilties() { return this.abilities; }
-
     public String[] getmWeapons() { return this.m_weapons_held; }
 
     public int[] getmWeaponBonus() { return this.m_weapons_bonus; }
@@ -201,8 +198,6 @@ public class Character implements Parcelable {
     public void setStats(int[] newStats) { this.stats = newStats; }
 
     public void setSkillproficiencies(boolean[] newSkillProficiencies) { this.skillproficiencies = newSkillProficiencies; }
-
-    //public void setAbilties() { this.abilities = new }
 
     public void setmWeapons(String[] newmWeapons) { this.m_weapons_held = newmWeapons; }
 
