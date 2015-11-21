@@ -23,7 +23,8 @@ import java.util.HashMap;
 import java.util.List;
 
 public class AbilitiesPage extends Fragment {
-    Character gotChar = getActivity().getIntent().getParcelableExtra("characterTag");
+    //Character gotChar = getActivity().getIntent().getParcelableExtra("characterTag");
+    Character gotChar = new Character("zxcvbnml", "char name", "char class", R.drawable.ic_ranger);
     ExpandableListAdapter listAdapter;
     ExpandableListView expListView;
     List<String> abilityTypes;
@@ -49,7 +50,7 @@ public class AbilitiesPage extends Fragment {
         expListView = (ExpandableListView) mView.findViewById(R.id.expandableListView);
         listAdapter = new ExpandableListAdapter(this.getActivity(), abilityTypes, listAbilities);
         expListView.setAdapter(listAdapter);
-        Character gotChar = getActivity().getIntent().getParcelableExtra("characterTag");
+        //Character gotChar = getActivity().getIntent().getParcelableExtra("characterTag");
         String[] test = gotChar.getAbilties();
         createlist(gotChar);
         return inflater.inflate(R.layout.activity_abilities_page, container, false);

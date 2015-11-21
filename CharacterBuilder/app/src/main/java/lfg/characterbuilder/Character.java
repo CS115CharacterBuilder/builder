@@ -32,6 +32,7 @@ public class Character implements Parcelable {
     Temoporary HP)
      */
     private int[] stats;
+
     //abilities page info
     private boolean[] skillproficiencies;
     private String[] abilities;
@@ -49,13 +50,20 @@ public class Character implements Parcelable {
     private String[] equipped_spells;
 
 
-
     //Constructor for Character Object
     Character(String unique_id, String char_name, String char_class, int char_photoId) {
         this.unique_id = unique_id;
         this.name = char_name;
         this.class_name = char_class;
         this.photoId = char_photoId;
+        this.stats = new int[15];
+        this.stats[0] = 0;
+        this.stats[1] = 0;
+        this.stats[2] = 0;
+        this.stats[3] = 0;
+        this.stats[4] = 0;
+        this.stats[5] = 0;
+
     }
 
     //Parcel Constructor Allows Object to be passed
