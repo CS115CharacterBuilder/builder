@@ -31,7 +31,7 @@ public class SpellData extends Data {
         aid.spellLevel = 2;
         aid.school = "Abjuration";
         //                       bard, cler,   dru,   Pal, range,  Sorc,   War, Wizard
-        boolean classProf[] = {false, false, false, false, false, false, false, false};
+        boolean classProf[] = {false, true, false, true, false, false, false, false};
         aid.spells = classProf;
         aid.range = "30";
         aid.components = "V, S, M (a tiny strip of white cloth)";
@@ -897,7 +897,7 @@ public class SpellData extends Data {
         jump.spellLevel = 1;
         jump.school = "Transmutation";
         //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
-        boolean classProf[] = {false, false, false, false, false, false, false, false};
+        boolean classProf[] = {false, false, true, false, true, true, false, true};
         jump.spells = classProf;
         jump.range = "Touch";
         jump.components = "V, S, M (a grasshopper’s hind leg)";
@@ -1312,7 +1312,7 @@ public class SpellData extends Data {
         sleep.spellLevel = 1;
         sleep.school = "Enchantment";
         //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
-        boolean classProf[] = {false, false, false, false, false, false, false, false};
+        boolean classProf[] = {true, false, false, false, false, true, false, true};
         sleep.spells = classProf;
         sleep.range = "90";
         sleep.components = "V, S, M (a pinch of fine sand, rose petals,\n" +
@@ -1328,7 +1328,330 @@ public class SpellData extends Data {
                 "AtHigherLevels. When you cast this spell using a\n" +
                 "spell slot of 2nd level or higher, roll an additional 2d8 for each slot level above 1st.";
     }
+    
+    Data spareTheDying = new Data(); //declare a new ability object
+    public void setSpareTheDying(Data spareTheDying) { //populate it
+        spareTheDying.abilName = "Spare The Dying";
+        spareTheDying.spellLevel = 0;
+        spareTheDying.school = "Necromancy";
+        //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
+        boolean classProf[] = {false, true, false, false, false, false, false, false};
+        spareTheDying.spells = classProf;
+        spareTheDying.range = "Touch";
+        spareTheDying.components = "V, S";
+        spareTheDying.duration = "Instantaneous";
+        spareTheDying.castTime = "1 action";
+        spareTheDying.flavor = "You touch a living creature that has 0 hit points. The creatue becomes stable. This spell has no effect on undead or constructs.";
+    }
+    
+    Data speakWithAnimals = new Data(); //declare a new ability object
+    public void setSpeakWithAnimals(Data speakWithAnimals) { //populate it
+        speakWithAnimals.abilName = "Speak With Animals";
+        speakWithAnimals.spellLevel = 1;
+        speakWithAnimals.school = "Divination (Ritual)";
+        //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
+        boolean classProf[] = {true, false, true, false, true, false, false, false};
+        speakWithAnimals.spells = classProf;
+        speakWithAnimals.range = "Self";
+        speakWithAnimals.components = "V, S";
+        speakWithAnimals.duration = "10 Minutes";
+        speakWithAnimals.castTime = "1 action";
+        speakWithAnimals.flavor = "You gain the ability to com prehend and verbally
+                com m unicate with beasts for the duration. The
+                knowledge and awareness of many beasts is limited
+                by their intelligence, but at minimum, beasts can
+                give you information about nearby locations and
+                monsters, including whatever they can perceive or have
+                perceived within the past day. You might be able to
+                persuade a beast to perform a small favor for you, at the
+                D M ’s discretion."
 
+    Data tashasHideousLaughter = new Data(); //declare a new ability object
+    public void setTashasHideousLaughter(Data tashasHideousLaughter) { //populate it
+        tashasHideousLaughter.abilName = "Tasha's Hideous Laughter";
+        tashasHideousLaughter.spellLevel = 1;
+        tashasHideousLaughter.school = "Enchantment";
+        //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
+        boolean classProf[] = {true, false, false, false, false, false, false, true};
+        tashasHideousLaughter.spells = classProf;
+        tashasHideousLaughter.range = "30 feet";
+        tashasHideousLaughter.components = "V, S, M (tiny tarts and a feather that is
+                waved in the air)";
+        tashasHideousLaughter.duration = "Concentration, up to 1 minute";
+        tashasHideousLaughter.castTime = "1 action";
+        tashasHideousLaughter.flavor = "A creature of your choice that you can see within range
+                perceives everything as hilariously funny and falls
+                into fits of laughter if this spell affects it. The target
+                must succeed on a W isdom saving throw or fall prone,
+                becom ing incapacitated and unable to stand up for the
+                duration. A creature with an Intelligence score of 4 or
+                less isn’t affected.
+                At the end of each of its turns, and each time it takes
+                damage, the target can make another W isdom saving
+                throw. The target has advantage on the saving throw if
+                it’s triggered by damage. On a success, the spell ends.";
+    }
+
+    Data tensersFloatingDisk = new Data(); //declare a new ability object
+    public void setTensersFloatingDisk(Data tensersFloatingDisk) { //populate it
+        tensersFloatingDisk.abilName = "Tenser's Floating Disk";
+        tensersFloatingDisk.spellLevel = 1;
+        tensersFloatingDisk.school = "Conjuration (ritual)";
+        //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
+        boolean classProf[] = {false, false, false, false, false, false, false, true};
+        tensersFloatingDisk.spells = classProf;
+        tensersFloatingDisk.range = "30 feet";
+        tensersFloatingDisk.components = "V, S, M (a drop of mercury)";
+        tensersFloatingDisk.duration = "1 hour";
+        tensersFloatingDisk.castTime = "1 action";
+        tensersFloatingDisk.flavor = "This spell creates a circular, horizontal plane of force,
+            3 feet in diameter and 1 inch thick, that floats 3 feet
+            above the ground in an unoccupied space of your choice
+            that you can see within range. The disk remains for the
+            duration, and can hold up to 500 pounds. If m ore weight
+            is placed on it, the spell ends, and everything on the disk
+            falls to the ground.
+            The disk is im m obile while you are within 20 feet of
+            it. If you move m ore than 20 feet away from it, the disk
+            follow s you so that it remains within 20 feet of you. It
+            can move across uneven terrain, up or dow n stairs,
+            slopes and the like, but it can’t cross an elevation change
+            o f 10 feet or more. For example, the disk can’t move
+            across a 10-foot-deep pit, nor could it leave such a pit if it
+            w as created at the bottom.
+            If you move m ore than 100 feet from the disk (typically
+            because it can’t move around an obstacle to follow you),
+            the spell ends.";
+    }
+    
+    Data thaumaturgy = new Data(); //declare a new ability object
+    public void setThaumaturgy(Data thaumaturgy) { //populate it
+        thaumaturgy.abilName = "Thaumaturgy";
+        thaumaturgy.spellLevel = 0;
+        thaumaturgy.school = "Transmutation";
+        //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
+        boolean classProf[] = {false, true, false, false, false, false, false, false};
+        thaumaturgy.spells = classProf;
+        thaumaturgy.range = "30 feet";
+        thaumaturgy.components = "V";
+        thaumaturgy.duration = "Up to 1 minute";
+        thaumaturgy.castTime = "1 action";
+        thaumaturgy.flavor = "You manifest a minor wonder, a sign of supernatural
+                power, within range. You create one of the following
+                magical effects within range:
+                • Your voice boom s up to three tim es as loud as norm al
+                for 1 minute.
+                • You cause flames to flicker, brighten, dim, or change
+                color for 1 minute.
+                • You cause harm less tremors in the ground for 1
+                minute.
+                • You create an instantaneous sound that originates
+                from a point of your choice within range, such as a
+                rumble of thunder, the cry o f a raven, or om inous
+                whispers.
+                • You instantaneously cause an unlocked door or w indow
+                to fly open or slam shut.
+                • You alter the appearance of your eyes for 1 minute.
+                If you cast this spell multiple times, you can have up to
+                three of its 1-minute effects active at a time, and you can
+                dism iss such an effect as an action.";
+    }
+    
+    Data thornWhip = new Data(); //declare a new ability object
+    public void setThornWhip(Data thornWhip) { //populate it
+        thornWhip.abilName = "Thorn Whip";
+        thornWhip.spellLevel = 0;
+        thornWhip.school = "Transmutation";
+        //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
+        boolean classProf[] = {false, false, true, false, false, false, false, false};
+        thornWhip.spells = classProf;
+        thornWhip.range = "30 feet";
+        thornWhip.components = "V, S, M (the stem o f a plant with thorns)";
+        thornWhip.duration = "Instantaneous";
+        thornWhip.castTime = "1 action";
+        thornWhip.flavor = "You create a long, vine-like whip covered in thorns that
+                lashes out at your com m and toward a creature in range.
+                Make a m elee spell attack against the target. If the
+                attack hits, the creature takes 1d6 piercing damage, and
+                if the creature is Large or smaller, you pull the creature
+                up to 10 feet closer to you.
+                This spell’s damage increases by 1d6 w hen you reach
+                5th level (2d6), 11th level (3d6), and 17th level (4d6).";
+    }
+    
+    Data thunderousSmite = new Data(); //declare a new ability object
+    public void setThunderousSmite(Data thunderousSmite) { //populate it
+        thunderousSmite.abilName = "Thunderous Smite";
+        thunderousSmite.spellLevel = 1;
+        thunderousSmite.school = "Evocation";
+        //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
+        boolean classProf[] = {false, false, false, true, false, false, false, false};
+        thunderousSmite.spells = classProf;
+        thunderousSmite.range = "self";
+        thunderousSmite.components = "V";
+        thunderousSmite.duration = "Concentration, up to 1 minute";
+        thunderousSmite.castTime = "1 bonus action";
+        thunderousSmite.flavor = "The first time you hit with a m elee weapon attack
+                during this spell’s duration, your w eapon rings with
+                thunder that is audible within 300 feet o f you, and the
+                attack deals an extra 2d6 thunder damage to the target.
+                Additionally, if the target is a creature, it must succeed
+                on a Strength saving throw or be pushed 10 feet away
+                from you and knocked prone.";
+    }
+    
+    Data thunderWave = new Data(); //declare a new ability object
+    public void setThunderWave(Data thunderWave) { //populate it
+        thunderWave.abilName = "Thunder Wave";
+        thunderWave.spellLevel = 1;
+        thunderWave.school = "Evocation";
+        //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
+        boolean classProf[] = {true, false, true, false, false, true, false, true};
+        thunderWave.spells = classProf;
+        thunderWave.range = "self (15-foot cube)";
+        thunderWave.components = "V, S";
+        thunderWave.duration = "Instantaneous";
+        thunderWave.castTime = "1 action";
+        thunderWave.flavor = "A wave of thunderous force sw eeps out from you. Each
+                creature in a 15-foot cube originating from you must
+                make a Constitution saving throw. On a failed save, a
+                creature takes 2d8 thunder damage and is pushed 10
+                feet away from you. On a successful save, the creature
+                takes half as much damage and isn’t pushed.
+                In addition, unsecured objects that are completely
+                within the area of effect are automatically pushed 10 feet
+                away from you by the spell’s effect, and the spell emits a
+                thunderous boom audible out to 300 feet.
+                A t Higher Levels. W hen you cast this spell using a
+                spell slot of 2nd level or higher, the damage increases by
+                1d8 for each slot level above 1st.";
+    }
+    
+    Data trueStrike = new Data(); //declare a new ability object
+    public void setTrueStrike(Data trueStrike) { //populate it
+        trueStrike.abilName = "True Strike";
+        trueStrike.spellLevel = 0;
+        trueStrike.school = "Divination";
+        //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
+        boolean classProf[] = {true, false, false, false, false, true, true, true};
+        trueStrike.spells = classProf;
+        trueStrike.range = "30 feet";
+        trueStrike.components = "S";
+        trueStrike.duration = "Concentration, up to 1 round";
+        trueStrike.castTime = "1 action";
+        trueStrike.flavor = "You extend your hand and point a finger at a target in
+                range. Your m agic grants you a brief insight into the target’s defenses. On your next turn, you gain advantage
+                on your first attack roll against the target, provided that
+                this spell hasn’t ended.";
+    }
+    
+    Data unseenServant = new Data(); //declare a new ability object
+    public void setUnseenServant(Data unseenServant) { //populate it
+        unseenServant.abilName = "Unseen Servant";
+        unseenServant.spellLevel = 1;
+        unseenServant.school = "Conjuration (ritual)";
+        //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
+        boolean classProf[] = {true, false, false, false, false, false, true, true};
+        unseenServant.spells = classProf;
+        unseenServant.range = "60 feet";
+        unseenServant.components = "V, S, M (a piece of string and
+                a bit of w ood)";
+        unseenServant.duration = "1 hour";
+        unseenServant.castTime = "1 action";
+        unseenServant.flavor = "This spell creates an invisible, mindless, shapeless
+                force that perform s simple tasks at your com m and until
+                the spell ends. The servant springs into existence in an
+                unoccupied space on the ground within range. It has AC
+                10, 1 hit point, and a Strength of 2, and it can’t attack. If
+                it drops to 0 hit points, the spell ends.
+                Once on each of your turns as a bonus action, you can
+                mentally com m and the servant to move up to 15 feet and
+                interact with an object. The servant can perform simple
+                tasks that a human servant could do, such as fetching
+                things, cleaning, mending, folding clothes, lighting
+                fires, serving food, and pouring wine. Once you give the
+                com m and, the servant perform s the task to the best of
+                its ability until it com pletes the task, then waits for your
+                next com m and.
+                If you com m and the servant to perform a task that
+                w ould move it m ore than 60 feet away from you,
+                the spell ends.";
+    }
+    
+    Data viciousMockery = new Data(); //declare a new ability object
+    public void setViciousMockery(Data viciousMockery) { //populate it
+        viciousMockery.abilName = "Vicious Mockery";
+        viciousMockery.spellLevel = 0;
+        viciousMockery.school = "Enchantment";
+        //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
+        boolean classProf[] = {true, false, false, false, false, false, false, false};
+        viciousMockery.spells = classProf;
+        viciousMockery.range = "60 feet";
+        viciousMockery.components = "V";
+        viciousMockery.duration = "Instantaneous";
+        viciousMockery.castTime = "1 action";
+        viciousMockery.flavor = "You unleash a string of insults laced with subtle
+                enchantments at a creature you can see within range. If
+                the target can hear you (though it need not understand
+                you), it must succeed on a W isdom saving throw or take
+                1d4 psychic damage and have disadvantage on the next
+                attack roll it m akes before the end o f its next turn.
+                This spell’s damage increases by 1d4 when you reach
+                5th level (2d4), 11th level (3d4), and 17th level (4d4).";
+    }
+    
+    Data witchBolt = new Data(); //declare a new ability object
+    public void setWitchBolt(Data witchBolt) { //populate it
+        witchBolt.abilName = "Witch Bolt";
+        witchBolt.spellLevel = 1;
+        witchBolt.school = "Evocation";
+        //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
+        boolean classProf[] = {false, false, false, false, false, true, true, true};
+        witchBolt.spells = classProf;
+        witchBolt.range = "30 feet";
+        witchBolt.components = "V, S, M (a twig from a tree that has been
+                struck by lightning)";
+        witchBolt.duration = "Concentraion, up to 1 minute";
+        witchBolt.castTime = "1 action";
+        witchBolt.flavor = "A beam of crackling, blue energy lances out toward
+                a creature within range, form ing a sustained arc of
+                lightning between you and the target. Make a ranged
+                spell attack against that creature. On a hit, the target
+                takes 1d12 lightning damage, and on each of your turns
+                for the duration, you can use your action to deal 1d12
+                lightning damage to the target automatically. The spell
+                ends if you use your action to do anything else. The spell
+                also ends if the target is ever outside the spell’s range or
+                if it has total cover from you.
+                At Higher Levels. W hen you cast this spell using
+                a spell slot of 2nd level or higher, the initial damage
+                increases by 1d12 for each slot level above 1st.";
+    }
+    
+    Data wrathfulSmite = new Data(); //declare a new ability object
+    public void setWrathfulSmite(Data wrathfulSmite) { //populate it
+        wrathfulSmite.abilName = "Wrathful Smite";
+        wrathfulSmite.spellLevel = 1;
+        wrathfulSmite.school = "Evocation";
+        //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
+        boolean classProf[] = {false, false, false, true, false, false, false, false};
+        wrathfulSmite.spells = classProf;
+        wrathfulSmite.range = "Self";
+        wrathfulSmite.components = "V";
+        wrathfulSmite.duration = "Concentraion, up to 1 minute";
+        wrathfulSmite.castTime = "1 bonus action";
+        wrathfulSmite.flavor = "The next time you hit with a melee w eapon attack
+                during this spell’s duration, your attack deals an extra
+                1d6 psychic damage. Additionally, if the target is a
+                creature, it must make a W isdom saving throw or be
+                frightened of you until the spell ends. As an action, the
+                creature can make a W isdom check against your spell
+                save DC to steel its resolve and end this spell.";
+    }
+    
+    
+    
+    
     //This method returns all the race data
     public ArrayList<Data> getSd() {
 
@@ -1565,7 +1888,42 @@ public class SpellData extends Data {
 
         setSleep(sleep);
         sd.add(sleep);
+        
+        setSpareTheDying(spareTheDying);
+        sd.add(spareTheDying);
+        
+        setSpeakWithAnimals(speakWithAnimals);
+        sd.add(speakWithAnimals);
+        
+        setTashasHideousLaughter(tashasHideousLaughter);
+        sd.add(tashasHideousLaughter);
 
+        setTensersFloatingDisk(tensersFloatingDisk);
+        sd.add(tensersFloatingDisk);
+        
+        setThaumaturgy(thaumaturgy);
+        sd.add(thaumaturgy);
+        
+        setThornWhip(thornWhip);
+        sd.add(thornWhip);
+        
+        setThunderWave(thunderWave);
+        sd.add(thunderWave);
+        
+        setTrueStrike(trueStrike);
+        sd.add(trueStrike);
+        
+        setUnseenServant(unseenServant);
+        sd.add(unseenServant);
+        
+        setViciousMockery(viciousMockery);
+        sd.add(viciousMockery);
+        
+        setWitchBolt(witchBolt);
+        sd.add(witchBolt);
+        
+        setWrathfulSmite(wrathfulSmite);
+        sd.add(wrathfulSmite);
         return sd;
     }
 
