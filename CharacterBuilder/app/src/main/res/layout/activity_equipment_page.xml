@@ -24,7 +24,7 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/editText4"
+            android:id="@+id/profTxt"
             android:text="Enter Proficiencies" />
     </LinearLayout>
 
@@ -57,7 +57,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:ems="10"
-                android:id="@+id/editText5"
+                android:id="@+id/ArmorMod"
                 android:layout_weight="1"
                 android:text="Enter Modifier"
                 android:singleLine="true" />

@@ -32,7 +32,7 @@ public class StatPage extends Fragment {
 
         //Grab and set stats bundle
         Bundle args = getArguments();
-
+        //gotChar = args.getParcelable("CharacterTag");
         int[] caughtStatsArray = args.getIntArray("statsToFrag");
         stats = caughtStatsArray;
 
