@@ -25,6 +25,7 @@ public class Data {
     String castTime;
     String school;
     String backgroundType;
+    String subrace;
     boolean chaClassSkills[];
     boolean backgroundSkills[];
     boolean raceSkills[];
