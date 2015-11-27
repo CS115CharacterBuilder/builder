@@ -60,26 +60,26 @@ public class StatPage extends Fragment {
         TextView DexVal = (TextView) mView.findViewById(R.id.DexVal);
         DexVal.setText(Integer.toString(stats[1]));
         TextView ConVal = (TextView) mView.findViewById(R.id.ConVal);
-        //ConVal.setText(Integer.toString(stats[2]));
+        ConVal.setText(Integer.toString(stats[2]));
         TextView IntVal = (TextView) mView.findViewById(R.id.IntVal);
-        //IntVal.setText(Integer.toString(stats[3]));
+        IntVal.setText(Integer.toString(stats[3]));
         TextView WisVal = (TextView) mView.findViewById(R.id.WisVal);
-        //WisVal.setText(Integer.toString(stats[4]));
+        WisVal.setText(Integer.toString(stats[4]));
         TextView CharVal = (TextView) mView.findViewById(R.id.CharVal);
-        //CharVal.setText(Integer.toString(stats[5]));
+        CharVal.setText(Integer.toString(stats[5]));
         //Initialize stat modifier textviews
         TextView StrMod = (TextView) mView.findViewById(R.id.StrMod);
-        //StrMod.setText(findMod(stats[0]));
+        StrMod.setText(findMod(stats[0]));
         TextView DexMod = (TextView) mView.findViewById(R.id.DexMod);
-        //DexMod.setText(findMod(stats[1]));
+        DexMod.setText(findMod(stats[1]));
         TextView ConMod = (TextView) mView.findViewById(R.id.ConMod);
-        //ConMod.setText(findMod(stats[2]));
+        ConMod.setText(findMod(stats[2]));
         TextView IntMod = (TextView) mView.findViewById(R.id.IntMod);
-        //IntMod.setText(findMod(stats[3]));
+        IntMod.setText(findMod(stats[3]));
         TextView WisMod = (TextView) mView.findViewById(R.id.WisMod);
-        //WisMod.setText(findMod(stats[4]));
+        WisMod.setText(findMod(stats[4]));
         TextView CharMod = (TextView) mView.findViewById(R.id.CharMod);
-        //CharMod.setText(findMod(stats[5]));
+        CharMod.setText(findMod(stats[5]));
 
         //Initialize stat save textviews
         TextView StrSave = (TextView) mView.findViewById(R.id.StrSave);
