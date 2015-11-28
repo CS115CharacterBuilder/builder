@@ -89,7 +89,8 @@
                 android:text="Add"
                 android:id="@+id/button4"
                 android:layout_gravity="right"
-                android:onClick="addMWeapon" />
+                android:onClick="addMWeapon"
+                android:clickable="true" />
         </LinearLayout>
 
         <ListView
@@ -124,7 +125,8 @@
                 android:text="Add"
                 android:id="@+id/button6"
                 android:layout_gravity="right"
-                android:onClick="addRWeapon" />
+                android:onClick="addRWeapon"
+                android:clickable="true" />
         </LinearLayout>
 
         <ListView

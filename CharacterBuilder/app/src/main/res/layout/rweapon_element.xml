@@ -114,6 +114,7 @@
             android:layout_height="wrap_content"
             android:text="Remove"
             android:id="@+id/rWRemove"
-            android:onClick="removeRWeapon" />
+            android:onClick="removeRWeapon"
+            android:clickable="true" />
     </LinearLayout>
 </LinearLayout>

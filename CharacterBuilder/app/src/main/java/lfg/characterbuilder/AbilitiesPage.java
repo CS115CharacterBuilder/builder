@@ -85,11 +85,10 @@ public class AbilitiesPage extends Fragment {
 
         //Create Lists
         createlist();
-        expListView = (ExpandableListView) mView.findViewById(R.id.expandableListView);
+        expListView = (ExpandableListView) this.mView.findViewById(R.id.expandableListView);
         listAdapter = new ExpandableListAdapter(this.getActivity(), abilityTypes, listAbilities);
         expListView.setAdapter(listAdapter);
         //Character gotChar = getActivity().getIntent().getParcelableExtra("characterTag");
-        //String[] test = gotChar.getAbilties();
         return this.mView;
     }
 

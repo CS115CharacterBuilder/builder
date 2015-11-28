@@ -15,7 +15,8 @@
         android:text="Class Points"
         android:id="@+id/CPTxt"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -24,7 +25,8 @@
         android:ems="10"
         android:id="@+id/CPVal"
         android:layout_below="@+id/CPTxt"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal" />
 
     <ExpandableListView
         android:layout_width="match_parent"

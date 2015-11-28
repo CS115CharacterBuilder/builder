@@ -114,17 +114,15 @@ class MyAdapter extends FragmentPagerAdapter {
             fragment = new BackgroundPage();
             fragment.setArguments(bundle);
 
-        }/*else if(position == 6) {
+        }else{
             fragment = new SpellPage();
-        }else if(position == 7) {
-
-        }*/
+        }
         return fragment;
     }
 
     @Override
     public int getCount() {
-        return 6;
+        return 7;
     }
 }
 

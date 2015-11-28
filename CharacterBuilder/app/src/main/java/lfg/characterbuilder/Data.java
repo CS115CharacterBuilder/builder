@@ -1,6 +1,6 @@
 package lfg.characterbuilder;
 
-import java.util.*;
+        import java.util.*;
 /**
  * Created by AndrewMiller on 10/29/15.
  */
@@ -26,6 +26,7 @@ public class Data {
     String castTime;
     String school;
     String backgroundType;
+    String subrace;
     boolean chaClassSkills[];
     boolean backgroundSkills[];
     boolean raceSkills[];

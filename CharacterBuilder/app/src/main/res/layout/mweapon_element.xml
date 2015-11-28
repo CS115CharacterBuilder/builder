@@ -64,6 +64,7 @@
         android:text="Remove"
         android:id="@+id/mWRemove"
         android:layout_gravity="center_horizontal"
-        android:onClick="removeMWeapon" />
+        android:onClick="removeMWeapon"
+        android:clickable="true" />
 
 </LinearLayout>
