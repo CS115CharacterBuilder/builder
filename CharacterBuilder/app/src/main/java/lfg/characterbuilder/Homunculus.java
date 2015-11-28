@@ -51,6 +51,7 @@ public class Homunculus{
         rogueScore = 0;
         wizardScore = 0;
         clericScore = 0;
+
         dwarfScore = 0;
         elfScore = 0;
         halflingScore = 0;
@@ -154,6 +155,7 @@ public class Homunculus{
         String sBottomRace = "";
         String sBottomClass = "";
 
+
         int largestRace = 0;
         int largestClass = 0;
         int middleRace = 0;
@@ -221,7 +223,73 @@ public class Homunculus{
         sMiddleRace = raceStringList.get(raceNumberTwo);
         sBottomRace = raceStringList.get(raceNumberThree);
 
-        //Do the same thing for class now. 
+        //Do the same thing for class now.
+
+        ArrayList<Integer> classList = new ArrayList<>();
+        classList.add(barbarianScore);
+        classList.add(fighterScore);
+        classList.add(paladinScore);
+        classList.add(monkScore);
+        classList.add(rangerScore);
+        classList.add(warlockScore);
+        classList.add(rogueScore);
+        classList.add(wizardScore);
+        classList.add(clericScore);
+
+        ArrayList<String> classStringList = new ArrayList<>();
+        classStringList.add("Barbarian");
+        classStringList.add("Fighter");
+        classStringList.add("Paladin");
+        classStringList.add("Monk");
+        classStringList.add("Ranger");
+        classStringList.add("Warlock");
+        classStringList.add("Rogue");
+        classStringList.add("Wizard");
+        classStringList.add("Cleric");
+
+        for(int i = 0; i < classList.size(); i++){
+            if(classList.get(i) > largestClass){
+                //the index
+                classNumberOne = i;
+                //the number to compare
+                largestClass = raceList.get(i);
+            }
+        }
+
+        classList.remove(classNumberOne);
+
+        for(int i = 0; i < classList.size(); i++){
+            if(classList.get(i) > middleClass){
+                classNumberTwo = i;
+                middleClass = classList.get(i);
+            }
+        }
+
+        classList.remove(classNumberTwo);
+
+        for(int i = 0; i < classList.size(); i++){
+            if(classList.get(i) > bottomClass){
+                classNumberThree = i;
+                bottomClass = classList.get(i);
+            }
+        }
+
+        sTopClass = classStringList.get(classNumberOne);
+        sMiddleClass = classStringList.get(classNumberTwo);
+        sBottomClass = classStringList.get(classNumberThree);
+
+        String finalTop = sTopRace + " " +  sTopClass;
+        String finalMiddle = sMiddleRace + " " + sMiddleClass;
+        String finalBottom = sBottomRace + " " + sBottomClass;
+
+        //top.setText("hello bitch");
+        top.setText(finalTop);
+        middle.setText(finalMiddle);
+        bottom.setText(finalBottom);
+
+
     }
+
+
 
 }
