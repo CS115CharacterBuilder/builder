@@ -6,11 +6,13 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.EditText;
 import android.widget.ExpandableListView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -41,6 +43,8 @@ public class AbilitiesPage extends Fragment {
     ArrayList<Data> bd;
     ArrayList<Data> cd;
     ArrayList<Data> rd;
+
+    static EditText CPVal;
 
     protected View mView;
 
@@ -78,6 +82,10 @@ public class AbilitiesPage extends Fragment {
         Class = gotChar.getCharacterClass();
         Race = gotChar.getCharacterRace();
         Subrace = gotChar.getCharacterSubRace();
+
+        CPVal = (EditText) mView.findViewById(R.id.CPVal);
+        CPVal.setGravity(Gravity.CENTER_HORIZONTAL);
+        CPVal.setText(String.valueOf(gotChar.getClassPoints()));
         
         //Background = "Acolyte";
         //Class = "Barbarian";
@@ -89,7 +97,6 @@ public class AbilitiesPage extends Fragment {
         expListView = (ExpandableListView) this.mView.findViewById(R.id.expandableListView);
         listAdapter = new ExpandableListAdapter(this.getActivity(), abilityTypes, listAbilities);
         expListView.setAdapter(listAdapter);
-        //Character gotChar = getActivity().getIntent().getParcelableExtra("characterTag");
         return this.mView;
 
     }
@@ -238,5 +245,9 @@ public class AbilitiesPage extends Fragment {
             }
         }
         listAbilities.put("Race", RaceList);
+    }
+
+    public int getAbilitiesClassPoints(){
+        return Integer.parseInt(CPVal.getText().toString());
     }
 }

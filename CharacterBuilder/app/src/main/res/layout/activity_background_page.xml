@@ -25,6 +25,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Testerman Stormshield"
+            android:textColor="@color/white"
             android:id="@+id/NameVal"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
@@ -118,6 +119,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="True Neutral"
+                android:textColor="@color/white"
                 android:id="@+id/AlignmentVal"
                 android:padding="10dp" />
 
@@ -126,6 +128,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Cthulhu"
+                android:textColor="@color/white"
                 android:id="@+id/DeityVal"
                 android:padding="10dp" />
         </LinearLayout>
@@ -153,6 +156,7 @@
                 android:inputType="textMultiLine"
                 android:ems="10"
                 android:id="@+id/BackgroundVal"
+                android:textColor="@color/white"
                 android:text="Enter Background" />
         </ScrollView>
 

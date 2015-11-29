@@ -328,11 +328,24 @@ public class HomeActivity extends AppCompatActivity {
             //Get the actual SP_file now that we have it's name
             SharedPreferences sp_file = getSharedPreferences(sp_file_name, Context.MODE_PRIVATE);
             String unique_id_loaded = sp_file_name;
+
+            //Load all the singleton variables from the character SP
             String char_name_loaded = sp_file.getString("CHAR_NAME", "ERROR_LOADING");
             String char_class_loaded = sp_file.getString("CHAR_CLASS", "ERROR_LOADING");
             int char_photoId_loaded = sp_file.getInt("CHAR_PHOTO", 0);
-            characters.add(new Character(unique_id_loaded, char_name_loaded, char_class_loaded, char_photoId_loaded));
-            //Toast.makeText(HomeActivity.this,"Loaded"+char_name_loaded, Toast.LENGTH_SHORT).show();
+
+            //Create the character and inflate it with the singleton variables
+            Character loadedCharacter = new Character(unique_id_loaded, char_name_loaded, char_class_loaded, char_photoId_loaded);
+            loadedCharacter.setCopper(sp_file.getInt("CHAR_COPPER", 0));
+            loadedCharacter.setSilver(sp_file.getInt("CHAR_SILVER", 0));
+            loadedCharacter.setGold(sp_file.getInt("CHAR_GOLD", 0));
+            loadedCharacter.setAlignment(sp_file.getString("CHAR_ALIGNMENT", "No Alignment"));
+            loadedCharacter.setDeity(sp_file.getString("CHAR_DEITY", "No Deity"));
+            loadedCharacter.setType(sp_file.getString("CHAR_BACKGROUND", "No Background Set"));
+
+            //Add the completed character to the home screen roster
+            characters.add(loadedCharacter);
+
         }
     }
 
@@ -346,6 +359,14 @@ public class HomeActivity extends AppCompatActivity {
             characters.get(i).setCharacterName(updatedName);
             characters.get(i).setCharacterClass(updatedClass);
             characters.get(i).setPhotoId(updatedPhoto);
+            characters.get(i).setCopper(sp_char.getInt("CHAR_COPPER", 0));
+            characters.get(i).setSilver(sp_char.getInt("CHAR_SILVER", 0));
+            characters.get(i).setGold(sp_char.getInt("CHAR_GOLD", 0));
+
+            characters.get(i).setAlignment(sp_char.getString("CHAR_ALIGNMENT", "No Alignment"));
+            characters.get(i).setDeity(sp_char.getString("CHAR_DEITY", "No Deity"));
+            characters.get(i).setType(sp_char.getString("CHAR_BACKGROUND", "No Background Set"));
+
         }
     }
 
