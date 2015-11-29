@@ -22,11 +22,11 @@ import java.util.Set;
 public class ItemsPage extends Fragment {
     protected View mView;
     //pulls character object
-    Character gotChar = getActivity().getIntent().getParcelableExtra("characterTag");
+    Character gotChar;
 
     //declares item object
-    String[] itemNames = gotChar.getItemNames();
-    String[] itemDesc = gotChar.getItemDescriptions();
+    String[] itemNames;
+    String[] itemDesc;
 
     public class ItemElement {
         ItemElement() {
@@ -58,7 +58,7 @@ public class ItemsPage extends Fragment {
                 newView = new LinearLayout(getContext());
                 String inflater = Context.LAYOUT_INFLATER_SERVICE;
                 LayoutInflater vi = (LayoutInflater) getContext().getSystemService(inflater);
-                vi.inflate(resource, newView, true);
+                vi.inflate(R.layout.item_element, newView, true);
             } else {
                 newView = (LinearLayout) convertView;
             }
@@ -80,14 +80,14 @@ public class ItemsPage extends Fragment {
         View fragmentView = inflater.inflate(R.layout.activity_items_page, container, false);
         this.mView = fragmentView;
         super.onCreateView(inflater, container, savedInstanceState);
+        //get character objet
+        gotChar = getActivity().getIntent().getParcelableExtra("characterTag");
+        //get item names and descriptions from character object
+        //itemNames = gotChar.getItemNames();
+        //itemDesc = gotChar.getItemDescriptions();
+        //creates list
+        iList = new ArrayList<ItemElement>();
         initializeIList();
-        for(int i = 0; i < itemNames.length; i++) {
-            ItemElement IE = new ItemElement();
-            IE.itemName = itemNames[i];
-            IE.itemDescription = itemDesc[i];
-            IE.position = i;
-            iList.add(IE);
-        }
         aa = new MyAdapter(this.getActivity(), R.layout.item_element, iList);
         ListView itemList = (ListView)mView.findViewById(R.id.itemList);
         itemList.setAdapter(aa);
@@ -96,10 +96,10 @@ public class ItemsPage extends Fragment {
         EditText GoldVal = (EditText) mView.findViewById(R.id.GoldVal);
         EditText SilverVal = (EditText) mView.findViewById(R.id.SilverVal);
         EditText CopperVal = (EditText) mView.findViewById(R.id.CopperVal);
-        GoldVal.setText(gotChar.getGold());
-        SilverVal.setText(gotChar.getSilver());
-        CopperVal.setText(gotChar.getCopper());
-        return inflater.inflate(R.layout.activity_items_page, container, false);
+        GoldVal.setText(/*gotChar.getGold()*/Integer.toString(100));
+        SilverVal.setText(/*gotChar.getSilver()*/Integer.toString(100));
+        CopperVal.setText(/*gotChar.getCopper()*/Integer.toString(100));
+        return this.mView;
     }
 
 
@@ -133,10 +133,6 @@ public class ItemsPage extends Fragment {
         Set<String> newItemDesc = new HashSet<String>();
         newItemDesc.addAll(newDesc);
         editor.apply();
-        gotChar = getActivity().getIntent().getParcelableExtra("characterTag");
-        itemNames = gotChar.getItemNames();
-        itemDesc = gotChar.getItemDescriptions();
-
     }
 
     public void clickRemove(View v) {
@@ -162,18 +158,13 @@ public class ItemsPage extends Fragment {
         Set<String> newItemDesc = new HashSet<String>();
         newItemDesc.addAll(newDesc);
         editor.apply();
-        gotChar = getActivity().getIntent().getParcelableExtra("characterTag");
-        itemNames = gotChar.getItemNames();
-        itemDesc = gotChar.getItemDescriptions();
     }
 
     public void initializeIList() {
-        String[] items = gotChar.getItemNames();
-        String[] itemDesc = gotChar.getItemDescriptions();
-        for(int i = 0; i < items.length; i++) {
+        for(int i = 0; i < 7/*itemNames.length*/; i++) {
             ItemElement IE = new ItemElement();
-            IE.itemName = items[i];
-            IE.itemDescription = itemDesc[i];
+            IE.itemName = "Test Name";//itemNames[i];
+            IE.itemDescription = "Test Desc";//itemDesc[i];
             IE.position = i;
             iList.add(IE);
         }

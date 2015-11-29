@@ -1,8 +1,6 @@
 package lfg.characterbuilder;
 import java.util.ArrayList;
 
-import lfg.characterbuilder.Data;
-
 /**
  * Created by AndrewMiller on 11/13/15.
  */
@@ -16,7 +14,7 @@ public class SpellData extends Data {
         acidSplash.school = "Conjuration";
         //                       bard, cler,   dru,   Pal, range,  Sorc,   War, Wizard
         boolean classProf[] = {false, false, false, false, false, true, false, true};
-        acidSplash.spells = classProf;
+        acidSplash.spells =  classProf.clone();
         acidSplash.range = "60";
         acidSplash.components = "V, S";
         acidSplash.duration = "Instantaneous";
@@ -33,7 +31,7 @@ public class SpellData extends Data {
         aid.school = "Abjuration";
         //                       bard, cler,   dru,   Pal, range,  Sorc,   War, Wizard
         boolean classProf[] = {false, false, false, false, false, false, false, false};
-        aid.spells = classProf;
+        aid.spells =  classProf.clone();
         aid.range = "30";
         aid.components = "V, S, M (a tiny strip of white cloth)";
         aid.castTime = "1 Action";
@@ -51,7 +49,7 @@ public class SpellData extends Data {
         alarm.school = "Abjuration (Ritual)";
         //                       bard, cler,   dru,   Pal, range,  Sorc,   War, Wizard
         boolean classProf[] = {false, false, false, true, true, false, false, true};
-        alarm.spells = classProf;
+        alarm.spells =  classProf.clone();
         alarm.range = "30";
         alarm.components = "V, S, M (a tiny bell and a piece of\n" +
                 "fine silver wire)";
@@ -70,7 +68,7 @@ public class SpellData extends Data {
         animalFriendship.school = "Enchantment";
         //                       bard, cler,   dru,   Pal, range,  Sorc,   War, Wizard
         boolean classProf[] = {true, false, true, false, true, false, false, false};
-        animalFriendship.spells = classProf;
+        animalFriendship.spells =  classProf.clone();
         animalFriendship.range = "30";
         animalFriendship.components = "V, S, M (a morsel of food)";
         animalFriendship.duration = "24 Hours";
@@ -90,7 +88,7 @@ public class SpellData extends Data {
         armorOfAgathys.school = "Abjuration";
         //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
         boolean classProf[] = {false, false, false, false, false, false, true, false};
-        armorOfAgathys.spells = classProf;
+        armorOfAgathys.spells =  classProf.clone();
         armorOfAgathys.range = "Self";
         armorOfAgathys.components = "V, S, M (a cup of water)";
         armorOfAgathys.duration = "1 Hour";
@@ -108,7 +106,7 @@ public class SpellData extends Data {
         armsOfHadar.school = "Conjuration";
         //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
         boolean classProf[] = {false, false, false, false, false, false, true, false};
-        armsOfHadar.spells = classProf;
+        armsOfHadar.spells =  classProf.clone();
         armsOfHadar.range = "Self";
         armsOfHadar.components = "V, S";
         armsOfHadar.duration = "Instantaneous";
@@ -124,7 +122,7 @@ public class SpellData extends Data {
         bane.school = "Enchantment";
         //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
         boolean classProf[] = {true, true, false, false, false, false, false, false};
-        bane.spells = classProf;
+        bane.spells =  classProf.clone();
         bane.range = "30";
         bane.components = "V, S, M (a drop of blood)";
         bane.duration = "Concentration, up to 1 minute";
@@ -141,7 +139,7 @@ public class SpellData extends Data {
         bladeWard.school = "Abjuration";
         //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
         boolean classProf[] = {true, false, false, false, false, true, true, true};
-        bladeWard.spells = classProf;
+        bladeWard.spells =  classProf.clone();
         bladeWard.range = "Self";
         bladeWard.components = "V, S";
         bladeWard.duration = "1 round";
@@ -156,7 +154,7 @@ public class SpellData extends Data {
         bless.school = "Enchantment";
         //                     bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
         boolean classProf[] = {false, true, false, true, false, false, false, false};
-        bless.spells = classProf;
+        bless.spells =  classProf.clone();
         bless.range = "30";
         bless.components = "V, S, M (a sprinkling of holy water)";
         bless.duration = "Concentration, up to one minute";
@@ -172,7 +170,7 @@ public class SpellData extends Data {
         burningHands.school = "Evocation";
         //                     bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
         boolean classProf[] = {false, false, false, false, false, true, false, true};
-        burningHands.spells = classProf;
+        burningHands.spells =  classProf.clone();
         burningHands.range = "Self (15 Foot Cone)";
         burningHands.components = "V, S";
         burningHands.duration = "Instantaneous";
@@ -189,7 +187,7 @@ public class SpellData extends Data {
         charmPerson.school = "Enchantment";
         //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
         boolean classProf[] = {true, false, true, false, false, true, true, true};
-        charmPerson.spells = classProf;
+        charmPerson.spells =  classProf.clone();
         charmPerson.range = "30";
         charmPerson.components = "V, S";
         charmPerson.duration = "1 Hour";
@@ -205,7 +203,7 @@ public class SpellData extends Data {
         chillTouch.school = "Necromancy";
         //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
         boolean classProf[] = {false, false, false, false, false, true, true, true};
-        chillTouch.spells = classProf;
+        chillTouch.spells =  classProf.clone();
         chillTouch.range = "120";
         chillTouch.components = "V, S";
         chillTouch.duration = "1 round";
@@ -222,7 +220,7 @@ public class SpellData extends Data {
         chromaticOrb.school = "Envocation";
         //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
         boolean classProf[] = {false, false, false, false, false, true, false, true};
-        chromaticOrb.spells = classProf;
+        chromaticOrb.spells =  classProf.clone();
         chromaticOrb.range = "90";
         chromaticOrb.components = "V, S, M (a diamond worth at least 50 gp)";
         chromaticOrb.duration = "Instantaneous";
@@ -238,7 +236,7 @@ public class SpellData extends Data {
         colorSpray.school = "Illusion";
         //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
         boolean classProf[] = {false, false, false, false, false, true, false, true};
-        colorSpray.spells = classProf;
+        colorSpray.spells =  classProf.clone();
         colorSpray.range = "Self (15 foot cone)";
         colorSpray.components = "V, S, M (a pinch of powder or sand that is\n" +
                 "colored red, yellow, and blue)";
@@ -256,7 +254,7 @@ public class SpellData extends Data {
         command.school = "Enchantment";
         //                      bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
         boolean classProf[] = {false, true, false, true, false, false, false, false};
-        command.spells = classProf;
+        command.spells =  classProf.clone();
         command.range = "60";
         command.components = "V";
         command.duration = "1 round";
@@ -278,7 +276,7 @@ public class SpellData extends Data {
         compelledDuel.school = "Enchantment";
         //                      bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
         boolean classProf[] = {false, false, false, true, false, false, false, false};
-        compelledDuel.spells = classProf;
+        compelledDuel.spells =  classProf.clone();
         compelledDuel.range = "30";
         compelledDuel.components = "V";
         compelledDuel.duration = "Concentration up to 1 minute";
@@ -294,7 +292,7 @@ public class SpellData extends Data {
         comprehendLanguages.school = "Divination (ritual)";
         //                      bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
         boolean classProf[] = {true, false, false, false, false, true, true, true};
-        comprehendLanguages.spells = classProf;
+        comprehendLanguages.spells =  classProf.clone();
         comprehendLanguages.range = "Self";
         comprehendLanguages.components = "V";
         comprehendLanguages.duration = "1 Hour";
@@ -309,7 +307,7 @@ public class SpellData extends Data {
         createOrDistroyWater.school = "Transmutation";
         //                      bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
         boolean classProf[] = {false, true, true, false, false, false, false, false};
-        createOrDistroyWater.spells = classProf;
+        createOrDistroyWater.spells =  classProf.clone();
         createOrDistroyWater.range = "30";
         createOrDistroyWater.components = "V, S, M (a drop of water if creating water\n" +
                 "or a few grains of sand if destroying it)";
@@ -329,7 +327,7 @@ public class SpellData extends Data {
         cureWounds.school = "Evocation";
         //                      bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
         boolean classProf[] = {true, true, true, true, true, false, false, false};
-        cureWounds.spells = classProf;
+        cureWounds.spells =  classProf.clone();
         cureWounds.range = "Touch";
         cureWounds.components = "V, S";
         cureWounds.duration = "Instantaneous";
@@ -346,7 +344,7 @@ public class SpellData extends Data {
         dancingLights.school = "Evocation";
         //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
         boolean classProf[] = {true, false, false, false, false, false, false, true};
-        dancingLights.spells = classProf;
+        dancingLights.spells =  classProf.clone();
         dancingLights.range = "120";
         dancingLights.components = "V, S, M (a bit of phosphorus or wychwood,\n" +
                 "or a glowworm)";
@@ -363,7 +361,7 @@ public class SpellData extends Data {
         detectEvilAndGood.school = "Divination";
         //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
         boolean classProf[] = {false, true, false, true, false, false, false, false};
-        detectEvilAndGood.spells = classProf;
+        detectEvilAndGood.spells =  classProf.clone();
         detectEvilAndGood.range = "Self";
         detectEvilAndGood.components = "V, S";
         detectEvilAndGood.duration = "Concentration, up to 10 minute";
@@ -381,7 +379,7 @@ public class SpellData extends Data {
         detectMagic.school = "Divination";
         //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
         boolean classProf[] = {true, true, true, true, false, true, false, true};
-        detectMagic.spells = classProf;
+        detectMagic.spells =  classProf.clone();
         detectMagic.range = "Self";
         detectMagic.components = "V, S";
         detectMagic.duration = "Concentration, up to 10 minute";
@@ -398,7 +396,7 @@ public class SpellData extends Data {
         detectPoisonAndDisease.school = "Divination";
         //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
         boolean classProf[] = {false, true, true, true, true, false, false, false};
-        detectPoisonAndDisease.spells = classProf;
+        detectPoisonAndDisease.spells =  classProf.clone();
         detectPoisonAndDisease.range = "Self";
         detectPoisonAndDisease.components = "V, S, M (a yew leaf)";
         detectPoisonAndDisease.duration = "Concentration, up to 10 minute";
@@ -414,7 +412,7 @@ public class SpellData extends Data {
         disguiseSelf.school = "Illusion";
         //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
         boolean classProf[] = {true, false, false, false, false, true, false, true};
-        disguiseSelf.spells = classProf;
+        disguiseSelf.spells =  classProf.clone();
         disguiseSelf.range = "Self";
         disguiseSelf.components = "V, S";
         disguiseSelf.duration = "1 Hour";
@@ -432,7 +430,7 @@ public class SpellData extends Data {
         dissonantWhispers.school = "Enchantment";
         //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
         boolean classProf[] = {true, false, false, false, false, false, false, false};
-        dissonantWhispers.spells = classProf;
+        dissonantWhispers.spells =  classProf.clone();
         dissonantWhispers.range = "60";
         dissonantWhispers.components = "V";
         dissonantWhispers.duration = "Instantaneous";
@@ -449,7 +447,7 @@ public class SpellData extends Data {
         divineFavor.school = "Evocation";
         //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
         boolean classProf[] = {false, false, false, true, false, false, false, false};
-        divineFavor.spells = classProf;
+        divineFavor.spells =  classProf.clone();
         divineFavor.range = "Self";
         divineFavor.components = "V, S";
         divineFavor.duration = "Concentration, up to 1 minute";
@@ -464,7 +462,7 @@ public class SpellData extends Data {
         druidcraft.school = "Transmutation";
         //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
         boolean classProf[] = {false, false, true, false, false, false, false, false};
-        druidcraft.spells = classProf;
+        druidcraft.spells =  classProf.clone();
         druidcraft.range = "30";
         druidcraft.components = "V, S";
         druidcraft.duration = "Instantaneous";
@@ -486,7 +484,7 @@ public class SpellData extends Data {
         eldrichBlast.school = "Evocation";
         //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
         boolean classProf[] = {false, false, false, false, false, false, true, false};
-        eldrichBlast.spells = classProf;
+        eldrichBlast.spells =  classProf.clone();
         eldrichBlast.range = "120";
         eldrichBlast.components = "V, S";
         eldrichBlast.duration = "Instantaneous";
@@ -502,7 +500,7 @@ public class SpellData extends Data {
         ensnaringStrike.school = "Conjuration";
         //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
         boolean classProf[] = {false, false, false, false, true, false, false, false};
-        ensnaringStrike.spells = classProf;
+        ensnaringStrike.spells =  classProf.clone();
         ensnaringStrike.range = "Self";
         ensnaringStrike.components = "V";
         ensnaringStrike.duration = "Concentration, up to 1 minute";
@@ -519,7 +517,7 @@ public class SpellData extends Data {
         entangle.school = "Conjuration";
         //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
         boolean classProf[] = {false, false, true, false, false, false, false, false};
-        entangle.spells = classProf;
+        entangle.spells =  classProf.clone();
         entangle.range = "90";
         entangle.components = "V, S";
         entangle.duration = "Concentration, up to 1 minute";
@@ -537,7 +535,7 @@ public class SpellData extends Data {
         expeditiousRetreat.school = "Transmutation";
         //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
         boolean classProf[] = {false, false, false, false, false, false, true, false};
-        expeditiousRetreat.spells = classProf;
+        expeditiousRetreat.spells =  classProf.clone();
         expeditiousRetreat.range = "Self";
         expeditiousRetreat.components = "V, S";
         expeditiousRetreat.duration = "Concentration, up to 10 minute";
@@ -552,7 +550,7 @@ public class SpellData extends Data {
         faerieFire.school = "Envocation";
         //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
         boolean classProf[] = {true, false, true, false, false, false, false, false};
-        faerieFire.spells = classProf;
+        faerieFire.spells =  classProf.clone();
         faerieFire.range = "60";
         faerieFire.components = "V";
         faerieFire.duration = "Concentration, up to 10 minute";
@@ -568,7 +566,7 @@ public class SpellData extends Data {
         falseLife.school = "Necromancy";
         //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
         boolean classProf[] = {false, false, false, false, false, true, false, true};
-        falseLife.spells = classProf;
+        falseLife.spells =  classProf.clone();
         falseLife.range = "Self";
         falseLife.components = "V, S, M (a small amount of alcohol or\n" +
                 "distilled spirits)";
@@ -585,7 +583,7 @@ public class SpellData extends Data {
         featherFall.school = "Transmutation";
         //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
         boolean classProf[] = {true, false, false, false, false, true, false, true};
-        featherFall.spells = classProf;
+        featherFall.spells =  classProf.clone();
         featherFall.range = "60";
         featherFall.components = "V, M (a small feather or piece of down)";
         featherFall.duration = "1 Minute";
@@ -600,7 +598,7 @@ public class SpellData extends Data {
         findFamiliar.school = "Conjuration (Ritual)";
         //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
         boolean classProf[] = {false, false, false, false, false, false, false, true};
-        findFamiliar.spells = classProf;
+        findFamiliar.spells =  classProf.clone();
         findFamiliar.range = "10";
         findFamiliar.components = "V, S, M (10 gp worth of charcoal,\n" +
                 "incense, and herbs that must be consumed by fire in a\n" +
@@ -626,7 +624,7 @@ public class SpellData extends Data {
         fireBolt.school = "Evocation";
         //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
         boolean classProf[] = {false, false, false, false, false, true, false, true};
-        fireBolt.spells = classProf;
+        fireBolt.spells =  classProf.clone();
         fireBolt.range = "120";
         fireBolt.components = "V, S";
         fireBolt.duration = "Instantaneous";
@@ -643,7 +641,7 @@ public class SpellData extends Data {
         fogCloud.school = "Conjuration";
         //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
         boolean classProf[] = {false, false, true, false, true, true, false, true};
-        fogCloud.spells = classProf;
+        fogCloud.spells =  classProf.clone();
         fogCloud.range = "120";
         fogCloud.components = "V, S";
         fogCloud.duration = "Concentration, up to 1 hour";
@@ -659,7 +657,7 @@ public class SpellData extends Data {
         friends.school = "Enchantment";
         //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
         boolean classProf[] = {true, false, false, false, true, true, true, true};
-        friends.spells = classProf;
+        friends.spells =  classProf.clone();
         friends.range = "Self";
         friends.components = "S, M (a small amount of makeup applied\n" +
                 "to the face as this spell is cast)";
@@ -677,7 +675,7 @@ public class SpellData extends Data {
         goodberry.school = "Transmutation";
         //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
         boolean classProf[] = {false, false, true, false, true, false, false, false};
-        goodberry.spells = classProf;
+        goodberry.spells =  classProf.clone();
         goodberry.range = "Touch";
         goodberry.components = "V, S, M (a sprig of mistletoe)";
         goodberry.duration = "Instantaneous";
@@ -693,7 +691,7 @@ public class SpellData extends Data {
         grease.school = "Conjuration";
         //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
         boolean classProf[] = {false, false, false, false, false, false, false, true};
-        grease.spells = classProf;
+        grease.spells =  classProf.clone();
         grease.range = "60";
         grease.components = "V, S, M (a bit of pork rind or butter)";
         grease.duration = "1 Minute";
@@ -705,21 +703,630 @@ public class SpellData extends Data {
 
     Data guidance = new Data(); //declare a new ability object
     public void setGuidance(Data guidance) { //populate it
-        grease.abilName = "Guidance";
-        grease.spellLevel = 0;
-        grease.school = "Divination";
+        guidance.abilName = "Guidance";
+        guidance.spellLevel = 0;
+        guidance.school = "Divination";
         //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
         boolean classProf[] = {false, true, true, false, false, false, false, false};
-        grease.spells = classProf;
-        grease.range = "Touch";
-        grease.components = "V, S";
-        grease.duration = "Concentration, up to 1 minute";
-        grease.castTime = "1 action";
-        grease.flavor = "You touch one willing creature. Once before the spell ends, the target can roll a d4 and add the number rolled to one ability check of its choice. It can roll the die before or after making the ability check. The spell then ends.";
+        guidance.spells =  classProf.clone();
+        guidance.range = "Touch";
+        guidance.components = "V, S";
+        guidance.duration = "Concentration, up to 1 minute";
+        guidance.castTime = "1 action";
+        guidance.flavor = "You touch one willing creature. Once before the spell ends, the target can roll a d4 and add the number rolled to one ability check of its choice. It can roll the die before or after making the ability check. The spell then ends.";
     }
 
+    Data guidingBolt = new Data(); //declare a new ability object
+    public void setGuidingBolt(Data guidingBolt) { //populate it
+        guidingBolt.abilName = "Guiding Bolt";
+        guidingBolt.spellLevel = 1;
+        guidingBolt.school = "Evocation";
+        //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
+        boolean classProf[] = {false, true, false, false, false, false, false, false};
+        guidingBolt.spells =  classProf.clone();
+        guidingBolt.range = "Self (60-foot line)";
+        guidingBolt.components = "V, S, M (a legume seed)";
+        guidingBolt.duration = "Concentration, up to 1 minute";
+        guidingBolt.castTime = "1 action";
+        guidingBolt.flavor = "A line of strong wind 60 feet long and 10 feet wide blasts from you in a direction you choose for the spell’s duration. Each creature that starts its turn in the line must succeed on a Strength saving throw or be pushed 15 feet away from you in a direction following the line.\n" +
+                "Any creature in the line must spend 2 feet of movement for every 1 foot it moves when moving closer to you.\n" +
+                "The gust disperses gas or vapor, and it extinguishes candles, torches, and similar unprotected flames in\n" +
+                "the area. It causes protected flames, such as those of lanterns, to dance wildly and has a 50 percent chance to extinguish them.\n" +
+                "As a bonus action on each of your turns before the spell ends, you can change the direction in which the line blasts from you.";
+    }
 
+    Data hailOfThorns = new Data(); //declare a new ability object
+    public void setHailOfThorns(Data hailOfThorns) { //populate it
+        hailOfThorns.abilName = "Hail of Thorns";
+        hailOfThorns.spellLevel = 1;
+        hailOfThorns.school = "Conjuration";
+        //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
+        boolean classProf[] = {false, false, false, false, true, false, false, false};
+        hailOfThorns.spells =  classProf.clone();
+        hailOfThorns.range = "Self";
+        hailOfThorns.components = "V";
+        hailOfThorns.duration = "Concentration, up to 1 minute";
+        hailOfThorns.castTime = "1 bonus action";
+        hailOfThorns.flavor = "The next time you hit a creature with a ranged weapon attack before the spell ends, this spell creates a rain\n" +
+                "of thorns that sprouts from your ranged weapon or ammunition. In addition to the normal effect of the attack, the target of the attack and each creature within 5 feet of it must make a Dexterity saving throw. A creature takes 1dlO piercing damage on a failed save, or half as much damage on a successful one.\n" +
+                "AtHigherLevels. If you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d10 for each slot level above 1st (to a maximum of 6d10).";
+    }
 
+    Data healingWord = new Data(); //declare a new ability object
+    public void setHealingWord(Data healingWord) { //populate it
+        healingWord.abilName = "Healing Word";
+        healingWord.spellLevel = 1;
+        healingWord.school = "Evocation";
+        //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
+        boolean classProf[] = {true, true, true, false, false, false, false, false};
+        healingWord.spells =  classProf.clone();
+        healingWord.range = "60";
+        healingWord.components = "V";
+        healingWord.duration = "Instantaneous";
+        healingWord.castTime = "1 bonus action";
+        healingWord.flavor = "A creature of your choice that you can see within range regains hit points equal to 1d4 + your spellcasting ability modifier. This spell has no effect on undead\n" +
+                "or constructs.\n" +
+                "AtHigherLevels. When you cast this spell using a spell slot of 2nd level or higher, the healing increases by 1d4 for each slot level above 1st.\n";
+    }
+
+    Data hellishRebuke = new Data(); //declare a new ability object
+    public void setHellishRebuke(Data hellishRebuke) { //populate it
+        hellishRebuke.abilName = "Hellish Rebuke";
+        hellishRebuke.spellLevel = 1;
+        hellishRebuke.school = "Evocation";
+        //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
+        boolean classProf[] = {false, false, false, false, false, false, true, false};
+        hellishRebuke.spells =  classProf.clone();
+        hellishRebuke.range = "60";
+        hellishRebuke.components = "V, S";
+        hellishRebuke.duration = "Instantaneous";
+        hellishRebuke.castTime = "1 reaction, which you take in response to being damaged by a creature within 60 feet of you that you can see";
+        hellishRebuke.flavor = "A creature of your choice that you can see within range regains hit points equal to 1d4 + your spellcasting ability modifier. This spell has no effect on undead\n" +
+                "or constructs.\n" +
+                "AtHigherLevels. When you cast this spell using a spell slot of 2nd level or higher, the healing increases by 1d4 for each slot level above 1st.\n";
+    }
+
+    Data heroism = new Data(); //declare a new ability object
+    public void setHeroism(Data heroism) { //populate it
+        heroism.abilName = "Heroism";
+        heroism.spellLevel = 1;
+        heroism.school = "Enchantment";
+        //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
+        boolean classProf[] = {true, false, false, true, false, false, false, false};
+        heroism.spells =  classProf.clone();
+        heroism.range = "Touch";
+        heroism.components = "V, S";
+        heroism.duration = "Concentration, up to 1 minute";
+        heroism.castTime = "1 reaction, which you take in response to being damaged by a creature within 60 feet of you that you can see";
+        heroism.flavor = "A willing creature you touch is imbued with bravery. Until the spell ends, the creature is immune to being frightened and gains temporary hit points equal to your spellcasting ability modifier at the start of each of its turns. When the spell ends, the target loses any remaining temporary hit points from this spell.";
+    }
+
+    Data hex = new Data(); //declare a new ability object
+    public void setHex(Data hex) { //populate it
+        hex.abilName = "hex";
+        hex.spellLevel = 1;
+        hex.school = "Enchantment";
+        //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
+        boolean classProf[] = {false, false, false, false, false, false, true, false};
+        hex.spells =  classProf.clone();
+        hex.range = "90";
+        hex.components = "V, S, M (the petrified eye of a newt)";
+        hex.duration = "Concentration, up to 1 hour";
+        hex.castTime = "1 bonus action";
+        hex.flavor = "You place a curse on a creature that you can see within range. Until the spell ends, you deal an extra 1d6 necrotic damage to the target whenever you hit it with an attack. Also, choose one ability when you cast the spell. The target has disadvantage on ability checks made with the chosen ability.\n" +
+                "If the target drops to 0 hit points before this spell ends, you can use a bonus action on a subsequent turn of yours to curse a new creature.\n" +
+                "A remove curse cast on the target ends this spell early.\n" +
+                "AtHigherLevels. When you cast this spell using aspellslotof3rdor4thlevel,youcanmaintainyour concentration on the spell for up to 8 hours. When you use a spell slot of 5th level or higher, you can maintain your concentration on the spell for up to 24 hours.";
+    }
+
+    Data huntersMark = new Data(); //declare a new ability object
+    public void setHuntersMark(Data huntersMark) { //populate it
+        huntersMark.abilName = "Hunters Mark";
+        huntersMark.spellLevel = 1;
+        huntersMark.school = "Divination";
+        //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
+        boolean classProf[] = {false, false, false, false, true, false, false, false};
+        huntersMark.spells =  classProf.clone();
+        huntersMark.range = "90";
+        huntersMark.components = "V";
+        huntersMark.duration = "Concentration, up to 1 hour";
+        huntersMark.castTime = "1 bonus action";
+        huntersMark.flavor = "You choose a creature you can see within range and mystically mark it as your quarry. Until the spell ends, you deal an extra 1d6 damage to the target whenever you hit it with a weapon attack, and you have advantage on any W isdom (Perception) or W isdom (Survival) check you make to find it. If the target drops to 0 hit points before this spell ends, you can use a bonus action on a subsequent turn of yours to mark a new creature.\n" +
+                "AtHigherLevels. When you cast this spell using\n" +
+                "a spell slot of 3rd or 4th level, you can maintain your concentration on the spell for up to 8 hours. When you use a spell slot of 5th level or higher, you can maintain your concentration on the spell for up to 24 hours.";
+    }
+
+    Data identify = new Data(); //declare a new ability object
+    public void setIdentify(Data identify) { //populate it
+        identify.abilName = "Identify";
+        identify.spellLevel = 1;
+        identify.school = "Divination (Ritual)";
+        //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
+        boolean classProf[] = {true, false, false, false, false, false, false, true};
+        identify.spells =  classProf.clone();
+        identify.range = "Touch";
+        identify.components = "V, S, M (a pearl worth at least 100 gp and\n" +
+                "an owl feather)";
+        identify.duration = "Instantaneous";
+        identify.castTime = "1 Minute";
+        identify.flavor = "You choose one object that you must touch throughout the casting of the spell. If it is a magic item or some other magic-imbued object, you learn its properties\n" +
+                "and how to use them, whether it requires attunement to use, and how many charges it has, if any. You learn whether any spells are affecting the item and what they are. If the item was created by a spell, you learn which spell created it.\n" +
+                "If you instead touch a creature throughout the casting, you learn what spells, if any, are currently affecting it.";
+    }
+
+    Data illusoryScript = new Data(); //declare a new ability object
+    public void setIllusoryScript(Data illusoryScript) { //populate it
+        illusoryScript.abilName = "Illusory Script";
+        illusoryScript.spellLevel = 1;
+        illusoryScript.school = "Illusion (Ritual)";
+        //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
+        boolean classProf[] = {true, false, false, false, false, false, true, true};
+        illusoryScript.spells =  classProf.clone();
+        illusoryScript.range = "Touch";
+        illusoryScript.components = "S,M(alead-basedinkworthatleast10 gp, which the spell consumes)";
+        illusoryScript.duration = "10 Days";
+        illusoryScript.castTime = "1 Minute";
+        illusoryScript.flavor = "You write on parchment, paper, or some other suitable writing material and imbue it with a potent illusion that lasts for the duration.\n" +
+                "To you and any creatures you designate when you\n" +
+                "cast the spell, the writing appears normal, written in your hand, and conveys whatever meaning you intended when you wrote the text. To all others, the writing appears as if it were written in an unknown or magical script that is unintelligible. Alternatively, you can cause the writing to appear to be an entirely different message, written in a different hand and language, though the language must be one you know.\n" +
+                "Should the spell be dispelled, the original script and the illusion both disappear.\n" +
+                "A creature with truesight can read the hidden message.";
+    }
+
+    Data inflictWounds = new Data(); //declare a new ability object
+    public void setInflictWounds(Data inflictWounds) { //populate it
+        inflictWounds.abilName = "Inflict Wounds";
+        inflictWounds.spellLevel = 1;
+        inflictWounds.school = "Necromancy";
+        //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
+        boolean classProf[] = {false, true, false, false, false, false, false, false};
+        inflictWounds.spells =  classProf.clone();
+        inflictWounds.range = "Touch";
+        inflictWounds.components = "V,S";
+        inflictWounds.duration = "Instantaneous";
+        inflictWounds.castTime = "1 action";
+        inflictWounds.flavor = "Make a melee spell attack against a creature you can reach. On a hit, the target takes 3d10 necrotic damage.\n" +
+                "AtHigherLevels. When you cast this spell using a spell slot of 2nd level or higher, the damage increases by\n" +
+                "1d10 for each slot level above 1st.";
+    }
+
+    Data jump = new Data(); //declare a new ability object
+    public void setJump(Data jump) { //populate it
+        jump.abilName = "Jump";
+        jump.spellLevel = 1;
+        jump.school = "Transmutation";
+        //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
+        boolean classProf[] = {false, false, false, false, false, false, false, false};
+        jump.spells =  classProf.clone();
+        jump.range = "Touch";
+        jump.components = "V, S, M (a grasshopper’s hind leg)";
+        jump.duration = "1 minute";
+        jump.castTime = "1 action";
+        jump.flavor = "You touch a creature. The creature’s jump distance is tripled until the spell ends.";
+    }
+
+    Data light = new Data(); //declare a new ability object
+    public void setLight(Data light) { //populate it
+        light.abilName = "Light";
+        light.spellLevel = 0;
+        light.school = "Evocation";
+        //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
+        boolean classProf[] = {true, true, false, false, false, true, false, true};
+        light.spells =  classProf.clone();
+        light.range = "Touch";
+        light.components = "V, M (a firefly or phosphorescent moss)";
+        light.duration = "1 Hour";
+        light.castTime = "1 action";
+        light.flavor = "You touch one object that is no larger than 10 feet in any dimension. Until the spell ends, the object sheds bright light in a 20-foot radius and dim light for an additional 20 feet. The light can be colored as you like. Completely covering the object with something opaque blocks the light. The spell ends if you cast it again or dismiss it\n" +
+                "as an action.\n" +
+                "If you target an object held or worn by a hostile\n" +
+                "creature, that creature must succeed on a Dexterity saving throw to avoid the spell.";
+    }
+
+    Data longstrider = new Data(); //declare a new ability object
+    public void setLongstrider(Data longstrider) { //populate it
+        longstrider.abilName = "Longstrider";
+        longstrider.spellLevel = 1;
+        longstrider.school = "Transmutation";
+        //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
+        boolean classProf[] = {false, false, true, false, false, true, false, true};
+        longstrider.spells =  classProf.clone();
+        longstrider.range = "Touch";
+        longstrider.components = "V, S, M (a pinch of dirt)";
+        longstrider.duration = "1 Hour";
+        longstrider.castTime = "1 action";
+        longstrider.flavor = "You touch a creature. The target’s speed increases by 10 feet until the spell ends. AtHigherLevels.Whenyoucastthisspellusing a spell slot of 2nd level or higher, you can target one additional creature for each slot level above 1st.";
+    }
+
+    Data mageArmor = new Data(); //declare a new ability object
+    public void setMageArmor(Data mageArmor) { //populate it
+        mageArmor.abilName = "Mage Armor";
+        mageArmor.spellLevel = 1;
+        mageArmor.school = "Abjuration";
+        //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
+        boolean classProf[] = {false, false, false, false, false, true, false, true};
+        mageArmor.spells =  classProf.clone();
+        mageArmor.range = "Touch";
+        mageArmor.components = "V, S, M (a piece of cured leather)";
+        mageArmor.duration = "8 Hour";
+        mageArmor.castTime = "1 action";
+        mageArmor.flavor = "You touch a willing creature who isn’t wearing armor, and a protective magical force surrounds it until the spellends.Thetarget’sbaseACbecomes13+its Dexterity modifier. The spell ends if the target dons armor or ifyou dismiss the spell as an action.";
+    }
+
+    Data mageHand = new Data(); //declare a new ability object
+    public void setMageHand(Data mageHand) { //populate it
+        mageHand.abilName = "Mage Hand";
+        mageHand.spellLevel = 0;
+        mageHand.school = "Conjuration";
+        //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
+        boolean classProf[] = {true, false, false, false, false, true, true, true};
+        mageHand.spells =  classProf.clone();
+        mageHand.range = "30";
+        mageHand.components = "V, S";
+        mageHand.duration = "1 minute";
+        mageHand.castTime = "1 action";
+        mageHand.flavor = "A spectral, floating hand appears at a point you choose within range. The hand lasts for the duration or until you dismiss it as an action. The hand vanishes if it is ever m ore than 30 feet away from you or if you cast this spell again.\n" +
+                "You can use your action to control the hand. You can use the hand to manipulate an object, open an unlocked door or container, stow or retrieve an item from an open container, or pour the contents out of a vial. You can move the hand up to 30 feet each time you use it.\n" +
+                "The hand can’t attack, activate magic items, or carry morethan10pounds.";
+    }
+
+    Data magicMissile = new Data(); //declare a new ability object
+    public void setMagicMissile(Data magicMissile) { //populate it
+        magicMissile.abilName = "Magic Missile";
+        magicMissile.spellLevel = 1;
+        magicMissile.school = "Evocation";
+        //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
+        boolean classProf[] = {false, false, false, false, false, true, false, true};
+        magicMissile.spells =  classProf.clone();
+        magicMissile.range = "120";
+        magicMissile.components = "V, S";
+        magicMissile.duration = "Instantaneous";
+        magicMissile.castTime = "1 action";
+        magicMissile.flavor = "You create three glowing darts of magical force. Each darthitsacreatureofyourchoicethatyoucansee within range. A dart deals 1d4 + 1 force damage to its target. The darts all strike simultaneously, and you can direct them to hit one creature or several.\n" +
+                "AtHigherLevels. When you cast this spell using a spell slot of 2nd level or higher, the spell creates one more dart for each slot level above 1st.";
+    }
+
+    Data mending = new Data(); //declare a new ability object
+    public void setMending(Data mending) { //populate it
+        mending.abilName = "Mending";
+        mending.spellLevel = 0;
+        mending.school = "Transmutation";
+        //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
+        boolean classProf[] = {true, true, true, false, false, true, false, true};
+        mending.spells =  classProf.clone();
+        mending.range = "Touch";
+        mending.components = "V, S, M (two lodestones)";
+        mending.duration = "Instantaneous";
+        mending.castTime = "1 Minute";
+        mending.flavor = "This spell repairs a single break or tear in an object you touch, such as a broken chain link, two halves of a broken key, a torn cloak, or a leaking wineskin. As long as the break or tear is no larger than 1 foot in any dimension, you mend it. leaving no trace of the former damage.\n" +
+                "This spell can physically repair a magic item or construct, but the spell can’t restore magic to such an object.";
+    }
+
+    Data message = new Data(); //declare a new ability object
+    public void setMessage(Data message) { //populate it
+        message.abilName = "Message";
+        message.spellLevel = 0;
+        message.school = "Transmutation";
+        //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
+        boolean classProf[] = {true, false, false, false, false, true, false, true};
+        message.spells =  classProf.clone();
+        message.range = "120";
+        message.components = "V, S, M (a short piece of copper wire)";
+        message.duration = "1 round";
+        message.castTime = "1 action";
+        message.flavor = "You point your finger toward a creature within range and whisper a message. The target (and only the target) hears the message and can reply in a whisper that only you can hear.\n" +
+                "You can cast this spell through solid objects if you are familiar with the target and know it is beyond the barrier. Magical silence. 1 foot of stone, 1 inch of common metal, a thin sheet of lead, or 3 feet of wood blocks the spell. The spell doesn’t have to follow a straight line and can travel freely around corners or through openings.";
+    }
+
+    Data minorIllusion = new Data(); //declare a new ability object
+    public void setMinorIllusion(Data minorIllusion) { //populate it
+        minorIllusion.abilName = "Minor Illusion";
+        minorIllusion.spellLevel = 0;
+        minorIllusion.school = "Illusion";
+        //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
+        boolean classProf[] = {true, false, false, false, false, true, true, true};
+        minorIllusion.spells =  classProf.clone();
+        minorIllusion.range = "30";
+        minorIllusion.components = "S, M (a bit of fleece)";
+        minorIllusion.duration = "1 minute";
+        minorIllusion.castTime = "1 action";
+        minorIllusion.flavor = "You create a sound or an image of an object within\n" +
+                "range that lasts for the duration. The illusion also ends if you dismiss it as an action or cast this spell again.\n" +
+                "If you create a sound, its volume can range from a whisper to a scream. It can be your voice, someone else’s voice, a lion’s roar, a beating of drums, or any other sound you choose. The sound continues unabated throughout the duration, or you can make discrete sounds at different times before the spell ends.\n" +
+                "If you create an image of an object—such as a chair, muddy footprints, or a small chest—it must be no larger than a 5-foot cube. The image can’t create sound, light, smell, or any other sensory effect. Physical interaction with the image reveals it to be an illusion, because things can pass through it.\n" +
+                "If a creature uses its action to examine the sound or image, the creature can determine that it is an illusion with a successful Intelligence (Investigation) check against your spell save DC. If a creature discerns the illusion for what it is, the illusion becomes faint to\n" +
+                "the creature.";
+    }
+
+    Data poisonSpray = new Data(); //declare a new ability object
+    public void setPoisonSpray(Data poisonSpray) { //populate it
+        poisonSpray.abilName = "Poison Spray";
+        poisonSpray.spellLevel = 0;
+        poisonSpray.school = "Conjuration";
+        //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
+        boolean classProf[] = {false, false, true, false, false, true, true, true};
+        poisonSpray.spells =  classProf.clone();
+        poisonSpray.range = "10";
+        poisonSpray.components = "V, S";
+        poisonSpray.duration = "Instantaneous";
+        poisonSpray.castTime = "1 action";
+        poisonSpray.flavor = "You extend your hand toward a creature you can see within range and project a puff of noxious gas from your palm. The creature must succeed on a Constitution saving throw or take 1d12 poison damage.\n" +
+                "This spell’s damage increases by 1d12 when you reach 5th level (2d12), 11th level (3d12), and 17th level (4d12).\n";
+    }
+
+    Data prestidigitation = new Data(); //declare a new ability object
+    public void setPrestidigitation(Data prestidigitation) { //populate it
+        prestidigitation.abilName = "Prestidigitation";
+        prestidigitation.spellLevel = 0;
+        prestidigitation.school = "Transmutation";
+        //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
+        boolean classProf[] = {true, false, true, false, false, true, true, true};
+        prestidigitation.spells =  classProf.clone();
+        prestidigitation.range = "10";
+        prestidigitation.components = "V, S";
+        prestidigitation.duration = "Up to 1 Hour";
+        prestidigitation.castTime = "1 action";
+        prestidigitation.flavor = "This spell is a mino magical trick that novice spellcasters use for practice. You create one of the following magical effects within range:\n" +
+                "• You create an instantaneous, harmless sensory effect, such as a shower of sparks, a puff of wind, faint musi cal notes, or an odd odor.\n" +
+                "• You instantaneously light or snuff out a candle, a torch, or a small campfire.\n" +
+                "• You instantaneously clean or soil an object no larger than 1 cubic foot.\n" +
+                "• You chill, warm, or flavor up to 1 cubic foot of nonliv ing material for 1 hour.\n" +
+                "• You make a color, a small mark, or a symbol appear on an object or a surface for 1 hour.\n" +
+                "• You create a nonmagical trinket or an illusory image that can fit in your hand and that lasts until the end of your next turn.\n" +
+                "If you cast this spell multiple times, you can have up to three of its non-instantaneous effects active at a time, and you can dismiss such an effect as an action.";
+    }
+
+    Data produceFlame = new Data(); //declare a new ability object
+    public void setProduceFlame(Data produceFlame) { //populate it
+        produceFlame.abilName = "Produce Flame";
+        produceFlame.spellLevel = 0;
+        produceFlame.school = "Conjuration";
+        //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
+        boolean classProf[] = {false, false, true, false, false, false, false, false};
+        produceFlame.spells =  classProf.clone();
+        produceFlame.range = "Self";
+        produceFlame.components = "V, S";
+        produceFlame.duration = "10 Minutes";
+        produceFlame.castTime = "1 action";
+        produceFlame.flavor = "A flickering flame appears in your hand. The flame remains there for the duration and harms neither you nor your equipment. The flame sheds bright light in a 10-foot radius and dim light for an additional 10 feet. The spell ends if you dismiss it as an action or if you cast it again.\n" +
+                "You can also attack with the flame, although doing so ends the spell. When you cast this spell, or as an action on a later turn, you can hurl the flame at a creature within 30 feet of you. Make a ranged spell attack. On a hit, the target takes 1d8 fire damage.\n" +
+                "This spell’s damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).";
+    }
+
+    Data protectionFromEvilandGood = new Data(); //declare a new ability object
+    public void setProtectionFromEvilandGood(Data protectionFromEvilandGood) { //populate it
+        protectionFromEvilandGood.abilName = "Protection From Evil and Good";
+        protectionFromEvilandGood.spellLevel = 1;
+        protectionFromEvilandGood.school = "Abjuration";
+        //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
+        boolean classProf[] = {false, true, false, true, false, false, false, false};
+        protectionFromEvilandGood.spells =  classProf.clone();
+        protectionFromEvilandGood.range = "Touch";
+        protectionFromEvilandGood.components = "V, S, M (holy water or powdered silver\n" +
+                "and iron, which the spell consumes)";
+        protectionFromEvilandGood.duration = "Concentration up to 10 Minutes";
+        protectionFromEvilandGood.castTime = "1 action";
+        protectionFromEvilandGood.flavor = "Until the spell ends, one willing creature you touch is protected against certain types of creatures: aberrations, celestials, elementals, fey, fiends, and undead.\n" +
+                "The protection grants several benefits. Creatures of those types have disadvantage on attack rolls against the target. The target also can’t be charmed, frightened, or possessed by them. If the target is already charmed, frightened, or possessed by such a creature, the target has advantage on any new saving throw against the relevant effect.";
+    }
+
+    Data purifyFoodAndDrink = new Data(); //declare a new ability object
+    public void setPurifyFoodAndDrink(Data purifyFoodAndDrink) { //populate it
+        purifyFoodAndDrink.abilName = "Purify Food and Drink";
+        purifyFoodAndDrink.spellLevel = 1;
+        purifyFoodAndDrink.school = "Transmutation (ritual)";
+        //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
+        boolean classProf[] = {false, true, true, true, false, false, false, false};
+        purifyFoodAndDrink.spells =  classProf.clone();
+        purifyFoodAndDrink.range = "10";
+        purifyFoodAndDrink.components = "V, S";
+        purifyFoodAndDrink.duration = "Instantaneous";
+        purifyFoodAndDrink.castTime = "1 action";
+        purifyFoodAndDrink.flavor = "All nonmagical food and drink within a 5-foot-radius sphere centered on a point of your choice within range is purified and rendered free of poison and disease.";
+    }
+
+    Data rayOfFrost = new Data(); //declare a new ability object
+    public void setRayOfFrost(Data rayOfFrost) { //populate it
+        rayOfFrost.abilName = "Ray of Frost";
+        rayOfFrost.spellLevel = 0;
+        rayOfFrost.school = "Evocation";
+        //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
+        boolean classProf[] = {false, false, false, false, false, true, false, true};
+        rayOfFrost.spells =  classProf.clone();
+        rayOfFrost.range = "60";
+        rayOfFrost.components = "V, S";
+        rayOfFrost.duration = "Instantaneous";
+        rayOfFrost.castTime = "1 action";
+        rayOfFrost.flavor = "A frigid beam of blue-white light streaks toward a creature within range. Make a ranged spell attack against the target. On a hit, it takes 1d8 cold damage, and its speed is reduced by 10 feet until the start of your next turn.\n" +
+                "The spell’s damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).";
+    }
+
+    Data rayOfSickness = new Data(); //declare a new ability object
+    public void setRayOfSickness(Data rayOfSickness) { //populate it
+        rayOfSickness.abilName = "Ray of Sickness";
+        rayOfSickness.spellLevel = 1;
+        rayOfSickness.school = "Necromancy";
+        //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
+        boolean classProf[] = {false, false, false, false, false, true, false, true};
+        rayOfSickness.spells =  classProf.clone();
+        rayOfSickness.range = "60";
+        rayOfSickness.components = "V, S";
+        rayOfSickness.duration = "Instantaneous";
+        rayOfSickness.castTime = "1 action";
+        rayOfSickness.flavor = "A ray of sickening greenish energy lashes out toward\n" +
+                "a creature within range. Make a ranged spell attack against the target. On a hit, the target takes 2d8 poison damage and must make a Constitution saving throw. On a failed save, it is also poisoned until the end of your next turn.\n" +
+                "AtHigherLevels. When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d8 for each slot level above 1st.";
+    }
+
+    Data resistance = new Data(); //declare a new ability object
+    public void setResistance(Data resistance) { //populate it
+        resistance.abilName = "Resistance";
+        resistance.spellLevel = 0;
+        resistance.school = "Abjuration";
+        //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
+        boolean classProf[] = {false, true, true, false, false, false, false, false};
+        resistance.spells =  classProf.clone();
+        resistance.range = "Touch";
+        resistance.components = "V, S, M (a miniature cloak)";
+        resistance.duration = "Concentration, up to 1 minute";
+        resistance.castTime = "1 action";
+        resistance.flavor = "You touch one willing creature. Once before the spell ends, the target can roll a d4 and add the number rolled to one saving throw of its choice. It can roll\n" +
+                "the die before or after making the saving throw. The spell then ends.";
+    }
+
+    Data sacredFlame = new Data(); //declare a new ability object
+    public void setSacredFlame(Data sacredFlame) { //populate it
+        sacredFlame.abilName = "Sacred Flame";
+        sacredFlame.spellLevel = 0;
+        sacredFlame.school = "Evocation";
+        //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
+        boolean classProf[] = {false, true, false, false, false, false, false, false};
+        sacredFlame.spells =  classProf.clone();
+        sacredFlame.range = "60";
+        sacredFlame.components = "V, S";
+        sacredFlame.duration = "Instantaneous";
+        sacredFlame.castTime = "1 action";
+        sacredFlame.flavor = "Flame-like radiance descends on a creature that you can see within range. The target must succeed on a Dexterity saving throw or take 1d8 radiant damage. The target gains no benefit from cover for this saving throw.\n" +
+                "The spell’s damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).";
+    }
+
+    Data sanctuary = new Data(); //declare a new ability object
+    public void setSanctuary(Data sanctuary) { //populate it
+        sanctuary.abilName = "Sanctuary";
+        sanctuary.spellLevel = 1;
+        sanctuary.school = "Abjuration";
+        //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
+        boolean classProf[] = {false, true, false, false, false, false, false, false};
+        sanctuary.spells =  classProf.clone();
+        sanctuary.range = "30";
+        sanctuary.components = "V, S, M (a small silver mirror)";
+        sanctuary.duration = "1 minute";
+        sanctuary.castTime = "1 bonus action";
+        sanctuary.flavor = "You ward a creature within range against attack. Until the spell ends, any creature who targets the warded creature with an attack or a harmful spell must first make a W isdom saving throw. On a failed save, the creature must choose a new target or lose the attack or spell. This spell doesn’t protect the warded creature from area effects, such as the explosion of a fireball.\n" +
+                "If the warded creature makes an attack or casts a spell that affects an enemy creature, this spell ends.";
+    }
+
+    Data searingSmite = new Data(); //declare a new ability object
+    public void setSearingSmite(Data searingSmite) { //populate it
+        searingSmite.abilName = "Searing Smite";
+        searingSmite.spellLevel = 1;
+        searingSmite.school = "Evocation";
+        //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
+        boolean classProf[] = {false, false, false, true, false, false, false, false};
+        searingSmite.spells =  classProf.clone();
+        searingSmite.range = "Self";
+        searingSmite.components = "V";
+        searingSmite.duration = "Concentration, up to 1 minute";
+        searingSmite.castTime = "1 bonus action";
+        searingSmite.flavor =
+                "The next time you hit a creature with a melee weapon attack during the spell’s duration, your weapon flares with white-hot intensity, and the attack deals an extra 1d6 fire damage to the target and causes the target to ignite in flames. At the start of each of its turns until the spell ends, the target must make a Constitution saving throw. On a failed save, it takes 1d6 fire damage. On a successful save, the spell ends. If the target or a creature within 5 feet of it uses an action to put out the flames, or if some other effect douses the flames (such as the target being submerged in water), the spell ends.\n" +
+                        "AtHigherLevels. When you cast this spell using a spell slot of 2nd level or higher, the initial extra damage dealt by the attack increases by 1d6 for each slot level above 1st.";
+    }
+
+    Data shield = new Data(); //declare a new ability object
+    public void setShield(Data shield) { //populate it
+        shield.abilName = "Shield";
+        shield.spellLevel = 1;
+        shield.school = "Abjuration";
+        //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
+        boolean classProf[] = {false, false, false, false, false, true, false, true};
+        shield.spells =  classProf.clone();
+        shield.range = "Self";
+        shield.components = "V, S";
+        shield.duration = "1 Round";
+        shield.castTime = "1 reaction, which you take when you are hit by an attack or targeted by the magic missile spell";
+        shield.flavor = "An invisible barrier of magical force appears and protects you. Until the start of your next turn, you have a +5 bonus to AC, including against the triggering attack, and you take no damage from magic missile.";
+    }
+
+    Data shieldOfFaith = new Data(); //declare a new ability object
+    public void setShieldOfFaith(Data shieldOfFaith) { //populate it
+        shieldOfFaith.abilName = "Shield of Faith";
+        shieldOfFaith.spellLevel = 1;
+        shieldOfFaith.school = "Abjuration";
+        //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
+        boolean classProf[] = {false, true, false, true, false, false, false, false};
+        shieldOfFaith.spells =  classProf.clone();
+        shieldOfFaith.range = "60";
+        shieldOfFaith.components = "V, S, M (a small parchment with a bit of\n" +
+                "holy text written on it)";
+        shieldOfFaith.duration = "Concentration, up to 10 minutes\n";
+        shieldOfFaith.castTime = "1 bonus action";
+        shieldOfFaith.flavor = "A shimmering field appears and surrounds a creature\n" +
+                "of your choice within range, granting it a +2 bonus to AC for the duration.";
+    }
+
+    Data shillelagh = new Data(); //declare a new ability object
+    public void setShillelagh(Data shillelagh) { //populate it
+        shillelagh.abilName = "Shillelagh";
+        shillelagh.spellLevel = 0;
+        shillelagh.school = "Transmutation";
+        //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
+        boolean classProf[] = {false, false, true, false, false, false, false, false};
+        shillelagh.spells =  classProf.clone();
+        shillelagh.range = "Touch";
+        shillelagh.components = "V, S, M (a small parchment with a bit of\n" +
+                "holy text written on it)";
+        shillelagh.duration = "1 Minute";
+        shillelagh.castTime = "1 bonus action";
+        shillelagh.flavor = "The wood of a club or quarterstaffyou are holding is imbued with nature’s power. For the duration, you can use your spellcasting ability instead of Strength for the attack and damage rolls of melee attacks using that weapon, and the weapon's damage die becomes\n" +
+                "a d8. The weapon also becom es magical, if it isn’t already. The spell ends if you cast it again or if you let go of the weapon.\n";
+    }
+
+    Data shockingGrasp = new Data(); //declare a new ability object
+    public void setShockingGrasp(Data shockingGrasp) { //populate it
+        shockingGrasp.abilName = "Shocking Grasp";
+        shockingGrasp.spellLevel = 0;
+        shockingGrasp.school = "Evocation";
+        //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
+        boolean classProf[] = {false, false, false, false, false, true, false, true};
+        shockingGrasp.spells =  classProf.clone();
+        shockingGrasp.range = "Touch";
+        shockingGrasp.components = "V, S";
+        shockingGrasp.duration = "Instantaneous";
+        shockingGrasp.castTime = "1 action";
+        shockingGrasp.flavor = "Lightning springs from your hand to deliver a shock to a creature you try to touch. Make a melee spell attack against the target. You have advantage on the attack roll if the target is wearing armor made of metal. On a hit, the target takes 1d8 lightning damage, and it can’t take reactions until the start of its next turn.\n" +
+                "The spell’s damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).";
+    }
+
+    Data silentImage = new Data(); //declare a new ability object
+    public void setSilentImage(Data silentImage) { //populate it
+        silentImage.abilName = "Silent Image";
+        silentImage.spellLevel = 1;
+        silentImage.school = "Evocation";
+        //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
+        boolean classProf[] = {true, false, false, false, false, true, false, true};
+        silentImage.spells =  classProf.clone();
+        silentImage.range = "60";
+        silentImage.components = "V, S, M (a bit of fleece)";
+        silentImage.duration = "Concentration, up to 10 minutes";
+        silentImage.castTime = "1 action";
+        silentImage.flavor = "You create the image of an object, a creature, or some other visible phenomenon that is no larger than a 15-foot cube. The image appears at a spot within range and lasts for the duration. The image is purely visual; it isn't accompanied by sound, smell, or other sensory effects.\n" +
+                "You can use your action to cause the image to move to any spot within range. As the image changes location, you can alter its appearance so that its movements appear natural for the image. For example, if you create an image of a creature and move it, you can alter the image so that it appears to be walking.\n" +
+                "Physical interaction with the image reveals it to be an illusion, because things can pass through it. A creature that uses its action to examine the image can determine that it is an illusion with a successful Intelligence (Investigation) check against your spell save DC. If a creature discerns the illusion for what it is, the creature can see through the image.";
+    }
+
+    Data sleep = new Data(); //declare a new ability object
+    public void setSleep(Data sleep) { //populate it
+        sleep.abilName = "Silent Image";
+        sleep.spellLevel = 1;
+        sleep.school = "Enchantment";
+        //                       bard, cler,   dru,   Pal, range,  Sorc,  War, Wizard
+        boolean classProf[] = {false, false, false, false, false, false, false, false};
+        sleep.spells =  classProf.clone();
+        sleep.range = "90";
+        sleep.components = "V, S, M (a pinch of fine sand, rose petals,\n" +
+                "or a cricket)";
+        sleep.duration = "1 Minutes";
+        sleep.castTime = "1 action";
+        sleep.flavor = "This spell sends creatures into a magical slumber. Roll 5d8; the total is how many hit points of creatures this spell can affect. Creatures within 20 feet of\n" +
+                "a point you choose within range are affected in ascending order of their current hit points (ignoring unconscious creatures).\n" +
+                "Starting with the creature that has the lowest current hit points, each creature affected by this spell falls unconscious until the spell ends, the sleeper takes damage, or someone uses an action to shake or slap the sleeper awake. Subtract each creature’s hit points from the total before moving on to the creature with the next lowest hit points. A creature’s hit points must be equal to or less than the remaining total for that creature\n" +
+                "to be affected.\n" +
+                "Undead and creatures immune to being charmed\n" +
+                "aren’t affected by this spell.\n" +
+                "AtHigherLevels. When you cast this spell using a\n" +
+                "spell slot of 2nd level or higher, roll an additional 2d8 for each slot level above 1st.";
+    }
 
     //This method returns all the race data
     public ArrayList<Data> getSd() {
@@ -847,6 +1454,113 @@ public class SpellData extends Data {
         setGuidance(guidance);
         sd.add(guidance);
 
+        setGuidingBolt(guidingBolt);
+        sd.add(guidingBolt);
+
+        setHailOfThorns(hailOfThorns);
+        sd.add(hailOfThorns);
+
+        setHealingWord(healingWord);
+        sd.add(healingWord);
+
+        setHellishRebuke(hellishRebuke);
+        sd.add(hellishRebuke);
+
+        setHeroism(heroism);
+        sd.add(heroism);
+
+        setHex(hex);
+        sd.add(hex);
+
+        setHuntersMark(huntersMark);
+        sd.add(huntersMark);
+
+        setIdentify(identify);
+        sd.add(identify);
+
+        setIllusoryScript(illusoryScript);
+        sd.add(illusoryScript);
+
+        setInflictWounds(inflictWounds);
+        sd.add(inflictWounds);
+
+        setJump(jump);
+        sd.add(jump);
+
+        setLight(light);
+        sd.add(light);
+
+        setLongstrider(longstrider);
+        sd.add(longstrider);
+
+        setMageArmor(mageArmor);
+        sd.add(mageArmor);
+
+        setMageHand(mageHand);
+        sd.add(mageHand);
+
+        setMagicMissile(magicMissile);
+        sd.add(magicMissile);
+
+        setMending(mending);
+        sd.add(mending);
+
+        setMessage(message);
+        sd.add(message);
+
+        setMinorIllusion(minorIllusion);
+        sd.add(minorIllusion);
+
+        setPoisonSpray(poisonSpray);
+        sd.add(poisonSpray);
+
+        setPrestidigitation(prestidigitation);
+        sd.add(prestidigitation);
+
+        setProduceFlame(produceFlame);
+        sd.add(produceFlame);
+
+        setProtectionFromEvilandGood(protectionFromEvilandGood);
+        sd.add(protectionFromEvilandGood);
+
+        setPurifyFoodAndDrink(purifyFoodAndDrink);
+        sd.add(purifyFoodAndDrink);
+
+        setRayOfFrost(rayOfFrost);
+        sd.add(rayOfFrost);
+
+        setRayOfSickness(rayOfSickness);
+        sd.add(rayOfSickness);
+
+        setResistance(resistance);
+        sd.add(resistance);
+
+        setSacredFlame(sacredFlame);
+        sd.add(sacredFlame);
+
+        setSanctuary(sanctuary);
+        sd.add(sanctuary);
+
+        setSearingSmite(searingSmite);
+        sd.add(searingSmite);
+
+        setShield(shield);
+        sd.add(shield);
+
+        setShieldOfFaith(shieldOfFaith);
+        sd.add(shieldOfFaith);
+
+        setShillelagh(shillelagh);
+        sd.add(shillelagh);
+
+        setShockingGrasp(shockingGrasp);
+        sd.add(shockingGrasp);
+
+        setSilentImage(silentImage);
+        sd.add(silentImage);
+
+        setSleep(sleep);
+        sd.add(sleep);
 
         return sd;
     }

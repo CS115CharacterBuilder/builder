@@ -38,11 +38,12 @@ public class Character implements Parcelable {
     //abilities page info
     private boolean[] skillproficiencies;
     //equipment page info
+    private String[] proficiencies;
     private String[] m_weapons_held;
-    private int[] m_weapons_bonus;
+    private String[] m_weapons_bonus;
     private String[] m_weapons_damage;
     private String[] r_weapons_held;
-    private int[] r_weapons_bonus;
+    private String[] r_weapons_bonus;
     private String[] r_weapons_damage;
     private int[] r_weapons_ammo;
     private String[] r_weapons_range;
@@ -141,15 +142,17 @@ public class Character implements Parcelable {
 
     public boolean[] getSkillproficiencies() { return this.skillproficiencies; }
 
+    public String[] getProficiencies() { return this.proficiencies; }
+
     public String[] getmWeapons() { return this.m_weapons_held; }
 
-    public int[] getmWeaponBonus() { return this.m_weapons_bonus; }
+    public String[] getmWeaponBonus() { return this.m_weapons_bonus; }
 
     public String[] getmWeaponDamage() { return this.m_weapons_damage; }
 
     public String[] getrWeapons() { return this.r_weapons_held; }
 
-    public int[] getrWeaponBonus() { return this.r_weapons_bonus; }
+    public String[] getrWeaponBonus() { return this.r_weapons_bonus; }
 
     public String[] getrWeaponDamage() { return this.r_weapons_damage; }
 
@@ -203,15 +206,17 @@ public class Character implements Parcelable {
 
     public void setSkillproficiencies(boolean[] newSkillProficiencies) { this.skillproficiencies = newSkillProficiencies; }
 
+    public void setProficiencies(String[] newProficiencies) { this.proficiencies = newProficiencies; }
+
     public void setmWeapons(String[] newmWeapons) { this.m_weapons_held = newmWeapons; }
 
-    public void setmWeaponBonus(int[] newmWeaponBonus) { this.m_weapons_bonus = newmWeaponBonus; }
+    public void setmWeaponBonus(String[] newmWeaponBonus) { this.m_weapons_bonus = newmWeaponBonus; }
 
     public void setmWeaponDamage(String[] newmWeaponDamage) { this.m_weapons_damage = newmWeaponDamage; }
 
     public void setrWeapons(String[] newrWeapons) { this.r_weapons_held = newrWeapons; }
 
-    public void setrWeaponBonus(int[] newrWeaponBonus) { this.r_weapons_bonus = newrWeaponBonus; }
+    public void setrWeaponBonus(String[] newrWeaponBonus) { this.r_weapons_bonus = newrWeaponBonus; }
 
     public void setrWeaponDamage(String[] newrWeaponDamage) { this.r_weapons_damage = newrWeaponDamage; }
 

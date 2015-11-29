@@ -36,12 +36,22 @@ public class EquipmentPage extends Fragment {
         String Name;
         String AB;
         String Damage;
-        String Ammo;
+        int Ammo;
         String Range;
     }
 
     private ArrayList<mWeapon> mWList = new ArrayList<mWeapon>();
     private ArrayList<rWeapon> rWList = new ArrayList<rWeapon>();
+    private String[] proficiencies;
+    private String profTxt = "";
+    private String[] m_weapons_held;
+    private String[] m_weapons_bonus;
+    private String[] m_weapons_damage;
+    private String[] r_weapons_held;
+    private String[] r_weapons_bonus;
+    private String[] r_weapons_damage;
+    private int[] r_weapons_ammo;
+    private String[] r_weapons_range;
 
     //adapter for melee weapons
     private class mAdapter extends ArrayAdapter<mWeapon> {
@@ -61,7 +71,7 @@ public class EquipmentPage extends Fragment {
                 newView = new LinearLayout(getContext());
                 String inflater = Context.LAYOUT_INFLATER_SERVICE;
                 LayoutInflater vi = (LayoutInflater) getContext().getSystemService(inflater);
-                vi.inflate(resource, newView, true);
+                vi.inflate(R.layout.mweapon_element, newView, true);
             } else {
                 newView = (LinearLayout) convertView;
             }
@@ -70,10 +80,11 @@ public class EquipmentPage extends Fragment {
             remove.setTag(position);
             //set to load stored weapons
             EditText mName = (EditText) newView.findViewById(R.id.mWeaponVal);
+            mName.setText(m.Name);
             EditText mAB = (EditText) newView.findViewById(R.id.mABVal);
+            mAB.setText(m.AB);
             EditText mDmg = (EditText) newView.findViewById(R.id.mDmgVal);
-
-
+            mDmg.setText(m.Damage);
             return newView;
         }
     }
@@ -97,7 +108,7 @@ public class EquipmentPage extends Fragment {
                 newView = new LinearLayout(getContext());
                 String inflater = Context.LAYOUT_INFLATER_SERVICE;
                 LayoutInflater vi = (LayoutInflater) getContext().getSystemService(inflater);
-                vi.inflate(resource, newView, true);
+                vi.inflate(R.layout.rweapon_element, newView, true);
             } else {
                 newView = (LinearLayout) convertView;
             }
@@ -106,48 +117,33 @@ public class EquipmentPage extends Fragment {
             remove.setTag(position);
             //set to load stored weapons
             EditText rName = (EditText) newView.findViewById(R.id.rWeaponVal);
+            rName.setText(r.Name);
             EditText rAB = (EditText) newView.findViewById(R.id.rABVal);
+            rAB.setText(r.AB);
             EditText rDmg = (EditText) newView.findViewById(R.id.rDmgVal);
+            rDmg.setText(r.Damage);
             EditText rAmmo = (EditText) newView.findViewById(R.id.rAmmoVal);
+            rAmmo.setText(Integer.toString(r.Ammo));
             EditText rRange = (EditText) newView.findViewById(R.id.rRangeVal);
-
-
+            rRange.setText(r.Range);
             return newView;
         }
     }
     private rAdapter rW;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        //input list of proficiencies
-        /*ArrayList<String> proficiencies = new ArrayList<String>();
-         *String ProfList = ""
-         * for(int i = 0; i < proficiencies.size(); i++) {
-         *      ProfList = ProfList + proficiencies.get(i) + " ";
-         * }
-         * ProfList.setText(ProfList);
-         */
-        //creates the arraylists with weapons and refreshes when arraylists are updated
-        /*mW = new mAdapter(this.getActivity(), R.layout.mweapon_element, mWList);
-        rW = new rAdapter(this.getActivity(), R.layout.rweapon_element, rWList);
-        ListView mWeaponsList = (ListView)getView().findViewById(R.id.mWeaponsList);
-        ListView rWeaponsList = (ListView)getView().findViewById(R.id.rWeaponsList);
-        mWeaponsList.setAdapter(mW);
-        rWeaponsList.setAdapter(rW);
-        mW.notifyDataSetChanged();
-        */rW.notifyDataSetChanged();
-
-
-    }
-
-    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         super.onCreateView(inflater, container, savedInstanceState);
 
-        View fragmentView = inflater.inflate(R.layout.activity_equipment_page, container,false);
+        View fragmentView = inflater.inflate(R.layout.activity_equipment_page, container, false);
         mView = fragmentView;
+        Bundle args = getArguments();
+        //proficiencies = gotChar.getProficiencies;
+        //creates the arraylists with weapons and refreshes when arraylists are updated
+        createList();
+        EditText prof = (EditText) mView.findViewById(R.id.profTxt);
+        prof.setText(profTxt);
         mW = new mAdapter(this.getActivity(), R.layout.mweapon_element, mWList);
         rW = new rAdapter(this.getActivity(), R.layout.rweapon_element, rWList);
         ListView mWeaponsList = (ListView) mView.findViewById(R.id.mWeaponsList);
@@ -156,7 +152,7 @@ public class EquipmentPage extends Fragment {
         rWeaponsList.setAdapter(rW);
         mW.notifyDataSetChanged();
         rW.notifyDataSetChanged();
-        return inflater.inflate(R.layout.activity_equipment_page, container, false);
+        return this.mView;
     }
 
     //adds new melee weapons to list
@@ -181,5 +177,31 @@ public class EquipmentPage extends Fragment {
     public void removeRWeapon(View v) {
         int position = (Integer)v.getTag();
         mWList.remove(position);
+    }
+
+    public void createList() {
+        //loop creates string to put into proficiencies
+        for(int i = 0; i < 1/*proficiencies.length*/; i++) {
+            profTxt = "A bunch of proficiencies";//profTxt + " " + proficiencies[i];
+        }
+        //loop creates melee weapons list
+        for(int i = 0; i < 1/*m_weapons_held.length*/; i++) {
+            mWeapon temp = new mWeapon();
+            temp.Name = "Tester M";//m_weapons_held[i];
+            temp.Damage = "8";//m_weapons_damage[i];
+            temp.AB = "40";//m_weapons_bonus[i];
+            mWList.add(temp);
+        }
+
+        //loop creates ranged weapons list
+        for(int i = 0; i < 1/*r_weapons_held.length*/; i++) {
+            rWeapon temp = new rWeapon();
+            temp.Name = "Tester R";//r_weapons_held[i];
+            temp.Damage = "12";//r_weapons_damage[i];
+            temp.AB = "40";//r_weapons_bonus[i];
+            temp.Ammo = 5;//r_weapons_ammo[i];
+            temp.Range = "100";//r_weapons_range[i];
+            rWList.add(temp);
+        }
     }
 }

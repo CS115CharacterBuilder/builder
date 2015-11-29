@@ -25,10 +25,22 @@ import java.util.List;
 public class AbilitiesPage extends Fragment {
 
     Character gotChar;
+    int Lvl;
+    String Background;
+    String Class;
+    String Race;
+    String Subrace;
+    boolean[] sProf;
     ExpandableListAdapter listAdapter;
     ExpandableListView expListView;
     List<String> abilityTypes;
     HashMap<String, List<Ability>> listAbilities;
+    BackgroundData bDatabase;
+    ClassData cDatabase;
+    RaceData rDatabase;
+    ArrayList<Data> bd;
+    ArrayList<Data> cd;
+    ArrayList<Data> rd;
 
     protected View mView;
 
@@ -44,18 +56,41 @@ public class AbilitiesPage extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        ClassData cdDATABASE = new ClassData();
 
-        ArrayList<Data> classDataDB = cdDATABASE.getCd();
+        //declare and create local database
+        bDatabase = new BackgroundData();
+        cDatabase = new ClassData();
+        rDatabase = new RaceData();
+        bd = bDatabase.getBd();
+        cd = cDatabase.getCd();
+        rd = rDatabase.getRd();
+
+        //inflates fragment view
         View fragmentView = inflater.inflate(R.layout.activity_abilities_page, container, false);
         this.mView = fragmentView;
-        expListView = (ExpandableListView) mView.findViewById(R.id.expandableListView);
+
+
+        //get character object and set values
+        /*gotChar = args.getParcelable("charToStats");
+        Background = gotChar.getType();
+        Lvl = gotChar.getLevel();
+        Class = gotChar.getCharacterClass();
+        Race = gotChar.getCharacterRace();
+        Subrace = gotChar.getCharacterSubRace();*/
+        Background = "Acolyte";
+        Lvl = 1;
+        Class = "Barbarian";
+        Race = "Dwarf";
+        Subrace = "HillDwarf";
+
+        //Create Lists
+        createlist();
+        expListView = (ExpandableListView) this.mView.findViewById(R.id.expandableListView);
         listAdapter = new ExpandableListAdapter(this.getActivity(), abilityTypes, listAbilities);
         expListView.setAdapter(listAdapter);
         //Character gotChar = getActivity().getIntent().getParcelableExtra("characterTag");
-        //String[] test = gotChar.getAbilties();
-        createlist(gotChar);
-        return inflater.inflate(R.layout.activity_abilities_page, container, false);
+        return this.mView;
+
     }
 
     //creates expandable list adapter to contain different abilities
@@ -64,7 +99,7 @@ public class AbilitiesPage extends Fragment {
         private List<String> _listDataHeader;
         private HashMap<String, List<Ability>> _listDataChild;
 
-        public ExpandableListAdapter(FragmentActivity context, List<String> listDataHeader, HashMap<String, List<Ability>> _listChildData) {
+        public ExpandableListAdapter(FragmentActivity context, List<String> listDataHeader, HashMap<String, List<Ability>> _listDataChild) {
             this._context = context;
             this._listDataHeader = listDataHeader;
             this._listDataChild = _listDataChild;
@@ -74,11 +109,12 @@ public class AbilitiesPage extends Fragment {
 
         @Override
         public int getGroupCount() {
-            return this._listDataHeader.size();
+            System.out.println("group count is: " + Integer.toString(this._listDataHeader.size())); return this._listDataHeader.size();
         }
 
         @Override
         public int getChildrenCount(int groupPosition) {
+            System.out.println(Integer.toString(_listDataChild.get((this._listDataHeader.get(groupPosition))).size()));
             return this._listDataChild.get(this._listDataHeader.get(groupPosition)).size();
         }
 
@@ -112,10 +148,11 @@ public class AbilitiesPage extends Fragment {
             String headerTitle = (String) getGroup(groupPosition);
             if(convertView == null) {
                 LayoutInflater inflater = (LayoutInflater) this._context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                convertView = inflater.inflate(R.layout.activity_abilities_page, null);
+                convertView = inflater.inflate(R.layout.expandablelistview_header, null);
             }
             TextView abilityType = (TextView) convertView.findViewById(R.id.abilityType);
             abilityType.setTypeface(null, Typeface.BOLD);
+            System.out.println("---------------------------------" + headerTitle);
             abilityType.setText(headerTitle);
 
             return convertView;
@@ -148,7 +185,7 @@ public class AbilitiesPage extends Fragment {
         }
     }
 
-    public void createlist(Character gotChar) {
+    public void createlist() {
         abilityTypes = new ArrayList<String>();
         listAbilities = new HashMap<String, List<Ability>>();
         abilityTypes.add("Class");
@@ -156,21 +193,50 @@ public class AbilitiesPage extends Fragment {
         abilityTypes.add("Background");
 
         //creates class, race, and background abilities list
-        List<Ability> Class = new ArrayList<Ability>();
-        List<Ability> Race = new ArrayList<Ability>();
-        List<Ability> Background = new ArrayList<Ability>();
-        //String[] s = gotChar.getAbilties();
-        String[] s = new String[10];
-        for(int i = 0; i < s.length; i++) {
-            Ability a = new Ability();
-            a.name = s[i];
-            if(a.type == "Class") {
-                Class.add(a);
-            } else if(a.type == "Race") {
-                Race.add(a);
-            } else {
-                Background.add(a);
+
+        List<Ability> BackgroundList = new ArrayList<Ability>();
+        List<Ability> ClassList = new ArrayList<Ability>();
+        List<Ability> RaceList = new ArrayList<Ability>();
+
+        //Fill Background Abilities List
+        for(int i = 0; i < bd.size(); i++) {
+            Data temp = bd.get(i);
+            if(temp.backgroundType == Background && temp.dlevel == Lvl) {
+                System.out.println(i);
+                Ability a = new Ability();
+                a.name = temp.abilName;
+                a.description = temp.flavor;
+                a.type = "Background";
+                BackgroundList.add(a);
             }
         }
+        listAbilities.put("Background", BackgroundList);
+
+        //Fill Class Abilities List
+        for(int i = 0; i < cd.size(); i++) {
+            Data temp = cd.get(i);
+            if(temp.dClass == Class && temp.dlevel == Lvl) {
+                Ability a = new Ability();
+                a.name = temp.abilName;
+                a.description = temp.flavor;
+                a.type = "Class";
+                ClassList.add(a);
+            }
+        }
+        listAbilities.put("Class", ClassList);
+
+       /* //Fill Race Abilities List
+        for(int i = 0; i < rd.size(); i++) {
+            Data temp = rd.get(i);
+            if(temp.dRace == Race && temp.dlevel == Lvl) {
+                Ability a = new Ability();
+                a.name = temp.abilName;
+                a.description = temp.flavor;
+                a.type = "Race";
+                RaceList.add(a);
+>>>>>>> 393dfe5ced53742aea59f413d8c66e6dc0272df8
+            }
+        }
+        listAbilities.put("Race", RaceList);*/
     }
 }
