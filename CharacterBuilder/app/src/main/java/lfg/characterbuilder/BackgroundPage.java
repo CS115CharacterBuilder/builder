@@ -6,38 +6,39 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class BackgroundPage extends Fragment {
     Character gotChar;
+    View mView;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        //gotChar
-        TextView NameVal = (TextView) getView().findViewById(R.id.NameVal);
-        TextView ClassVal = (TextView) getView().findViewById(R.id.ClassVal);
-        ClassVal.setText(gotChar.getCharacterName());
-        TextView LvlVal = (TextView) getView().findViewById(R.id.LvlVal);
-        LvlVal.setText(gotChar.getLevel());
-        TextView AlignmentVal = (TextView) getView().findViewById(R.id.AlignmentVal);
-        AlignmentVal.setText(gotChar.getAlignment());
-        TextView DeityVal = (TextView) getView().findViewById(R.id.DeityVal);
-        DeityVal.setText(gotChar.getDeity());
-        TextView BackgroundVal = (TextView) getView().findViewById(R.id.BackgroundVal);
-        BackgroundVal.setText(gotChar.getType());
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        super.onCreateView(inflater, container, savedInstanceState);
+        View fragmentView = inflater.inflate(R.layout.activity_background_page, container, false);
+        mView = fragmentView;
+        EditText NameVal = (EditText) this.mView.findViewById(R.id.NameVal);
+        NameVal.setText("Tester Name");
+        TextView ClassVal = (TextView) this.mView.findViewById(R.id.ClassVal);
+        ClassVal.setText("Wizard Lizard"/*gotChar.getCharacterName()*/);
+        TextView LvlVal = (TextView) this.mView.findViewById(R.id.LvlVal);
+        LvlVal.setText(Integer.toString(1)/*gotChar.getLevel()*/);
+        EditText AlignmentVal = (EditText) this.mView.findViewById(R.id.AlignmentVal);
+        AlignmentVal.setText("True Neutral"/*gotChar.getAlignment()*/);
+        EditText DeityVal = (EditText) this.mView.findViewById(R.id.DeityVal);
+        DeityVal.setText("The Flying Spaghetti Monster"/*gotChar.getDeity()*/);
+        EditText BackgroundVal = (EditText) this.mView.findViewById(R.id.BackgroundVal);
+        BackgroundVal.setText("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" +
+                "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" +
+                "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"/*gotChar.getType()*/);
         String Name = NameVal.getText().toString();
         String Class = ClassVal.getText().toString();
         String Lvl = LvlVal.getText().toString();
         String Alignment = AlignmentVal.getText().toString();
         String Deity = DeityVal.getText().toString();
         String Background = BackgroundVal.getText().toString();
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
-        super.onCreateView(inflater, container, savedInstanceState);
-        return inflater.inflate(R.layout.activity_background_page, container, false);
+        return this.mView;
     }
 }

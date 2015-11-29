@@ -1,5 +1,4 @@
 package lfg.characterbuilder;
-
 import java.util.*;
 /**
  * Created by AndrewMiller on 10/31/15.
@@ -11,7 +10,7 @@ public class ClassData extends Data {
     public void setBarbarianFeatures(Data barbarianFeatures) {
         barbarianFeatures.abilName = "Barbarian Class Features";
         barbarianFeatures.dClass = "Barbarian";
-        barbarianFeatures.dlevel = 1;
+        barbarianFeatures.dlevel = 0;
         int pbonus[] = {2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6};
         int rages[] = {2,2,3,3,3,4,4,4,4,4,4,5,5,5,5,5,6,6,6,100};
         int rageDam[] = {2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,4,4,4,4,4};
@@ -57,7 +56,7 @@ public class ClassData extends Data {
     Data bardFeatures = new Data();
     public void setBardFeatures(Data bardFeatures){
         bardFeatures.abilName = "Bard Class Features";
-        bardFeatures.dlevel = 1;
+        bardFeatures.dlevel = 0;
         bardFeatures.dClass = "Bard";
         int pbonus[] = {2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6};
         int cans[] = {2,2,2,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4};
@@ -120,7 +119,7 @@ public class ClassData extends Data {
     Data clericFeatures = new Data();
     public void setClericFeature(Data clericFeatures){
         clericFeatures.abilName = "Cleric Class Features";
-        clericFeatures.dlevel = 1;
+        clericFeatures.dlevel = 0;
         clericFeatures.dClass = "Cleric";
         int pbonus[] = {2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6};
         int cans[] = {3,3,3,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5,5};
@@ -170,7 +169,7 @@ public class ClassData extends Data {
     Data druidFeatures = new Data();
     public void setDruidFeature(Data druidFeatures){
         druidFeatures.abilName = "Druid Class Features";
-        druidFeatures.dlevel = 1;
+        druidFeatures.dlevel = 0;
         druidFeatures.dClass = "Druid";
         int pbonus[]= {2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6};
         int cans[]  = {2,2,2,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4};
@@ -230,7 +229,7 @@ public class ClassData extends Data {
     Data fighterFeatures = new Data();
     public void setfighterFeature(Data fighterFeatures){
         fighterFeatures.abilName = "Fighter Class Features";
-        fighterFeatures.dlevel = 1;
+        fighterFeatures.dlevel = 0;
         fighterFeatures.dClass = "Fighter";
         int pbonus[]= {2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6};
         //                {Str,  Dex  ,Con  ,Int  ,Wis  ,Cha  };
@@ -306,7 +305,7 @@ public class ClassData extends Data {
     Data monkFeatures = new Data();
     public void setMonkFeatures(Data monkFeatures){
         monkFeatures.abilName = "Monk Class Features";
-        monkFeatures.dlevel = 1;
+        monkFeatures.dlevel = 0;
         monkFeatures.dClass = "Monk";
         int pbonus[] = {2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6};
         int marts[] = {4,4,4,4,6,6,6,6,6,6,8,8,8,8,8,8,10,10,10,10};
@@ -355,7 +354,7 @@ public class ClassData extends Data {
     Data paladinFeatures = new Data();
     public void setPaladinFeature(Data paladinFeatures){
         paladinFeatures.abilName = "Paladin Class Features";
-        paladinFeatures.dlevel = 1;
+        paladinFeatures.dlevel = 0;
         paladinFeatures.dClass = "Paladin";
         int pbonus[]= {2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6};
         int slot1[] = {0,2,3,3,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4};
@@ -399,7 +398,7 @@ public class ClassData extends Data {
     Data rangerFeatures = new Data();
     public void setRangerFeatures(Data rangerFeatures){
         rangerFeatures.abilName = "Ranger Class Features";
-        rangerFeatures.dlevel = 1;
+        rangerFeatures.dlevel = 0;
         rangerFeatures.dClass = "Ranger";
         int pbonus[] = {2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6};
         int spells[] = {0,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10,11,11};
@@ -437,7 +436,7 @@ public class ClassData extends Data {
     Data rangerNaturalExplorer = new Data();
     public void setRangerNaturalExplorer(Data rangerNaturalExplorer) {
         rangerNaturalExplorer.abilName = "Natural Exploration";
-        rangerNaturalExplorer.dlevel = 1;
+        rangerNaturalExplorer.dlevel = 0;
         rangerNaturalExplorer.dClass = "Ranger";
         rangerNaturalExplorer.flavor = "You are particularly familiar with one type of natural environment and are adept at traveling and surviving in such regions. Choose one type of favored terrain: arctic, coast, desert, forest, grassland, mountain, swamp,\n" +
                 "or the Underdark. When you make an Intelligence or Wisdomcheckrelatedtoyourfavoredterrain,your proficiency bonus is doubled if you are using a skill that you’re proficient in.\n" +
@@ -460,7 +459,7 @@ public class ClassData extends Data {
     Data rogueFeatures = new Data();
     public void setRogueFeatures(Data rogueFeatures){
         rogueFeatures.abilName = "Rogue Class Features";
-        rogueFeatures.dlevel = 1;
+        rogueFeatures.dlevel = 0;
         rogueFeatures.dClass = "Rogue";
         int pbonus[] = {2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6};
         int sneekDie[] = {1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10};
@@ -512,7 +511,7 @@ public class ClassData extends Data {
     Data sorcererFeatures = new Data();
     public void setSorcererFeatures(Data sorcererFeatures){
         sorcererFeatures.abilName = "Sorcerer Class Features";
-        sorcererFeatures.dlevel = 1;
+        sorcererFeatures.dlevel = 0;
         sorcererFeatures.dClass = "Sorcerer";
         int pbonus[] = {2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6};
         int sorcPoints[] = {0,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
@@ -592,7 +591,7 @@ public class ClassData extends Data {
     Data warlockFeatures = new Data();
     public void setWarlockFeatures(Data warlockFeatures){
         warlockFeatures.abilName = "Warlock Class Features";
-        warlockFeatures.dlevel = 1;
+        warlockFeatures.dlevel = 0;
         warlockFeatures.dClass = "Warlock";
         int pbonus[] = {2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6};
         int cans[] = {2,2,2,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4};
@@ -652,7 +651,7 @@ public class ClassData extends Data {
     Data wizardFeatures = new Data();
     public void setWizardFeatures(Data wizardFeatures){
         wizardFeatures.abilName = "Wizard Class Features";
-        wizardFeatures.dlevel = 1;
+        wizardFeatures.dlevel = 0;
         wizardFeatures.dClass = "Wizard";
         int pbonus[] = {2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6};
         int cans[] = {3,3,3,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5,5};

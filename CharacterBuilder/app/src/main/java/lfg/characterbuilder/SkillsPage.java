@@ -28,6 +28,7 @@ import java.util.List;
 public class SkillsPage extends Fragment {
     protected View mView;
     Character gotChar;
+    int[] stats;
     public class SkillElement {
         SkillElement() {
         };
@@ -52,7 +53,6 @@ public class SkillsPage extends Fragment {
 
         public View getView(int position, View convertView, ViewGroup parent) {
             LinearLayout newView;
-            System.out.println(position);
             final SkillElement s = getItem(position);
 
             if(convertView == null) {
@@ -82,6 +82,12 @@ public class SkillsPage extends Fragment {
 
         View fragmentView = inflater.inflate(R.layout.activity_skills_page, container, false);
         super.onCreateView(inflater, container, savedInstanceState);
+        //get bundles
+        Bundle args = getArguments();
+//        int[] caughtStatsArray = args.getIntArray("statsToFrag");
+  //      stats = caughtStatsArray;
+    //    boolean[] caughtBooleanArray = args.getBooleanArray("");
+
         sList = new ArrayList<SkillElement>();
         createSkills();
         aa = new MyAdapter(this.getActivity(), R.layout.skillelement, sList);

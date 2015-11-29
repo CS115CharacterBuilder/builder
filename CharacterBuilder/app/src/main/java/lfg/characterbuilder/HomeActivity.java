@@ -77,6 +77,10 @@ public class HomeActivity extends AppCompatActivity {
                 int[] statsToPass = sendChar.getStats();
                 Bundle statsBundle = new Bundle();
                 statsBundle.putIntArray("statsBundle", statsToPass);
+                //Pass proficiencies
+                boolean[] sProfToPass = sendChar.getSkillproficiencies();
+                statsBundle.putBooleanArray("sProfBundle", sProfToPass);
+
 
                 //Pass the character
                 Intent intent = new Intent(HomeActivity.this, MainActivity.class);
