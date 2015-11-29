@@ -67,8 +67,12 @@ class MyAdapter extends FragmentPagerAdapter {
         String[] caughtRWeapon = caughtStatsBundle.getStringArray("rWeaponBundle");
         String[] caughtRWeaponDMG = caughtStatsBundle.getStringArray("rWeaponDMGBundle");
         String[] caughtRWeaponBonus = caughtStatsBundle.getStringArray("rWeaponBonusBundle");
-        String[] caughtRWeaponAmmo = caughtStatsBundle.getStringArray("rWeaponAmmoBundle");
+        int[] caughtRWeaponAmmo = caughtStatsBundle.getIntArray("rWeaponAmmoBundle");
         String[] caughtRWeaponRange = caughtStatsBundle.getStringArray("rWeaponRangeBundle");
+
+        //bundles filled with spells data
+        String[] caughtKnownSpells = caughtStatsBundle.getStringArray("knownSpellBundle");
+        String[] caughtEquipSpells = caughtStatsBundle.getStringArray("equipSpellBundle");
 
         //creates bundle object  and adds character object to it for passing data to fragment
         Bundle bundle = new Bundle();
@@ -107,7 +111,7 @@ class MyAdapter extends FragmentPagerAdapter {
             bundle.putStringArray("rWeaponBundle", caughtRWeapon);
             bundle.putStringArray("rWeaponDMGBundle", caughtRWeaponDMG);
             bundle.putStringArray("rWeaponBonusBundle", caughtRWeaponBonus);
-            bundle.putStringArray("rWeaponAmmoBundle", caughtRWeaponAmmo);
+            bundle.putIntArray("rWeaponAmmoBundle", caughtRWeaponAmmo);
             bundle.putStringArray("rWeaponRangeBundle", caughtRWeaponRange);
             fragment = new EquipmentPage();
             fragment.setArguments(bundle);

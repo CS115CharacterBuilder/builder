@@ -65,7 +65,7 @@ public class ItemsPage extends Fragment {
             }
 
             Button iRem = (Button) newView.findViewById(R.id.removeButton);
-            iRem
+            //iRem
 
             TextView itemName = (TextView) newView.findViewById(R.id.itemName);
             TextView itemDesc = (TextView) newView.findViewById(R.id.itemDesc);

@@ -97,6 +97,36 @@ public class HomeActivity extends AppCompatActivity {
                 boolean[] statProfToPass = sendChar.getStatsproficiencies();
                 statsBundle.putBooleanArray("statProfBundle", statProfToPass);
 
+                //Pass all the rest of the arrays of this character
+                String[] item_held_to_pass = sendChar.getItemNames();
+                statsBundle.putStringArray("itemBundle", item_held_to_pass);
+                String[] item_desc_to_pass = sendChar.getItemDescriptions();
+                statsBundle.putStringArray("itemDescBundle", item_desc_to_pass);
+                String[] prof_to_pass = sendChar.getProficiencies();
+                statsBundle.putStringArray("genProfBundle", prof_to_pass);
+                String[] wep_held_to_pass = sendChar.getmWeapons();
+                statsBundle.putStringArray("mWeaponBundle", wep_held_to_pass);
+                String[] wep_bonus_to_pass = sendChar.getmWeaponBonus();
+                statsBundle.putStringArray("mWeaponDMGBundle", wep_bonus_to_pass);
+                String[] wep_damage_to_pass = sendChar.getmWeaponDamage();
+                statsBundle.putStringArray("mWeaponBonusBundle", wep_damage_to_pass);
+                String[] r_held_to_pass = sendChar.getrWeapons();
+                statsBundle.putStringArray("rWeaponBundle", r_held_to_pass);
+                String[] r_bonus_to_pass = sendChar.getrWeaponBonus();
+                statsBundle.putStringArray("rWeaponDMGBundle", r_bonus_to_pass);
+                String[] r_damage_to_pass = sendChar.getrWeaponDamage();
+                statsBundle.putStringArray("rWeaponBonusBundle", r_damage_to_pass);
+                int[] r_ammo_to_pass = sendChar.getrWeaponAmmo();
+                statsBundle.putIntArray("rWeaponAmmoBundle", r_ammo_to_pass);
+                String[] r_range_to_pass = sendChar.getrWeaponRange();
+                statsBundle.putStringArray("rWeaponRangeBundle", r_range_to_pass);
+                String[] known_spell_to_pass = sendChar.getKnownSpells();
+                statsBundle.putStringArray("knownSpellBundle", known_spell_to_pass);
+                String[] equip_spells_to_pass = sendChar.getEquipped_spells();
+                statsBundle.putStringArray("equipSpellBundle", equip_spells_to_pass);
+
+
+
 
                 //Pass the character
                 Intent intent = new Intent(HomeActivity.this, MainActivity.class);
