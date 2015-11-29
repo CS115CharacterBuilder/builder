@@ -17,8 +17,71 @@ public class NewCharacterCreation extends AppCompatActivity {
 
     private EditText CharNAME;
     private String Name;
+
     private EditText CharCLASS;
     private String Class;
+
+    private EditText CharRACE;
+    private String Race;
+
+    //Stats - 0
+    private EditText CharSTR;
+    private String Strength;
+
+    //Stats - 1
+    private EditText CharDEX;
+    private String Dexerity;
+
+    //Stats - 2
+    private EditText CharCON;
+    private String Constitution;
+
+    //Stats - 3
+    private EditText CharINT;
+    private String Intelligence;
+
+    //Stats - 4
+    private EditText CharWIS;
+    private String Wisdom;
+
+    //Stats - 5
+    private EditText CharCHAR;
+    private String Charisma;
+
+    //Stats - 6
+    private EditText CharPROF;
+    private String Proficiency;
+
+    //Stats - 7
+    private EditText CharINI;
+    private String Initiative;
+
+    //Stats - 8
+    private EditText CharSPD;
+    private String Speed;
+
+    //Stats - 9
+    private EditText CharPER;
+    private String Perception;
+
+    //Stats - 10 (Number)
+    private EditText CharHD;
+    private String HitDice;
+
+    //Stats - 11 (HD Type)
+    private EditText CharAC;
+    private String ArmorClass;
+
+    //Stats - 12
+    private EditText CharHP;
+    private String HitPoints;
+
+    //Stats - 13
+    private String TotalHP;
+
+    //Stats - 14
+    private EditText CharTEMP;
+    private String TemporaryHP;
 
     private static final String STRING_LIST =
             "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
@@ -31,81 +94,6 @@ public class NewCharacterCreation extends AppCompatActivity {
         Button savebtn = (Button) findViewById(R.id.charbtn);
     }
 
-    /*private EditText CharSTR = (EditText) findViewById(R.id.CharSTR);
-    private String STR = CharSTR.getText().toString();
-    private EditText CharPROF = (EditText) findViewById(R.id.CharPROF);
-    private String Prof = CharPROF.getText().toString();
-    private EditText CharCON = (EditText) findViewById(R.id.CharCON);
-    private String CON = CharCON.getText().toString();
-    private EditText CharINI = (EditText) findViewById(R.id.CharINI);
-    private String INI = CharINI.getText().toString();
-    private EditText CharDEX = (EditText) findViewById(R.id.CharDEX);
-    private String DEX = CharDEX.getText().toString();
-    private EditText CharSPD = (EditText) findViewById(R.id.CharSPD);
-    private String SPD = CharSPD.getText().toString();
-    private EditText CharINT = (EditText) findViewById(R.id.CharINT);
-    private String INT = CharINT.getText().toString();
-    private EditText CharPER = (EditText) findViewById(R.id.CharPER);
-    private String PER = CharPER.getText().toString();
-    private EditText CharWIS = (EditText) findViewById(R.id.CharWIS);
-    private String WIS = CharWIS.getText().toString();
-    private EditText CharHD = (EditText) findViewById(R.id.CharHD);
-    private String HD = CharHD.getText().toString();
-    private EditText CharCHAR = (EditText) findViewById(R.id.CharCHAR);
-    private String CHAR = CharCHAR.getText().toString();
-    private EditText CharHP = (EditText) findViewById(R.id.CharHP);
-    private String HP = CharHP.getText().toString();
-    private EditText CharTEMP = (EditText) findViewById(R.id.CharTEMP);
-    private String TempHP = CharTEMP.getText().toString();*/
-    /*EditText CharNAME = (EditText) findViewById(R.id.CharNAME);
-    String Name = CharNAME.getText().toString();*/
-    /*private EditText CharRACE = (EditText) findViewById(R.id.CharRACE);
-    private String Race = CharRACE.getText().toString();
-    private EditText CharCLASS = (EditText) findViewById(R.id.CharCLASS);
-    private String Class = CharCLASS.getText().toString();
-        /*String saveName = Name + "_" + Race + "_" + Class;
-        String saveInfo = Name + " " + Race + " " + Class + " " + STR + " " + Prof + " "
-                + CON + " " + INI + " " + DEX + " " + SPD + " " + INT + " " + PER + " "
-                + WIS + " " + HD + " " + CHAR + " " + HP + " " + TempHP;
-        int duration = Toast.LENGTH_LONG;
-        Context context = getApplicationContext();
-        FileOutputStream fOut = null;*/
-
-        /*if (File(saveName).exists()) {
-            Toast toast = Toast.makeText(context, "Character already exists", duration);
-        }*/
-
-        /*try {
-            fOut = openFileOutput(saveName.toString() +"f", MODE_WORLD_READABLE);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        try {
-            fOut.write(saveInfo.getBytes());
-            Toast toast = Toast.makeText(context, "Character saved!", duration);
-            toast.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        try {
-            fOut.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        System.out.println((saveName.toString() + "f").toString());
-        */
-
-    /*public void clickSave(View v) {
-
-        SharedPreferences sharedStats = getSharedPreferences("CHAR_STATS", Context.MODE_PRIVATE);
-
-        SharedPreferences.Editor editor = sharedStats.edit();
-        //editor.putString("CHAR_NAME", CharNAME.getText().toString());
-        //editor.apply(); //maybe commit here?
-
-        Toast.makeText(CharacterStats.this,"Saved!", Toast.LENGTH_SHORT).show();
-
-    }*/
 
     private String generateId(){
         StringBuffer randomString = new StringBuffer();
@@ -138,7 +126,48 @@ public class NewCharacterCreation extends AppCompatActivity {
         Name = CharNAME.getText().toString();
         CharCLASS = (EditText) findViewById(R.id.CharCLASS);
         Class = CharCLASS.getText().toString();
+        CharRACE = (EditText) findViewById(R.id.CharRACE);
+        Race = CharRACE.getText().toString();
 
+        CharSTR = (EditText) findViewById(R.id.CharSTR);
+        Strength = CharSTR.getText().toString();
+        CharDEX = (EditText) findViewById(R.id.CharDEX);
+        Dexerity = CharDEX.getText().toString();
+        CharCON = (EditText) findViewById(R.id.CharCON);
+        Constitution = CharCON.getText().toString();
+        CharINT = (EditText) findViewById(R.id.CharINT);
+        Intelligence = CharINT.getText().toString();
+        CharWIS = (EditText) findViewById(R.id.CharWIS);
+        Wisdom = CharWIS.getText().toString();
+        CharCHAR = (EditText) findViewById(R.id.CharCHAR);
+        Charisma = CharCHAR.getText().toString();
+        CharPROF = (EditText) findViewById(R.id.CharPROF);
+        Proficiency = CharPROF.getText().toString();
+        CharINI = (EditText) findViewById(R.id.CharINI);
+        Initiative = CharINI.getText().toString();
+        CharSPD = (EditText) findViewById(R.id.CharSPD);
+        Speed = CharSPD.getText().toString();
+        CharPER = (EditText) findViewById(R.id.CharPER);
+        Perception = CharPER.getText().toString();
+        CharHD = (EditText) findViewById(R.id.CharHD);
+        HitDice = CharHD.getText().toString();
+        CharAC = (EditText) findViewById(R.id.CharAC);
+        ArmorClass = CharAC.getText().toString();
+        CharHP = (EditText) findViewById(R.id.CharHP);
+        HitPoints = CharHP.getText().toString();
+        TotalHP = HitPoints;
+        CharTEMP = (EditText) findViewById(R.id.CharTEMP);
+        TemporaryHP = CharTEMP.getText().toString();
+
+        //Package the Stats into a String separated by ","
+        String[] statsArray = new String[]{Strength, Dexerity, Constitution,Intelligence,Wisdom,Charisma,
+                Proficiency,Initiative,Speed,Perception,HitDice,ArmorClass,HitPoints,TotalHP,TemporaryHP};
+        StringBuilder statsString = new StringBuilder();
+        for(int i = 0; i < statsArray.length; i++){
+            statsString.append(statsArray[i]).append(",");
+        }
+
+        //Create the character with a default image
         Character newCharacter = new Character(
                 generateId(), CharNAME.getText().toString(),
                 CharCLASS.getText().toString(), R.drawable.ic_ranger
@@ -148,10 +177,11 @@ public class NewCharacterCreation extends AppCompatActivity {
         SharedPreferences sharedStats = getSharedPreferences(newCharacter.getUnique_id(), Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedStats.edit();
 
-        //Save the newly formed character stats
+        //Save the newly formed character stats and packaged string
         editor.putString("CHAR_NAME", newCharacter.getCharacterName());
         editor.putString("CHAR_CLASS", newCharacter.getCharacterClass());
         editor.putInt("CHAR_PHOTO", newCharacter.getPhotoId());
+        editor.putString("CHAR_STATS", statsString.toString());
         editor.apply(); //maybe commit here?
 
         //Alert User that the current character has been saved

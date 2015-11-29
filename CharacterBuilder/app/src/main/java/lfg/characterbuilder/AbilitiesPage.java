@@ -53,7 +53,7 @@ public class AbilitiesPage extends Fragment {
         listAdapter = new ExpandableListAdapter(this.getActivity(), abilityTypes, listAbilities);
         expListView.setAdapter(listAdapter);
         //Character gotChar = getActivity().getIntent().getParcelableExtra("characterTag");
-        String[] test = gotChar.getAbilties();
+        //String[] test = gotChar.getAbilties();
         createlist(gotChar);
         return inflater.inflate(R.layout.activity_abilities_page, container, false);
     }
@@ -159,7 +159,8 @@ public class AbilitiesPage extends Fragment {
         List<Ability> Class = new ArrayList<Ability>();
         List<Ability> Race = new ArrayList<Ability>();
         List<Ability> Background = new ArrayList<Ability>();
-        String[] s = gotChar.getAbilties();
+        //String[] s = gotChar.getAbilties();
+        String[] s = new String[10];
         for(int i = 0; i < s.length; i++) {
             Ability a = new Ability();
             a.name = s[i];
