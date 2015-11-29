@@ -108,11 +108,12 @@ public class AbilitiesPage extends Fragment {
 
         @Override
         public int getGroupCount() {
-            return this._listDataHeader.size();
+            System.out.println("group count is: " + Integer.toString(this._listDataHeader.size())); return this._listDataHeader.size();
         }
 
         @Override
         public int getChildrenCount(int groupPosition) {
+            System.out.println(Integer.toString(_listDataChild.get((this._listDataHeader.get(groupPosition))).size()));
             return this._listDataChild.get(this._listDataHeader.get(groupPosition)).size();
         }
 
@@ -150,6 +151,7 @@ public class AbilitiesPage extends Fragment {
             }
             TextView abilityType = (TextView) convertView.findViewById(R.id.abilityType);
             abilityType.setTypeface(null, Typeface.BOLD);
+            System.out.println("---------------------------------" + headerTitle);
             abilityType.setText(headerTitle);
 
             return convertView;

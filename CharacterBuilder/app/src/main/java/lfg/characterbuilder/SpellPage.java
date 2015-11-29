@@ -117,16 +117,19 @@ public class SpellPage extends Fragment {
 
         @Override
         public Object getChild(int groupPosition, int childPosition) {
+            System.out.println("Got child number " + Integer.toString(childPosition));
             return this._listDataChild.get(this._listDataHeader.get(groupPosition)).get(childPosition);
         }
 
         @Override
         public long getGroupId(int groupPosition) {
+            System.out.println("Group position from group ID is " + Integer.toString(groupPosition));
             return groupPosition;
         }
 
         @Override
         public long getChildId(int groupPosition, int childPosition) {
+            System.out.println("This is the child position from childID: " + Integer.toString(childPosition));
             return childPosition;
         }
 
@@ -142,15 +145,12 @@ public class SpellPage extends Fragment {
                 LayoutInflater inflater = (LayoutInflater) this._context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 convertView = inflater.inflate(R.layout.expandablelistview_header, null);
                 System.out.println("---------------------------- Inside of get GroupView---------------------------------");
-            }else{
-                System.out.println("---------------------------------------------------@@@@@@@@@@@@");
             }
             TextView abilityType = (TextView) convertView.findViewById(R.id.abilityType);
             abilityType.setTypeface(null, Typeface.BOLD);
             System.out.println("---------------------------------" + headerTitle);
             abilityType.setText(headerTitle);
-
-
+            System.out.println("Just before return");
             return convertView;
         }
 
@@ -261,44 +261,26 @@ public class SpellPage extends Fragment {
                     s.Range = temp.range;
                     s.Flavor = temp.flavor;
 
+                    //for loop checks if spell is known
+                    for(int j = 0; j < KnownSpells.length; j++) {
+                        if(s.Name == KnownSpells[j]) {
+                            s.Known = true;
+                            //if spell is known, for loop checks if spell is equipped
+                            for(int k = 0; k < EquippedSpells.length; k++ ) {
+                                if(s.Name == EquippedSpells[k]) {
+                                    s.Equipped = true;
+                                }else {
+                                    s.Equipped = false;
+                                }
+                            }
+                        }else {
+                            s.Known = false;
+                        }
+                    }
                     //sorts spell into appropriate level list
                     if(s.ReqLvl == 0) {
-                        //for loop checks if spell is known
-                        for(int j = 0; j < KnownSpells.length; j++) {
-                            if(s.Name == KnownSpells[j]) {
-                                s.Known = true;
-                                //if spell is known, for loop checks if spell is equipped
-                                for(int k = 0; k < EquippedSpells.length; k++ ) {
-                                    if(s.Name == EquippedSpells[k]) {
-                                        s.Equipped = true;
-                                    }else {
-                                        s.Equipped = false;
-                                    }
-                                }
-                            }else {
-                                s.Known = false;
-                            }
-
-                        }
                         cantripsList.add(s);
                     } else if(s.ReqLvl == 1) {
-                        //for loop checks if spell is known
-                        for(int j = 0; j < KnownSpells.length; j++) {
-                            if(s.Name == KnownSpells[j]) {
-                                s.Known = true;
-                                //if spell is known, for loop checks if spell is equipped
-                                for(int k = 0; k < EquippedSpells.length; k++ ) {
-                                    if(s.Name == EquippedSpells[k]) {
-                                        s.Equipped = true;
-                                    }else {
-                                        s.Equipped = false;
-                                    }
-                                }
-                            }else {
-                                s.Known = false;
-                            }
-
-                        }
                         lvlOneList.add(s);
                     }
                 }
@@ -316,44 +298,26 @@ public class SpellPage extends Fragment {
                     s.Range = temp.range;
                     s.Flavor = temp.flavor;
 
+                    //for loop checks if spell is known
+                    for(int j = 0; j < KnownSpells.length; j++) {
+                        if(s.Name == KnownSpells[j]) {
+                            s.Known = true;
+                            //if spell is known, for loop checks if spell is equipped
+                            for(int k = 0; k < EquippedSpells.length; k++ ) {
+                                if(s.Name == EquippedSpells[k]) {
+                                    s.Equipped = true;
+                                }else {
+                                    s.Equipped = false;
+                                }
+                            }
+                        }else {
+                            s.Known = false;
+                        }
+                    }
                     //sorts spell into appropriate level list
                     if(s.ReqLvl == 0) {
-                        //for loop checks if spell is known
-                        for(int j = 0; j < KnownSpells.length; j++) {
-                            if(s.Name == KnownSpells[j]) {
-                                s.Known = true;
-                                //if spell is known, for loop checks if spell is equipped
-                                for(int k = 0; k < EquippedSpells.length; k++ ) {
-                                    if(s.Name == EquippedSpells[k]) {
-                                        s.Equipped = true;
-                                    }else {
-                                        s.Equipped = false;
-                                    }
-                                }
-                            }else {
-                                s.Known = false;
-                            }
-
-                        }
                         cantripsList.add(s);
                     } else if(s.ReqLvl == 1) {
-                        //for loop checks if spell is known
-                        for(int j = 0; j < KnownSpells.length; j++) {
-                            if(s.Name == KnownSpells[j]) {
-                                s.Known = true;
-                                //if spell is known, for loop checks if spell is equipped
-                                for(int k = 0; k < EquippedSpells.length; k++ ) {
-                                    if(s.Name == EquippedSpells[k]) {
-                                        s.Equipped = true;
-                                    }else {
-                                        s.Equipped = false;
-                                    }
-                                }
-                            }else {
-                                s.Known = false;
-                            }
-
-                        }
                         lvlOneList.add(s);
                     }
                 }
@@ -371,44 +335,26 @@ public class SpellPage extends Fragment {
                     s.Range = temp.range;
                     s.Flavor = temp.flavor;
 
+                    //for loop checks if spell is known
+                    for(int j = 0; j < KnownSpells.length; j++) {
+                        if(s.Name == KnownSpells[j]) {
+                            s.Known = true;
+                            //if spell is known, for loop checks if spell is equipped
+                            for(int k = 0; k < EquippedSpells.length; k++ ) {
+                                if(s.Name == EquippedSpells[k]) {
+                                    s.Equipped = true;
+                                }else {
+                                    s.Equipped = false;
+                                }
+                            }
+                        }else {
+                            s.Known = false;
+                        }
+                    }
                     //sorts spell into appropriate level list
                     if(s.ReqLvl == 0) {
-                        //for loop checks if spell is known
-                        for(int j = 0; j < KnownSpells.length; j++) {
-                            if(s.Name == KnownSpells[j]) {
-                                s.Known = true;
-                                //if spell is known, for loop checks if spell is equipped
-                                for(int k = 0; k < EquippedSpells.length; k++ ) {
-                                    if(s.Name == EquippedSpells[k]) {
-                                        s.Equipped = true;
-                                    }else {
-                                        s.Equipped = false;
-                                    }
-                                }
-                            }else {
-                                s.Known = false;
-                            }
-
-                        }
                         cantripsList.add(s);
                     } else if(s.ReqLvl == 1) {
-                        //for loop checks if spell is known
-                        for(int j = 0; j < KnownSpells.length; j++) {
-                            if(s.Name == KnownSpells[j]) {
-                                s.Known = true;
-                                //if spell is known, for loop checks if spell is equipped
-                                for(int k = 0; k < EquippedSpells.length; k++ ) {
-                                    if(s.Name == EquippedSpells[k]) {
-                                        s.Equipped = true;
-                                    }else {
-                                        s.Equipped = false;
-                                    }
-                                }
-                            }else {
-                                s.Known = false;
-                            }
-
-                        }
                         lvlOneList.add(s);
                     }
                 }
@@ -426,44 +372,26 @@ public class SpellPage extends Fragment {
                     s.Range = temp.range;
                     s.Flavor = temp.flavor;
 
+                    //for loop checks if spell is known
+                    for(int j = 0; j < KnownSpells.length; j++) {
+                        if(s.Name == KnownSpells[j]) {
+                            s.Known = true;
+                            //if spell is known, for loop checks if spell is equipped
+                            for(int k = 0; k < EquippedSpells.length; k++ ) {
+                                if(s.Name == EquippedSpells[k]) {
+                                    s.Equipped = true;
+                                }else {
+                                    s.Equipped = false;
+                                }
+                            }
+                        }else {
+                            s.Known = false;
+                        }
+                    }
                     //sorts spell into appropriate level list
                     if(s.ReqLvl == 0) {
-                        //for loop checks if spell is known
-                        for(int j = 0; j < KnownSpells.length; j++) {
-                            if(s.Name == KnownSpells[j]) {
-                                s.Known = true;
-                                //if spell is known, for loop checks if spell is equipped
-                                for(int k = 0; k < EquippedSpells.length; k++ ) {
-                                    if(s.Name == EquippedSpells[k]) {
-                                        s.Equipped = true;
-                                    }else {
-                                        s.Equipped = false;
-                                    }
-                                }
-                            }else {
-                                s.Known = false;
-                            }
-
-                        }
                         cantripsList.add(s);
                     } else if(s.ReqLvl == 1) {
-                        //for loop checks if spell is known
-                        for(int j = 0; j < KnownSpells.length; j++) {
-                            if(s.Name == KnownSpells[j]) {
-                                s.Known = true;
-                                //if spell is known, for loop checks if spell is equipped
-                                for(int k = 0; k < EquippedSpells.length; k++ ) {
-                                    if(s.Name == EquippedSpells[k]) {
-                                        s.Equipped = true;
-                                    }else {
-                                        s.Equipped = false;
-                                    }
-                                }
-                            }else {
-                                s.Known = false;
-                            }
-
-                        }
                         lvlOneList.add(s);
                     }
                 }
@@ -481,44 +409,27 @@ public class SpellPage extends Fragment {
                     s.Range = temp.range;
                     s.Flavor = temp.flavor;
 
+                    //for loop checks if spell is known
+                    for(int j = 0; j < KnownSpells.length; j++) {
+                        if(s.Name == KnownSpells[j]) {
+                            s.Known = true;
+                            //if spell is known, for loop checks if spell is equipped
+                            for(int k = 0; k < EquippedSpells.length; k++ ) {
+                                if(s.Name == EquippedSpells[k]) {
+                                    s.Equipped = true;
+                                }else {
+                                    s.Equipped = false;
+                                }
+                            }
+                        }else {
+                            s.Known = false;
+                        }
+
+                    }
                     //sorts spell into appropriate level list
                     if(s.ReqLvl == 0) {
-                        //for loop checks if spell is known
-                        for(int j = 0; j < KnownSpells.length; j++) {
-                            if(s.Name == KnownSpells[j]) {
-                                s.Known = true;
-                                //if spell is known, for loop checks if spell is equipped
-                                for(int k = 0; k < EquippedSpells.length; k++ ) {
-                                    if(s.Name == EquippedSpells[k]) {
-                                        s.Equipped = true;
-                                    }else {
-                                        s.Equipped = false;
-                                    }
-                                }
-                            }else {
-                                s.Known = false;
-                            }
-
-                        }
                         cantripsList.add(s);
                     } else if(s.ReqLvl == 1) {
-                        //for loop checks if spell is known
-                        for(int j = 0; j < KnownSpells.length; j++) {
-                            if(s.Name == KnownSpells[j]) {
-                                s.Known = true;
-                                //if spell is known, for loop checks if spell is equipped
-                                for(int k = 0; k < EquippedSpells.length; k++ ) {
-                                    if(s.Name == EquippedSpells[k]) {
-                                        s.Equipped = true;
-                                    }else {
-                                        s.Equipped = false;
-                                    }
-                                }
-                            }else {
-                                s.Known = false;
-                            }
-
-                        }
                         lvlOneList.add(s);
                     }
                 }
@@ -536,44 +447,27 @@ public class SpellPage extends Fragment {
                     s.Range = temp.range;
                     s.Flavor = temp.flavor;
 
+                    //for loop checks if spell is known
+                    for(int j = 0; j < KnownSpells.length; j++) {
+                        if(s.Name == KnownSpells[j]) {
+                            s.Known = true;
+                            //if spell is known, for loop checks if spell is equipped
+                            for(int k = 0; k < EquippedSpells.length; k++ ) {
+                                if(s.Name == EquippedSpells[k]) {
+                                    s.Equipped = true;
+                                }else {
+                                    s.Equipped = false;
+                                }
+                            }
+                        }else {
+                            s.Known = false;
+                        }
+
+                    }
                     //sorts spell into appropriate level list
                     if(s.ReqLvl == 0) {
-                        //for loop checks if spell is known
-                        for(int j = 0; j < KnownSpells.length; j++) {
-                            if(s.Name == KnownSpells[j]) {
-                                s.Known = true;
-                                //if spell is known, for loop checks if spell is equipped
-                                for(int k = 0; k < EquippedSpells.length; k++ ) {
-                                    if(s.Name == EquippedSpells[k]) {
-                                        s.Equipped = true;
-                                    }else {
-                                        s.Equipped = false;
-                                    }
-                                }
-                            }else {
-                                s.Known = false;
-                            }
-
-                        }
                         cantripsList.add(s);
                     } else if(s.ReqLvl == 1) {
-                        //for loop checks if spell is known
-                        for(int j = 0; j < KnownSpells.length; j++) {
-                            if(s.Name == KnownSpells[j]) {
-                                s.Known = true;
-                                //if spell is known, for loop checks if spell is equipped
-                                for(int k = 0; k < EquippedSpells.length; k++ ) {
-                                    if(s.Name == EquippedSpells[k]) {
-                                        s.Equipped = true;
-                                    }else {
-                                        s.Equipped = false;
-                                    }
-                                }
-                            }else {
-                                s.Known = false;
-                            }
-
-                        }
                         lvlOneList.add(s);
                     }
                 }
@@ -591,44 +485,26 @@ public class SpellPage extends Fragment {
                     s.Range = temp.range;
                     s.Flavor = temp.flavor;
 
+                    //for loop checks if spell is known
+                    for(int j = 0; j < KnownSpells.length; j++) {
+                        if(s.Name == KnownSpells[j]) {
+                            s.Known = true;
+                            //if spell is known, for loop checks if spell is equipped
+                            for(int k = 0; k < EquippedSpells.length; k++ ) {
+                                if(s.Name == EquippedSpells[k]) {
+                                    s.Equipped = true;
+                                }else {
+                                    s.Equipped = false;
+                                }
+                            }
+                        }else {
+                            s.Known = false;
+                        }
+                    }
                     //sorts spell into appropriate level list
                     if(s.ReqLvl == 0) {
-                        //for loop checks if spell is known
-                        for(int j = 0; j < KnownSpells.length; j++) {
-                            if(s.Name == KnownSpells[j]) {
-                                s.Known = true;
-                                //if spell is known, for loop checks if spell is equipped
-                                for(int k = 0; k < EquippedSpells.length; k++ ) {
-                                    if(s.Name == EquippedSpells[k]) {
-                                        s.Equipped = true;
-                                    }else {
-                                        s.Equipped = false;
-                                    }
-                            }
-                            }else {
-                                s.Known = false;
-                            }
-
-                        }
                         cantripsList.add(s);
                     } else if(s.ReqLvl == 1) {
-                        //for loop checks if spell is known
-                        for(int j = 0; j < KnownSpells.length; j++) {
-                            if(s.Name == KnownSpells[j]) {
-                                s.Known = true;
-                                //if spell is known, for loop checks if spell is equipped
-                                for(int k = 0; k < EquippedSpells.length; k++ ) {
-                                    if(s.Name == EquippedSpells[k]) {
-                                        s.Equipped = true;
-                                    }else {
-                                        s.Equipped = false;
-                                    }
-                                }
-                            }else {
-                                s.Known = false;
-                            }
-
-                        }
                         lvlOneList.add(s);
                     }
                 }
@@ -646,44 +522,26 @@ public class SpellPage extends Fragment {
                     s.Range = temp.range;
                     s.Flavor = temp.flavor;
 
+                    //for loop checks if spell is known
+                    for(int j = 0; j < KnownSpells.length; j++) {
+                        if(s.Name == KnownSpells[j]) {
+                            s.Known = true;
+                            //if spell is known, for loop checks if spell is equipped
+                            for(int k = 0; k < EquippedSpells.length; k++ ) {
+                                if(s.Name == EquippedSpells[k]) {
+                                    s.Equipped = true;
+                                }else {
+                                    s.Equipped = false;
+                                }
+                            }
+                        }else {
+                            s.Known = false;
+                        }
+                    }
                     //sorts spell into appropriate level list
                     if(s.ReqLvl == 0) {
-                        //for loop checks if spell is known
-                        for(int j = 0; j < KnownSpells.length; j++) {
-                            if(s.Name == KnownSpells[j]) {
-                                s.Known = true;
-                                //if spell is known, for loop checks if spell is equipped
-                                for(int k = 0; k < EquippedSpells.length; k++ ) {
-                                    if(s.Name == EquippedSpells[k]) {
-                                        s.Equipped = true;
-                                    }else {
-                                        s.Equipped = false;
-                                    }
-                                }
-                            }else {
-                                s.Known = false;
-                            }
-
-                        }
                         cantripsList.add(s);
                     } else if(s.ReqLvl == 1) {
-                        //for loop checks if spell is known
-                        for(int j = 0; j < KnownSpells.length; j++) {
-                            if(s.Name == KnownSpells[j]) {
-                                s.Known = true;
-                                //if spell is known, for loop checks if spell is equipped
-                                for(int k = 0; k < EquippedSpells.length; k++ ) {
-                                    if(s.Name == EquippedSpells[k]) {
-                                        s.Equipped = true;
-                                    }else {
-                                        s.Equipped = false;
-                                    }
-                                }
-                            }else {
-                                s.Known = false;
-                            }
-
-                        }
                         lvlOneList.add(s);
                     }
                 }
