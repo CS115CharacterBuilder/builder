@@ -21,13 +21,7 @@ public class StatPage extends Fragment {
     TextView TempHP;
     TextView HDCount;
     int[] stats;
-<<<<<<< HEAD
-    boolean[] statProf;
-=======
     boolean[] stats_prof;
->>>>>>> refs/remotes/origin/master
-
-
 
     @Nullable
     @Override
@@ -81,17 +75,17 @@ public class StatPage extends Fragment {
 
         //Initialize stat save textviews
         TextView StrSave = (TextView) mView.findViewById(R.id.StrSave);
-        //StrSave.setText(modToString(addProf(findMod(stats[0]),0)));
+        StrSave.setText(modToString(addProf(findMod(stats[0]),0)));
         TextView DexSave = (TextView) mView.findViewById(R.id.DexSave);
-        //DexSave.setText(modToString(addProf(findMod(stats[1]),1)));
+        DexSave.setText(modToString(addProf(findMod(stats[1]),1)));
         TextView ConSave = (TextView) mView.findViewById(R.id.ConSave);
-        //ConSave.setText(modToString(addProf(findMod(stats[2]),2)));
+        ConSave.setText(modToString(addProf(findMod(stats[2]),2)));
         TextView IntSave = (TextView) mView.findViewById(R.id.IntSave);
-        //IntSave.setText(modToString(addProf(findMod(stats[3]),3)));
+        IntSave.setText(modToString(addProf(findMod(stats[3]),3)));
         TextView WisSave = (TextView) mView.findViewById(R.id.WisSave);
-        //WisSave.setText(modToString(addProf(findMod(stats[4]),4)));
+        WisSave.setText(modToString(addProf(findMod(stats[4]),4)));
         TextView CharSave = (TextView) mView.findViewById(R.id.CharSave);
-        //CharSave.setText(modToString(addProf(findMod(stats[5]),5)));
+        CharSave.setText(modToString(addProf(findMod(stats[5]),5)));
 
         //Initialize miscellaneous textviews
         TextView ProfVal = (TextView) mView.findViewById(R.id.ProfVal);
@@ -104,7 +98,6 @@ public class StatPage extends Fragment {
         SpdVal.setText(Integer.toString(stats[8]));
         TextView PercVal = (TextView) mView.findViewById(R.id.PercVal);
         PercVal.setText(Integer.toString(stats[9]));
-<<<<<<< HEAD
         final TextView HDCount = (TextView) mView.findViewById(R.id.HDCount);
         HDCount.setText(Integer.toString(stats[10]));
         TextView HDType = (TextView) mView.findViewById(R.id.HDType);
@@ -183,18 +176,6 @@ public class StatPage extends Fragment {
                 TempHP.setText(newTempHp);
             }
         });
-=======
-        TextView HDCount = (TextView) mView.findViewById(R.id.HDCount);
-        HDCount.setText(Integer.toString(stats[10]));
-        TextView HDType = (TextView) mView.findViewById(R.id.HDType);
-        HDType.setText("D" +Integer.toString(stats[11]));
-        TextView HPCurr = (TextView) mView.findViewById(R.id.HpCurr);
-        HPCurr.setText(Integer.toString(stats[12]));
-        TextView HPTotal = (TextView) mView.findViewById(R.id.HPTotal);
-        HPTotal.setText(Integer.toString(stats[13]));
-        TextView TempHP = (TextView) mView.findViewById(R.id.TempHP);
-        TempHP.setText(Integer.toString(stats[14]));
->>>>>>> refs/remotes/origin/master
         return this.mView;
     }
 
@@ -206,7 +187,7 @@ public class StatPage extends Fragment {
 
     public int addProf(int x, int y) {
         int statMod = x;
-        if(statProf[y]) {
+        if(stats_prof[y]) {
             statMod = x + stats[6];
         }
         return statMod;
