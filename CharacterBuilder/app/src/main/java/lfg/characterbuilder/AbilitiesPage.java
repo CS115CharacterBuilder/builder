@@ -71,17 +71,18 @@ public class AbilitiesPage extends Fragment {
 
 
         //get character object and set values
-        /*gotChar = args.getParcelable("charToStats");
+        Bundle args = getArguments();
+        gotChar = args.getParcelable("charToStats");
         Background = gotChar.getType();
         Lvl = gotChar.getLevel();
         Class = gotChar.getCharacterClass();
         Race = gotChar.getCharacterRace();
-        Subrace = gotChar.getCharacterSubRace();*/
-        Background = "Acolyte";
-        Lvl = 1;
-        Class = "Barbarian";
-        Race = "Dwarf";
-        Subrace = "HillDwarf";
+        Subrace = gotChar.getCharacterSubRace();
+        
+        //Background = "Acolyte";
+        //Class = "Barbarian";
+        //Race = "Dwarf";
+        //Subrace = "HillDwarf";
 
         //Create Lists
         createlist();
