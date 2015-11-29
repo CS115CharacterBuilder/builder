@@ -29,6 +29,8 @@ public class SkillsPage extends Fragment {
     protected View mView;
     Character gotChar;
     int[] stats;
+    boolean[] classprof;
+
     public class SkillElement {
         SkillElement() {
         };
@@ -85,9 +87,10 @@ public class SkillsPage extends Fragment {
         super.onCreateView(inflater, container, savedInstanceState);
         //get bundles
         Bundle args = getArguments();
-//        int[] caughtStatsArray = args.getIntArray("statsToFrag");
-  //      stats = caughtStatsArray;
-    //    boolean[] caughtBooleanArray = args.getBooleanArray("");
+        int[] caughtStatsArray = args.getIntArray("statsToFrag");
+        stats = caughtStatsArray;
+        boolean[] caughtBooleanArray = args.getBooleanArray("sProfBundle");
+        classprof = caughtBooleanArray;
 
         sList = new ArrayList<SkillElement>();
         createSkills();
@@ -105,8 +108,8 @@ public class SkillsPage extends Fragment {
             if (i == 0) {
                 skill.name = "Athletics";
                 skill.type = "Strength";
-                skill.val = Integer.toString(0);
-                //skill.val = findMod(Char.STR);
+                //skill.val = Integer.toString(0);
+                skill.val = findMod(stats[0]);
             } else if (i <= 3 && i > 0) {
                 if (i == 1) {
                     skill.name = "Acrobatics";
@@ -117,8 +120,8 @@ public class SkillsPage extends Fragment {
                     skill.name = "Stealth";
                 }
                 skill.type = "Dexterity";
-                skill.val = Integer.toString(0);
-                //skill.val = findMod(Char.DEX);
+                //skill.val = Integer.toString(0);
+                skill.val = findMod(stats[1]);
             } else if (i <= 8 && i > 3) {
                 if (i == 4) {
                     skill.name = "Arcana";
@@ -132,8 +135,8 @@ public class SkillsPage extends Fragment {
                     skill.name = "Religion";
                 }
                 skill.type = "Intelligence";
-                skill.val = Integer.toString(0);
-                //skill.val = findMod(Char.INT);
+                //skill.val = Integer.toString(0);
+                skill.val = findMod(stats[3]);
             } else if (i <= 13 && i > 8) {
                 if (i == 9) {
                     skill.name = "Animal Handling";
@@ -147,8 +150,8 @@ public class SkillsPage extends Fragment {
                     skill.name = "Survival";
                 }
                 skill.type = "Wisdom";
-                skill.val = Integer.toString(0);
-                //skill.val = findMod(Char.WIS);
+                //skill.val = Integer.toString(0);
+                skill.val = findMod(stats[4]);
             } else {
                 if (i == 14) {
                     skill.name = "Deception";
@@ -160,8 +163,8 @@ public class SkillsPage extends Fragment {
                     skill.name = "Persuasion";
                 }
                 skill.type = "Charisma";
-                skill.val = Integer.toString(0);
-                //skill.val = findMod(Char.CHAR);
+                //skill.val = Integer.toString(0);
+                skill.val = findMod(stats[5]);
             }
             //checkProf(skill.name, skill);
             sList.add(skill);

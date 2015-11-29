@@ -21,7 +21,11 @@ public class StatPage extends Fragment {
     TextView TempHP;
     TextView HDCount;
     int[] stats;
+<<<<<<< HEAD
     boolean[] statProf;
+=======
+    boolean[] stats_prof;
+>>>>>>> refs/remotes/origin/master
 
 
 
@@ -37,11 +41,9 @@ public class StatPage extends Fragment {
         //gotChar = args.getParcelable("CharacterTag");
         int[] caughtStatsArray = args.getIntArray("statsToFrag");
         stats = caughtStatsArray;
-
-        if (stats == null) {
-            Log.d("DEBUG", "CAUGHT STATS ARRAY WAS NULL");
-        }
-
+        boolean[] caughtStatProfArray = args.getBooleanArray("statProfBundle");
+        stats_prof = caughtStatProfArray;
+        
         //Grab and set character
         gotChar = args.getParcelable("charToStats");
 
@@ -102,6 +104,7 @@ public class StatPage extends Fragment {
         SpdVal.setText(Integer.toString(stats[8]));
         TextView PercVal = (TextView) mView.findViewById(R.id.PercVal);
         PercVal.setText(Integer.toString(stats[9]));
+<<<<<<< HEAD
         final TextView HDCount = (TextView) mView.findViewById(R.id.HDCount);
         HDCount.setText(Integer.toString(stats[10]));
         TextView HDType = (TextView) mView.findViewById(R.id.HDType);
@@ -180,6 +183,18 @@ public class StatPage extends Fragment {
                 TempHP.setText(newTempHp);
             }
         });
+=======
+        TextView HDCount = (TextView) mView.findViewById(R.id.HDCount);
+        HDCount.setText(Integer.toString(stats[10]));
+        TextView HDType = (TextView) mView.findViewById(R.id.HDType);
+        HDType.setText("D" +Integer.toString(stats[11]));
+        TextView HPCurr = (TextView) mView.findViewById(R.id.HpCurr);
+        HPCurr.setText(Integer.toString(stats[12]));
+        TextView HPTotal = (TextView) mView.findViewById(R.id.HPTotal);
+        HPTotal.setText(Integer.toString(stats[13]));
+        TextView TempHP = (TextView) mView.findViewById(R.id.TempHP);
+        TempHP.setText(Integer.toString(stats[14]));
+>>>>>>> refs/remotes/origin/master
         return this.mView;
     }
 

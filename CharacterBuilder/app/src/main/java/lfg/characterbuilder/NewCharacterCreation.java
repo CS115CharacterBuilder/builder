@@ -180,6 +180,7 @@ public class NewCharacterCreation extends AppCompatActivity {
         //Save the newly formed character stats and packaged string
         editor.putString("CHAR_NAME", newCharacter.getCharacterName());
         editor.putString("CHAR_CLASS", newCharacter.getCharacterClass());
+        editor.putString("CHAR_RACE", Race.toString());
         editor.putInt("CHAR_PHOTO", newCharacter.getPhotoId());
         editor.putString("CHAR_STATS", statsString.toString());
         editor.apply(); //maybe commit here?
