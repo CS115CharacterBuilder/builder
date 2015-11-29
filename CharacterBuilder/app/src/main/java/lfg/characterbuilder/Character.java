@@ -1,5 +1,7 @@
 package lfg.characterbuilder;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -134,7 +136,9 @@ public class Character implements Parcelable {
 
     public int getClassPoints() { return this.classpoints; }
 
-    public int[] getStats() { return this.stats; }
+    public int[] getStats() {
+        return this.stats;
+    }
 
     public boolean[] getSkillproficiencies() { return this.skillproficiencies; }
 

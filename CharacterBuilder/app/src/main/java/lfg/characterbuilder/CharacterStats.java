@@ -17,10 +17,72 @@ import java.util.Random;
 
 public class CharacterStats extends AppCompatActivity {
 
+    /*stats follow the following format: (Strength, Dex, Constitution, Int, Wis, Char, Proficiency,
+    Initiative, Speed, Perception, Hit Dice number, Hit Dice type, Current HP, Total HP
+    Temoporary HP)
+     */
+
     private EditText CharNAME;
     private String Name;
+
     private EditText CharCLASS;
     private String Class;
+
+    //Stats - 0
+    private EditText CharSTR;
+    private String Strength;
+
+    //Stats - 1
+    private EditText CharDEX;
+    private String Dexerity;
+
+    //Stats - 2
+    private EditText CharCON;
+    private String Constitution;
+
+    //Stats - 3
+    private EditText CharINT;
+    private String Intelligence;
+
+    //Stats - 4
+    private EditText CharWIS;
+    private String Wisdom;
+
+    //Stats - 5
+    private EditText CharCHAR;
+    private String Charisma;
+
+    //Stats - 6
+    private EditText CharPROF;
+    private String Proficiency;
+
+    //Stats - 7
+    private EditText CharINI;
+    private String Initiative;
+
+    //Stats - 8
+    private EditText CharSPD;
+    private String Speed;
+
+    //Stats - 9
+    private EditText CharPER;
+    private String Perception;
+
+    //Stats - 10 (Number)
+    private EditText CharHD;
+    private String HitDice;
+
+    //Stats - 11 (HD Type)
+    private EditText CharAC;
+    private String ArmorClass;
+
+    //Stats - 12
+    private EditText CharHP;
+    private String HitPoints;
+
+    //Stats - 13
+    private EditText CharTEMP;
+    private String TemporaryHP;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,41 +133,6 @@ public class CharacterStats extends AppCompatActivity {
         Context context = getApplicationContext();
         FileOutputStream fOut = null;*/
 
-        /*if (File(saveName).exists()) {
-            Toast toast = Toast.makeText(context, "Character already exists", duration);
-        }*/
-
-        /*try {
-            fOut = openFileOutput(saveName.toString() +"f", MODE_WORLD_READABLE);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        try {
-            fOut.write(saveInfo.getBytes());
-            Toast toast = Toast.makeText(context, "Character saved!", duration);
-            toast.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        try {
-            fOut.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        System.out.println((saveName.toString() + "f").toString());
-        */
-
-    /*public void clickSave(View v) {
-
-        SharedPreferences sharedStats = getSharedPreferences("CHAR_STATS", Context.MODE_PRIVATE);
-
-        SharedPreferences.Editor editor = sharedStats.edit();
-        //editor.putString("CHAR_NAME", CharNAME.getText().toString());
-        //editor.apply(); //maybe commit here?
-
-        Toast.makeText(CharacterStats.this,"Saved!", Toast.LENGTH_SHORT).show();
-
-    }*/
 
     //LoadViews READS from the passed Character Object
     //and UPDATES text views

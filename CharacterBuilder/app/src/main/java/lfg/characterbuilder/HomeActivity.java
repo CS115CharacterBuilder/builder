@@ -71,10 +71,26 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onItemClick(int position, View v) {
                 Character sendChar = characters.get(position);
+                int[] statsToPass;
                 //Intent intent = new Intent(HomeActivity.this, CharacterStats.class);
 
+                //Grab the stats and format them back into an array
+                SharedPreferences sharedStats = getSharedPreferences(sendChar.getUnique_id(), Context.MODE_PRIVATE);
+                String statsString = sharedStats.getString("CHAR_STATS", "NULL");
+                if (statsString == "NULL") {
+                    statsToPass = sendChar.getStats();
+                }
+
+                else {
+                    String[] statsStringArray = statsString.split(",");
+                    int[] statsArray = new int[statsStringArray.length];
+                    for (int i = 0; i < statsArray.length; ++i) {
+                        statsArray[i] = Integer.parseInt(statsStringArray[i]);
+                    }
+                    statsToPass = statsArray;
+                }
+
                 //Pass the stats
-                int[] statsToPass = sendChar.getStats();
                 Bundle statsBundle = new Bundle();
                 statsBundle.putIntArray("statsBundle", statsToPass);
                 //Pass proficiencies

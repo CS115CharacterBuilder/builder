@@ -90,6 +90,7 @@ public class AbilitiesPage extends Fragment {
         expListView.setAdapter(listAdapter);
         //Character gotChar = getActivity().getIntent().getParcelableExtra("characterTag");
         return this.mView;
+
     }
 
     //creates expandable list adapter to contain different abilities
@@ -192,6 +193,7 @@ public class AbilitiesPage extends Fragment {
         abilityTypes.add("Background");
 
         //creates class, race, and background abilities list
+
         List<Ability> BackgroundList = new ArrayList<Ability>();
         List<Ability> ClassList = new ArrayList<Ability>();
         List<Ability> RaceList = new ArrayList<Ability>();
@@ -232,6 +234,7 @@ public class AbilitiesPage extends Fragment {
                 a.description = temp.flavor;
                 a.type = "Race";
                 RaceList.add(a);
+>>>>>>> 393dfe5ced53742aea59f413d8c66e6dc0272df8
             }
         }
         listAbilities.put("Race", RaceList);*/
