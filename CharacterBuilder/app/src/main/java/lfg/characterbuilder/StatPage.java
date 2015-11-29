@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,6 +21,7 @@ public class StatPage extends Fragment {
     TextView TempHP;
     TextView HDCount;
     int[] stats;
+    boolean[] statProf;
 
 
 
@@ -43,12 +45,6 @@ public class StatPage extends Fragment {
         //Grab and set character
         gotChar = args.getParcelable("charToStats");
 
-        //stats = /*gotChar.getStats();*/ new int[16];
-        //for(int i = 0; i < stats.length; i++) {
-        //stats[i] = 0;
-        //}
-
-
         //Initialize stat value textviews
         HPCurr = (TextView) mView.findViewById(R.id.HpCurr);
         TempHP = (TextView) mView.findViewById(R.id.TempHP);
@@ -69,53 +65,139 @@ public class StatPage extends Fragment {
         CharVal.setText(Integer.toString(stats[5]));
         //Initialize stat modifier textviews
         TextView StrMod = (TextView) mView.findViewById(R.id.StrMod);
-        StrMod.setText(findMod(stats[0]));
+        StrMod.setText(modToString(findMod(stats[0])));
         TextView DexMod = (TextView) mView.findViewById(R.id.DexMod);
-        DexMod.setText(findMod(stats[1]));
+        DexMod.setText(modToString(findMod(stats[1])));
         TextView ConMod = (TextView) mView.findViewById(R.id.ConMod);
-        ConMod.setText(findMod(stats[2]));
+        ConMod.setText(modToString(findMod(stats[2])));
         TextView IntMod = (TextView) mView.findViewById(R.id.IntMod);
-        IntMod.setText(findMod(stats[3]));
+        IntMod.setText(modToString(findMod(stats[3])));
         TextView WisMod = (TextView) mView.findViewById(R.id.WisMod);
-        WisMod.setText(findMod(stats[4]));
+        WisMod.setText(modToString(findMod(stats[4])));
         TextView CharMod = (TextView) mView.findViewById(R.id.CharMod);
-        CharMod.setText(findMod(stats[5]));
+        CharMod.setText(modToString(findMod(stats[5])));
 
         //Initialize stat save textviews
         TextView StrSave = (TextView) mView.findViewById(R.id.StrSave);
+        //StrSave.setText(modToString(addProf(findMod(stats[0]),0)));
         TextView DexSave = (TextView) mView.findViewById(R.id.DexSave);
+        //DexSave.setText(modToString(addProf(findMod(stats[1]),1)));
         TextView ConSave = (TextView) mView.findViewById(R.id.ConSave);
+        //ConSave.setText(modToString(addProf(findMod(stats[2]),2)));
         TextView IntSave = (TextView) mView.findViewById(R.id.IntSave);
+        //IntSave.setText(modToString(addProf(findMod(stats[3]),3)));
         TextView WisSave = (TextView) mView.findViewById(R.id.WisSave);
+        //WisSave.setText(modToString(addProf(findMod(stats[4]),4)));
         TextView CharSave = (TextView) mView.findViewById(R.id.CharSave);
-        //Initialize miscellaneous textviews
+        //CharSave.setText(modToString(addProf(findMod(stats[5]),5)));
 
+        //Initialize miscellaneous textviews
         TextView ProfVal = (TextView) mView.findViewById(R.id.ProfVal);
-        //ProfVal.setText(Integer.toString(stats[6]));
+        ProfVal.setText(Integer.toString(stats[6]));
         TextView IniVal = (TextView) mView.findViewById(R.id.IniVal);
-        //IniVal.setText(Integer.toString(stats[7]));
+        IniVal.setText(Integer.toString(stats[7]));
         TextView ACVal = (TextView) mView.findViewById(R.id.ACVal);
-        //ACVal.setText(Integer.toString(((stats[1] - 10)/2) + 10));
+        ACVal.setText(Integer.toString(((stats[1] - 10)/2) + 10));
         TextView SpdVal = (TextView) mView.findViewById(R.id.SpdVal);
-        //SpdVal.setText(Integer.toString(stats[8]));
+        SpdVal.setText(Integer.toString(stats[8]));
         TextView PercVal = (TextView) mView.findViewById(R.id.PercVal);
-        //PercVal.setText(Integer.toString(stats[9]));
-        TextView HDCount = (TextView) mView.findViewById(R.id.HDCount);
-        //HDCount.setText(Integer.toString(stats[10]));
+        PercVal.setText(Integer.toString(stats[9]));
+        final TextView HDCount = (TextView) mView.findViewById(R.id.HDCount);
+        HDCount.setText(Integer.toString(stats[10]));
         TextView HDType = (TextView) mView.findViewById(R.id.HDType);
-        //HDType.setText("D" +Integer.toString(stats[11]));
-        TextView HPCurr = (TextView) mView.findViewById(R.id.HpCurr);
-        //HPCurr.setText(Integer.toString(stats[12]));
+        HDType.setText("D" +Integer.toString(stats[11]));
+        final TextView HPCurr = (TextView) mView.findViewById(R.id.HpCurr);
+        HPCurr.setText(Integer.toString(stats[12]));
         TextView HPTotal = (TextView) mView.findViewById(R.id.HPTotal);
-        //HPTotal.setText(Integer.toString(stats[13]));
-        TextView TempHP = (TextView) mView.findViewById(R.id.TempHP);
-        //TempHP.setText(Integer.toString(stats[14]));
+        HPTotal.setText(" /" + Integer.toString(stats[13]));
+        final TextView TempHP = (TextView) mView.findViewById(R.id.TempHP);
+        TempHP.setText(Integer.toString(stats[14]));
+
+        //initialize buttons
+        Button hdAdd = (Button) mView.findViewById(R.id.HDAddBtn);
+        hdAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int hdCount = stats[10];
+                hdCount += 1;
+                stats[10] = hdCount;
+                String newHDCount = Integer.toString(hdCount);
+                HDCount.setText(newHDCount);
+            }
+        });
+        Button hdSub = (Button) mView.findViewById(R.id.HDSubBtn);
+        hdSub.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int hdCount = stats[10];
+                hdCount -= 1;
+                stats[10] = hdCount;
+                String newHDCount = Integer.toString(hdCount);
+                HDCount.setText(newHDCount);
+            }
+        });
+        Button hpAdd = (Button) mView.findViewById(R.id.HPAddBtn);
+        hpAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int hp = stats[12];
+                hp += 1;
+                stats[12] = hp;
+                String newhp = Integer.toString(hp);
+                HPCurr.setText(newhp);
+            }
+        });
+        Button hpSub = (Button) mView.findViewById(R.id.HPSubBtn);
+        hpSub.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int hp = stats[12];
+                hp -= 1;
+                stats[12] = hp;
+                String newhp = Integer.toString(hp);
+                HPCurr.setText(newhp);
+            }
+        });
+        Button tempAdd = (Button) mView.findViewById(R.id.TempAddBtn);
+        tempAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int TempHp = stats[14];
+                TempHp += 1;
+                stats[14] = TempHp;
+                String newTempHp = Integer.toString(TempHp);
+                TempHP.setText(newTempHp);
+            }
+        });
+        Button TempSub = (Button) mView.findViewById(R.id.TempSubBtn);
+        TempSub.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int TempHp = stats[14];
+                TempHp -= 1;
+                stats[14] = TempHp;
+                String newTempHp = Integer.toString(TempHp);
+                TempHP.setText(newTempHp);
+            }
+        });
         return this.mView;
     }
 
     //takes stat value and converts it into the modifier
-    public String findMod(int x) {
+    public int findMod(int x) {
         int statMod = (x - 10)/2;
+        return statMod;
+    }
+
+    public int addProf(int x, int y) {
+        int statMod = x;
+        if(statProf[y]) {
+            statMod = x + stats[6];
+        }
+        return statMod;
+    }
+
+    public String modToString(int statMod) {
         String modValue;
         if(statMod > 0) {
             modValue = "+" + Integer.toString(statMod);

@@ -37,7 +37,8 @@ public class SkillsPage extends Fragment {
         String val;
         boolean prof;
     }
-    String[] charprof;
+    boolean[] charprof;
+    int profval;
 
     private ArrayList<SkillElement> sList;
 
@@ -181,13 +182,11 @@ public class SkillsPage extends Fragment {
     }
 
     //compares skill name with array of skill proficiencies and alters if true
-    public void checkProf(String x, SkillElement y) {
-        int j;
-        for(j = 0; j < charprof.length; j++) {
-            if (y.name == charprof[j]) {
+    public void checkProf(int x, SkillElement y) {
+            if (charprof[x]) {
                 y.prof = true;
-                //y.val += profval;
+                y.val += profval;
             }
-        }
     }
 }
+

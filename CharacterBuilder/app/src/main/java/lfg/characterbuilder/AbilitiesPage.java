@@ -201,7 +201,7 @@ public class AbilitiesPage extends Fragment {
         //Fill Background Abilities List
         for(int i = 0; i < bd.size(); i++) {
             Data temp = bd.get(i);
-            if(temp.backgroundType == Background && temp.dlevel == Lvl) {
+            if(temp.backgroundType == Background && temp.dlevel <= Lvl) {
                 System.out.println(i);
                 Ability a = new Ability();
                 a.name = temp.abilName;
@@ -215,7 +215,7 @@ public class AbilitiesPage extends Fragment {
         //Fill Class Abilities List
         for(int i = 0; i < cd.size(); i++) {
             Data temp = cd.get(i);
-            if(temp.dClass == Class && temp.dlevel == Lvl) {
+            if(temp.dClass == Class && temp.dlevel <= Lvl) {
                 Ability a = new Ability();
                 a.name = temp.abilName;
                 a.description = temp.flavor;
@@ -225,18 +225,17 @@ public class AbilitiesPage extends Fragment {
         }
         listAbilities.put("Class", ClassList);
 
-       /* //Fill Race Abilities List
+        //Fill Race Abilities List
         for(int i = 0; i < rd.size(); i++) {
             Data temp = rd.get(i);
-            if(temp.dRace == Race && temp.dlevel == Lvl) {
+            if(temp.dRace == Race && temp.dlevel <= Lvl) {
                 Ability a = new Ability();
                 a.name = temp.abilName;
                 a.description = temp.flavor;
                 a.type = "Race";
                 RaceList.add(a);
->>>>>>> 393dfe5ced53742aea59f413d8c66e6dc0272df8
             }
         }
-        listAbilities.put("Race", RaceList);*/
+        listAbilities.put("Race", RaceList);
     }
 }
