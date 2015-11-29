@@ -53,7 +53,7 @@ public class Character implements Parcelable {
     private String[] equipped_spells;
 
 
-    //Constructor for Character Object
+    //Constructor for Character Object - CREATES DEFAULT VALUES
     Character(String unique_id, String char_name, String char_class, int char_photoId) {
         this.unique_id = unique_id;
         this.name = char_name;
@@ -64,6 +64,12 @@ public class Character implements Parcelable {
         this.gold_held = 10;
         this.race = "DEFAULT_RACE";
         this.subrace = "DEFAULT_SUBRACE";
+        this.background_type = "DEFAULT_BACKGROUND_TYPE";
+        this.background_alignment = "DEFAULT_ALIGNMENT";
+        this.background_deity = "DEFAULT_DEITY";
+        this.level = 1;
+        this.classpoints = 0;
+
         //Stats Default
         this.stats = new int[16];
         for(int i = 0; i < stats.length; i++) {
@@ -89,11 +95,68 @@ public class Character implements Parcelable {
             }
         }
 
+        // Items Held Default
+        this.items_held = new String[2];
+        items_held[0] = "Bag";
+        items_held[1] = "Rock";
+
+        // Item Description Default
+        this.items_description = new String[2];
+        items_description[0] = "It's a nice little bag for carrying currency";
+        items_description[1] = "It rocks!";
+
+
+        // Proficiencies Default
+        this.proficiencies = new String[3];
+        proficiencies[0] = "Running";
+        proficiencies[1] = "Walking";
+        proficiencies[2] = "Talking";
+
+        // Melee Weapons Held Default
+        this.m_weapons_held = new String[1];
+        m_weapons_held[0] = "Stick";
+
+        // Melee Weapons Bonus Default
+        this.m_weapons_bonus = new String[1];
+        m_weapons_bonus[0] = "5";
+
+        // Melee Weapons Damage Default
+        this.m_weapons_damage = new String[1];
+        m_weapons_damage[0] = "10";
+
+        // Ranged Weapons Held Default Default
+        this.r_weapons_held = new String[1];
+        r_weapons_held[0] = "Slingshot";
+
+        // Ranged Weapons Bonus Default
+        this.r_weapons_bonus = new String[1];
+        r_weapons_bonus[0] = "3";
+
+        // Ranged Weapons Damage Default
+        this.r_weapons_damage = new String[1];
+        r_weapons_damage[0] = "7";
+
+        // Ranged Weapons Ammo Default
+        this.r_weapons_ammo = new int[1];
+        r_weapons_ammo[0] = 15;
+
+        // Ranged Weapons Range Default
+        this.r_weapons_range = new String[1];
+        r_weapons_range[0] = "Short";
+
+        // Known Spells Default
+        this.known_spells = new String[1];
+        known_spells[0] = "Healing";
+
+        // Equipped Spells Default
+        this.equipped_spells = new String[1];
+        known_spells[0] = "Healing";
+
     }
 
     //Parcel Constructor Allows Object to be passed
     public Character(Parcel in){
-        String[] data = new String[9];
+        String[] data = new String[14];
         in.readStringArray(data);
 
         this.unique_id = data[0];
@@ -105,6 +168,11 @@ public class Character implements Parcelable {
         this.copper_held = Integer.parseInt(data[6]);
         this.silver_held = Integer.parseInt(data[7]);
         this.gold_held = Integer.parseInt(data[8]);
+        this.background_type = data[9];
+        this.background_alignment = data[10];
+        this.background_deity = data[11];
+        this.level = Integer.parseInt(data[12]);
+        this.classpoints = Integer.parseInt(data[13]);
 
     }
 
@@ -119,7 +187,9 @@ public class Character implements Parcelable {
         //TODO Auto-generated method stub
         dest.writeStringArray(new String[]{this.unique_id,this.name,this.class_name,
                 String.valueOf(this.photoId), this.race, this.subrace, String.valueOf(this.copper_held),
-                String.valueOf(this.silver_held), String.valueOf(this.gold_held)});
+                String.valueOf(this.silver_held), String.valueOf(this.gold_held), this.background_type,
+                this.background_alignment, this.background_deity, String.valueOf(this.level),
+                String.valueOf(this.classpoints)});
     }
 
     public static final Parcelable.Creator<Character> CREATOR = new Parcelable.Creator<Character>() {

@@ -3,6 +3,7 @@ package lfg.characterbuilder;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,22 +18,22 @@ public class BackgroundPage extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         super.onCreateView(inflater, container, savedInstanceState);
+        Bundle args = getArguments();
+        gotChar = args.getParcelable("charToStats");
         View fragmentView = inflater.inflate(R.layout.activity_background_page, container, false);
         mView = fragmentView;
         EditText NameVal = (EditText) this.mView.findViewById(R.id.NameVal);
-        NameVal.setText("Tester Name");
+        NameVal.setText(gotChar.getCharacterName());
         TextView ClassVal = (TextView) this.mView.findViewById(R.id.ClassVal);
-        ClassVal.setText("Wizard Lizard"/*gotChar.getCharacterName()*/);
+        ClassVal.setText(gotChar.getCharacterClass());
         TextView LvlVal = (TextView) this.mView.findViewById(R.id.LvlVal);
-        LvlVal.setText(Integer.toString(1)/*gotChar.getLevel()*/);
+        LvlVal.setText(Integer.toString(gotChar.getLevel()));
         EditText AlignmentVal = (EditText) this.mView.findViewById(R.id.AlignmentVal);
-        AlignmentVal.setText("True Neutral"/*gotChar.getAlignment()*/);
+        AlignmentVal.setText(gotChar.getAlignment());
         EditText DeityVal = (EditText) this.mView.findViewById(R.id.DeityVal);
-        DeityVal.setText("The Flying Spaghetti Monster"/*gotChar.getDeity()*/);
+        DeityVal.setText(gotChar.getDeity());
         EditText BackgroundVal = (EditText) this.mView.findViewById(R.id.BackgroundVal);
-        BackgroundVal.setText("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" +
-                "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" +
-                "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"/*gotChar.getType()*/);
+        BackgroundVal.setText(gotChar.getType());
         String Name = NameVal.getText().toString();
         String Class = ClassVal.getText().toString();
         String Lvl = LvlVal.getText().toString();
