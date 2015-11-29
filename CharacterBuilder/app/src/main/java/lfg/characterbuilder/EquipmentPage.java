@@ -78,6 +78,13 @@ public class EquipmentPage extends Fragment {
 
             Button remove = (Button) newView.findViewById(R.id.mWRemove);
             remove.setTag(position);
+            remove.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = (Integer)v.getTag();
+                    mW.remove(getItem(position));
+                }
+            });
             //set to load stored weapons
             EditText mName = (EditText) newView.findViewById(R.id.mWeaponVal);
             mName.setText(m.Name);
@@ -115,6 +122,13 @@ public class EquipmentPage extends Fragment {
 
             Button remove = (Button) newView.findViewById(R.id.rWRemove);
             remove.setTag(position);
+            remove.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = (Integer)v.getTag();
+                    rW.remove(getItem(position));
+                }
+            });
             //set to load stored weapons
             EditText rName = (EditText) newView.findViewById(R.id.rWeaponVal);
             rName.setText(r.Name);
@@ -140,6 +154,24 @@ public class EquipmentPage extends Fragment {
         mView = fragmentView;
         Bundle args = getArguments();
         //proficiencies = gotChar.getProficiencies;
+        //create buttons
+        Button mAdd = (Button) mView.findViewById(R.id.mWeapAdd);
+        mAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mWeapon w = new mWeapon();
+                mW.add(w);
+            }
+        });
+
+        Button rAdd = (Button) mView.findViewById(R.id.rWeapAdd);
+        rAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                rWeapon r = new rWeapon();
+                rW.add(r);
+            }
+        });
         //creates the arraylists with weapons and refreshes when arraylists are updated
         createList();
         EditText prof = (EditText) mView.findViewById(R.id.profTxt);
@@ -155,29 +187,6 @@ public class EquipmentPage extends Fragment {
         return this.mView;
     }
 
-    //adds new melee weapons to list
-    public void addMWeapon() {
-       mWeapon w = new mWeapon();
-        mWList.add(w);
-    }
-
-    //removes melee weapon from list
-    public void removeMWeapon(View v) {
-        int position = (Integer)v.getTag();
-        mWList.remove(position);
-    }
-
-    //adds new ranged weapon to list
-    public void addRWeapon() {
-        mWeapon w = new mWeapon();
-        mWList.add(w);
-    }
-
-    //removes ranged weapon from list
-    public void removeRWeapon(View v) {
-        int position = (Integer)v.getTag();
-        mWList.remove(position);
-    }
 
     public void createList() {
         //loop creates string to put into proficiencies
