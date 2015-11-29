@@ -36,7 +36,7 @@ public class Character implements Parcelable {
      */
     private int[] stats;
 
-    //abilities page info
+    //skill page info
     private boolean[] skillproficiencies;
     //equipment page info
     private String[] proficiencies;
