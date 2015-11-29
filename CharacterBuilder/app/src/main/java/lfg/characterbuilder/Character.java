@@ -85,7 +85,7 @@ public class Character implements Parcelable {
             }
         }
         //Skills Default
-        this.skillproficiencies = new boolean[17];
+        this.skillproficiencies = new boolean[18];
         for(int i = 0; i < skillproficiencies.length; i++){
             if(i%2 == 0){
                 skillproficiencies[i] = false;

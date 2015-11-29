@@ -91,7 +91,8 @@
                 android:layout_height="wrap_content"
                 android:text="Add"
                 android:background="@color/colorPrimary"
-                android:id="@+id/button4"
+                android:id="@+id/mWeapAdd"
+
                 android:layout_gravity="right"
                 android:onClick="addMWeapon"
                 android:clickable="true" />
@@ -128,7 +129,7 @@
                 android:layout_height="wrap_content"
                 android:background="@color/colorPrimary"
                 android:text="Add"
-                android:id="@+id/button6"
+                android:id="@+id/rWeapAdd"
                 android:layout_gravity="right"
                 android:onClick="addRWeapon"
                 android:clickable="true" />

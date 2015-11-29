@@ -39,7 +39,7 @@ public class SkillsPage extends Fragment {
         String val;
         boolean prof;
     }
-    boolean[] charprof;
+
     int profval;
 
     private ArrayList<SkillElement> sList;
@@ -91,7 +91,7 @@ public class SkillsPage extends Fragment {
         stats = caughtStatsArray;
         boolean[] caughtBooleanArray = args.getBooleanArray("sProfBundle");
         classprof = caughtBooleanArray;
-
+        profval = stats[6];
         sList = new ArrayList<SkillElement>();
         createSkills();
         aa = new MyAdapter(this.getActivity(), R.layout.skillelement, sList);
@@ -108,8 +108,7 @@ public class SkillsPage extends Fragment {
             if (i == 0) {
                 skill.name = "Athletics";
                 skill.type = "Strength";
-                //skill.val = Integer.toString(0);
-                skill.val = findMod(stats[0]);
+                skill.val = modToString(findMod(stats[0], skill, i));
             } else if (i <= 3 && i > 0) {
                 if (i == 1) {
                     skill.name = "Acrobatics";
@@ -120,8 +119,7 @@ public class SkillsPage extends Fragment {
                     skill.name = "Stealth";
                 }
                 skill.type = "Dexterity";
-                //skill.val = Integer.toString(0);
-                skill.val = findMod(stats[1]);
+                skill.val = modToString(findMod(stats[1], skill, i));
             } else if (i <= 8 && i > 3) {
                 if (i == 4) {
                     skill.name = "Arcana";
@@ -135,8 +133,7 @@ public class SkillsPage extends Fragment {
                     skill.name = "Religion";
                 }
                 skill.type = "Intelligence";
-                //skill.val = Integer.toString(0);
-                skill.val = findMod(stats[3]);
+                skill.val = modToString(findMod(stats[3], skill, i));
             } else if (i <= 13 && i > 8) {
                 if (i == 9) {
                     skill.name = "Animal Handling";
@@ -150,8 +147,7 @@ public class SkillsPage extends Fragment {
                     skill.name = "Survival";
                 }
                 skill.type = "Wisdom";
-                //skill.val = Integer.toString(0);
-                skill.val = findMod(stats[4]);
+                skill.val = modToString(findMod(stats[4], skill, i));
             } else {
                 if (i == 14) {
                     skill.name = "Deception";
@@ -163,18 +159,24 @@ public class SkillsPage extends Fragment {
                     skill.name = "Persuasion";
                 }
                 skill.type = "Charisma";
-                //skill.val = Integer.toString(0);
-                skill.val = findMod(stats[5]);
+                skill.val = modToString(findMod(stats[5], skill, i));
             }
-            //checkProf(skill.name, skill);
             sList.add(skill);
         }
     }
 
 
-    //takes stat value and converts it into the modifier
-    public String findMod(int x) {
+    //takes stat value and converts it into the modifier and checks if proficient to add extra modifier
+    public int findMod(int x, SkillElement y, int z) {
         int statMod = (x - 10)/2;
+        if (classprof[z]) {
+            y.prof = true;
+            statMod += profval;
+        }
+        return statMod;
+    }
+
+    public String modToString(int statMod) {
         String modValue;
         if(statMod > 0) {
             modValue = "+" + Integer.toString(statMod);
@@ -182,14 +184,6 @@ public class SkillsPage extends Fragment {
             modValue = Integer.toString(statMod);
         }
         return modValue;
-    }
-
-    //compares skill name with array of skill proficiencies and alters if true
-    public void checkProf(int x, SkillElement y) {
-            if (charprof[x]) {
-                y.prof = true;
-                y.val += profval;
-            }
     }
 }
 

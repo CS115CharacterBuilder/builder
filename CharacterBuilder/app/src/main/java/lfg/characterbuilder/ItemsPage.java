@@ -57,7 +57,7 @@ public class ItemsPage extends Fragment {
             this.context = context;
         }
 
-        public View getView(int position, View convertView, ViewGroup parent) {
+        public View getView(int position, View convertView, final ViewGroup parent) {
             LinearLayout newView;
             final ItemElement i = getItem(position);
 
@@ -71,14 +71,39 @@ public class ItemsPage extends Fragment {
             }
 
             Button iRem = (Button) newView.findViewById(R.id.removeButton);
-            //iRem
+            iRem.setTag(position);
+            iRem.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = (int) v.getTag();
+                    aa.remove(getItem(position));
+                    ArrayList<String> newNames = new ArrayList<String>();
+                    ArrayList<String> newDesc = new ArrayList<String>();
+                    //loop to fill arraylists with names and descriptions
+                    for(int i = 0; i < iList.size(); i++) {
+                        ItemElement ti = iList.get(i);
+                        String name = ti.itemName;
+                        String desc = ti.itemDescription;
+                        newNames.add(name);
+                        newDesc.add(desc);
+                    }
+                    //Open up it's sp file and make an editor
+                    SharedPreferences sharedStats = getActivity().getSharedPreferences(gotChar.getUnique_id(), Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedStats.edit();
+                    //declares new sets and fills with arraylists to be stored
+                    Set<String>  newItemNames = new HashSet<String>();
+                    newItemNames.addAll(newNames);
+                    Set<String> newItemDesc = new HashSet<String>();
+                    newItemDesc.addAll(newDesc);
+                    editor.apply();
+                }
+            });
 
             TextView itemName = (TextView) newView.findViewById(R.id.itemName);
             TextView itemDesc = (TextView) newView.findViewById(R.id.itemDesc);
 
             itemName.setText(i.itemName);
             itemDesc.setText(i.itemDescription);
-            newView.setTag(position);
 
             return newView;
         }
@@ -111,7 +136,7 @@ public class ItemsPage extends Fragment {
                 newItem.itemName = iName;
                 newItem.itemDescription = iDesc;
                 newItem.position = iList.size(); //adds newly created item to the arraylist
-                iList.add(newItem);
+                aa.add(newItem);
                 //declare new arraylists to add into shared preferences
                 ArrayList<String> newNames = new ArrayList<String>();
                 ArrayList<String> newDesc = new ArrayList<String>();

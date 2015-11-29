@@ -23,9 +23,6 @@ public class StatPage extends Fragment {
     int[] stats;
     boolean[] stats_prof;
 
-
-
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -78,17 +75,17 @@ public class StatPage extends Fragment {
 
         //Initialize stat save textviews
         TextView StrSave = (TextView) mView.findViewById(R.id.StrSave);
-        //StrSave.setText(modToString(addProf(findMod(stats[0]),0)));
+        StrSave.setText(modToString(addProf(findMod(stats[0]),0)));
         TextView DexSave = (TextView) mView.findViewById(R.id.DexSave);
-        //DexSave.setText(modToString(addProf(findMod(stats[1]),1)));
+        DexSave.setText(modToString(addProf(findMod(stats[1]),1)));
         TextView ConSave = (TextView) mView.findViewById(R.id.ConSave);
-        //ConSave.setText(modToString(addProf(findMod(stats[2]),2)));
+        ConSave.setText(modToString(addProf(findMod(stats[2]),2)));
         TextView IntSave = (TextView) mView.findViewById(R.id.IntSave);
-        //IntSave.setText(modToString(addProf(findMod(stats[3]),3)));
+        IntSave.setText(modToString(addProf(findMod(stats[3]),3)));
         TextView WisSave = (TextView) mView.findViewById(R.id.WisSave);
-        //WisSave.setText(modToString(addProf(findMod(stats[4]),4)));
+        WisSave.setText(modToString(addProf(findMod(stats[4]),4)));
         TextView CharSave = (TextView) mView.findViewById(R.id.CharSave);
-        //CharSave.setText(modToString(addProf(findMod(stats[5]),5)));
+        CharSave.setText(modToString(addProf(findMod(stats[5]),5)));
 
         //Initialize miscellaneous textviews
         TextView ProfVal = (TextView) mView.findViewById(R.id.ProfVal);
@@ -102,16 +99,84 @@ public class StatPage extends Fragment {
         TextView PercVal = (TextView) mView.findViewById(R.id.PercVal);
         PercVal.setText(Integer.toString(stats[9]));
 
-        TextView HDCount = (TextView) mView.findViewById(R.id.HDCount);
+        final TextView HDCount = (TextView) mView.findViewById(R.id.HDCount);
         HDCount.setText(Integer.toString(stats[10]));
         TextView HDType = (TextView) mView.findViewById(R.id.HDType);
         HDType.setText("D" +Integer.toString(stats[11]));
-        TextView HPCurr = (TextView) mView.findViewById(R.id.HpCurr);
+        final TextView HPCurr = (TextView) mView.findViewById(R.id.HpCurr);
         HPCurr.setText(Integer.toString(stats[12]));
         TextView HPTotal = (TextView) mView.findViewById(R.id.HPTotal);
-        HPTotal.setText(Integer.toString(stats[13]));
-        TextView TempHP = (TextView) mView.findViewById(R.id.TempHP);
+        HPTotal.setText(" /" + Integer.toString(stats[13]));
+        final TextView TempHP = (TextView) mView.findViewById(R.id.TempHP);
         TempHP.setText(Integer.toString(stats[14]));
+
+        //initialize buttons
+        Button hdAdd = (Button) mView.findViewById(R.id.HDAddBtn);
+        hdAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int hdCount = stats[10];
+                hdCount += 1;
+                stats[10] = hdCount;
+                String newHDCount = Integer.toString(hdCount);
+                HDCount.setText(newHDCount);
+            }
+        });
+        Button hdSub = (Button) mView.findViewById(R.id.HDSubBtn);
+        hdSub.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int hdCount = stats[10];
+                hdCount -= 1;
+                stats[10] = hdCount;
+                String newHDCount = Integer.toString(hdCount);
+                HDCount.setText(newHDCount);
+            }
+        });
+        Button hpAdd = (Button) mView.findViewById(R.id.HPAddBtn);
+        hpAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int hp = stats[12];
+                hp += 1;
+                stats[12] = hp;
+                String newhp = Integer.toString(hp);
+                HPCurr.setText(newhp);
+            }
+        });
+        Button hpSub = (Button) mView.findViewById(R.id.HPSubBtn);
+        hpSub.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int hp = stats[12];
+                hp -= 1;
+                stats[12] = hp;
+                String newhp = Integer.toString(hp);
+                HPCurr.setText(newhp);
+            }
+        });
+        Button tempAdd = (Button) mView.findViewById(R.id.TempAddBtn);
+        tempAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int TempHp = stats[14];
+                TempHp += 1;
+                stats[14] = TempHp;
+                String newTempHp = Integer.toString(TempHp);
+                TempHP.setText(newTempHp);
+            }
+        });
+        Button TempSub = (Button) mView.findViewById(R.id.TempSubBtn);
+        TempSub.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int TempHp = stats[14];
+                TempHp -= 1;
+                stats[14] = TempHp;
+                String newTempHp = Integer.toString(TempHp);
+                TempHP.setText(newTempHp);
+            }
+        });
 
         return this.mView;
     }
