@@ -49,8 +49,9 @@ class MyAdapter extends FragmentPagerAdapter {
         //bundles filled with character stats
         int[] caughtStats = caughtStatsBundle.getIntArray("statsBundle");
 
-        //bundle filled with skill proficiencies
+        //bundle filled with skill/stats proficiencies
         boolean[] caughtSProf = caughtStatsBundle.getBooleanArray("sProfBundle");
+        boolean[] caughtStatProf = caughtStatsBundle.getBooleanArray("statProfBundle");
 
         //bundles filled with item names and descriptions
         String[] caughtItem = caughtStatsBundle.getStringArray("itemBundle");
@@ -76,6 +77,7 @@ class MyAdapter extends FragmentPagerAdapter {
         if(position == 0) {
             //Pass stat bundle
             bundle.putIntArray("statsToFrag", caughtStats);
+            bundle.putBooleanArray("statProfBundle", caughtStatProf);
             fragment = new StatPage();
             fragment.setArguments(bundle);
 

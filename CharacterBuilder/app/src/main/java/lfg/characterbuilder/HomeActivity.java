@@ -77,10 +77,7 @@ public class HomeActivity extends AppCompatActivity {
                 //Grab the stats and format them back into an array
                 SharedPreferences sharedStats = getSharedPreferences(sendChar.getUnique_id(), Context.MODE_PRIVATE);
                 String statsString = sharedStats.getString("CHAR_STATS", "NULL");
-                if (statsString == "NULL") {
-                    statsToPass = sendChar.getStats();
-                }
-
+                if (statsString == "NULL") { statsToPass = sendChar.getStats();}
                 else {
                     String[] statsStringArray = statsString.split(",");
                     int[] statsArray = new int[statsStringArray.length];
@@ -93,9 +90,12 @@ public class HomeActivity extends AppCompatActivity {
                 //Pass the stats
                 Bundle statsBundle = new Bundle();
                 statsBundle.putIntArray("statsBundle", statsToPass);
+
                 //Pass proficiencies
                 boolean[] sProfToPass = sendChar.getSkillproficiencies();
                 statsBundle.putBooleanArray("sProfBundle", sProfToPass);
+                boolean[] statProfToPass = sendChar.getStatsproficiencies();
+                statsBundle.putBooleanArray("statProfBundle", statProfToPass);
 
 
                 //Pass the character
@@ -272,10 +272,10 @@ public class HomeActivity extends AppCompatActivity {
 
     private void populateCharacterCards(){
 
-        //REPLACE ME WITH LOADING SHARED PREFERENCES FROM SP_MANAGER
+
 
         initialLoad();
-        characters.add(new Character("qwertyui", "Testerman Stormshield", "Fighter", R.drawable.ic_warrior));
+        //characters.add(new Character("qwertyui", "Testerman Stormshield", "Fighter", R.drawable.ic_warrior));
         //characters.add(new Character("asdfghjk", "Mockupite Wandwhisper", "Wizard", R.drawable.ic_mage));
         //reloadCharacterCards();
         /*characters.add(new Character("Mockupite Wandwhisper", "Wizard", R.drawable.ic_mage));

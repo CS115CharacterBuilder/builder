@@ -30,6 +30,7 @@
         android:layout_toStartOf="@+id/CharCLASS"
         android:layout_toLeftOf="@+id/CharCLASS" />
 
+
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

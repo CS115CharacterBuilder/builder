@@ -20,6 +20,7 @@ public class StatPage extends Fragment {
     TextView TempHP;
     TextView HDCount;
     int[] stats;
+    boolean[] stats_prof;
 
 
 
@@ -35,11 +36,9 @@ public class StatPage extends Fragment {
         //gotChar = args.getParcelable("CharacterTag");
         int[] caughtStatsArray = args.getIntArray("statsToFrag");
         stats = caughtStatsArray;
-
-        if (stats == null) {
-            Log.d("DEBUG", "CAUGHT STATS ARRAY WAS NULL");
-        }
-
+        boolean[] caughtStatProfArray = args.getBooleanArray("statProfBundle");
+        stats_prof = caughtStatProfArray;
+        
         //Grab and set character
         gotChar = args.getParcelable("charToStats");
 
@@ -91,25 +90,25 @@ public class StatPage extends Fragment {
         //Initialize miscellaneous textviews
 
         TextView ProfVal = (TextView) mView.findViewById(R.id.ProfVal);
-        //ProfVal.setText(Integer.toString(stats[6]));
+        ProfVal.setText(Integer.toString(stats[6]));
         TextView IniVal = (TextView) mView.findViewById(R.id.IniVal);
-        //IniVal.setText(Integer.toString(stats[7]));
+        IniVal.setText(Integer.toString(stats[7]));
         TextView ACVal = (TextView) mView.findViewById(R.id.ACVal);
-        //ACVal.setText(Integer.toString(((stats[1] - 10)/2) + 10));
+        ACVal.setText(Integer.toString(((stats[1] - 10)/2) + 10));
         TextView SpdVal = (TextView) mView.findViewById(R.id.SpdVal);
-        //SpdVal.setText(Integer.toString(stats[8]));
+        SpdVal.setText(Integer.toString(stats[8]));
         TextView PercVal = (TextView) mView.findViewById(R.id.PercVal);
-        //PercVal.setText(Integer.toString(stats[9]));
+        PercVal.setText(Integer.toString(stats[9]));
         TextView HDCount = (TextView) mView.findViewById(R.id.HDCount);
-        //HDCount.setText(Integer.toString(stats[10]));
+        HDCount.setText(Integer.toString(stats[10]));
         TextView HDType = (TextView) mView.findViewById(R.id.HDType);
-        //HDType.setText("D" +Integer.toString(stats[11]));
+        HDType.setText("D" +Integer.toString(stats[11]));
         TextView HPCurr = (TextView) mView.findViewById(R.id.HpCurr);
-        //HPCurr.setText(Integer.toString(stats[12]));
+        HPCurr.setText(Integer.toString(stats[12]));
         TextView HPTotal = (TextView) mView.findViewById(R.id.HPTotal);
-        //HPTotal.setText(Integer.toString(stats[13]));
+        HPTotal.setText(Integer.toString(stats[13]));
         TextView TempHP = (TextView) mView.findViewById(R.id.TempHP);
-        //TempHP.setText(Integer.toString(stats[14]));
+        TempHP.setText(Integer.toString(stats[14]));
         return this.mView;
     }
 

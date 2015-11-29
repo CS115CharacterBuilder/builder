@@ -29,6 +29,7 @@ public class Character implements Parcelable {
     //stats page info
     private int level;
     private int classpoints;
+    private boolean[] statsproficiencies;
     /*stats follow the following format: (Strength, Dex, Constitution, Int, Wis, Char, Proficiency,
     Initiative, Speed, Perception, Hit Dice number, Hit Dice type, Current HP, Total HP
     Temoporary HP)
@@ -58,22 +59,52 @@ public class Character implements Parcelable {
         this.name = char_name;
         this.class_name = char_class;
         this.photoId = char_photoId;
+        this.copper_held = 100;
+        this.silver_held = 50;
+        this.gold_held = 10;
+        this.race = "DEFAULT_RACE";
+        this.subrace = "DEFAULT_SUBRACE";
+        //Stats Default
         this.stats = new int[16];
         for(int i = 0; i < stats.length; i++) {
             stats[i] = 666;
+        }
+        this.statsproficiencies = new boolean[6];
+        for(int i = 0; i < statsproficiencies.length; i++){
+            if(i%2 == 0){
+                statsproficiencies[i] = false;
+            }
+            else {
+                statsproficiencies[i] = true;
+            }
+        }
+        //Skills Default
+        this.skillproficiencies = new boolean[17];
+        for(int i = 0; i < skillproficiencies.length; i++){
+            if(i%2 == 0){
+                skillproficiencies[i] = false;
+            }
+            else {
+                skillproficiencies[i] = true;
+            }
         }
 
     }
 
     //Parcel Constructor Allows Object to be passed
     public Character(Parcel in){
-        String[] data = new String[4];
-
+        String[] data = new String[9];
         in.readStringArray(data);
+
         this.unique_id = data[0];
         this.name = data[1];
         this.class_name = data[2];
         this.photoId = Integer.parseInt(data[3]);
+        this.race = data[4];
+        this.subrace = data[5];
+        this.copper_held = Integer.parseInt(data[6]);
+        this.silver_held = Integer.parseInt(data[7]);
+        this.gold_held = Integer.parseInt(data[8]);
 
     }
 
@@ -86,7 +117,9 @@ public class Character implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags){
         //TODO Auto-generated method stub
-        dest.writeStringArray(new String[]{this.unique_id,this.name,this.class_name,String.valueOf(this.photoId)});
+        dest.writeStringArray(new String[]{this.unique_id,this.name,this.class_name,
+                String.valueOf(this.photoId), this.race, this.subrace, String.valueOf(this.copper_held),
+                String.valueOf(this.silver_held), String.valueOf(this.gold_held)});
     }
 
     public static final Parcelable.Creator<Character> CREATOR = new Parcelable.Creator<Character>() {
@@ -141,6 +174,8 @@ public class Character implements Parcelable {
     }
 
     public boolean[] getSkillproficiencies() { return this.skillproficiencies; }
+
+    public boolean[] getStatsproficiencies() { return this.statsproficiencies; }
 
     public String[] getProficiencies() { return this.proficiencies; }
 
