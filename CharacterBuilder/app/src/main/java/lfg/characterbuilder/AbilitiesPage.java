@@ -78,9 +78,13 @@ public class AbilitiesPage extends Fragment {
         Bundle args = getArguments();
         gotChar = args.getParcelable("charToStats");
         Background = gotChar.getType();
+        System.out.println(Background);
         Lvl = gotChar.getLevel();
+        System.out.println(Integer.toString(Lvl));
         Class = gotChar.getCharacterClass();
+        System.out.println(Class);
         Race = gotChar.getCharacterRace();
+        System.out.println(Race);
         Subrace = gotChar.getCharacterSubRace();
 
         CPVal = (EditText) mView.findViewById(R.id.CPVal);
@@ -117,12 +121,11 @@ public class AbilitiesPage extends Fragment {
 
         @Override
         public int getGroupCount() {
-            System.out.println("group count is: " + Integer.toString(this._listDataHeader.size())); return this._listDataHeader.size();
+             return this._listDataHeader.size();
         }
 
         @Override
         public int getChildrenCount(int groupPosition) {
-            System.out.println(Integer.toString(_listDataChild.get((this._listDataHeader.get(groupPosition))).size()));
             return this._listDataChild.get(this._listDataHeader.get(groupPosition)).size();
         }
 
@@ -160,7 +163,6 @@ public class AbilitiesPage extends Fragment {
             }
             TextView abilityType = (TextView) convertView.findViewById(R.id.abilityType);
             abilityType.setTypeface(null, Typeface.BOLD);
-            System.out.println("---------------------------------" + headerTitle);
             abilityType.setText(headerTitle);
 
             return convertView;
@@ -209,8 +211,7 @@ public class AbilitiesPage extends Fragment {
         //Fill Background Abilities List
         for(int i = 0; i < bd.size(); i++) {
             Data temp = bd.get(i);
-            if(temp.backgroundType == Background && temp.dlevel <= Lvl) {
-                System.out.println(i);
+            if(temp.backgroundType.equals(Background) && temp.dlevel <= Lvl) {
                 Ability a = new Ability();
                 a.name = temp.abilName;
                 a.description = temp.flavor;
@@ -223,7 +224,18 @@ public class AbilitiesPage extends Fragment {
         //Fill Class Abilities List
         for(int i = 0; i < cd.size(); i++) {
             Data temp = cd.get(i);
-            if(temp.dClass == Class && temp.dlevel <= Lvl) {
+            System.out.println("Outside of class abilities");
+            System.out.println("Character Level is: " + Integer.toString(Lvl));
+            System.out.println("Character Class is : " + Class);
+            System.out.println("Ability Class is: " + temp.dClass);
+            System.out.println("Ability Level is: " + temp.dlevel);
+            if(temp.dClass.equals(Class)) {
+                System.out.println("Class is not failing");
+            }
+            if(temp.dlevel <= Lvl) {
+                System.out.println("Level is not failing");
+            }
+            if(temp.dClass.equals(Class) && temp.dlevel <= Lvl) {
                 Ability a = new Ability();
                 a.name = temp.abilName;
                 a.description = temp.flavor;
@@ -236,7 +248,9 @@ public class AbilitiesPage extends Fragment {
         //Fill Race Abilities List
         for(int i = 0; i < rd.size(); i++) {
             Data temp = rd.get(i);
-            if(temp.dRace == Race && temp.dlevel <= Lvl) {
+            System.out.println(temp.abilName);
+            System.out.println(Integer.toString(i) + temp.dRace);
+            if(temp.dRace.equals(Race) && temp.dlevel <= Lvl) {
                 Ability a = new Ability();
                 a.name = temp.abilName;
                 a.description = temp.flavor;

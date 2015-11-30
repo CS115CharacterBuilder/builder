@@ -205,8 +205,8 @@ public class RaceData extends Data {
     Data halflingTraits = new Data();
     public void setHalflingTraits(Data halflingTraits){
         halflingTraits.abilName = "Halfling Traits";
-        dRace = "Halfling";
-        dlevel = 0;
+        halflingTraits.dRace = "Halfling";
+        halflingTraits.dlevel = 0;
         int stats[] = {0,2,0,0,0,0};
         halflingTraits.statBoost = stats;
         halflingTraits.size = "Small";
@@ -668,7 +668,7 @@ public class RaceData extends Data {
         setRockTinker(rockTinker);
         rd.add(rockTinker);
 
-        setHalfElfTraits(halflingTraits);//18
+        setHalfElfTraits(halfElfTraits);//18
         rd.add(halfElfTraits);
 
         setHalfelfAncestry(halfelfAncestry);

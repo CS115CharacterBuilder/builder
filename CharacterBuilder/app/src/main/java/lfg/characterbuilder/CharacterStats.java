@@ -28,6 +28,7 @@ public class CharacterStats extends AppCompatActivity {
     private EditText CharCLASS;
     private String Class;
 
+
     //Stats - 0
     private EditText CharSTR;
     private String Strength;
