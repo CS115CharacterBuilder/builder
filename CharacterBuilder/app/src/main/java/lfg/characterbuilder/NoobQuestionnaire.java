@@ -23,6 +23,7 @@ import java.util.List;
 
 public class NoobQuestionnaire extends AppCompatActivity implements AdapterView.OnItemClickListener {
     int questionNumber;
+    int numberOfQuestions = 3;
     //ARRAY USED TO PARSE QUESTIONS AFTER QUESTIONNAIRE IS OVER
     ArrayList<NQTag> tagParseArray = new ArrayList<NQTag>();
 
@@ -68,17 +69,24 @@ public class NoobQuestionnaire extends AppCompatActivity implements AdapterView.
         setContentView(R.layout.activity_noob_questionnaire);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        final Homunculus noobHom = new Homunculus();
+
 
         questionNumber = 0;
-//----------------------------------TEXTVIEWS--------------------------------------------------------
+//----------------------------------TEXTVIEWS-------------------------------------------------------
         final TextView mainQuestion = (TextView)findViewById(R.id.questText);
         final TextView choiceOne = (TextView)findViewById(R.id.cOneText);
         final TextView choiceTwo = (TextView)findViewById(R.id.cTwoText);
         final TextView choiceThree = (TextView)findViewById(R.id.cThreeText);
         final TextView choiceFour = (TextView)findViewById(R.id.cFourText);
-//----------------------------------TEXTVIEWS--------------------------------------------------------
 
-//----------------------------Tag 0.0---------------------------------------------------------
+        //TEXTVIEWS AFTER QUESTIONNAIRE IS DONE
+
+        final TextView resultTitle = (TextView)findViewById(R.id.noobResultTitle);
+
+//----------------------------------TEXTVIEWS-------------------------------------------------------
+
+//----------------------------Tag 0.0---------------------------------------------------------------
         ArrayList<String> testList = new ArrayList<String>();
         testList.add("Barbarian");
         NQTag test = new NoobQuestionnaire.NQTag(testList);
@@ -208,8 +216,18 @@ public class NoobQuestionnaire extends AppCompatActivity implements AdapterView.
                 for(int a = 0; a < tagParseArray.size(); a++){
                   tagParseArray.get(a).printList();
                 }
-                displayQuestion(questionNumber, mainQuestion, choiceOne, choiceTwo, choiceThree, choiceFour, tagArray, tagParseArray);
-
+                //if you're done with questions parse the arraylists and display results
+                if(questionNumber > numberOfQuestions){
+                    tempTag.iterateAndAdd(tagParseArray, noobHom);
+                    setContentView(R.layout.noob_result_display);
+                    TextView resultTopChoice = (TextView)findViewById(R.id.noobTopResult);
+                    TextView resultMiddleChoice = (TextView)findViewById(R.id.noobMiddleResult);
+                    TextView resultBottomChoice = (TextView)findViewById(R.id.noobBottomResult);
+                    noobHom.displayNoobresults(resultTopChoice, resultMiddleChoice, resultBottomChoice);
+                }
+                else{
+                    displayQuestion(questionNumber, mainQuestion, choiceOne, choiceTwo, choiceThree, choiceFour, tagArray, tagParseArray);
+                }
             }
         });
         choiceTwo.setOnClickListener(new View.OnClickListener() {
