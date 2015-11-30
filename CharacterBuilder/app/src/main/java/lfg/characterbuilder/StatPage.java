@@ -17,9 +17,9 @@ public class StatPage extends Fragment {
     protected View mView;
 
     Character gotChar;
-    TextView HPCurr;
-    TextView TempHP;
-    TextView HDCount;
+    static TextView HPCurr;
+    static TextView TempHP;
+    static TextView HDCount;
     int[] stats;
     boolean[] stats_prof;
 
@@ -204,4 +204,17 @@ public class StatPage extends Fragment {
         }
         return modValue;
     }
+
+    public static int getStatPageHPCurr() {
+        return Integer.parseInt(HPCurr.getText().toString());
+    }
+
+    public static int getStatPageTempHP() {
+        return Integer.parseInt(TempHP.getText().toString());
+    }
+
+    public static int getStatPageHDCount() {
+        return Integer.parseInt(HDCount.getText().toString());
+    }
+
 }
