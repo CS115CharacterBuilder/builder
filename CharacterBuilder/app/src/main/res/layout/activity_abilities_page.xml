@@ -25,6 +25,7 @@
         android:ems="10"
         android:id="@+id/CPVal"
         android:layout_below="@+id/CPTxt"
+        android:textColor="@color/white"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal" />
 

@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +29,11 @@ public class ItemsPage extends Fragment {
     //declares item object
     String[] itemNames;
     String[] itemDesc;
+
+    //Currency Textfields
+    static EditText GoldVal;
+    static EditText SilverVal;
+    static EditText CopperVal;
 
     public class ItemElement {
         ItemElement() {
@@ -158,12 +164,15 @@ public class ItemsPage extends Fragment {
         itemList.setAdapter(aa);
         //refreshes page when iList is updated
         aa.notifyDataSetChanged();
-        EditText GoldVal = (EditText) mView.findViewById(R.id.GoldVal);
-        EditText SilverVal = (EditText) mView.findViewById(R.id.SilverVal);
-        EditText CopperVal = (EditText) mView.findViewById(R.id.CopperVal);
-        GoldVal.setText(/*gotChar.getGold()*/Integer.toString(100));
-        SilverVal.setText(/*gotChar.getSilver()*/Integer.toString(100));
-        CopperVal.setText(/*gotChar.getCopper()*/Integer.toString(100));
+        GoldVal = (EditText) mView.findViewById(R.id.GoldVal);
+        SilverVal = (EditText) mView.findViewById(R.id.SilverVal);
+        CopperVal = (EditText) mView.findViewById(R.id.CopperVal);
+        GoldVal.setText(Integer.toString(gotChar.getGold()));
+        SilverVal.setText(Integer.toString(gotChar.getSilver()));
+        CopperVal.setText(Integer.toString(gotChar.getCopper()));
+        GoldVal.setGravity(Gravity.CENTER_HORIZONTAL);
+        SilverVal.setGravity(Gravity.CENTER_HORIZONTAL);
+        CopperVal.setGravity(Gravity.CENTER_HORIZONTAL);
         return this.mView;
     }
 
@@ -233,6 +242,18 @@ public class ItemsPage extends Fragment {
             IE.position = i;
             iList.add(IE);
         }
+    }
+
+    public static int getCopper(){
+        return Integer.parseInt(CopperVal.getText().toString());
+    }
+
+    public static int getSilver(){
+        return Integer.parseInt(SilverVal.getText().toString());
+    }
+
+    public static int getGold(){
+        return Integer.parseInt(GoldVal.getText().toString());
     }
 
 

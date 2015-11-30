@@ -45,12 +45,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/rWeaponVal"
+            android:textColor="@color/white"
             android:layout_gravity="left"
             android:layout_weight="1" />
 
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             android:id="@+id/rABVal"
             android:layout_gravity="center_horizontal"
             android:layout_weight="1" />
@@ -58,6 +60,7 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             android:id="@+id/rDmgVal"
             android:layout_gravity="right"
             android:layout_weight="1" />
@@ -95,6 +98,7 @@
         <EditText
             android:layout_width="108dp"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             android:inputType="number"
             android:ems="10"
             android:id="@+id/rAmmoVal"
@@ -104,6 +108,7 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             android:id="@+id/rRangeVal"
             android:layout_gravity="center_horizontal"
             android:layout_weight="5" />
@@ -112,6 +117,7 @@
             style="?android:attr/buttonStyleSmall"
             android:layout_width="94dp"
             android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
             android:text="Remove"
             android:id="@+id/rWRemove"
             android:onClick="removeRWeapon"

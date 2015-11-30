@@ -1,6 +1,8 @@
 package lfg.characterbuilder;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.v4.app.Fragment;
@@ -31,6 +33,31 @@ public class MainActivity extends FragmentActivity {
         viewPager.setAdapter(new MyAdapter(fragmentManager));
     }
 
+    @Override
+    public void onBackPressed() {
+        //Save all fields to character object SharedPreferences when back is hit
+        //Open up the character's shared preferences
+        SharedPreferences sharedStats = getSharedPreferences(gotChar.getUnique_id(), Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedStats.edit();
+
+        //Write into the character's shared preferences with all new fields
+
+        //Items Page
+        editor.putInt("CHAR_COPPER", ItemsPage.getCopper());
+        editor.putInt("CHAR_SILVER", ItemsPage.getSilver());
+        editor.putInt("CHAR_GOLD", ItemsPage.getGold());
+
+        //Background Page
+        editor.putString("CHAR_NAME", BackgroundPage.getBackgroundName());
+        editor.putString("CHAR_ALIGNMENT", BackgroundPage.getBackgroundAlignment());
+        editor.putString("CHAR_DEITY", BackgroundPage.getBackgroundDeity());
+        editor.putString("CHAR_BACKGROUND", BackgroundPage.getBackgroundText());
+
+        editor.apply();
+
+
+        super.onBackPressed();
+    }
 }
 
 class MyAdapter extends FragmentPagerAdapter {
