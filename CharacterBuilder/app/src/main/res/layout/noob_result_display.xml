@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Based on your questionnaire, we recommend:"
+        android:id="@+id/noobResultTitle"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="142dp"
+        android:layout_below="@+id/noobResultTitle"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Top Result"
+            android:id="@+id/noobTopResult"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Middle Result"
+            android:id="@+id/noobMiddleResult"
+            android:layout_below="@+id/noobTopResult"
+            android:layout_alignLeft="@+id/noobTopResult"
+            android:layout_alignStart="@+id/noobTopResult"
+            android:layout_marginTop="79dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Bottom Result"
+            android:id="@+id/noobBottomResult"
+            android:layout_alignParentBottom="true"
+            android:layout_alignLeft="@+id/noobMiddleResult"
+            android:layout_alignStart="@+id/noobMiddleResult"
+            android:layout_marginBottom="92dp" />
+    </RelativeLayout>
+</RelativeLayout>
