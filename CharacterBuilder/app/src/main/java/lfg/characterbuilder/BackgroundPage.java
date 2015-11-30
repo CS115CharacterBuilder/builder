@@ -12,6 +12,12 @@ import android.widget.TextView;
 
 public class BackgroundPage extends Fragment {
     Character gotChar;
+
+    static EditText NameVal;
+    static EditText AlignmentVal;
+    static EditText DeityVal;
+    static EditText BackgroundVal;
+
     View mView;
 
     @Override
@@ -22,17 +28,17 @@ public class BackgroundPage extends Fragment {
         gotChar = args.getParcelable("charToStats");
         View fragmentView = inflater.inflate(R.layout.activity_background_page, container, false);
         mView = fragmentView;
-        EditText NameVal = (EditText) this.mView.findViewById(R.id.NameVal);
+        NameVal = (EditText) this.mView.findViewById(R.id.NameVal);
         NameVal.setText(gotChar.getCharacterName());
         TextView ClassVal = (TextView) this.mView.findViewById(R.id.ClassVal);
         ClassVal.setText(gotChar.getCharacterClass());
         TextView LvlVal = (TextView) this.mView.findViewById(R.id.LvlVal);
         LvlVal.setText(Integer.toString(gotChar.getLevel()));
-        EditText AlignmentVal = (EditText) this.mView.findViewById(R.id.AlignmentVal);
+        AlignmentVal = (EditText) this.mView.findViewById(R.id.AlignmentVal);
         AlignmentVal.setText(gotChar.getAlignment());
-        EditText DeityVal = (EditText) this.mView.findViewById(R.id.DeityVal);
+        DeityVal = (EditText) this.mView.findViewById(R.id.DeityVal);
         DeityVal.setText(gotChar.getDeity());
-        EditText BackgroundVal = (EditText) this.mView.findViewById(R.id.BackgroundVal);
+        BackgroundVal = (EditText) this.mView.findViewById(R.id.BackgroundVal);
         BackgroundVal.setText(gotChar.getType());
         String Name = NameVal.getText().toString();
         String Class = ClassVal.getText().toString();
@@ -41,5 +47,21 @@ public class BackgroundPage extends Fragment {
         String Deity = DeityVal.getText().toString();
         String Background = BackgroundVal.getText().toString();
         return this.mView;
+    }
+
+    public static String getBackgroundName(){
+        return NameVal.getText().toString();
+    }
+
+    public static String getBackgroundAlignment(){
+        return AlignmentVal.getText().toString();
+    }
+
+    public static String getBackgroundDeity(){
+        return DeityVal.getText().toString();
+    }
+
+    public static String getBackgroundText(){
+        return BackgroundVal.getText().toString();
     }
 }

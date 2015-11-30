@@ -5,4 +5,7 @@
     <color name="colorAccent">#009688</color>
     <color name="colorBackground">#424242</color>
     <color name="white">#FFFFFF</color>
+    <color name="gold">#FFC107</color>
+    <color name="silver">#9E9E9E</color>
+    <color name="copper">#F57F17</color>
 </resources>
