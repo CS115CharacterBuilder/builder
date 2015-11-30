@@ -167,10 +167,48 @@ public class NewCharacterCreation extends AppCompatActivity {
             statsString.append(statsArray[i]).append(",");
         }
 
+        //Determine Character Icon
+        int characterIcon;
+        switch(CharCLASS.getText().toString()){
+            case "Barbarian": characterIcon = R.drawable.ic_warrior; break;
+            case "barbarian": characterIcon = R.drawable.ic_warrior; break;
+            case "Fighter": characterIcon = R.drawable.ic_warrior; break;
+            case "fighter": characterIcon = R.drawable.ic_warrior; break;
+            case "Paladin": characterIcon = R.drawable.ic_warrior; break;
+            case "paladin": characterIcon = R.drawable.ic_warrior; break;
+            case "Bard": characterIcon = R.drawable.ic_ranger; break;
+            case "bard": characterIcon = R.drawable.ic_ranger; break;
+            case "Ranger": characterIcon = R.drawable.ic_ranger; break;
+            case "ranger": characterIcon = R.drawable.ic_ranger; break;
+            case "Thief": characterIcon = R.drawable.ic_ranger; break;
+            case "thief": characterIcon = R.drawable.ic_ranger; break;
+            case "Rogue": characterIcon = R.drawable.ic_ranger; break;
+            case "rogue": characterIcon = R.drawable.ic_ranger; break;
+            case "Cleric": characterIcon = R.drawable.ic_mage; break;
+            case "cleric": characterIcon = R.drawable.ic_mage; break;
+            case "Druid": characterIcon = R.drawable.ic_mage; break;
+            case "druid": characterIcon = R.drawable.ic_mage; break;
+            case "Mage": characterIcon = R.drawable.ic_mage; break;
+            case "mage": characterIcon = R.drawable.ic_mage; break;
+            case "Wizard": characterIcon = R.drawable.ic_mage; break;
+            case "wizard": characterIcon = R.drawable.ic_mage; break;
+            case "Monk": characterIcon = R.drawable.ic_mage; break;
+            case "monk": characterIcon = R.drawable.ic_mage; break;
+            case "Mystic": characterIcon = R.drawable.ic_mage; break;
+            case "mystic": characterIcon = R.drawable.ic_mage; break;
+            case "Sorcerer": characterIcon = R.drawable.ic_mage; break;
+            case "sorcerer": characterIcon = R.drawable.ic_mage; break;
+            case "Warlock": characterIcon = R.drawable.ic_mage; break;
+            case "warlock": characterIcon = R.drawable.ic_mage; break;
+            default:
+                characterIcon = R.drawable.ic_rules; break;
+        }
+
+
         //Create the character with a default image
         Character newCharacter = new Character(
                 generateId(), CharNAME.getText().toString(),
-                CharCLASS.getText().toString(), R.drawable.ic_ranger
+                CharCLASS.getText().toString(), characterIcon
         );
 
         //Open up its new SP file and make its editor

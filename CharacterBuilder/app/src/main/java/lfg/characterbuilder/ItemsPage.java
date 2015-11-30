@@ -45,7 +45,7 @@ public class ItemsPage extends Fragment {
 
     }
 
-    public ArrayList<ItemElement> iList;
+    public static ArrayList<ItemElement> iList;
 
     //adapter to create item object cards
     private class MyAdapter extends ArrayAdapter<ItemElement> {
@@ -117,6 +117,9 @@ public class ItemsPage extends Fragment {
         super.onCreateView(inflater, container, savedInstanceState);
         //get character objet
         gotChar = getActivity().getIntent().getParcelableExtra("characterTag");
+        Bundle args = getArguments();
+        itemNames = args.getStringArray("itemBundle");
+        itemDesc = args.getStringArray("itemDescBundle");
         //get item names and descriptions from character object
         //itemNames = gotChar.getItemNames();
         //itemDesc = gotChar.getItemDescriptions();
@@ -201,11 +204,8 @@ public class ItemsPage extends Fragment {
         //Open up it's sp file and make an editor
         SharedPreferences sharedStats = getActivity().getSharedPreferences(gotChar.getUnique_id(), Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedStats.edit();
-        //declares new sets and fills with arraylists to be stored
-        Set<String>  newItemNames = new HashSet<String>();
-        newItemNames.addAll(newNames);
-        Set<String> newItemDesc = new HashSet<String>();
-        newItemDesc.addAll(newDesc);
+        editor.putString("CHAR_INAME", getItemNames());
+        editor.putString("CHAR_IDESC", getItemDesc());
         editor.apply();
     }
 
@@ -223,22 +223,19 @@ public class ItemsPage extends Fragment {
             newNames.add(name);
             newDesc.add(desc);
         }
-        //Open up it's sp file and make an editor
+        //Rewrite it's data string in shared preferences
         SharedPreferences sharedStats = getActivity().getSharedPreferences(gotChar.getUnique_id(), Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedStats.edit();
-        //declares new sets and fills with arraylists to be stored
-        Set<String>  newItemNames = new HashSet<String>();
-        newItemNames.addAll(newNames);
-        Set<String> newItemDesc = new HashSet<String>();
-        newItemDesc.addAll(newDesc);
+        editor.putString("CHAR_INAME", getItemNames());
+        editor.putString("CHAR_IDESC", getItemDesc());
         editor.apply();
     }
 
     public void initializeIList() {
-        for(int i = 0; i < 7/*itemNames.length*/; i++) {
+        for(int i = 0; i < itemNames.length; i++) {
             ItemElement IE = new ItemElement();
-            IE.itemName = "Test Name";//itemNames[i];
-            IE.itemDescription = "Test Desc";//itemDesc[i];
+            IE.itemName = itemNames[i];
+            IE.itemDescription = itemDesc[i];
             IE.position = i;
             iList.add(IE);
         }
@@ -256,6 +253,28 @@ public class ItemsPage extends Fragment {
         return Integer.parseInt(GoldVal.getText().toString());
     }
 
+    public static String getItemNames(){
+        String[] newItemNames = new String[iList.size()];
+        for(int i = 0; i < iList.size(); ++i ){
+            newItemNames[i] = iList.get(i).itemName;
+        }
+        StringBuilder statsString = new StringBuilder();
+        for(int i = 0; i < newItemNames.length; i++){
+            statsString.append(newItemNames[i]).append(",");
+        }
+        return statsString.toString();
+    }
 
+    public static String getItemDesc(){
+        String[] newItemDesc = new String[iList.size()];
+        for(int i = 0; i < iList.size(); ++i ){
+            newItemDesc[i] = iList.get(i).itemDescription;
+        }
+        StringBuilder statsString = new StringBuilder();
+        for(int i = 0; i < newItemDesc.length; i++){
+            statsString.append(newItemDesc[i]).append(",");
+        }
+        return statsString.toString();
+    }
 
 }

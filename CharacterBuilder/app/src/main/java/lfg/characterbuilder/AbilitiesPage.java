@@ -247,7 +247,7 @@ public class AbilitiesPage extends Fragment {
         listAbilities.put("Race", RaceList);
     }
 
-    public int getAbilitiesClassPoints(){
+    public static int getAbilitiesClassPoints(){
         return Integer.parseInt(CPVal.getText().toString());
     }
 }

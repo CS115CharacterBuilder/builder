@@ -21,16 +21,22 @@ public class MainActivity extends FragmentActivity {
     ViewPager viewPager = null;
     static public Character gotChar;
     static public Intent gotIntent;
+    int[] caughtStatsMainActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         gotChar = getIntent().getParcelableExtra("characterTag");
         gotIntent = getIntent();
+        Intent mIntent = MainActivity.gotIntent;
+        Bundle caughtStatsBundle = mIntent.getExtras();
+        caughtStatsMainActivity = caughtStatsBundle.getIntArray("statsBundle");
         setContentView(R.layout.activity_main);
         viewPager = (ViewPager) findViewById(R.id.pager);
         FragmentManager fragmentManager = getSupportFragmentManager();
-        viewPager.setAdapter(new MyAdapter(fragmentManager));
+        MyAdapter fAdapter = new MyAdapter(fragmentManager, getApplicationContext());
+        viewPager.setAdapter(fAdapter);
+        fAdapter.notifyDataSetChanged();
     }
 
     @Override
@@ -42,10 +48,29 @@ public class MainActivity extends FragmentActivity {
 
         //Write into the character's shared preferences with all new fields
 
+        //Stats Page
+        int[] newStatsArray = new int[]{caughtStatsMainActivity[0], caughtStatsMainActivity[1],
+                caughtStatsMainActivity[2],caughtStatsMainActivity[3], caughtStatsMainActivity[4],
+                caughtStatsMainActivity[5], caughtStatsMainActivity[6],caughtStatsMainActivity[7],
+                caughtStatsMainActivity[8],caughtStatsMainActivity[9], StatPage.getStatPageHDCount(),
+                caughtStatsMainActivity[11],StatPage.getStatPageHPCurr(),caughtStatsMainActivity[13],
+                StatPage.getStatPageTempHP()};
+
+       StringBuilder statsString = new StringBuilder();
+        for(int i = 0; i < newStatsArray.length; i++){
+            statsString.append(newStatsArray[i]).append(",");
+        }
+        editor.putString("CHAR_STATS", statsString.toString());
+
         //Items Page
+        editor.putString("CHAR_INAME", ItemsPage.getItemNames());
+        editor.putString("CHAR_IDESC", ItemsPage.getItemDesc());
         editor.putInt("CHAR_COPPER", ItemsPage.getCopper());
         editor.putInt("CHAR_SILVER", ItemsPage.getSilver());
         editor.putInt("CHAR_GOLD", ItemsPage.getGold());
+
+        //Abilities Page
+        editor.putInt("CHAR_POINTS", AbilitiesPage.getAbilitiesClassPoints());
 
         //Background Page
         editor.putString("CHAR_NAME", BackgroundPage.getBackgroundName());
@@ -62,8 +87,10 @@ public class MainActivity extends FragmentActivity {
 
 class MyAdapter extends FragmentPagerAdapter {
 
-    public MyAdapter(FragmentManager fm) {
+    private Context context;
+    public MyAdapter(FragmentManager fm, Context c) {
         super(fm);
+        context = c;
     }
     Character gotChar = MainActivity.gotChar;
     Intent mIntent = MainActivity.gotIntent;
