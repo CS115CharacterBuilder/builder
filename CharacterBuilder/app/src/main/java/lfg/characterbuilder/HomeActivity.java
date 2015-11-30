@@ -98,10 +98,19 @@ public class HomeActivity extends AppCompatActivity {
                 statsBundle.putBooleanArray("statProfBundle", statProfToPass);
 
                 //Pass all the rest of the arrays of this character
-                String[] item_held_to_pass = sendChar.getItemNames();
+                String itemsHeldString  = sharedStats.getString("CHAR_INAME", "NULL");
+                String[] item_held_to_pass;
+                if(itemsHeldString == "NULL") { item_held_to_pass = sendChar.getItemNames(); }
+                else { item_held_to_pass = itemsHeldString.split(",");}
                 statsBundle.putStringArray("itemBundle", item_held_to_pass);
-                String[] item_desc_to_pass = sendChar.getItemDescriptions();
+
+                String itemsDescString  = sharedStats.getString("CHAR_IDESC", "NULL");
+                String[] item_desc_to_pass;
+                if(itemsHeldString == "NULL") { item_desc_to_pass = sendChar.getItemDescriptions(); }
+                else { item_desc_to_pass = itemsDescString.split(",");}
                 statsBundle.putStringArray("itemDescBundle", item_desc_to_pass);
+
+
                 String[] prof_to_pass = sendChar.getProficiencies();
                 statsBundle.putStringArray("genProfBundle", prof_to_pass);
                 String[] wep_held_to_pass = sendChar.getmWeapons();
@@ -339,6 +348,9 @@ public class HomeActivity extends AppCompatActivity {
             loadedCharacter.setCopper(sp_file.getInt("CHAR_COPPER", 0));
             loadedCharacter.setSilver(sp_file.getInt("CHAR_SILVER", 0));
             loadedCharacter.setGold(sp_file.getInt("CHAR_GOLD", 0));
+
+            loadedCharacter.setClassPoints(sp_file.getInt("CHAR_POINTS", 0));
+
             loadedCharacter.setAlignment(sp_file.getString("CHAR_ALIGNMENT", "No Alignment"));
             loadedCharacter.setDeity(sp_file.getString("CHAR_DEITY", "No Deity"));
             loadedCharacter.setType(sp_file.getString("CHAR_BACKGROUND", "No Background Set"));
@@ -362,6 +374,8 @@ public class HomeActivity extends AppCompatActivity {
             characters.get(i).setCopper(sp_char.getInt("CHAR_COPPER", 0));
             characters.get(i).setSilver(sp_char.getInt("CHAR_SILVER", 0));
             characters.get(i).setGold(sp_char.getInt("CHAR_GOLD", 0));
+
+            characters.get(i).setClassPoints(sp_char.getInt("CHAR_POINTS", 0));
 
             characters.get(i).setAlignment(sp_char.getString("CHAR_ALIGNMENT", "No Alignment"));
             characters.get(i).setDeity(sp_char.getString("CHAR_DEITY", "No Deity"));
