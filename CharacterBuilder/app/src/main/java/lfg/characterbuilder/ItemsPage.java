@@ -90,11 +90,8 @@ public class ItemsPage extends Fragment {
                     //Open up it's sp file and make an editor
                     SharedPreferences sharedStats = getActivity().getSharedPreferences(gotChar.getUnique_id(), Context.MODE_PRIVATE);
                     SharedPreferences.Editor editor = sharedStats.edit();
-                    //declares new sets and fills with arraylists to be stored
-                    Set<String>  newItemNames = new HashSet<String>();
-                    newItemNames.addAll(newNames);
-                    Set<String> newItemDesc = new HashSet<String>();
-                    newItemDesc.addAll(newDesc);
+                    editor.putString("CHAR_INAME", getItemNames());
+                    editor.putString("CHAR_IDESC", getItemDesc());
                     editor.apply();
                 }
             });
@@ -154,11 +151,8 @@ public class ItemsPage extends Fragment {
                 //Open up it's sp file and make an editor
                 SharedPreferences sharedStats = getActivity().getSharedPreferences(gotChar.getUnique_id(), Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedStats.edit();
-                //declares new sets and fills with arraylists to be stored
-                Set<String>  newItemNames = new HashSet<String>();
-                newItemNames.addAll(newNames);
-                Set<String> newItemDesc = new HashSet<String>();
-                newItemDesc.addAll(newDesc);
+                editor.putString("CHAR_INAME", getItemNames());
+                editor.putString("CHAR_IDESC", getItemDesc());
                 editor.apply();
             }
         });
