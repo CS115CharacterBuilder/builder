@@ -21,8 +21,14 @@ public class NewCharacterCreation extends AppCompatActivity {
     private EditText CharCLASS;
     private String Class;
 
+    private EditText CharBACKGROUND;
+    private String Background;
+
     private EditText CharRACE;
     private String Race;
+
+    private EditText CharSUBRACE;
+    private String Subrace;
 
     //Stats - 0
     private EditText CharSTR;
@@ -126,8 +132,12 @@ public class NewCharacterCreation extends AppCompatActivity {
         Name = CharNAME.getText().toString();
         CharCLASS = (EditText) findViewById(R.id.CharCLASS);
         Class = CharCLASS.getText().toString();
+        CharBACKGROUND = (EditText) findViewById(R.id.CharBACKGROUND);
+        Background = CharBACKGROUND.getText().toString();
         CharRACE = (EditText) findViewById(R.id.CharRACE);
         Race = CharRACE.getText().toString();
+        CharSUBRACE = (EditText) findViewById(R.id.CharSUBRACE);
+        Subrace = CharSUBRACE.getText().toString();
 
         CharSTR = (EditText) findViewById(R.id.CharSTR);
         Strength = CharSTR.getText().toString();
@@ -218,7 +228,9 @@ public class NewCharacterCreation extends AppCompatActivity {
         //Save the newly formed character stats and packaged string
         editor.putString("CHAR_NAME", newCharacter.getCharacterName());
         editor.putString("CHAR_CLASS", newCharacter.getCharacterClass());
+        editor.putString("CHAR_BACKGROUND", Background.toString());
         editor.putString("CHAR_RACE", Race.toString());
+        editor.putString("CHAR_SUBRACE", Subrace.toString());
         editor.putInt("CHAR_PHOTO", newCharacter.getPhotoId());
         editor.putString("CHAR_STATS", statsString.toString());
         editor.apply(); //maybe commit here?

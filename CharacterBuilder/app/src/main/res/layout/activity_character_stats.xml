@@ -34,18 +34,42 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
+        android:text="Enter Subrace"
+        android:ems="10"
+        android:id="@+id/CharSUBRACE"
+        android:layout_below="@+id/CharRACE"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/CharCLASS"
+        android:layout_toLeftOf="@+id/CharCLASS" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
         android:text="Enter Class"
         android:ems="10"
         android:id="@+id/CharCLASS"
-        android:layout_above="@+id/scrollView"
+        android:layout_above="@+id/CharSUBRACE"
         android:layout_alignRight="@+id/scrollView"
         android:layout_alignEnd="@+id/scrollView" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Enter Background"
+        android:ems="10"
+        android:id="@+id/CharBACKGROUND"
+        android:layout_alignTop="@+id/CharSUBRACE"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/scrollView"
-        android:layout_below="@+id/CharRACE">
+        android:layout_below="@+id/CharSUBRACE">
 
         <LinearLayout
             android:orientation="vertical"

@@ -341,10 +341,16 @@ public class HomeActivity extends AppCompatActivity {
             //Load all the singleton variables from the character SP
             String char_name_loaded = sp_file.getString("CHAR_NAME", "ERROR_LOADING");
             String char_class_loaded = sp_file.getString("CHAR_CLASS", "ERROR_LOADING");
+
             int char_photoId_loaded = sp_file.getInt("CHAR_PHOTO", 0);
 
             //Create the character and inflate it with the singleton variables
             Character loadedCharacter = new Character(unique_id_loaded, char_name_loaded, char_class_loaded, char_photoId_loaded);
+
+            loadedCharacter.setCharacterRace(sp_file.getString("CHAR_RACE", "Human"));
+            loadedCharacter.setCharacterSubRace(sp_file.getString("CHAR_SUBRACE", "Human"));
+            loadedCharacter.setType(sp_file.getString("CHAR_BACKGROUND", "Empty"));
+
             loadedCharacter.setCopper(sp_file.getInt("CHAR_COPPER", 0));
             loadedCharacter.setSilver(sp_file.getInt("CHAR_SILVER", 0));
             loadedCharacter.setGold(sp_file.getInt("CHAR_GOLD", 0));
@@ -368,6 +374,10 @@ public class HomeActivity extends AppCompatActivity {
             String updatedName = sp_char.getString("CHAR_NAME", "VOID_NAME");
             String updatedClass = sp_char.getString("CHAR_CLASS", "VOID_CLASS");
             int updatedPhoto = sp_char.getInt("CHAR_PHOTO", 0);
+
+            characters.get(i).setCharacterRace(sp_char.getString("CHAR_RACE", "Human"));
+            characters.get(i).setCharacterSubRace(sp_char.getString("CHAR_SUBRACE", "Human"));
+            characters.get(i).setType(sp_char.getString("CHAR_BACKGROUND", "Empty"));
             characters.get(i).setCharacterName(updatedName);
             characters.get(i).setCharacterClass(updatedClass);
             characters.get(i).setPhotoId(updatedPhoto);
