@@ -22,6 +22,7 @@ import java.util.List;
 public class EquipmentPage extends Fragment {
 
     protected View mView;
+    Character gotChar;
 
     public class mWeapon {
         mWeapon() {
@@ -43,7 +44,7 @@ public class EquipmentPage extends Fragment {
 
     private static ArrayList<mWeapon> mWList = new ArrayList<mWeapon>();
     private static ArrayList<rWeapon> rWList = new ArrayList<rWeapon>();
-    private String[] proficiencies;
+    private String proficiencies;
     private String profTxt = "";
     private String[] m_weapons_held;
     private String[] m_weapons_bonus;
@@ -53,6 +54,10 @@ public class EquipmentPage extends Fragment {
     private String[] r_weapons_damage;
     private int[] r_weapons_ammo;
     private String[] r_weapons_range;
+    private String armorName;
+    private String armorMod;
+    static EditText aName;
+    static EditText aMod;
 
     //adapter for melee weapons
     private class mAdapter extends ArrayAdapter<mWeapon> {
@@ -149,7 +154,7 @@ public class EquipmentPage extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         Bundle args = getArguments();
-
+        gotChar = getActivity().getIntent().getParcelableExtra("characterTag");
         m_weapons_held = args.getStringArray("mWeaponBundle");
         m_weapons_bonus = args.getStringArray("mWeaponBonusBundle");
         m_weapons_damage = args.getStringArray("mWeaponDMGBundle");
@@ -158,6 +163,8 @@ public class EquipmentPage extends Fragment {
         r_weapons_damage = args.getStringArray("rWeaponDMGBundle");
         r_weapons_ammo = args.getIntArray("rWeaponAmmoBundle");
         r_weapons_range = args.getStringArray("rWeaponRangeBundle");
+        armorName = gotChar.getArmorName();
+        armorMod = gotChar.getArmorMod();
 
         createList();
         Log.d("equip page", "creatlist called");
@@ -171,8 +178,8 @@ public class EquipmentPage extends Fragment {
 
         View fragmentView = inflater.inflate(R.layout.activity_equipment_page, container, false);
         mView = fragmentView;
-        //Bundle args = getArguments();
-        //proficiencies = gotChar.getProficiencies;
+        proficiencies = gotChar.getProficiencies();
+
 
         //Load the Melee/Ranged Weapons Arrays
 
@@ -206,8 +213,13 @@ public class EquipmentPage extends Fragment {
         //creates the arraylists with weapons and refreshes when arraylists are updated
         //createList();
         //Log.d("equip page", "creatlist called");
-        EditText prof = (EditText) mView.findViewById(R.id.profTxt);
-        prof.setText(profTxt);
+        TextView prof = (TextView) mView.findViewById(R.id.profTxt);
+        prof.setText(proficiencies);
+        aName = (EditText) mView.findViewById(R.id.ArmorName);
+        aName.setText(gotChar.getArmorName());
+        aMod = (EditText) mView.findViewById(R.id.ArmorMod);
+        aMod.setText(gotChar.getArmorMod());
+
         mW = new mAdapter(this.getActivity(), R.layout.mweapon_element, mWList);
         rW = new rAdapter(this.getActivity(), R.layout.rweapon_element, rWList);
         ListView mWeaponsList = (ListView) mView.findViewById(R.id.mWeaponsList);
@@ -221,10 +233,6 @@ public class EquipmentPage extends Fragment {
 
 
     public void createList() {
-        //loop creates string to put into proficiencies
-        for(int i = 0; i < 1/*proficiencies.length*/; i++) {
-            profTxt = "A bunch of proficiencies";//profTxt + " " + proficiencies[i];
-        }
         //loop creates melee weapons list
         for(int i = 0; i < m_weapons_held.length; i++) {
             mWeapon temp = new mWeapon();
@@ -246,6 +254,16 @@ public class EquipmentPage extends Fragment {
         }
     }
 
+
+    public static String getArmorName(){
+        String rArmorName = aName.getText().toString();
+        return rArmorName;
+    }
+
+    public static String getArmorMod(){
+        String rArmorMod = aMod.getText().toString();
+        return rArmorMod;
+    }
 
     public static String getMeleeWeaponsName(){
         String[] newMeleeNames = new String[mWList.size()];

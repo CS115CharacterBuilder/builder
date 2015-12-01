@@ -181,8 +181,8 @@ public class HomeActivity extends AppCompatActivity {
 
 
 
-                String[] prof_to_pass = sendChar.getProficiencies();
-                statsBundle.putStringArray("genProfBundle", prof_to_pass);
+                String prof_to_pass = sendChar.getProficiencies();
+                statsBundle.putString("genProfBundle", prof_to_pass);
 
 
                 /* Spells not implemented
@@ -413,6 +413,8 @@ public class HomeActivity extends AppCompatActivity {
             loadedCharacter.setAlignment(sp_file.getString("CHAR_ALIGNMENT", "No Alignment"));
             loadedCharacter.setDeity(sp_file.getString("CHAR_DEITY", "No Deity"));
             loadedCharacter.setType(sp_file.getString("CHAR_BACKGROUND", "No Background Set"));
+            loadedCharacter.setArmorName(sp_file.getString("CHAR_ARMORNAME", "Enter Armor"));
+            loadedCharacter.setArmorMod(sp_file.getString("CHAR_ARMORMOD", "Enter Modifier"));
 
             //Add the completed character to the home screen roster
             characters.add(loadedCharacter);
@@ -443,6 +445,8 @@ public class HomeActivity extends AppCompatActivity {
             characters.get(i).setAlignment(sp_char.getString("CHAR_ALIGNMENT", "No Alignment"));
             characters.get(i).setDeity(sp_char.getString("CHAR_DEITY", "No Deity"));
             characters.get(i).setType(sp_char.getString("CHAR_BACKGROUND", "No Background Set"));
+            characters.get(i).setArmorName(sp_char.getString("CHAR_ARMORNAME", "Enter Armor"));
+            characters.get(i).setArmorMod(sp_char.getString("CHAR_ARMORMOD", "Enter Modifier"));
 
         }
     }

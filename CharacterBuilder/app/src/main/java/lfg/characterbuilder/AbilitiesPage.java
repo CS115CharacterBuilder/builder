@@ -38,6 +38,8 @@ public class AbilitiesPage extends Fragment {
     List<String> abilityTypes;
     HashMap<String, List<Ability>> listAbilities;
     BackgroundData bDatabase;
+    String proficienciesPass = "";
+    Boolean profExist;
     ClassData cDatabase;
     RaceData rDatabase;
     ArrayList<Data> bd;
@@ -77,6 +79,8 @@ public class AbilitiesPage extends Fragment {
         //get character object and set values
         Bundle args = getArguments();
         gotChar = args.getParcelable("charToStats");
+        String profcheck = gotChar.getProficiencies();
+        profExist = profcheck.equals("");
         Background = gotChar.getType();
         System.out.println(Background);
         Lvl = gotChar.getLevel();
@@ -224,22 +228,14 @@ public class AbilitiesPage extends Fragment {
         //Fill Class Abilities List
         for(int i = 0; i < cd.size(); i++) {
             Data temp = cd.get(i);
-            System.out.println("Outside of class abilities");
-            System.out.println("Character Level is: " + Integer.toString(Lvl));
-            System.out.println("Character Class is : " + Class);
-            System.out.println("Ability Class is: " + temp.dClass);
-            System.out.println("Ability Level is: " + temp.dlevel);
-            if(temp.dClass.equals(Class)) {
-                System.out.println("Class is not failing");
-            }
-            if(temp.dlevel <= Lvl) {
-                System.out.println("Level is not failing");
-            }
             if(temp.dClass.equals(Class) && temp.dlevel <= Lvl) {
                 Ability a = new Ability();
                 a.name = temp.abilName;
                 a.description = temp.flavor;
                 a.type = "Class";
+                if(temp.armorProf != null && temp.weaponProf!= null && profExist ) {
+                    proficienciesPass = temp.armorProf + " " + temp.weaponProf + " ";
+                }
                 ClassList.add(a);
             }
         }
@@ -255,10 +251,20 @@ public class AbilitiesPage extends Fragment {
                 a.name = temp.abilName;
                 a.description = temp.flavor;
                 a.type = "Race";
+                if(temp.armorProf != null && profExist) {
+                    proficienciesPass = proficienciesPass + temp.armorProf + " ";
+                }
+                if(temp.weaponProf!= null && profExist) {
+                    proficienciesPass = proficienciesPass + temp.weaponProf + " ";
+                }
+                if(temp.toolProf != null && profExist) {
+                    proficienciesPass = proficienciesPass + temp.toolProf + " ";
+                }
                 RaceList.add(a);
             }
         }
         listAbilities.put("Race", RaceList);
+        gotChar.setProficiencies(proficienciesPass);
     }
 
     public static int getAbilitiesClassPoints(){
