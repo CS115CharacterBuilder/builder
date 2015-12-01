@@ -376,6 +376,7 @@
                 android:layout_height="wrap_content"
                 android:text="Save Info"
                 android:id="@+id/charbtn"
+                android:background="@color/colorPrimary"
                 android:layout_gravity="center_horizontal"
                 android:clickable="true"
                 android:onClick="saveStats"

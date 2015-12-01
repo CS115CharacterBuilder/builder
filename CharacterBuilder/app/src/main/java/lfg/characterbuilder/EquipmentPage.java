@@ -256,16 +256,19 @@ public class EquipmentPage extends Fragment {
 
 
     public static String getArmorName(){
+        if (aName == null) return "NOSAVE";
         String rArmorName = aName.getText().toString();
         return rArmorName;
     }
 
     public static String getArmorMod(){
+        if (aMod == null) return "NOSAVE";
         String rArmorMod = aMod.getText().toString();
         return rArmorMod;
     }
 
     public static String getMeleeWeaponsName(){
+        if(mWList == null) return "NOSAVE";
         String[] newMeleeNames = new String[mWList.size()];
         for(int i = 0; i < mWList.size(); ++i ){
             newMeleeNames[i] = mWList.get(i).Name;
@@ -278,6 +281,7 @@ public class EquipmentPage extends Fragment {
     }
 
     public static String getMeleeWeaponsBonus(){
+        if(mWList == null) return "NOSAVE";
         String[] newMeleeBonus = new String[mWList.size()];
         for(int i = 0; i < mWList.size(); ++i ){
             newMeleeBonus[i] = mWList.get(i).AB;
@@ -290,6 +294,7 @@ public class EquipmentPage extends Fragment {
     }
 
     public static String getMeleeWeaponsDamage(){
+        if(mWList == null) return "NOSAVE";
         String[] newMeleeDamage = new String[mWList.size()];
         for(int i = 0; i < mWList.size(); ++i ){
             newMeleeDamage[i] = mWList.get(i).Damage;
@@ -302,6 +307,7 @@ public class EquipmentPage extends Fragment {
     }
 
     public static String getRangedWeaponsName(){
+        if(rWList == null) return "NOSAVE";
         String[] newRangedNames = new String[rWList.size()];
         for(int i = 0; i < rWList.size(); ++i ){
             newRangedNames[i] = rWList.get(i).Damage;
@@ -314,6 +320,7 @@ public class EquipmentPage extends Fragment {
     }
 
     public static String getRangedWeaponsBonus(){
+        if(rWList == null) return "NOSAVE";
         String[] newRangedBonus = new String[rWList.size()];
         for(int i = 0; i < rWList.size(); ++i ){
             newRangedBonus[i] = rWList.get(i).AB;
@@ -326,6 +333,7 @@ public class EquipmentPage extends Fragment {
     }
 
     public static String getRangedWeaponsDamage(){
+        if(rWList == null) return "NOSAVE";
         String[] newRangedDamage = new String[rWList.size()];
         for(int i = 0; i < rWList.size(); ++i ){
             newRangedDamage[i] = rWList.get(i).Damage;
@@ -338,6 +346,7 @@ public class EquipmentPage extends Fragment {
     }
 
     public static String getRangedWeaponsAmmo(){
+        if(rWList == null) return "NOSAVE";
         String[] newRangedAmmo = new String[rWList.size()];
         for(int i = 0; i < rWList.size(); ++i ){
             newRangedAmmo[i] = Integer.toString(rWList.get(i).Ammo);
@@ -350,6 +359,7 @@ public class EquipmentPage extends Fragment {
     }
 
     public static String getRangedWeaponsRange(){
+        if(rWList == null) return "NOSAVE";
         String[] newRangedRange = new String[rWList.size()];
         for(int i = 0; i < rWList.size(); ++i ){
             newRangedRange[i] = Integer.toString(rWList.get(i).Ammo);

@@ -1,5 +1,6 @@
 package lfg.characterbuilder;
 
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -9,10 +10,13 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.ViewGroup;
 import android.widget.Toast;
 
 
@@ -22,6 +26,8 @@ public class MainActivity extends FragmentActivity {
     static public Character gotChar;
     static public Intent gotIntent;
     int[] caughtStatsMainActivity;
+    MyAdapter fAdapter;
+    FragmentManager fragmentManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +39,8 @@ public class MainActivity extends FragmentActivity {
         caughtStatsMainActivity = caughtStatsBundle.getIntArray("statsBundle");
         setContentView(R.layout.activity_main);
         viewPager = (ViewPager) findViewById(R.id.pager);
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        MyAdapter fAdapter = new MyAdapter(fragmentManager, getApplicationContext());
+        fragmentManager = getSupportFragmentManager();
+        fAdapter = new MyAdapter(fragmentManager, getApplicationContext());
         viewPager.setAdapter(fAdapter);
         fAdapter.notifyDataSetChanged();
     }
@@ -63,42 +69,45 @@ public class MainActivity extends FragmentActivity {
         editor.putString("CHAR_STATS", statsString.toString());
 
         //Items Page
-        editor.putString("CHAR_INAME", ItemsPage.getItemNames());
-        editor.putString("CHAR_IDESC", ItemsPage.getItemDesc());
-        editor.putInt("CHAR_COPPER", ItemsPage.getCopper());
-        editor.putInt("CHAR_SILVER", ItemsPage.getSilver());
-        editor.putInt("CHAR_GOLD", ItemsPage.getGold());
+        if(ItemsPage.getItemNames() != "NOSAVE") editor.putString("CHAR_INAME", ItemsPage.getItemNames());
+        if(ItemsPage.getItemDesc() != "NOSAVE") editor.putString("CHAR_IDESC", ItemsPage.getItemDesc());
+        if(ItemsPage.getCopper() != -1)editor.putInt("CHAR_COPPER", ItemsPage.getCopper());
+        if(ItemsPage.getSilver() != -1)editor.putInt("CHAR_SILVER", ItemsPage.getSilver());
+        if(ItemsPage.getGold() != -1)editor.putInt("CHAR_GOLD", ItemsPage.getGold());
 
         //Equipment Page
-        editor.putString("CHAR_ARMORNAME", EquipmentPage.getArmorName());
-        editor.putString("CHAR_ARMORMOD", EquipmentPage.getArmorMod());
-        editor.putString("CHAR_MWEAPONSNAME", EquipmentPage.getMeleeWeaponsName());
-        editor.putString("CHAR_MWEAPONSBONUS", EquipmentPage.getMeleeWeaponsBonus());
-        editor.putString("CHAR_MWEAPONSDAMAGE", EquipmentPage.getMeleeWeaponsDamage());
-        editor.putString("CHAR_RWEAPONSNAME", EquipmentPage.getRangedWeaponsName());
-        editor.putString("CHAR_RWEAPONSBONUS", EquipmentPage.getRangedWeaponsBonus());
-        editor.putString("CHAR_RWEAPONSDAMAGE", EquipmentPage.getRangedWeaponsDamage());
-        editor.putString("CHAR_RWEAPONSAMMO", EquipmentPage.getRangedWeaponsAmmo());
-        editor.putString("CHAR_RWEAPONSRANGE", EquipmentPage.getRangedWeaponsRange());
+        if(EquipmentPage.getArmorName() != "NOSAVE") editor.putString("CHAR_ARMORNAME", EquipmentPage.getArmorName());
+        if(EquipmentPage.getArmorMod() != "NOSAVE") editor.putString("CHAR_ARMORMOD", EquipmentPage.getArmorMod());
+        if(EquipmentPage.getMeleeWeaponsName() != "NOSAVE") editor.putString("CHAR_MWEAPONSNAME", EquipmentPage.getMeleeWeaponsName());
+        if(EquipmentPage.getMeleeWeaponsBonus() != "NOSAVE") editor.putString("CHAR_MWEAPONSBONUS", EquipmentPage.getMeleeWeaponsBonus());
+        if(EquipmentPage.getMeleeWeaponsDamage() != "NOSAVE") editor.putString("CHAR_MWEAPONSDAMAGE", EquipmentPage.getMeleeWeaponsDamage());
+        if(EquipmentPage.getRangedWeaponsName() != "NOSAVE") editor.putString("CHAR_RWEAPONSNAME", EquipmentPage.getRangedWeaponsName());
+        if(EquipmentPage.getRangedWeaponsBonus() != "NOSAVE") editor.putString("CHAR_RWEAPONSBONUS", EquipmentPage.getRangedWeaponsBonus());
+        if(EquipmentPage.getRangedWeaponsDamage() != "NOSAVE") editor.putString("CHAR_RWEAPONSDAMAGE", EquipmentPage.getRangedWeaponsDamage());
+        if(EquipmentPage.getRangedWeaponsAmmo() != "NOSAVE") editor.putString("CHAR_RWEAPONSAMMO", EquipmentPage.getRangedWeaponsAmmo());
+        if(EquipmentPage.getRangedWeaponsRange() != "NOSAVE") editor.putString("CHAR_RWEAPONSRANGE", EquipmentPage.getRangedWeaponsRange());
 
 
         //Abilities Page
-        editor.putInt("CHAR_POINTS", AbilitiesPage.getAbilitiesClassPoints());
+        if(AbilitiesPage.getAbilitiesClassPoints() != -1) editor.putInt("CHAR_POINTS", AbilitiesPage.getAbilitiesClassPoints());
 
         //Background Page
-        editor.putString("CHAR_NAME", BackgroundPage.getBackgroundName());
-        editor.putString("CHAR_ALIGNMENT", BackgroundPage.getBackgroundAlignment());
-        editor.putString("CHAR_DEITY", BackgroundPage.getBackgroundDeity());
-        editor.putString("CHAR_BACKGROUND", BackgroundPage.getBackgroundText());
+        if(BackgroundPage.getBackgroundName() != "NOSAVE") editor.putString("CHAR_NAME", BackgroundPage.getBackgroundName());
+        if(BackgroundPage.getBackgroundAlignment() != "NOSAVE") editor.putString("CHAR_ALIGNMENT", BackgroundPage.getBackgroundAlignment());
+        if(BackgroundPage.getBackgroundDeity() != "NOSAVE") editor.putString("CHAR_DEITY", BackgroundPage.getBackgroundDeity());
+        if(BackgroundPage.getBackgroundText() != "NOSAVE")  editor.putString("CHAR_BACKGROUND", BackgroundPage.getBackgroundText());
 
         editor.apply();
 
+        getSupportFragmentManager().popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+        fAdapter.notifyDataSetChanged();
+        //getSupportFragmentManager().beginTransaction(R.id.)
 
         super.onBackPressed();
     }
 }
 
-class MyAdapter extends FragmentPagerAdapter {
+class MyAdapter extends FragmentStatePagerAdapter {
 
     private Context context;
     public MyAdapter(FragmentManager fm, Context c) {
@@ -107,6 +116,12 @@ class MyAdapter extends FragmentPagerAdapter {
     }
     Character gotChar = MainActivity.gotChar;
     Intent mIntent = MainActivity.gotIntent;
+
+    @Override
+    public int getItemPosition(Object object){
+        Log.d("THING", "RAN GET ITEM POSITION");
+        return PagerAdapter.POSITION_NONE;
+    }
 
     @Override
     public Fragment getItem(int position) {
@@ -192,6 +207,11 @@ class MyAdapter extends FragmentPagerAdapter {
             fragment = new SpellPage();
         }
         return fragment;
+    }
+
+    @Override
+    public void destroyItem(ViewGroup container, int position, Object object) {
+        super.destroyItem(container, position, object);
     }
 
     @Override

@@ -263,8 +263,8 @@ public class HomeActivity extends AppCompatActivity {
                 //Implement a new intent activity here. This would pass the control
                 //to a new activity on the activity stack. For now just show a toast.
                 Toast.makeText(HomeActivity.this, "Implement Settings", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(HomeActivity.this, ProductTour.class);
-                startActivity(intent);
+                //Intent intent = new Intent(HomeActivity.this, ProductTour.class);
+                //startActivity(intent);
 
 
             default:
@@ -310,9 +310,8 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void addDrawerItems() {
-        String[] Drawer_Text_Array = {"Dice", "Calculator", "Rules", "Experienced Questionnaire", "Noob Questionnaire"};
-        Integer[] Drawer_Index_Array = {R.drawable.ic_dice, R.drawable.ic_calculator,
-                                        R.drawable.ic_rules, R.drawable.ic_rules, R.drawable.ic_rules};
+        String[] Drawer_Text_Array = {"Dice", "Experienced Questionnaire", "Noob Questionnaire"};
+        Integer[] Drawer_Index_Array = {R.drawable.ic_dice, R.drawable.ic_rules, R.drawable.ic_rules};
 
         Drawer_Adapter = new NavBarAdapter(this, Drawer_Text_Array, Drawer_Index_Array);
         Drawer_List.setAdapter(Drawer_Adapter);
@@ -327,17 +326,11 @@ public class HomeActivity extends AppCompatActivity {
                         startActivity(intent);
                         break;
                     case 1:
-                        Toast.makeText(HomeActivity.this, "Implement Calculator", Toast.LENGTH_SHORT).show();
-                        break;
-                    case 2:
-                        Toast.makeText(HomeActivity.this, "Implement Rules", Toast.LENGTH_SHORT).show();
-                        break;
-                    case 3:
                         Toast.makeText(HomeActivity.this, "Ayy lmao, this is a test for the ExQuestionnaire", Toast.LENGTH_SHORT).show();
                         Intent exQuestionIntent = new Intent(HomeActivity.this, ExQuestionnaire.class);
                         startActivity(exQuestionIntent);
                         break;
-                    case 4:
+                    case 2:
                         Toast.makeText(HomeActivity.this, "Ayy lmao, this is a test for the NoobQuestionnaire", Toast.LENGTH_SHORT).show();
                         Intent noobQuestionIntent = new Intent(HomeActivity.this, NoobQuestionnaire.class);
                         startActivity(noobQuestionIntent);
