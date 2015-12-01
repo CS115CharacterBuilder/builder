@@ -97,45 +97,99 @@ public class HomeActivity extends AppCompatActivity {
                 boolean[] statProfToPass = sendChar.getStatsproficiencies();
                 statsBundle.putBooleanArray("statProfBundle", statProfToPass);
 
-                //Pass all the rest of the arrays of this character
+
+                //Grab the item names and format them back into an array
                 String itemsHeldString  = sharedStats.getString("CHAR_INAME", "NULL");
                 String[] item_held_to_pass;
                 if(itemsHeldString == "NULL") { item_held_to_pass = sendChar.getItemNames(); }
                 else { item_held_to_pass = itemsHeldString.split(",");}
                 statsBundle.putStringArray("itemBundle", item_held_to_pass);
 
+                //Grab the item descriptions and format them back into an array
                 String itemsDescString  = sharedStats.getString("CHAR_IDESC", "NULL");
                 String[] item_desc_to_pass;
                 if(itemsHeldString == "NULL") { item_desc_to_pass = sendChar.getItemDescriptions(); }
                 else { item_desc_to_pass = itemsDescString.split(",");}
                 statsBundle.putStringArray("itemDescBundle", item_desc_to_pass);
 
+                //Grab the weapon names descriptions and format them back into an array
+                String meleeWeaponsString  = sharedStats.getString("CHAR_MWEAPONSNAME", "NULL");
+                String[] melee_weapons_name_to_pass;
+                if(meleeWeaponsString == "NULL") { melee_weapons_name_to_pass = sendChar.getmWeapons(); }
+                else { melee_weapons_name_to_pass = meleeWeaponsString.split(",");}
+                statsBundle.putStringArray("mWeaponBundle", melee_weapons_name_to_pass);
+
+                //Grab the weapon bonus descriptions and format them back into an array
+                String meleeBonusString  = sharedStats.getString("CHAR_MWEAPONSBONUS", "NULL");
+                String[] melee_weapons_bonus_to_pass;
+                if(meleeBonusString == "NULL") { melee_weapons_bonus_to_pass = sendChar.getmWeaponBonus(); }
+                else { melee_weapons_bonus_to_pass = meleeBonusString.split(",");}
+                statsBundle.putStringArray("mWeaponBonusBundle", melee_weapons_bonus_to_pass);
+
+                //Grab the weapon damage descriptions and format them back into an array
+                String meleeDamageString  = sharedStats.getString("CHAR_MWEAPONSDAMAGE", "NULL");
+                String[] melee_weapons_damage_to_pass;
+                if(meleeDamageString == "NULL") { melee_weapons_damage_to_pass = sendChar.getmWeaponDamage();}
+                else { melee_weapons_damage_to_pass = meleeDamageString.split(",");}
+                statsBundle.putStringArray("mWeaponDMGBundle", melee_weapons_damage_to_pass);
+
+                //Grab the ranged name descriptions and format them back into an array
+                String rangedWeaponsString  = sharedStats.getString("CHAR_RWEAPONSNAME", "NULL");
+                String[] ranged_weapons_name_to_pass;
+                if(rangedWeaponsString == "NULL") { ranged_weapons_name_to_pass = sendChar.getrWeapons();}
+                else { ranged_weapons_name_to_pass = rangedWeaponsString.split(",");}
+                statsBundle.putStringArray("rWeaponBundle", ranged_weapons_name_to_pass);
+
+                //Grab the ranged name descriptions and format them back into an array
+                String rangedBonusString  = sharedStats.getString("CHAR_RWEAPONSBONUS", "NULL");
+                String[] ranged_weapons_bonus_to_pass;
+                if(rangedBonusString == "NULL") { ranged_weapons_bonus_to_pass = sendChar.getrWeaponBonus();}
+                else { ranged_weapons_bonus_to_pass = rangedBonusString.split(",");}
+                statsBundle.putStringArray("rWeaponBonusBundle", ranged_weapons_bonus_to_pass);
+
+                //Grab the ranged name descriptions and format them back into an array
+                String rangedDamageString  = sharedStats.getString("CHAR_RWEAPONSDAMAGE", "NULL");
+                String[] ranged_weapons_damage_to_pass;
+                if(rangedDamageString == "NULL") { ranged_weapons_damage_to_pass = sendChar.getrWeaponDamage();}
+                else { ranged_weapons_damage_to_pass = rangedDamageString.split(",");}
+                statsBundle.putStringArray("rWeaponDMGBundle", ranged_weapons_damage_to_pass);
+
+
+                //Grab the ranged range descriptions and format them back into an array
+                String rangedAmmoString  = sharedStats.getString("CHAR_RWEAPONSAMMO", "NULL");
+                String[] ranged_ammo_string_array;
+                int[] ranged_weapons_ammo_to_pass;
+                if(rangedAmmoString == "NULL") { ranged_weapons_ammo_to_pass = sendChar.getrWeaponAmmo();}
+                else {
+                    ranged_ammo_string_array = rangedAmmoString.split(",");
+                    int[] parsedArray = new int[ranged_ammo_string_array.length];
+                    for(int i = 0; i < parsedArray.length; ++i){
+                        if(ranged_ammo_string_array[i] != null && !ranged_ammo_string_array[i].isEmpty() )
+                        parsedArray[i] = Integer.parseInt(ranged_ammo_string_array[i]);
+                    }
+                    ranged_weapons_ammo_to_pass = parsedArray;
+                }
+                statsBundle.putIntArray("rWeaponAmmoBundle", ranged_weapons_ammo_to_pass);
+
+
+                //Grab the ranged range descriptions and format them back into an array
+                String rangedRangeString  = sharedStats.getString("CHAR_RWEAPONSRANGE", "NULL");
+                String[] ranged_weapons_range_to_pass;
+                if(rangedRangeString == "NULL") { ranged_weapons_range_to_pass = sendChar.getrWeaponRange();}
+                else { ranged_weapons_range_to_pass = rangedRangeString.split(",");}
+                statsBundle.putStringArray("rWeaponRangeBundle", ranged_weapons_range_to_pass);
+
+
 
                 String[] prof_to_pass = sendChar.getProficiencies();
                 statsBundle.putStringArray("genProfBundle", prof_to_pass);
-                String[] wep_held_to_pass = sendChar.getmWeapons();
-                statsBundle.putStringArray("mWeaponBundle", wep_held_to_pass);
-                String[] wep_bonus_to_pass = sendChar.getmWeaponBonus();
-                statsBundle.putStringArray("mWeaponDMGBundle", wep_bonus_to_pass);
-                String[] wep_damage_to_pass = sendChar.getmWeaponDamage();
-                statsBundle.putStringArray("mWeaponBonusBundle", wep_damage_to_pass);
-                String[] r_held_to_pass = sendChar.getrWeapons();
-                statsBundle.putStringArray("rWeaponBundle", r_held_to_pass);
-                String[] r_bonus_to_pass = sendChar.getrWeaponBonus();
-                statsBundle.putStringArray("rWeaponDMGBundle", r_bonus_to_pass);
-                String[] r_damage_to_pass = sendChar.getrWeaponDamage();
-                statsBundle.putStringArray("rWeaponBonusBundle", r_damage_to_pass);
-                int[] r_ammo_to_pass = sendChar.getrWeaponAmmo();
-                statsBundle.putIntArray("rWeaponAmmoBundle", r_ammo_to_pass);
-                String[] r_range_to_pass = sendChar.getrWeaponRange();
-                statsBundle.putStringArray("rWeaponRangeBundle", r_range_to_pass);
+
+
+                /* Spells not implemented
                 String[] known_spell_to_pass = sendChar.getKnownSpells();
                 statsBundle.putStringArray("knownSpellBundle", known_spell_to_pass);
                 String[] equip_spells_to_pass = sendChar.getEquipped_spells();
-                statsBundle.putStringArray("equipSpellBundle", equip_spells_to_pass);
-
-
-
+                statsBundle.putStringArray("equipSpellBundle", equip_spells_to_pass);*/
 
                 //Pass the character
                 Intent intent = new Intent(HomeActivity.this, MainActivity.class);
@@ -310,20 +364,8 @@ public class HomeActivity extends AppCompatActivity {
     /* Recycle View Functions */
 
     private void populateCharacterCards(){
-
-
-
         initialLoad();
-        //characters.add(new Character("qwertyui", "Testerman Stormshield", "Fighter", R.drawable.ic_warrior));
-        //characters.add(new Character("asdfghjk", "Mockupite Wandwhisper", "Wizard", R.drawable.ic_mage));
         //reloadCharacterCards();
-        /*characters.add(new Character("Mockupite Wandwhisper", "Wizard", R.drawable.ic_mage));
-        characters.add(new Character("Phonylord Daggershine", "Rogue", R.drawable.ic_ranger));
-        characters.add(new Character("Furrylad Featherstroker", "Druid", R.drawable.ic_mage));
-        characters.add(new Character("Casterole Spellfire", "Mage", R.drawable.ic_mage));
-        characters.add(new Character("Exampleor Swordbreaker", "Warrior", R.drawable.ic_warrior));
-        characters.add(new Character("Health Ledger", "Priest", R.drawable.ic_mage));*/
-
     }
 
     private void initialLoad(){
@@ -354,6 +396,17 @@ public class HomeActivity extends AppCompatActivity {
             loadedCharacter.setCopper(sp_file.getInt("CHAR_COPPER", 0));
             loadedCharacter.setSilver(sp_file.getInt("CHAR_SILVER", 0));
             loadedCharacter.setGold(sp_file.getInt("CHAR_GOLD", 0));
+
+
+            /*loadedCharacter.setmWeapons(sp_file.getString("CHAR_BACKGROUND", "Empty"));
+            loadedCharacter.setmWeaponBonus(sp_file.getString("CHAR_BACKGROUND", "Empty"));
+            loadedCharacter.setmWeaponDamage(sp_file.getString("CHAR_BACKGROUND", "Empty"));
+            loadedCharacter.setrWeapons(sp_file.getString("CHAR_BACKGROUND", "Empty"));
+            loadedCharacter.setrWeaponBonus(sp_file.getString("CHAR_BACKGROUND", "Empty"));
+            loadedCharacter.setrWeaponDamage(sp_file.getString("CHAR_BACKGROUND", "Empty"));
+            loadedCharacter.setrWeaponAmmo(sp_file.getString("CHAR_BACKGROUND", "Empty"));
+            loadCharacter.setrWeaponRange(sp_file.getString("CHAR_BACKGROUND", "Empty"));*/
+
 
             loadedCharacter.setClassPoints(sp_file.getInt("CHAR_POINTS", 0));
 

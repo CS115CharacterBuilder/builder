@@ -127,17 +127,17 @@ class MyAdapter extends FragmentPagerAdapter {
 
         //bundles filled with melee and ranged weapon data
         String[] caughtMWeapon = caughtStatsBundle.getStringArray("mWeaponBundle");
-        String[] caughtMWeaponDMG = caughtStatsBundle.getStringArray("mWeaponDMGBundle");
         String[] caughtMWeaponBonus = caughtStatsBundle.getStringArray("mWeaponBonusBundle");
+        String[] caughtMWeaponDMG = caughtStatsBundle.getStringArray("mWeaponDMGBundle");
         String[] caughtRWeapon = caughtStatsBundle.getStringArray("rWeaponBundle");
-        String[] caughtRWeaponDMG = caughtStatsBundle.getStringArray("rWeaponDMGBundle");
         String[] caughtRWeaponBonus = caughtStatsBundle.getStringArray("rWeaponBonusBundle");
+        String[] caughtRWeaponDMG = caughtStatsBundle.getStringArray("rWeaponDMGBundle");
         int[] caughtRWeaponAmmo = caughtStatsBundle.getIntArray("rWeaponAmmoBundle");
         String[] caughtRWeaponRange = caughtStatsBundle.getStringArray("rWeaponRangeBundle");
 
         //bundles filled with spells data
-        String[] caughtKnownSpells = caughtStatsBundle.getStringArray("knownSpellBundle");
-        String[] caughtEquipSpells = caughtStatsBundle.getStringArray("equipSpellBundle");
+        //String[] caughtKnownSpells = caughtStatsBundle.getStringArray("knownSpellBundle");
+        //String[] caughtEquipSpells = caughtStatsBundle.getStringArray("equipSpellBundle");
 
         //creates bundle object  and adds character object to it for passing data to fragment
         Bundle bundle = new Bundle();
