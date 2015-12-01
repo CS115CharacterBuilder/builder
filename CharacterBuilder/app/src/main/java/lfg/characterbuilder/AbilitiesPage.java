@@ -37,9 +37,9 @@ public class AbilitiesPage extends Fragment {
     ExpandableListView expListView;
     List<String> abilityTypes;
     HashMap<String, List<Ability>> listAbilities;
-    BackgroundData bDatabase;
     String proficienciesPass = "";
     Boolean profExist;
+    BackgroundData bDatabase;
     ClassData cDatabase;
     RaceData rDatabase;
     ArrayList<Data> bd;
@@ -94,11 +94,6 @@ public class AbilitiesPage extends Fragment {
         CPVal = (EditText) mView.findViewById(R.id.CPVal);
         CPVal.setGravity(Gravity.CENTER_HORIZONTAL);
         CPVal.setText(String.valueOf(gotChar.getClassPoints()));
-        
-        //Background = "Acolyte";
-        //Class = "Barbarian";
-        //Race = "Dwarf";
-        //Subrace = "HillDwarf";
 
         //Create Lists
         createlist();

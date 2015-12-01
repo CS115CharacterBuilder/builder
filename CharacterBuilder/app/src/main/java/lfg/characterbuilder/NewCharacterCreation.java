@@ -9,8 +9,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class NewCharacterCreation extends AppCompatActivity {
@@ -55,49 +57,71 @@ public class NewCharacterCreation extends AppCompatActivity {
     private String Charisma;
 
     //Stats - 6
-    private EditText CharPROF;
+    private TextView CharPROF;
     private String Proficiency;
 
     //Stats - 7
-    private EditText CharINI;
+    private TextView CharINI;
     private String Initiative;
 
     //Stats - 8
-    private EditText CharSPD;
+    private TextView CharSPD;
     private String Speed;
 
     //Stats - 9
-    private EditText CharPER;
+    private TextView CharPER;
     private String Perception;
 
     //Stats - 10 (Number)
-    private EditText CharHD;
+    private TextView CharHD;
     private String HitDice;
 
     //Stats - 11 (HD Type)
-    private EditText CharAC;
+    private String HitDiceCount;
+
+    private TextView CharAC;
     private String ArmorClass;
 
     //Stats - 12
-    private EditText CharHP;
+    private TextView CharHP;
     private String HitPoints;
 
     //Stats - 13
     private String TotalHP;
 
     //Stats - 14
-    private EditText CharTEMP;
+    private TextView CharTEMP;
     private String TemporaryHP;
 
     private static final String STRING_LIST =
             "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
     private static final int RANDOM_STRING_LENGTH = 8;
 
+    ClassData cDatabase;
+    RaceData rDatabase;
+    ArrayList<Data> cd;
+    ArrayList<Data> rd;
+
+    public class Ability {
+        Ability() {
+        };
+
+        public String name;
+        public String description;
+        public String type;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_character_stats);
         Button savebtn = (Button) findViewById(R.id.charbtn);
+
+        //declare and create local database
+        cDatabase = new ClassData();
+        rDatabase = new RaceData();
+        cd = cDatabase.getCd();
+        rd = rDatabase.getRd();
     }
 
 
@@ -151,27 +175,47 @@ public class NewCharacterCreation extends AppCompatActivity {
         Wisdom = CharWIS.getText().toString();
         CharCHAR = (EditText) findViewById(R.id.CharCHAR);
         Charisma = CharCHAR.getText().toString();
-        CharPROF = (EditText) findViewById(R.id.CharPROF);
-        Proficiency = CharPROF.getText().toString();
-        CharINI = (EditText) findViewById(R.id.CharINI);
-        Initiative = CharINI.getText().toString();
-        CharSPD = (EditText) findViewById(R.id.CharSPD);
-        Speed = CharSPD.getText().toString();
-        CharPER = (EditText) findViewById(R.id.CharPER);
-        Perception = CharPER.getText().toString();
-        CharHD = (EditText) findViewById(R.id.CharHD);
-        HitDice = CharHD.getText().toString();
-        CharAC = (EditText) findViewById(R.id.CharAC);
-        ArmorClass = CharAC.getText().toString();
-        CharHP = (EditText) findViewById(R.id.CharHP);
-        HitPoints = CharHP.getText().toString();
+        CharPROF = (TextView) findViewById(R.id.CharPROF);
+        Proficiency = Integer.toString(2);
+        CharINI = (TextView) findViewById(R.id.CharINI);
+        Initiative = Integer.toString(findMod(Integer.parseInt(CharDEX.getText().toString())));
+        CharSPD = (TextView) findViewById(R.id.CharSPD);
+
+        //Fill in speed value of character from database
+        for(int i = 0; i < rd.size(); i++) {
+            Data temp = rd.get(i);
+            System.out.println(temp.abilName);
+            System.out.println(Integer.toString(i) + temp.dRace);
+            if(temp.dRace.equals(Race) && temp.dlevel <= 1) {
+                if(temp.speed != 0) {
+                    Speed = Integer.toString(temp.speed);
+                }
+            }
+        }
+        CharPER = (TextView) findViewById(R.id.CharPER);
+        Perception = Integer.toString(10 + findMod(Integer.parseInt(CharWIS.getText().toString())));
+        HitDiceCount = Integer.toString(1);
+        CharHD = (TextView) findViewById(R.id.CharHD);
+
+        //Fill in hitdice value of character from database
+        for(int i = 0; i < cd.size(); i++) {
+            Data temp = cd.get(i);
+            if(temp.dClass.equals(Class) && temp.dlevel <= 1) {
+                if(temp.hitdie != 0) {
+                    HitDice = Integer.toString(temp.hitdie);
+                }
+            }
+        }
+        CharAC = (TextView) findViewById(R.id.CharAC);
+        CharHP = (TextView) findViewById(R.id.CharHP);
+        HitPoints = Integer.toString(Integer.parseInt(HitDice) + findMod(Integer.parseInt(CharCON.getText().toString())));
         TotalHP = HitPoints;
-        CharTEMP = (EditText) findViewById(R.id.CharTEMP);
-        TemporaryHP = CharTEMP.getText().toString();
+        CharTEMP = (TextView) findViewById(R.id.CharTEMP);
+        TemporaryHP = Integer.toString(0);
 
         //Package the Stats into a String separated by ","
         String[] statsArray = new String[]{Strength, Dexerity, Constitution,Intelligence,Wisdom,Charisma,
-                Proficiency,Initiative,Speed,Perception,HitDice,ArmorClass,HitPoints,TotalHP,TemporaryHP};
+                Proficiency,Initiative,Speed,Perception, HitDiceCount, HitDice,HitPoints,TotalHP,TemporaryHP};
         StringBuilder statsString = new StringBuilder();
         for(int i = 0; i < statsArray.length; i++){
             statsString.append(statsArray[i]).append(",");
@@ -244,5 +288,11 @@ public class NewCharacterCreation extends AppCompatActivity {
         returnIntent.putExtra("newCharacterTag", newCharacter);
         setResult(Activity.RESULT_OK, returnIntent);
         finish();
+    }
+
+    //takes stat value and converts it into the modifier
+    public int findMod(int x) {
+        int statMod = (x - 10)/2;
+        return statMod;
     }
 }
