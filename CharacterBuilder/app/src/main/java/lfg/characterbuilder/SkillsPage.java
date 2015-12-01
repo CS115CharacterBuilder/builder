@@ -89,8 +89,22 @@ public class SkillsPage extends Fragment {
         Bundle args = getArguments();
         int[] caughtStatsArray = args.getIntArray("statsToFrag");
         stats = caughtStatsArray;
+
         boolean[] caughtBooleanArray = args.getBooleanArray("sProfBundle");
-        classprof = caughtBooleanArray;
+        if (caughtBooleanArray == null) {
+            boolean[] skillproficiencies = new boolean[18];
+            for(int i = 0; i < skillproficiencies.length; i++){
+                if(i%2 == 0){
+                    skillproficiencies[i] = false;
+                }
+                else {
+                    skillproficiencies[i] = true;
+                }
+            }
+            classprof = skillproficiencies;
+        }
+        else classprof = caughtBooleanArray;
+
         profval = stats[6];
         sList = new ArrayList<SkillElement>();
         createSkills();

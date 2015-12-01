@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.util.Log;
 
 /**
  * Created by Alex on 10/12/2015.
@@ -83,12 +84,12 @@ public class Character implements Parcelable {
             stats[i] = 666;
         }
         this.statsproficiencies = new boolean[6];
-        for(int i = 0; i < statsproficiencies.length; i++){
+        for(int i = 0; i < this.statsproficiencies.length; i++){
             if(i%2 == 0){
-                statsproficiencies[i] = false;
+                this.statsproficiencies[i] = false;
             }
             else {
-                statsproficiencies[i] = true;
+                this.statsproficiencies[i] = true;
             }
         }
         //Skills Default

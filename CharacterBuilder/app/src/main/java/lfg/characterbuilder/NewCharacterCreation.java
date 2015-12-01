@@ -177,6 +177,7 @@ public class NewCharacterCreation extends AppCompatActivity {
             statsString.append(statsArray[i]).append(",");
         }
 
+
         //Determine Character Icon
         int characterIcon;
         switch(CharCLASS.getText().toString()){

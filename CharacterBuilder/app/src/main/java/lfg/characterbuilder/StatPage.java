@@ -36,7 +36,19 @@ public class StatPage extends Fragment {
         int[] caughtStatsArray = args.getIntArray("statsToFrag");
         stats = caughtStatsArray;
         boolean[] caughtStatProfArray = args.getBooleanArray("statProfBundle");
-        stats_prof = caughtStatProfArray;
+        if (caughtStatProfArray == null) {
+            boolean[] statsproficiencies = new boolean[6];
+            for(int i = 0; i < statsproficiencies.length; i++){
+                if(i%2 == 0){
+                    statsproficiencies[i] = false;
+                }
+                else {
+                    statsproficiencies[i] = true;
+                }
+            }
+            stats_prof = statsproficiencies;
+        }
+        else stats_prof = caughtStatProfArray;
         
         //Grab and set character
         gotChar = args.getParcelable("charToStats");
