@@ -81,7 +81,7 @@ public class Character implements Parcelable {
         //Stats Default
         this.stats = new int[16];
         for(int i = 0; i < stats.length; i++) {
-            stats[i] = 666;
+            stats[i] = 0;
         }
         this.statsproficiencies = new boolean[6];
         for(int i = 0; i < this.statsproficiencies.length; i++){
