@@ -93,7 +93,7 @@ public class BackgroundData extends Data {
 
     Data entertainerFeatures = new Data();
     public void setEntertainerFeatures(Data entertainerFeatures) {
-        entertainerFeatures.abilName = "Criminal Features";
+        entertainerFeatures.abilName = "Entertainer Features";
         entertainerFeatures.backgroundType = "Entertainer";
         //Skills alphabetically: Acrobatics, Animal Handling, Arcana, Athletics, Deception, History, Insight, Intimidation,Investigation, Medicine, Nature, Perception, Performance, Persuasion, Religion, Sleight of Hand, Stealth, Survival.
         //                 {0   ,1     ,2     ,3     ,4     ,5     ,6     ,7     ,8     ,9     ,10    ,11    ,12    ,13    ,14    ,15    ,16    ,17  }
@@ -101,7 +101,7 @@ public class BackgroundData extends Data {
         entertainerFeatures.backgroundSkills = skills;
         entertainerFeatures.toolProf = "Disguise Kit, One type of musical instrument";
         entertainerFeatures.startGold = 15;
-        entertainerFeatures.flavor = "You are an experienced criminal with a history of breaking the law. You have spent a lot of time among other criminals and still have contacts within the criminal underworld. You’re far closer than most people to the world of murder, theft, and violence that pervades the underbelly of civilization, and you have survived up to this point by flouting the rules and regulations of society.";
+        entertainerFeatures.flavor = "You are experienced in helping others enjoy themselves. Whenever you are around there is merriment and joy. Odds are, you are surrounded by others who are jovial and love to party.";
     }
 
     Data entertainerByPopularDemand = new Data();
@@ -135,7 +135,7 @@ public class BackgroundData extends Data {
         folkHeroFeatures.backgroundSkills = skills;
         folkHeroFeatures.toolProf = "One type of artisan's tools. Vehicles(land).";
         folkHeroFeatures.startGold = 10;
-        folkHeroFeatures.flavor = "ou previously pursued a simple profession among\n" +
+        folkHeroFeatures.flavor = "You previously pursued a simple profession among\n" +
                 "the peasantry, perhaps as a farmer, miner, servant, shepherd, woodcutter, or gravedigger. But something happened that set you on a different path and marked you for greater things. Choose or randomly determine a defining event that marked you as a hero of the people.";
     }
 
@@ -301,7 +301,7 @@ public class BackgroundData extends Data {
 
     Data sageFeatures = new Data();
     public void setSageFeatures(Data sageFeatures) {
-        sageFeatures.abilName = "Outlander Features";
+        sageFeatures.abilName = "Sage Features";
         sageFeatures.backgroundType = "Sage";
         //Skills alphabetically: Acrobatics, Animal Handling, Arcana, Athletics, Deception, History, Insight, Intimidation,Investigation, Medicine, Nature, Perception, Performance, Persuasion, Religion, Sleight of Hand, Stealth, Survival.
         //                 {0    ,1     ,2     ,3     ,4     ,5     ,6     ,7     ,8     ,9     ,10    ,11    ,12    ,13    ,14    ,15    ,16    ,17  }

@@ -383,6 +383,7 @@ public class HomeActivity extends AppCompatActivity {
             loadedCharacter.setCharacterRace(sp_file.getString("CHAR_RACE", "Human"));
             loadedCharacter.setCharacterSubRace(sp_file.getString("CHAR_SUBRACE", "Human"));
             loadedCharacter.setType(sp_file.getString("CHAR_BACKGROUND", "Empty"));
+            loadedCharacter.setBackgroundDesc(sp_file.getString("CHAR_BACKGROUNDDESC", "Enter a backstory"));
 
             loadedCharacter.setCopper(sp_file.getInt("CHAR_COPPER", 0));
             loadedCharacter.setSilver(sp_file.getInt("CHAR_SILVER", 0));
@@ -413,6 +414,7 @@ public class HomeActivity extends AppCompatActivity {
             characters.get(i).setCharacterRace(sp_char.getString("CHAR_RACE", "Human"));
             characters.get(i).setCharacterSubRace(sp_char.getString("CHAR_SUBRACE", "Human"));
             characters.get(i).setType(sp_char.getString("CHAR_BACKGROUND", "Empty"));
+            characters.get(i).setBackgroundDesc(sp_char.getString("CHAR_BACKGROUNDDESC", "Enter a backstory"));
             characters.get(i).setCharacterName(updatedName);
             characters.get(i).setCharacterClass(updatedClass);
             characters.get(i).setPhotoId(updatedPhoto);
