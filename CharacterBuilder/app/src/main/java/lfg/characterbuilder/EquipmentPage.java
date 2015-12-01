@@ -226,7 +226,7 @@ public class EquipmentPage extends Fragment {
             profTxt = "A bunch of proficiencies";//profTxt + " " + proficiencies[i];
         }
         //loop creates melee weapons list
-        for(int i = 0; i < m_weapons_held.length; i++) {
+        /*for(int i = 0; i < m_weapons_held.length; i++) {
             mWeapon temp = new mWeapon();
             temp.Name = m_weapons_held[i];
             temp.Damage = m_weapons_damage[i];
@@ -243,7 +243,7 @@ public class EquipmentPage extends Fragment {
             temp.Ammo = r_weapons_ammo[i];
             temp.Range = r_weapons_range[i];
             rWList.add(temp);
-        }
+        }*/
     }
 
 

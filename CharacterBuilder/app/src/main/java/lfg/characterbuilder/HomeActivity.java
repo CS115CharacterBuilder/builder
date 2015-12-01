@@ -238,6 +238,7 @@ public class HomeActivity extends AppCompatActivity {
         adapter.notifyDataSetChanged();
     }
 
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         //Inflate the menu
@@ -396,17 +397,6 @@ public class HomeActivity extends AppCompatActivity {
             loadedCharacter.setCopper(sp_file.getInt("CHAR_COPPER", 0));
             loadedCharacter.setSilver(sp_file.getInt("CHAR_SILVER", 0));
             loadedCharacter.setGold(sp_file.getInt("CHAR_GOLD", 0));
-
-
-            /*loadedCharacter.setmWeapons(sp_file.getString("CHAR_BACKGROUND", "Empty"));
-            loadedCharacter.setmWeaponBonus(sp_file.getString("CHAR_BACKGROUND", "Empty"));
-            loadedCharacter.setmWeaponDamage(sp_file.getString("CHAR_BACKGROUND", "Empty"));
-            loadedCharacter.setrWeapons(sp_file.getString("CHAR_BACKGROUND", "Empty"));
-            loadedCharacter.setrWeaponBonus(sp_file.getString("CHAR_BACKGROUND", "Empty"));
-            loadedCharacter.setrWeaponDamage(sp_file.getString("CHAR_BACKGROUND", "Empty"));
-            loadedCharacter.setrWeaponAmmo(sp_file.getString("CHAR_BACKGROUND", "Empty"));
-            loadCharacter.setrWeaponRange(sp_file.getString("CHAR_BACKGROUND", "Empty"));*/
-
 
             loadedCharacter.setClassPoints(sp_file.getInt("CHAR_POINTS", 0));
 
