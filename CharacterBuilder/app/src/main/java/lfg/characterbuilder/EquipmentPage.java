@@ -40,8 +40,8 @@ public class EquipmentPage extends Fragment {
         String Range;
     }
 
-    private ArrayList<mWeapon> mWList = new ArrayList<mWeapon>();
-    private ArrayList<rWeapon> rWList = new ArrayList<rWeapon>();
+    private static ArrayList<mWeapon> mWList = new ArrayList<mWeapon>();
+    private static ArrayList<rWeapon> rWList = new ArrayList<rWeapon>();
     private String[] proficiencies;
     private String profTxt = "";
     private String[] m_weapons_held;
@@ -213,4 +213,102 @@ public class EquipmentPage extends Fragment {
             rWList.add(temp);
         }
     }
+
+
+    public static String getMeleeWeaponsName(){
+        String[] newMeleeNames = new String[mWList.size()];
+        for(int i = 0; i < mWList.size(); ++i ){
+            newMeleeNames[i] = mWList.get(i).Name;
+        }
+        StringBuilder statsString = new StringBuilder();
+        for(int i = 0; i < newMeleeNames.length; i++){
+            statsString.append(newMeleeNames[i]).append(",");
+        }
+        return statsString.toString();
+    }
+
+    public static String getMeleeWeaponsBonus(){
+        String[] newMeleeBonus = new String[mWList.size()];
+        for(int i = 0; i < mWList.size(); ++i ){
+            newMeleeBonus[i] = mWList.get(i).AB;
+        }
+        StringBuilder statsString = new StringBuilder();
+        for(int i = 0; i < newMeleeBonus.length; i++){
+            statsString.append(newMeleeBonus[i]).append(",");
+        }
+        return statsString.toString();
+    }
+
+    public static String getMeleeWeaponsDamage(){
+        String[] newMeleeDamage = new String[mWList.size()];
+        for(int i = 0; i < mWList.size(); ++i ){
+            newMeleeDamage[i] = mWList.get(i).Damage;
+        }
+        StringBuilder statsString = new StringBuilder();
+        for(int i = 0; i < newMeleeDamage.length; i++){
+            statsString.append(newMeleeDamage[i]).append(",");
+        }
+        return statsString.toString();
+    }
+
+    public static String getRangedWeaponsName(){
+        String[] newRangedNames = new String[rWList.size()];
+        for(int i = 0; i < rWList.size(); ++i ){
+            newRangedNames[i] = rWList.get(i).Damage;
+        }
+        StringBuilder statsString = new StringBuilder();
+        for(int i = 0; i < newRangedNames.length; i++){
+            statsString.append(newRangedNames[i]).append(",");
+        }
+        return statsString.toString();
+    }
+
+    public static String getRangedWeaponsBonus(){
+        String[] newRangedBonus = new String[rWList.size()];
+        for(int i = 0; i < rWList.size(); ++i ){
+            newRangedBonus[i] = rWList.get(i).AB;
+        }
+        StringBuilder statsString = new StringBuilder();
+        for(int i = 0; i < newRangedBonus.length; i++){
+            statsString.append(newRangedBonus[i]).append(",");
+        }
+        return statsString.toString();
+    }
+
+    public static String getRangedWeaponsDamage(){
+        String[] newRangedDamage = new String[rWList.size()];
+        for(int i = 0; i < rWList.size(); ++i ){
+            newRangedDamage[i] = rWList.get(i).Damage;
+        }
+        StringBuilder statsString = new StringBuilder();
+        for(int i = 0; i < newRangedDamage.length; i++){
+            statsString.append(newRangedDamage[i]).append(",");
+        }
+        return statsString.toString();
+    }
+
+    public static String getRangedWeaponsAmmo(){
+        String[] newRangedAmmo = new String[rWList.size()];
+        for(int i = 0; i < rWList.size(); ++i ){
+            newRangedAmmo[i] = Integer.toString(rWList.get(i).Ammo);
+        }
+        StringBuilder statsString = new StringBuilder();
+        for(int i = 0; i < newRangedAmmo.length; i++){
+            statsString.append(newRangedAmmo[i]).append(",");
+        }
+        return statsString.toString();
+    }
+
+    public static String getRangedWeaponsRange(){
+        String[] newRangedRange = new String[rWList.size()];
+        for(int i = 0; i < rWList.size(); ++i ){
+            newRangedRange[i] = Integer.toString(rWList.get(i).Ammo);
+        }
+        StringBuilder statsString = new StringBuilder();
+        for(int i = 0; i < newRangedRange.length; i++){
+            statsString.append(newRangedRange[i]).append(",");
+        }
+        return statsString.toString();
+    }
+
 }
