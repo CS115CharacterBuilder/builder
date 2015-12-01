@@ -120,6 +120,7 @@ class MyAdapter extends FragmentPagerAdapter {
         boolean[] caughtSProf = caughtStatsBundle.getBooleanArray("sProfBundle");
         boolean[] caughtStatProf = caughtStatsBundle.getBooleanArray("statProfBundle");
 
+
         //bundles filled with item names and descriptions
         String[] caughtItem = caughtStatsBundle.getStringArray("itemBundle");
         String[] caughtItemDesc = caughtStatsBundle.getStringArray("itemDescBundle");

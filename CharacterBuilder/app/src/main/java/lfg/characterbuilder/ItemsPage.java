@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -108,21 +109,46 @@ public class ItemsPage extends Fragment {
 
     private MyAdapter aa;
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        gotChar = getActivity().getIntent().getParcelableExtra("characterTag");
+        Bundle args = getArguments();
+        itemNames = args.getStringArray("itemBundle");
+        itemDesc = args.getStringArray("itemDescBundle");
+        iList = new ArrayList<ItemElement>();
+        if(itemNames == null){
+            String[] tempNames = new String[2];
+            tempNames[0] = "Bag";
+            tempNames[1] = "Rock";
+            itemNames = tempNames;
+            Log.d("GOT", "IT1");
+        }
+        if(itemDesc == null){
+            String[] tempDesc = new String[2];
+            tempDesc[0] = "It's a nice little bag for carrying currency";
+            tempDesc[1] = "It rocks!";
+            itemDesc = tempDesc;
+            Log.d("GOT", "IT2");
+        }
+        initializeIList();
+        super.onCreate(savedInstanceState);
+    }
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View fragmentView = inflater.inflate(R.layout.activity_items_page, container, false);
         this.mView = fragmentView;
         super.onCreateView(inflater, container, savedInstanceState);
         //get character objet
-        gotChar = getActivity().getIntent().getParcelableExtra("characterTag");
-        Bundle args = getArguments();
-        itemNames = args.getStringArray("itemBundle");
-        itemDesc = args.getStringArray("itemDescBundle");
+        //gotChar = getActivity().getIntent().getParcelableExtra("characterTag");
+        //Bundle args = getArguments();
+        //itemNames = args.getStringArray("itemBundle");
+        //itemDesc = args.getStringArray("itemDescBundle");
         //get item names and descriptions from character object
         //itemNames = gotChar.getItemNames();
         //itemDesc = gotChar.getItemDescriptions();
         //creates list
-        iList = new ArrayList<ItemElement>();
-        initializeIList();
+        //iList = new ArrayList<ItemElement>();
+        //initializeIList();
         //creates add button
         Button iAdd = (Button) mView.findViewById(R.id.addBtn);
         iAdd.setOnClickListener(new View.OnClickListener() {
