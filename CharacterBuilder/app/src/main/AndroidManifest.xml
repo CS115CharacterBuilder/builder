@@ -75,6 +75,11 @@
         </activity>
         <activity android:name=".SpellDetails" >
         </activity>
+        <activity
+            android:name=".noob_result_display_mrkII"
+            android:label="@string/title_activity_noob_result_display_mrk_ii"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
     </application>
 
 </manifest>

@@ -1,6 +1,7 @@
 package lfg.characterbuilder;
 
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -284,9 +285,11 @@ public class Homunculus{
 
         //top.setText("hello bitch");
         top.setText(finalTop);
+        top.setVisibility(View.VISIBLE);
+        middle.setVisibility(View.VISIBLE);
+        bottom.setVisibility(View.VISIBLE);
         middle.setText(finalMiddle);
         bottom.setText(finalBottom);
-
 
     }
 

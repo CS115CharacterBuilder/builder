@@ -263,6 +263,7 @@ public class AbilitiesPage extends Fragment {
     }
 
     public static int getAbilitiesClassPoints(){
+        if (CPVal == null) return -1;
         return Integer.parseInt(CPVal.getText().toString());
     }
 }

@@ -62,33 +62,26 @@ public class DiceRollerMenu extends AppCompatActivity implements AdapterView.OnI
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-        //TextView myText = (TextView) view;
-        //Toast.makeText(this, "You Selected " + myText.getText(), Toast.LENGTH_SHORT).show();
         check = check + 1;
         if (check > 1) {
             switch (position) {
                 case 0:
                     Log.d("case", "in case o");
-                    Toast.makeText(this, "position: " + position, Toast.LENGTH_SHORT).show();
                     break;
                 case 1:
                     Log.d("case", "in case 1");
-                    Toast.makeText(this, "position: " + position, Toast.LENGTH_SHORT).show();
                     Intent customDiceIntent = new Intent(this, customDiceActivity.class);
                     startActivity(customDiceIntent);
                     break;
                 case 2:
-                    Toast.makeText(this, "position: " + position, Toast.LENGTH_SHORT).show();
                     Intent dropLowestIntent = new Intent(this, dropLowestDiceMRKII.class);
                     startActivity(dropLowestIntent);
                     break;
                 case 3:
-                    Toast.makeText(this, "position: " + position, Toast.LENGTH_SHORT).show();
                     Intent rerollOnesIntent = new Intent(this, rerollOnes.class);
                     startActivity(rerollOnesIntent);
                     break;
                 default:
-                    Toast.makeText(this, "ayy lmao", Toast.LENGTH_SHORT).show();
                     break;
             }
         }

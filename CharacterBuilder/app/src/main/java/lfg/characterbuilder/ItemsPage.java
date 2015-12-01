@@ -262,18 +262,22 @@ public class ItemsPage extends Fragment {
     }
 
     public static int getCopper(){
+        if(CopperVal == null) return -1;
         return Integer.parseInt(CopperVal.getText().toString());
     }
 
     public static int getSilver(){
+        if(SilverVal == null) return -1;
         return Integer.parseInt(SilverVal.getText().toString());
     }
 
     public static int getGold(){
+        if(GoldVal == null) return -1;
         return Integer.parseInt(GoldVal.getText().toString());
     }
 
     public static String getItemNames(){
+        if(iList == null) return "NOSAVE";
         String[] newItemNames = new String[iList.size()];
         for(int i = 0; i < iList.size(); ++i ){
             newItemNames[i] = iList.get(i).itemName;
@@ -286,6 +290,7 @@ public class ItemsPage extends Fragment {
     }
 
     public static String getItemDesc(){
+        if(iList == null) return "NOSAVE";
         String[] newItemDesc = new String[iList.size()];
         for(int i = 0; i < iList.size(); ++i ){
             newItemDesc[i] = iList.get(i).itemDescription;
