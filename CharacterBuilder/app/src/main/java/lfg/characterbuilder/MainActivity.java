@@ -69,6 +69,17 @@ public class MainActivity extends FragmentActivity {
         editor.putInt("CHAR_SILVER", ItemsPage.getSilver());
         editor.putInt("CHAR_GOLD", ItemsPage.getGold());
 
+        //Equipment Page
+        editor.putString("CHAR_MWEAPONSNAME", EquipmentPage.getMeleeWeaponsName());
+        editor.putString("CHAR_MWEAPONSBONUS", EquipmentPage.getMeleeWeaponsBonus());
+        editor.putString("CHAR_MWEAPONSDAMAGE", EquipmentPage.getMeleeWeaponsDamage());
+        editor.putString("CHAR_RWEAPONSNAME", EquipmentPage.getRangedWeaponsName());
+        editor.putString("CHAR_RWEAPONSBONUS", EquipmentPage.getRangedWeaponsBonus());
+        editor.putString("CHAR_RWEAPONSDAMAGE", EquipmentPage.getRangedWeaponsDamage());
+        editor.putString("CHAR_RWEAPONSAMMO", EquipmentPage.getRangedWeaponsAmmo());
+        editor.putString("CHAR_RWEAPONSRANGE", EquipmentPage.getRangedWeaponsRange());
+
+
         //Abilities Page
         editor.putInt("CHAR_POINTS", AbilitiesPage.getAbilitiesClassPoints());
 
