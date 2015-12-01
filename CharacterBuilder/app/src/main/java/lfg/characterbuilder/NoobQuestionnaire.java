@@ -43,11 +43,8 @@ public class NoobQuestionnaire extends AppCompatActivity implements AdapterView.
 
 
     class NQTag{
-        String hello;
         ArrayList<String> tagList;
         NQTag(ArrayList<String> attributes){
-            //hello = "hello!";
-            //Toast.makeText(NoobQuestionnaire.this, "Ayy lmao, this is a test for the INSIDE", Toast.LENGTH_SHORT).show();
             tagList = new ArrayList<String>(attributes);
         }
 
@@ -222,7 +219,6 @@ public class NoobQuestionnaire extends AppCompatActivity implements AdapterView.
         choiceOne.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Toast.makeText(NoobQuestionnaire.this, "Ayy lmao, this is a test for the onClick", Toast.LENGTH_SHORT).show();
 
                 if(questionOver == true){
                     Log.d("PANIC", "ITS FUCKING WORKING");
@@ -250,7 +246,6 @@ public class NoobQuestionnaire extends AppCompatActivity implements AdapterView.
         choiceTwo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Toast.makeText(NoobQuestionnaire.this, "Ayy lmao, this is a test for the onClick", Toast.LENGTH_SHORT).show();
                 if(questionOver == true){
                     Log.d("PANIC", "ITS FUCKING WORKING");
                     createQ(v);
@@ -277,7 +272,6 @@ public class NoobQuestionnaire extends AppCompatActivity implements AdapterView.
         choiceThree.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Toast.makeText(NoobQuestionnaire.this, "Ayy lmao, this is a test for the onClick", Toast.LENGTH_SHORT).show();
                 if(questionOver == true){
                     Log.d("PANIC", "ITS FUCKING WORKING");
                     createQ(v);
@@ -304,7 +298,6 @@ public class NoobQuestionnaire extends AppCompatActivity implements AdapterView.
         choiceFour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Toast.makeText(NoobQuestionnaire.this, "Ayy lmao, this is a test for the onClick", Toast.LENGTH_SHORT).show();
                 if(questionOver == true){
                     Log.d("PANIC", "ITS FUCKING WORKING");
                     createQ(v);
@@ -333,7 +326,6 @@ public class NoobQuestionnaire extends AppCompatActivity implements AdapterView.
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        //Toast.makeText(NoobQuestionnaire.this, "Ayy lmao, OITEMCLICK", Toast.LENGTH_SHORT).show();
     }
 
     //sets up the text and the tags. Each case is a new question

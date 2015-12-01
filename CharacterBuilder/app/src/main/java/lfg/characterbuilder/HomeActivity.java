@@ -321,17 +321,14 @@ public class HomeActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch ((int) id) {
                     case 0:
-                        Toast.makeText(HomeActivity.this, "Implement Dice", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(HomeActivity.this, DiceRollerMenu.class);
                         startActivity(intent);
                         break;
                     case 1:
-                        Toast.makeText(HomeActivity.this, "Ayy lmao, this is a test for the ExQuestionnaire", Toast.LENGTH_SHORT).show();
                         Intent exQuestionIntent = new Intent(HomeActivity.this, ExQuestionnaire.class);
                         startActivity(exQuestionIntent);
                         break;
                     case 2:
-                        Toast.makeText(HomeActivity.this, "Ayy lmao, this is a test for the NoobQuestionnaire", Toast.LENGTH_SHORT).show();
                         Intent noobQuestionIntent = new Intent(HomeActivity.this, NoobQuestionnaire.class);
                         startActivity(noobQuestionIntent);
                         break;
