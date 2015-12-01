@@ -95,7 +95,7 @@ public class MainActivity extends FragmentActivity {
         if(BackgroundPage.getBackgroundName() != "NOSAVE") editor.putString("CHAR_NAME", BackgroundPage.getBackgroundName());
         if(BackgroundPage.getBackgroundAlignment() != "NOSAVE") editor.putString("CHAR_ALIGNMENT", BackgroundPage.getBackgroundAlignment());
         if(BackgroundPage.getBackgroundDeity() != "NOSAVE") editor.putString("CHAR_DEITY", BackgroundPage.getBackgroundDeity());
-        if(BackgroundPage.getBackgroundText() != "NOSAVE")  editor.putString("CHAR_BACKGROUND", BackgroundPage.getBackgroundText());
+        if(BackgroundPage.getBackgroundText() != "NOSAVE")  editor.putString("CHAR_BACKGROUNDDESC", BackgroundPage.getBackgroundText());
 
         editor.apply();
 
