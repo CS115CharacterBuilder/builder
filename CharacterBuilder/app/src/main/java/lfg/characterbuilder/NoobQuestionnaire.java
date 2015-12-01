@@ -1,5 +1,7 @@
 package lfg.characterbuilder;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -15,6 +17,7 @@ import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 
 // THIS CLASS IS NOT YET IMPLEMENTED FULLY ---------------------------------------------------------
@@ -24,6 +27,13 @@ import java.util.List;
 public class NoobQuestionnaire extends AppCompatActivity implements AdapterView.OnItemClickListener {
     int questionNumber;
     int numberOfQuestions = 3;
+    boolean questionOver = false;
+    //for saving the character
+    int RANDOM_STRING_LENGTH = 8;
+    private static final String STRING_LIST =
+            "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+
+
     //ARRAY USED TO PARSE QUESTIONS AFTER QUESTIONNAIRE IS OVER
     ArrayList<NQTag> tagParseArray = new ArrayList<NQTag>();
 
@@ -33,11 +43,8 @@ public class NoobQuestionnaire extends AppCompatActivity implements AdapterView.
 
 
     class NQTag{
-        String hello;
         ArrayList<String> tagList;
         NQTag(ArrayList<String> attributes){
-            //hello = "hello!";
-            //Toast.makeText(NoobQuestionnaire.this, "Ayy lmao, this is a test for the INSIDE", Toast.LENGTH_SHORT).show();
             tagList = new ArrayList<String>(attributes);
         }
 
@@ -67,8 +74,8 @@ public class NoobQuestionnaire extends AppCompatActivity implements AdapterView.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_noob_questionnaire);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        //setSupportActionBar(toolbar);
         final Homunculus noobHom = new Homunculus();
 
 
@@ -83,6 +90,10 @@ public class NoobQuestionnaire extends AppCompatActivity implements AdapterView.
         //TEXTVIEWS AFTER QUESTIONNAIRE IS DONE
 
         final TextView resultTitle = (TextView)findViewById(R.id.noobResultTitle);
+        //strings of the results
+        String topResultString = "";
+        String midResultString ="";
+        String botResultString ="";
 
 //----------------------------------TEXTVIEWS-------------------------------------------------------
 
@@ -208,22 +219,24 @@ public class NoobQuestionnaire extends AppCompatActivity implements AdapterView.
         choiceOne.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Toast.makeText(NoobQuestionnaire.this, "Ayy lmao, this is a test for the onClick", Toast.LENGTH_SHORT).show();
-                choiceOne.setText("clicked!");
+
+                if(questionOver == true){
+                    Log.d("PANIC", "ITS FUCKING WORKING");
+                    createQ(v);
+                    return;
+                }
                 NQTag tempTag = (NQTag) v.getTag();
-                //tempTag.printList();
                 tagParseArray.add(tempTag);
                 for(int a = 0; a < tagParseArray.size(); a++){
                   tagParseArray.get(a).printList();
                 }
                 //if you're done with questions parse the arraylists and display results
-                if(questionNumber > numberOfQuestions){
+                if(questionNumber > numberOfQuestions && questionOver == false){
                     tempTag.iterateAndAdd(tagParseArray, noobHom);
-                    setContentView(R.layout.noob_result_display);
-                    TextView resultTopChoice = (TextView)findViewById(R.id.noobTopResult);
-                    TextView resultMiddleChoice = (TextView)findViewById(R.id.noobMiddleResult);
-                    TextView resultBottomChoice = (TextView)findViewById(R.id.noobBottomResult);
-                    noobHom.displayNoobresults(resultTopChoice, resultMiddleChoice, resultBottomChoice);
+                    mainQuestion.setText("Based on your choices, we recommend");
+                    noobHom.displayNoobresults(choiceOne, choiceTwo, choiceThree);
+                    questionOver = true;
+
                 }
                 else{
                     displayQuestion(questionNumber, mainQuestion, choiceOne, choiceTwo, choiceThree, choiceFour, tagArray, tagParseArray);
@@ -233,46 +246,86 @@ public class NoobQuestionnaire extends AppCompatActivity implements AdapterView.
         choiceTwo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Toast.makeText(NoobQuestionnaire.this, "Ayy lmao, this is a test for the onClick", Toast.LENGTH_SHORT).show();
-                choiceTwo.setText("clicked!");
+                if(questionOver == true){
+                    Log.d("PANIC", "ITS FUCKING WORKING");
+                    createQ(v);
+                    return;
+                }
                 NQTag tempTag = (NQTag) v.getTag();
-                //tempTag.printList();
                 tagParseArray.add(tempTag);
-                displayQuestion(questionNumber, mainQuestion, choiceOne, choiceTwo, choiceThree, choiceFour, tagArray, tagParseArray);
+                for(int a = 0; a < tagParseArray.size(); a++){
+                    tagParseArray.get(a).printList();
+                }
+                //if you're done with questions parse the arraylists and display results
+                if(questionNumber > numberOfQuestions && questionOver == false){
+                    tempTag.iterateAndAdd(tagParseArray, noobHom);
+                    mainQuestion.setText("Based on your choices, we recommend");
+                    noobHom.displayNoobresults(choiceOne, choiceTwo, choiceThree);
+                    questionOver = true;
+
+                }
+                else{
+                    displayQuestion(questionNumber, mainQuestion, choiceOne, choiceTwo, choiceThree, choiceFour, tagArray, tagParseArray);
+                }
             }
         });
         choiceThree.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Toast.makeText(NoobQuestionnaire.this, "Ayy lmao, this is a test for the onClick", Toast.LENGTH_SHORT).show();
-                choiceThree.setText("clicked!");
+                if(questionOver == true){
+                    Log.d("PANIC", "ITS FUCKING WORKING");
+                    createQ(v);
+                    return;
+                }
                 NQTag tempTag = (NQTag) v.getTag();
-                //tempTag.printList();
                 tagParseArray.add(tempTag);
-                displayQuestion(questionNumber, mainQuestion, choiceOne, choiceTwo, choiceThree, choiceFour, tagArray, tagParseArray);
+                for(int a = 0; a < tagParseArray.size(); a++){
+                    tagParseArray.get(a).printList();
+                }
+                //if you're done with questions parse the arraylists and display results
+                if(questionNumber > numberOfQuestions && questionOver == false){
+                    tempTag.iterateAndAdd(tagParseArray, noobHom);
+                    mainQuestion.setText("Based on your choices, we recommend");
+                    noobHom.displayNoobresults(choiceOne, choiceTwo, choiceThree);
+                    questionOver = true;
+
+                }
+                else{
+                    displayQuestion(questionNumber, mainQuestion, choiceOne, choiceTwo, choiceThree, choiceFour, tagArray, tagParseArray);
+                }
             }
         });
         choiceFour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Toast.makeText(NoobQuestionnaire.this, "Ayy lmao, this is a test for the onClick", Toast.LENGTH_SHORT).show();
-                choiceFour.setText("clicked!");
+                if(questionOver == true){
+                    Log.d("PANIC", "ITS FUCKING WORKING");
+                    createQ(v);
+                    return;
+                }
                 NQTag tempTag = (NQTag) v.getTag();
-                //tempTag.printList();
                 tagParseArray.add(tempTag);
-                displayQuestion(questionNumber, mainQuestion, choiceOne, choiceTwo, choiceThree, choiceFour, tagArray, tagParseArray);
+                for(int a = 0; a < tagParseArray.size(); a++){
+                    tagParseArray.get(a).printList();
+                }
+                //if you're done with questions parse the arraylists and display results
+                if(questionNumber > numberOfQuestions && questionOver == false){
+                    tempTag.iterateAndAdd(tagParseArray, noobHom);
+                    mainQuestion.setText("Based on your choices, we recommend");
+                    noobHom.displayNoobresults(choiceOne, choiceTwo, choiceThree);
+                    questionOver = true;
+
+                }
+                else{
+                    displayQuestion(questionNumber, mainQuestion, choiceOne, choiceTwo, choiceThree, choiceFour, tagArray, tagParseArray);
+                }
 
             }
         });
-
-   // mainQuestion.setText(nQuestionnaire.questionList.get(currentIndex).questionText);
-
-
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        //Toast.makeText(NoobQuestionnaire.this, "Ayy lmao, OITEMCLICK", Toast.LENGTH_SHORT).show();
     }
 
     //sets up the text and the tags. Each case is a new question
@@ -363,5 +416,48 @@ public class NoobQuestionnaire extends AppCompatActivity implements AdapterView.
             //parseArray.get(a).printList();
         //}
     }
+
+    private String generateId(){
+        StringBuffer randomString = new StringBuffer();
+        for(int i =0; i<RANDOM_STRING_LENGTH; ++i){
+            int number = getRandomNumber();
+            char ch = STRING_LIST.charAt(number);
+            randomString.append(ch);
+        }
+        return randomString.toString();
+    }
+
+    private int getRandomNumber(){
+        int randomInt;
+        Random randomGenerator = new Random();
+        randomInt = randomGenerator.nextInt(STRING_LIST.length());
+        if (randomInt - 1 == -1) {
+            return randomInt;
+        } else {
+            return randomInt - 1;
+        }
+    }
+
+    //creates a character from the questionnaire
+    public void createQ(View view){
+
+        TextView clicked = (TextView)view;
+        String clickedText = clicked.getText().toString();
+        String raceName = "";
+        String className = "";
+
+        int whiteIndex = clickedText.indexOf(' ');
+        raceName = clickedText.substring(0, whiteIndex);
+        className = clickedText.substring(whiteIndex + 1);
+
+        Log.d("result", raceName);
+        Log.d("result", className);
+
+
+
+        //NewCharacterCreation testNew = new NewCharacterCreation();
+        //testNew.saveStats();
+    }
+
 
 }

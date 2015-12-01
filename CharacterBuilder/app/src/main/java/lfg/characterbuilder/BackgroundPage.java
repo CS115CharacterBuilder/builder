@@ -50,18 +50,22 @@ public class BackgroundPage extends Fragment {
     }
 
     public static String getBackgroundName(){
+        if (NameVal == null) return "NOSAVE";
         return NameVal.getText().toString();
     }
 
     public static String getBackgroundAlignment(){
+        if (AlignmentVal == null) return "NOSAVE";
         return AlignmentVal.getText().toString();
     }
 
     public static String getBackgroundDeity(){
+        if (DeityVal == null) return "NOSAVE";
         return DeityVal.getText().toString();
     }
 
     public static String getBackgroundText(){
+        if (BackgroundVal == null) return "NOSAVE";
         return BackgroundVal.getText().toString();
     }
 }

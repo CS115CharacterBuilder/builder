@@ -112,4 +112,6 @@
     <string name="title_activity_noob_question">NoobQuestion</string>
     <string name="title_activity_noob_questionnaire">NoobQuestionnaire</string>
     <string name="title_activity_ex_questionnaire">ExQuestionnaire</string>
+    <string name="title_activity_noob_result_display">noob_result_display</string>
+    <string name="title_activity_noob_result_display_mrk_ii">noob_result_display_mrkII</string>
 </resources>
