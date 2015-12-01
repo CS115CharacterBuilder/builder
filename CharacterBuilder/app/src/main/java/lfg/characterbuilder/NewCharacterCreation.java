@@ -240,7 +240,7 @@ public class NewCharacterCreation extends AppCompatActivity {
         //Alert User that the current character has been saved
         Toast.makeText(NewCharacterCreation.this, "New Character Created!", Toast.LENGTH_SHORT).show();
 
-        //Package the
+        //Package the character and send it back to HomeActivity
         Intent returnIntent = new Intent();
         returnIntent.putExtra("newCharacterTag", newCharacter);
         setResult(Activity.RESULT_OK, returnIntent);
