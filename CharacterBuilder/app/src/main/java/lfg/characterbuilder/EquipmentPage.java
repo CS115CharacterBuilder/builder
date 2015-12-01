@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -146,14 +147,44 @@ public class EquipmentPage extends Fragment {
     private rAdapter rW;
 
     @Override
+    public void onCreate(Bundle savedInstanceState) {
+        Bundle args = getArguments();
+
+        m_weapons_held = args.getStringArray("mWeaponBundle");
+        m_weapons_bonus = args.getStringArray("mWeaponBonusBundle");
+        m_weapons_damage = args.getStringArray("mWeaponDMGBundle");
+        r_weapons_held = args.getStringArray("rWeaponBundle");
+        r_weapons_bonus = args.getStringArray("rWeaponBonusBundle");
+        r_weapons_damage = args.getStringArray("rWeaponDMGBundle");
+        r_weapons_ammo = args.getIntArray("rWeaponAmmoBundle");
+        r_weapons_range = args.getStringArray("rWeaponRangeBundle");
+
+        createList();
+        Log.d("equip page", "creatlist called");
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         super.onCreateView(inflater, container, savedInstanceState);
 
         View fragmentView = inflater.inflate(R.layout.activity_equipment_page, container, false);
         mView = fragmentView;
-        Bundle args = getArguments();
+        //Bundle args = getArguments();
         //proficiencies = gotChar.getProficiencies;
+
+        //Load the Melee/Ranged Weapons Arrays
+
+        /*m_weapons_held = args.getStringArray("mWeaponBundle");
+        m_weapons_bonus = args.getStringArray("mWeaponBonusBundle");
+        m_weapons_damage = args.getStringArray("mWeaponDMGBundle");
+        r_weapons_held = args.getStringArray("rWeaponBundle");
+        r_weapons_bonus = args.getStringArray("rWeaponBonusBundle");
+        r_weapons_damage = args.getStringArray("rWeaponDMGBundle");
+        r_weapons_ammo = args.getIntArray("rWeaponAmmoBundle");
+        r_weapons_range = args.getStringArray("rWeaponRangeBundle");*/
+
         //create buttons
         Button mAdd = (Button) mView.findViewById(R.id.mWeapAdd);
         mAdd.setOnClickListener(new View.OnClickListener() {
@@ -173,7 +204,8 @@ public class EquipmentPage extends Fragment {
             }
         });
         //creates the arraylists with weapons and refreshes when arraylists are updated
-        createList();
+        //createList();
+        //Log.d("equip page", "creatlist called");
         EditText prof = (EditText) mView.findViewById(R.id.profTxt);
         prof.setText(profTxt);
         mW = new mAdapter(this.getActivity(), R.layout.mweapon_element, mWList);
@@ -194,22 +226,22 @@ public class EquipmentPage extends Fragment {
             profTxt = "A bunch of proficiencies";//profTxt + " " + proficiencies[i];
         }
         //loop creates melee weapons list
-        for(int i = 0; i < 1/*m_weapons_held.length*/; i++) {
+        for(int i = 0; i < m_weapons_held.length; i++) {
             mWeapon temp = new mWeapon();
-            temp.Name = "Tester M";//m_weapons_held[i];
-            temp.Damage = "8";//m_weapons_damage[i];
-            temp.AB = "40";//m_weapons_bonus[i];
+            temp.Name = m_weapons_held[i];
+            temp.Damage = m_weapons_damage[i];
+            temp.AB = m_weapons_bonus[i];
             mWList.add(temp);
         }
 
         //loop creates ranged weapons list
-        for(int i = 0; i < 1/*r_weapons_held.length*/; i++) {
+        for(int i = 0; i< r_weapons_held.length; i++) {
             rWeapon temp = new rWeapon();
-            temp.Name = "Tester R";//r_weapons_held[i];
-            temp.Damage = "12";//r_weapons_damage[i];
-            temp.AB = "40";//r_weapons_bonus[i];
-            temp.Ammo = 5;//r_weapons_ammo[i];
-            temp.Range = "100";//r_weapons_range[i];
+            temp.Name = r_weapons_held[i];
+            temp.Damage = r_weapons_damage[i];
+            temp.AB = r_weapons_bonus[i];
+            temp.Ammo = r_weapons_ammo[i];
+            temp.Range = r_weapons_range[i];
             rWList.add(temp);
         }
     }
