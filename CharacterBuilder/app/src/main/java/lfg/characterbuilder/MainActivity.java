@@ -70,6 +70,8 @@ public class MainActivity extends FragmentActivity {
         editor.putInt("CHAR_GOLD", ItemsPage.getGold());
 
         //Equipment Page
+        editor.putString("CHAR_ARMORNAME", EquipmentPage.getArmorName());
+        editor.putString("CHAR_ARMORMOD", EquipmentPage.getArmorMod());
         editor.putString("CHAR_MWEAPONSNAME", EquipmentPage.getMeleeWeaponsName());
         editor.putString("CHAR_MWEAPONSBONUS", EquipmentPage.getMeleeWeaponsBonus());
         editor.putString("CHAR_MWEAPONSDAMAGE", EquipmentPage.getMeleeWeaponsDamage());

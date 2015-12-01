@@ -24,6 +24,7 @@ public class Character implements Parcelable {
     private String[] items_description;
     //background page info
     private String background_type;
+    private String background_desc;
     private String background_alignment;
     private String background_deity;
     //stats page info
@@ -39,7 +40,9 @@ public class Character implements Parcelable {
     //skill page info
     private boolean[] skillproficiencies;
     //equipment page info
-    private String[] proficiencies;
+    private String armorName;
+    private String armorMod;
+    private String proficiencies;
     private String[] m_weapons_held;
     private String[] m_weapons_bonus;
     private String[] m_weapons_damage;
@@ -65,10 +68,14 @@ public class Character implements Parcelable {
         this.race = "DEFAULT_RACE";
         this.subrace = "DEFAULT_SUBRACE";
         this.background_type = "DEFAULT_BACKGROUND_TYPE";
+        this.background_desc = "Enter a backstory";
         this.background_alignment = "DEFAULT_ALIGNMENT";
         this.background_deity = "DEFAULT_DEITY";
+        this.armorName = "Enter Armor";
+        this.armorMod = "Enter Modifier";
         this.level = 1;
         this.classpoints = 0;
+        this.proficiencies = "";
 
         //Stats Default
         this.stats = new int[16];
@@ -107,10 +114,11 @@ public class Character implements Parcelable {
 
 
         // Proficiencies Default
-        this.proficiencies = new String[3];
-        proficiencies[0] = "Running";
-        proficiencies[1] = "Walking";
-        proficiencies[2] = "Talking";
+        this.proficiencies = "";
+
+        // Armor Default
+        this.armorName = "Armor Name";
+        this.armorMod = "Armor Modifier";
 
         // Melee Weapons Held Default
         this.m_weapons_held = new String[1];
@@ -156,7 +164,7 @@ public class Character implements Parcelable {
 
     //Parcel Constructor Allows Object to be passed
     public Character(Parcel in){
-        String[] data = new String[14];
+        String[] data = new String[18];
         in.readStringArray(data);
 
         this.unique_id = data[0];
@@ -173,6 +181,10 @@ public class Character implements Parcelable {
         this.background_deity = data[11];
         this.level = Integer.parseInt(data[12]);
         this.classpoints = Integer.parseInt(data[13]);
+        this.background_desc = data[14];
+        this.armorName = data[15];
+        this.armorMod = data[16];
+        this.proficiencies = data[17];
 
     }
 
@@ -189,7 +201,8 @@ public class Character implements Parcelable {
                 String.valueOf(this.photoId), this.race, this.subrace, String.valueOf(this.copper_held),
                 String.valueOf(this.silver_held), String.valueOf(this.gold_held), this.background_type,
                 this.background_alignment, this.background_deity, String.valueOf(this.level),
-                String.valueOf(this.classpoints)});
+                String.valueOf(this.classpoints), String.valueOf(this.background_desc),
+                String.valueOf(this.armorName), String.valueOf(this.armorMod), String.valueOf(this.proficiencies)});
     }
 
     public static final Parcelable.Creator<Character> CREATOR = new Parcelable.Creator<Character>() {
@@ -231,6 +244,8 @@ public class Character implements Parcelable {
 
     public String getType() {return this.background_type; }
 
+    public String getBackgroundDesc() {return this.background_desc; }
+
     public String getAlignment() {return this.background_alignment; }
 
     public String getDeity() { return this.background_deity; }
@@ -247,7 +262,11 @@ public class Character implements Parcelable {
 
     public boolean[] getStatsproficiencies() { return this.statsproficiencies; }
 
-    public String[] getProficiencies() { return this.proficiencies; }
+    public String getArmorName() { return this.armorName; }
+
+    public String getArmorMod() { return this.armorMod; }
+
+    public String getProficiencies() { return this.proficiencies; }
 
     public String[] getmWeapons() { return this.m_weapons_held; }
 
@@ -299,6 +318,8 @@ public class Character implements Parcelable {
 
     public void setType(String newType) {this.background_type = newType; }
 
+    public void setBackgroundDesc(String newDesc) {this.background_desc = newDesc; }
+
     public void setAlignment(String newAlignment) {this.background_alignment = newAlignment; }
 
     public void setDeity(String newDeity) { this.background_deity = newDeity; }
@@ -311,7 +332,11 @@ public class Character implements Parcelable {
 
     public void setSkillproficiencies(boolean[] newSkillProficiencies) { this.skillproficiencies = newSkillProficiencies; }
 
-    public void setProficiencies(String[] newProficiencies) { this.proficiencies = newProficiencies; }
+    public void setProficiencies(String newProficiencies) { this.proficiencies = newProficiencies; }
+
+    public void setArmorName(String newAName) { this.armorName = newAName; }
+
+    public void setArmorMod(String newAMod) { this.armorMod = newAMod; }
 
     public void setmWeapons(String[] newmWeapons) { this.m_weapons_held = newmWeapons; }
 

@@ -39,7 +39,7 @@ public class BackgroundPage extends Fragment {
         DeityVal = (EditText) this.mView.findViewById(R.id.DeityVal);
         DeityVal.setText(gotChar.getDeity());
         BackgroundVal = (EditText) this.mView.findViewById(R.id.BackgroundVal);
-        BackgroundVal.setText(gotChar.getType());
+        BackgroundVal.setText(gotChar.getBackgroundDesc());
         String Name = NameVal.getText().toString();
         String Class = ClassVal.getText().toString();
         String Lvl = LvlVal.getText().toString();
