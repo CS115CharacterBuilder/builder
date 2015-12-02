@@ -437,7 +437,7 @@ public class RaceData extends Data {
     Data halfelfVision = new Data();
     public void setHalfelfVision(Data halfelfVision){
         halfelfVision.abilName = "Dark Vision";
-        halfelfVision.dRace = "Elf";
+        halfelfVision.dRace = "Half Elf";
         halfelfVision.dlevel = 0;
         halfelfVision.flavor = "Darkvision. Thanks to your elf blood, you have superior vision in dark and dim conditions. You can\n" +
                 "see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray.";
@@ -446,7 +446,7 @@ public class RaceData extends Data {
     Data halfelfAncestry = new Data();
     public void setHalfelfAncestry(Data halfelfAncestry){
         halfelfAncestry.abilName = "Fey Ancestry";
-        halfelfAncestry.dRace = "Elf";
+        halfelfAncestry.dRace = "Half Elf";
         halfelfAncestry.dlevel = 0;
         halfelfAncestry.flavor = "Fey Ancestry. You have advantage on saving throws against being charmed, and magic can’t put you to sleep.";
     }
@@ -454,7 +454,7 @@ public class RaceData extends Data {
     Data halfelfskills = new Data();
     public void setHalfelfskills(Data halfelfskills){
         halfelfskills.abilName = "Skill Versatility";
-        halfelfskills.dRace = "Elf";
+        halfelfskills.dRace = "Half Elf";
         halfelfskills.dlevel = 0;
         halfelfskills.flavor = "Skill Versatility. You gain proficiency in two skills of your choice.";
     }
@@ -462,7 +462,7 @@ public class RaceData extends Data {
     Data halforcTraits = new Data();
     public void setHalforcTraits(Data halforcTraits){
         halforcTraits.abilName = "Halforc Traits";
-        halforcTraits.dRace = "Halforc";
+        halforcTraits.dRace = "Half Orc";
         halforcTraits.dlevel = 0;
         int stats[] = {2,0,1,0,0,0};
         halforcTraits.statBoost = stats;
@@ -483,12 +483,12 @@ public class RaceData extends Data {
                 "see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.";
     }
 
-    Data helforcMenacing = new Data();
-    public void sethalforcMenacing(Data helforcMenacing){
-        helforcMenacing.abilName = "Menacing";
-        helforcMenacing.dRace = "Half Orc";
-        helforcMenacing.dlevel = 0;
-        helforcMenacing.flavor =  "Menacing. You gain proficiency in the Intimidation skill.";
+    Data halforcMenacing = new Data();
+    public void sethalforcMenacing(Data halforcMenacing){
+        halforcMenacing.abilName = "Menacing";
+        halforcMenacing.dRace = "Half Orc";
+        halforcMenacing.dlevel = 0;
+        halforcMenacing.flavor =  "Menacing. You gain proficiency in the Intimidation skill.";
     }
 
     Data halforcRelesntlessEndurance = new Data();
@@ -522,28 +522,28 @@ public class RaceData extends Data {
         teiflingTraits.languages = "Common, Infernal";
     }
 
-    Data tieflingVision = new Data();
-    public void setTieflingVision(Data tieflingVision){
-        tieflingVision.abilName = "Darkvision";
-        tieflingVision.dRace = "Tiefling";
-        tieflingVision.dlevel = 0;
-        tieflingVision.flavor =  "Darkvision. Thanks to your infernal heritage, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray.";
+    Data teiflingVision = new Data();
+    public void setteiflingVision(Data teiflingVision){
+        teiflingVision.abilName = "Darkvision";
+        teiflingVision.dRace = "Teifling";
+        teiflingVision.dlevel = 0;
+        teiflingVision.flavor =  "Darkvision. Thanks to your infernal heritage, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray.";
     }
 
-    Data tieflingHellishResistance = new Data();
-    public void setTieflingHellishResistance(Data tieflingHellishResistance){
-        tieflingHellishResistance.abilName = "Hellish Resistance";
-        tieflingHellishResistance.dRace = "Tiefling";
-        tieflingHellishResistance.dlevel = 0;
-        tieflingHellishResistance.flavor =  "Hellish Resistance. You have resistance to fire damage.";
+    Data teiflingHellishResistance = new Data();
+    public void setteiflingHellishResistance(Data teiflingHellishResistance){
+        teiflingHellishResistance.abilName = "Hellish Resistance";
+        teiflingHellishResistance.dRace = "Teifling";
+        teiflingHellishResistance.dlevel = 0;
+        teiflingHellishResistance.flavor =  "Hellish Resistance. You have resistance to fire damage.";
     }
 
-    Data tieflingInfernalLegacy = new Data();
-    public void setTieflingInfernalLegacy(Data tieflingInfernalLegacy){
-        tieflingInfernalLegacy.abilName = "Infernal Legacy";
-        tieflingInfernalLegacy.dRace = "Tiefling";
-        tieflingInfernalLegacy.dlevel = 0;
-        tieflingInfernalLegacy.flavor =  "Infernal Legacy. You know the thaumaturgy cantrip. Once you reach 3rd level, you can cast the hellish rebuke spell once per day as a 2nd-level spell. Once you reach 5th level, you can also cast the darkness spell once per day. Charisma is your spellcasting ability for these spells.";
+    Data teiflingInfernalLegacy = new Data();
+    public void setteiflingInfernalLegacy(Data teiflingInfernalLegacy){
+        teiflingInfernalLegacy.abilName = "Infernal Legacy";
+        teiflingInfernalLegacy.dRace = "Teifling";
+        teiflingInfernalLegacy.dlevel = 0;
+        teiflingInfernalLegacy.flavor =  "Infernal Legacy. You know the thaumaturgy cantrip. Once you reach 3rd level, you can cast the hellish rebuke spell once per day as a 2nd-level spell. Once you reach 5th level, you can also cast the darkness spell once per day. Charisma is your spellcasting ability for these spells.";
     }
 
     //This method returns all the race data
@@ -683,8 +683,8 @@ public class RaceData extends Data {
         setHalforcTraits(halforcTraits);//16
         rd.add(halforcTraits);
 
-        sethalforcMenacing(helforcMenacing);
-        rd.add(helforcMenacing);
+        sethalforcMenacing(halforcMenacing);
+        rd.add(halforcMenacing);
 
         setHalforcRelesntlessEndurance(halforcRelesntlessEndurance);
         rd.add(halforcRelesntlessEndurance);
@@ -698,14 +698,14 @@ public class RaceData extends Data {
         setTeiflingTraits(teiflingTraits);//17
         rd.add(teiflingTraits);
 
-        setTieflingHellishResistance(tieflingHellishResistance);
-        rd.add(tieflingHellishResistance);
+        setteiflingHellishResistance(teiflingHellishResistance);
+        rd.add(teiflingHellishResistance);
 
-        setTieflingVision(tieflingVision);
-        rd.add(tieflingVision);
+        setteiflingVision(teiflingVision);
+        rd.add(teiflingVision);
 
-        setTieflingInfernalLegacy(tieflingInfernalLegacy);
-        rd.add(tieflingInfernalLegacy);
+        setteiflingInfernalLegacy(teiflingInfernalLegacy);
+        rd.add(teiflingInfernalLegacy);
 
         return rd;
     }
