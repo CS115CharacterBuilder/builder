@@ -99,37 +99,31 @@ public class SpellPage extends Fragment {
 
         @Override
         public int getGroupCount() {
-            System.out.println("This is group count: " + Integer.toString(this._listDataHeader.size()));
             return this._listDataHeader.size();
         }
 
         @Override
         public int getChildrenCount(int groupPosition) {
-            System.out.println("This is the child count: " + Integer.toString(this._listDataChild.get(this._listDataHeader.get(groupPosition)).size()));
             return this._listDataChild.get(this._listDataHeader.get(groupPosition)).size();
         }
 
         @Override
         public Object getGroup(int groupPosition) {
-            System.out.println("Getting group" + Integer.toString(groupPosition));
             return this._listDataHeader.get(groupPosition);
         }
 
         @Override
         public Object getChild(int groupPosition, int childPosition) {
-            System.out.println("Got child number " + Integer.toString(childPosition));
             return this._listDataChild.get(this._listDataHeader.get(groupPosition)).get(childPosition);
         }
 
         @Override
         public long getGroupId(int groupPosition) {
-            System.out.println("Group position from group ID is " + Integer.toString(groupPosition));
             return groupPosition;
         }
 
         @Override
         public long getChildId(int groupPosition, int childPosition) {
-            System.out.println("This is the child position from childID: " + Integer.toString(childPosition));
             return childPosition;
         }
 
@@ -144,13 +138,10 @@ public class SpellPage extends Fragment {
             if(convertView == null) {
                 LayoutInflater inflater = (LayoutInflater) this._context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 convertView = inflater.inflate(R.layout.expandablelistview_header, null);
-                System.out.println("---------------------------- Inside of get GroupView---------------------------------");
             }
             TextView abilityType = (TextView) convertView.findViewById(R.id.abilityType);
             abilityType.setTypeface(null, Typeface.BOLD);
-            System.out.println("---------------------------------" + headerTitle);
             abilityType.setText(headerTitle);
-            System.out.println("Just before return");
             return convertView;
         }
 
@@ -164,9 +155,7 @@ public class SpellPage extends Fragment {
             if(convertView == null) {
                 LayoutInflater inflater = (LayoutInflater) this._context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 convertView = inflater.inflate(R.layout.spellelement, null);
-                System.out.println("---------------------------- Inside of get ChildView---------------------------------");
             }
-            System.out.println("---------------------------- outside of get ChildView---------------------------------");
             TextView spellName = (TextView) convertView.findViewById(R.id.SpellName);
             final CheckBox kCheck = (CheckBox) convertView.findViewById(R.id.kBox);
             Switch eSwitch = (Switch) convertView.findViewById(R.id.eqSwitch);
@@ -548,9 +537,7 @@ public class SpellPage extends Fragment {
             }
         }
         listSpells.put("Cantrips", cantripsList);
-        System.out.println(Integer.toString(cantripsList.size()));
         listSpells.put("Level 1 Spells", lvlOneList);
-        System.out.println(Integer.toString(lvlOneList.size()));
 
     }
 

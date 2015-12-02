@@ -82,13 +82,9 @@ public class AbilitiesPage extends Fragment {
         String profcheck = gotChar.getProficiencies();
         profExist = profcheck.equals("");
         Background = gotChar.getType();
-        System.out.println(Background);
         Lvl = gotChar.getLevel();
-        System.out.println(Integer.toString(Lvl));
         Class = gotChar.getCharacterClass();
-        System.out.println(Class);
         Race = gotChar.getCharacterRace();
-        System.out.println(Race);
         Subrace = gotChar.getCharacterSubRace();
 
         CPVal = (EditText) mView.findViewById(R.id.CPVal);
@@ -239,8 +235,6 @@ public class AbilitiesPage extends Fragment {
         //Fill Race Abilities List
         for(int i = 0; i < rd.size(); i++) {
             Data temp = rd.get(i);
-            System.out.println(temp.abilName);
-            System.out.println(Integer.toString(i) + temp.dRace);
             if(temp.dRace.equals(Race) && temp.dlevel <= Lvl) {
                 Ability a = new Ability();
                 a.name = temp.abilName;
