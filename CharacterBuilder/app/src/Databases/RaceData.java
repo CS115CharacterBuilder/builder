@@ -436,7 +436,7 @@ public class RaceData extends Data {
     Data halfelfVision = new Data();
     public void setHalfelfVision(Data halfelfVision){
         halfelfVision.abilName = "Dark Vision";
-        halfelfVision.dRace = "Elf";
+        halfelfVision.dRace = "Half Elf";
         halfelfVision.dlevel = 0;
         halfelfVision.flavor = "Darkvision. Thanks to your elf blood, you have superior vision in dark and dim conditions. You can\n" +
                 "see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray.";
@@ -445,7 +445,7 @@ public class RaceData extends Data {
     Data halfelfAncestry = new Data();
     public void setHalfelfAncestry(Data halfelfAncestry){
         halfelfAncestry.abilName = "Fey Ancestry";
-        halfelfAncestry.dRace = "Elf";
+        halfelfAncestry.dRace = "Half Elf";
         halfelfAncestry.dlevel = 0;
         halfelfAncestry.flavor = "Fey Ancestry. You have advantage on saving throws against being charmed, and magic can’t put you to sleep.";
     }
@@ -453,7 +453,7 @@ public class RaceData extends Data {
     Data halfelfskills = new Data();
     public void setHalfelfskills(Data halfelfskills){
         halfelfskills.abilName = "Skill Versatility";
-        halfelfskills.dRace = "Elf";
+        halfelfskills.dRace = "Half Elf";
         halfelfskills.dlevel = 0;
         halfelfskills.flavor = "Skill Versatility. You gain proficiency in two skills of your choice.";
     }
@@ -461,7 +461,7 @@ public class RaceData extends Data {
     Data halforcTraits = new Data();
     public void setHalforcTraits(Data halforcTraits){
         halforcTraits.abilName = "Halforc Traits";
-        halforcTraits.dRace = "Halforc";
+        halforcTraits.dRace = "Half Orc";
         halforcTraits.dlevel = 0;
         int stats[] = {2,0,1,0,0,0};
         halforcTraits.statBoost = stats;
@@ -524,7 +524,7 @@ public class RaceData extends Data {
     Data tieflingVision = new Data();
     public void setTieflingVision(Data tieflingVision){
         tieflingVision.abilName = "Darkvision";
-        tieflingVision.dRace = "Tiefling";
+        tieflingVision.dRace = "Teifling";
         tieflingVision.dlevel = 0;
         tieflingVision.flavor =  "Darkvision. Thanks to your infernal heritage, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray.";
     }
@@ -532,7 +532,7 @@ public class RaceData extends Data {
     Data tieflingHellishResistance = new Data();
     public void setTieflingHellishResistance(Data tieflingHellishResistance){
         tieflingHellishResistance.abilName = "Hellish Resistance";
-        tieflingHellishResistance.dRace = "Tiefling";
+        tieflingHellishResistance.dRace = "Teifling";
         tieflingHellishResistance.dlevel = 0;
         tieflingHellishResistance.flavor =  "Hellish Resistance. You have resistance to fire damage.";
     }
@@ -540,7 +540,7 @@ public class RaceData extends Data {
     Data tieflingInfernalLegacy = new Data();
     public void setTieflingInfernalLegacy(Data tieflingInfernalLegacy){
         tieflingInfernalLegacy.abilName = "Infernal Legacy";
-        tieflingInfernalLegacy.dRace = "Tiefling";
+        tieflingInfernalLegacy.dRace = "Teifling";
         tieflingInfernalLegacy.dlevel = 0;
         tieflingInfernalLegacy.flavor =  "Infernal Legacy. You know the thaumaturgy cantrip. Once you reach 3rd level, you can cast the hellish rebuke spell once per day as a 2nd-level spell. Once you reach 5th level, you can also cast the darkness spell once per day. Charisma is your spellcasting ability for these spells.";
     }

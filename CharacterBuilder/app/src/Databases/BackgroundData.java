@@ -103,7 +103,7 @@ public class BackgroundData extends Data {
         entertainerFeatures.backgroundSkills = skills;
         entertainerFeatures.toolProf = "Disguise Kit, One type of musical instrument";
         entertainerFeatures.startGold = 15;
-        entertainerFeatures.flavor = "You are an experienced criminal with a history of breaking the law. You have spent a lot of time among other criminals and still have contacts within the criminal underworld. You’re far closer than most people to the world of murder, theft, and violence that pervades the underbelly of civilization, and you have survived up to this point by flouting the rules and regulations of society.";
+        entertainerFeatures.flavor = "You thrive in front of an audience. You know how to entrance them, entertain them, and even inspire them. Your poetics can stir the hearts of those who hear you, awakening grief or joy, laughter or anger. Your music raises their spirits or captures their sorrow. Your dance steps captivate, your humor cuts to the quick. Whatever techniques you use, your art is your life.";
     }
 
     Data entertainerByPopularDemand = new Data();
