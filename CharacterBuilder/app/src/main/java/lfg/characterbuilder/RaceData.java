@@ -290,6 +290,10 @@ public class RaceData extends Data {
         humanTraits.size = "Medium";
         humanTraits.languages = "Common";
         humanTraits.misc1 = "Extra Language";
+        humanTraits.flavor = "Humans are the most adaptable and ambitious people among the common races. They have widely varying tastes, morals, and customs in the many different lands where they have settled. When they settle, though,\n" +
+                "they stay: they build cities to last for the ages, and\n" +
+                "great kingdoms that can persist for long centuries. An individual human might have a relatively short life span, but a human nation or culture preserves traditions\n" +
+                "with origins far beyond the reach of any single human’s memory. They live fully in the present—making them well suited to the adventuring life—but also plan for the future, striving to leave a lasting legacy. Individually and as a group, humans are adaptable opportunists, and they stay alert to changing political and social dynamics.";
     }
 
     Data dragonbornTraits = new Data();
@@ -432,6 +436,8 @@ public class RaceData extends Data {
         halfElfTraits.speed = 30;
         halfElfTraits.languages = "Common, Elvish";
         halfElfTraits.misc2 = "Extra Language";
+        halfElfTraits.flavor = "To humans, half-elves look like elves, and to elves, they look human. In height, they’re on par with both parents, though they’re neither as slender as elves nor as broad as humans. They range from under 5 feet to about 6 feet tall, and from 100 to 180 pounds, with men only slightly taller and heavier than women. Half-elf men do have facial hair, and sometimes grow beards to mask their elven ancestry. Half-elven coloration and features lie somewhere between their human and elf parents, and thus show a variety even more pronounced than that found among either race. They tend to have the eyes\n" +
+                "of their elven parents.";
     }
 
     Data halfelfVision = new Data();
@@ -472,6 +478,8 @@ public class RaceData extends Data {
         boolean raceSkills[] = {false,false,false,false,false,false,false,true,false,false,false,false,false,false,false,false,false,false};
         halforcTraits.raceSkills = raceSkills;
         halforcTraits.languages = "Common, Orc";
+        halforcTraits.flavor = "Whether united under the leadership of a mighty warlock or having fought to a standstill after years\n" +
+                "of conflict, orc and human tribes sometimes form alliances, joining forces into a larger horde to the terror of civilized lands nearby. When these alliances are sealed by marriages, half-orcs are born. Some half-orcs rise to become proud chiefs of orc tribes, their human blood giving them an edge over their full-blooded orc rivals. Some venture into the world to prove their worth among humans and other more civilized races. Many of these becom e adventurers, achieving greatness for their mighty deeds and notoriety for their barbaric customs and savage fury.";
     }
 
     Data halforcvision = new Data();
@@ -520,6 +528,7 @@ public class RaceData extends Data {
         teiflingTraits.size = "Medium";
         teiflingTraits.speed = 30;
         teiflingTraits.languages = "Common, Infernal";
+        teiflingTraits.flavor = "To be greeted with stares and whispers, to suffer violence and insult on the street, to see mistrust and fear in every eye: this is the lot of the tiefling. And to twist the knife, tieflings know that this is because a pact struck generations ago infused the essence of Asmodeus—overlord of the Nine Hells—into their bloodline. Their appearance and their nature are not their fault but the result of an ancient sin, for which they and their children and their children’s children will always be held accountable.\n";
     }
 
     Data teiflingVision = new Data();
