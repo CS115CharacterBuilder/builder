@@ -138,6 +138,7 @@ public class StatPage extends Fragment {
             @Override
             public void onClick(View v) {
                 int hdCount = stats[10];
+                if(hdCount == 0) { return;}
                 hdCount -= 1;
                 stats[10] = hdCount;
                 String newHDCount = Integer.toString(hdCount);
@@ -149,6 +150,7 @@ public class StatPage extends Fragment {
             @Override
             public void onClick(View v) {
                 int hp = stats[12];
+                if(hp == stats[13]) { return;}
                 hp += 1;
                 stats[12] = hp;
                 String newhp = Integer.toString(hp);
@@ -160,6 +162,7 @@ public class StatPage extends Fragment {
             @Override
             public void onClick(View v) {
                 int hp = stats[12];
+                if(hp == 0) { return;}
                 hp -= 1;
                 stats[12] = hp;
                 String newhp = Integer.toString(hp);
@@ -182,6 +185,7 @@ public class StatPage extends Fragment {
             @Override
             public void onClick(View v) {
                 int TempHp = stats[14];
+                if(TempHp == 0) { return;}
                 TempHp -= 1;
                 stats[14] = TempHp;
                 String newTempHp = Integer.toString(TempHp);
