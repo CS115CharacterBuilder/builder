@@ -184,8 +184,6 @@ public class NewCharacterCreation extends AppCompatActivity {
         //Fill in speed value of character from database
         for(int i = 0; i < rd.size(); i++) {
             Data temp = rd.get(i);
-            System.out.println(temp.abilName);
-            System.out.println(Integer.toString(i) + temp.dRace);
             if(temp.dRace.equals(Race) && temp.dlevel <= 1) {
                 if(temp.speed != 0) {
                     Speed = Integer.toString(temp.speed);
